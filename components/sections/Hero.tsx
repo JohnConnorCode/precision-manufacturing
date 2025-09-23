@@ -23,7 +23,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background pt-32 lg:pt-40">
       {/* Dynamic Background Slider */}
       <BackgroundSlider
         images={heroImages}
@@ -48,7 +48,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-12"
+            className="mb-6"
           >
             <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
               <Shield className="w-3 h-3 mr-2" />
@@ -61,12 +61,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">
+            <span className="text-white">
               INTEGRATED
             </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mt-2">
+            <span className="block text-slate-300 mt-2">
               INSPECTION SYSTEMS
             </span>
           </motion.h1>
@@ -76,7 +76,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 mb-4 font-semibold"
+            className="text-lg md:text-xl text-slate-400 mb-6 font-medium"
           >
             Innovative Machining Since 1995
           </motion.p>
@@ -86,7 +86,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base md:text-lg text-slate-500 mb-16 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             Quality is not inspected into a product but is inherently designed
             and built into every process. Dedicated to continuous improvement
@@ -98,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-3xl mx-auto"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -106,7 +106,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + index * 0.1 }}
-                className="bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-xl p-6"
+                className="bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-lg p-4"
               >
                 <stat.icon className="w-5 h-5 text-slate-500 mb-3 mx-auto" />
                 <div className="text-2xl font-bold text-white">{stat.value}</div>
@@ -122,11 +122,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <Button
               size="lg"
-              className="group px-8 py-6 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold text-base shadow-xl"
+              className="group px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow-xl"
             >
               Request Quote
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -135,7 +135,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
               asChild
-              className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold text-base"
+              className="px-6 py-3 border-slate-700 text-slate-300 hover:bg-slate-800/50 hover:text-white font-semibold text-base"
             >
               <Link href="/services">
                 Our Capabilities

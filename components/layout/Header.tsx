@@ -73,24 +73,24 @@ export default function Header() {
   return (
     <>
       {/* Top Info Bar - Hidden on mobile */}
-      <div className="hidden lg:block fixed top-0 z-[60] w-full bg-slate-900/80 backdrop-blur-xl border-b border-slate-800/50">
+      <div className="hidden lg:block fixed top-0 z-[100] w-full bg-slate-950 border-b border-slate-800">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors">
+            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-slate-200 transition-colors">
               <Phone className="h-3 w-3" />
               <span>503-231-9093</span>
             </a>
-            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors">
+            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-slate-200 transition-colors">
               <Mail className="h-3 w-3" />
               <span>officemgr@iismet.com</span>
             </a>
           </div>
-          <div className="flex items-center space-x-4 text-xs text-slate-500">
-            <span className="font-semibold">ISO 9001</span>
+          <div className="flex items-center space-x-4 text-xs text-slate-400">
+            <span>ISO 9001</span>
             <span>•</span>
-            <span className="font-semibold">AS9100D</span>
+            <span>AS9100D</span>
             <span>•</span>
-            <span className="font-semibold">ITAR REGISTERED</span>
+            <span>ITAR REGISTERED</span>
           </div>
         </div>
       </div>
@@ -98,11 +98,11 @@ export default function Header() {
       {/* Main Navigation */}
       <header
         className={cn(
-          'fixed z-[50] w-full transition-all duration-300',
+          'fixed z-[90] w-full transition-all duration-300',
           isScrolled
-            ? 'bg-white/80 backdrop-blur-xl shadow-lg top-0'
-            : 'bg-white/60 backdrop-blur-md lg:top-10 top-0',
-          'border-b border-slate-200/50'
+            ? 'bg-white backdrop-blur-xl shadow-md top-0'
+            : 'bg-white/95 backdrop-blur-lg lg:top-10 top-0',
+          'border-b border-slate-200'
         )}
       >
         <nav className="container flex h-20 items-center justify-between">
@@ -117,7 +117,7 @@ export default function Header() {
                 <NavigationMenuItem key={item.name}>
                   {item.children ? (
                     <>
-                      <NavigationMenuTrigger className="bg-transparent hover:bg-slate-100/50 data-[state=open]:bg-slate-100/50">
+                      <NavigationMenuTrigger className="bg-transparent hover:bg-slate-50 data-[state=open]:bg-slate-50 text-slate-700">
                         {item.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -158,7 +158,7 @@ export default function Header() {
                       className={cn(
                         'group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2',
                         'text-sm font-medium transition-all',
-                        'hover:bg-slate-100/50',
+                        'hover:bg-slate-50 text-slate-700',
                         pathname === item.href && 'bg-slate-100/50'
                       )}
                     >
