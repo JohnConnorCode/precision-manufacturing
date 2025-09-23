@@ -23,7 +23,7 @@ export default function TermsPage() {
     {
       icon: FileText,
       title: "ACCEPTANCE OF PURCHASE ORDER",
-      content: "This document is an offer by the Buyer to the Seller for the purchase of goods and/or services herein and supersedes all negotiations, representations or proposals. These terms and conditions shall become a binding contract (the "Purchase Order") upon the Seller's (1) written acknowledgement; (2) shipment of the products; or (3) performance of the services. Acceptance is limited to the terms and conditions herein. Any terms proposed in the Seller's acceptance of the purchase order that add to, vary from, or conflict with the terms herein are hereby objected to. Any such proposed terms shall not become a part of this Purchase Order. Seller's failure to object to any of Buyer's terms and conditions shall not constitute a waiver or modification of these terms and conditions.",
+      content: "This document is an offer by the Buyer to the Seller for the purchase of goods and/or services herein and supersedes all negotiations, representations or proposals. These terms and conditions shall become a binding contract (the 'Purchase Order') upon the Seller's (1) written acknowledgement; (2) shipment of the products; or (3) performance of the services. Acceptance is limited to the terms and conditions herein. Any terms proposed in the Seller's acceptance of the purchase order that add to, vary from, or conflict with the terms herein are hereby objected to. Any such proposed terms shall not become a part of this Purchase Order. Seller's failure to object to any of Buyer's terms and conditions shall not constitute a waiver or modification of these terms and conditions.",
       gradient: "from-blue-500/20 to-cyan-500/20"
     },
     {
@@ -41,7 +41,7 @@ export default function TermsPage() {
     {
       icon: Clock,
       title: "PAYMENT TERMS",
-      content: "Payment terms shall be defined as \"Net 30 days\" (30 days after receipt of an undisputed invoice). No change to payment terms shall be made without prior written approval of the Buyer.",
+      content: "Payment terms shall be defined as 'Net 30 days' (30 days after receipt of an undisputed invoice). No change to payment terms shall be made without prior written approval of the Buyer.",
       gradient: "from-orange-500/20 to-red-500/20"
     },
     {
@@ -77,7 +77,7 @@ export default function TermsPage() {
     {
       icon: Wrench,
       title: "TOOLING",
-      content: "The Buyer agrees to pay the agreed upon charges for special tooling, gauges, dies, patterns, jigs and fixtures (collectively \"tooling\") required to produce the items to be supplied under this order. All tooling shall be and remain the property of the Buyer.",
+      content: "The Buyer agrees to pay the agreed upon charges for special tooling, gauges, dies, patterns, jigs and fixtures (collectively 'tooling') required to produce the items to be supplied under this order. All tooling shall be and remain the property of the Buyer.",
       gradient: "from-yellow-500/20 to-amber-500/20"
     },
     {
@@ -95,7 +95,7 @@ export default function TermsPage() {
     {
       icon: Scale,
       title: "INDEMNITY",
-      content: "Seller will indemnify, defend and hold harmless Buyer, its directors, officers, employees, agents, customers and users of its products (\"Indemnitees\") from all claims, loss, damage, fines, penalties, liability and expense incurred by Indemnitees arising out of any breach or alleged breach of any warranty of Seller and for any actual or alleged defect in any product supplied by Seller.",
+      content: "Seller will indemnify, defend and hold harmless Buyer, its directors, officers, employees, agents, customers and users of its products ('Indemnitees') from all claims, loss, damage, fines, penalties, liability and expense incurred by Indemnitees arising out of any breach or alleged breach of any warranty of Seller and for any actual or alleged defect in any product supplied by Seller.",
       gradient: "from-violet-500/20 to-purple-500/20"
     },
     {
