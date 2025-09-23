@@ -144,7 +144,7 @@ export default function AerospacePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
 
-        <div className={theme.spacing.container relative z-10">
+        <div className={`${theme.spacing.container} relative z-10`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,8 +210,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Aerospace Capabilities */}
-      <section className={styles.sectionLight900/5">
-        <div className={theme.spacing.container">
+      <section className={`${styles.sectionLight} bg-slate-900/5`}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -245,7 +245,7 @@ export default function AerospacePage() {
 
       {/* Component Categories */}
       <section className={theme.spacing.section}>
-        <div className={theme.spacing.container">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -335,8 +335,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Certifications */}
-      <section className={styles.sectionLight50">
-        <div className={theme.spacing.container">
+      <section className={styles.sectionLight}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -400,7 +400,7 @@ export default function AerospacePage() {
 
       {/* Process Benefits */}
       <section className={theme.spacing.section}>
-        <div className={theme.spacing.container">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -447,8 +447,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Call to Action */}
-      <section className={styles.sectionLight50">
-        <div className={theme.spacing.container">
+      <section className={styles.sectionLight}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

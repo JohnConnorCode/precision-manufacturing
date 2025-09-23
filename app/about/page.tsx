@@ -169,7 +169,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
 
-        <div className={theme.spacing.container relative z-10">
+        <div className={`${theme.spacing.container} relative z-10`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -235,8 +235,8 @@ export default function AboutPage() {
       </section>
 
       {/* Company Stats */}
-      <section className={styles.sectionLight900/5">
-        <div className={theme.spacing.container">
+      <section className={`${styles.sectionLight} bg-slate-900/5`}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -270,7 +270,7 @@ export default function AboutPage() {
 
       {/* Company Story */}
       <section className={theme.spacing.section}>
-        <div className={theme.spacing.container">
+        <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -351,8 +351,8 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className={styles.sectionLight50">
-        <div className={theme.spacing.container">
+      <section className={styles.sectionLight}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -400,7 +400,7 @@ export default function AboutPage() {
 
       {/* Leadership Team */}
       <section className={theme.spacing.section}>
-        <div className={theme.spacing.container">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -444,8 +444,8 @@ export default function AboutPage() {
       </section>
 
       {/* Capabilities & Certifications */}
-      <section className={styles.sectionLight50">
-        <div className={theme.spacing.container">
+      <section className={styles.sectionLight}>
+        <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Capabilities */}
             <motion.div
@@ -517,7 +517,7 @@ export default function AboutPage() {
 
       {/* Call to Action */}
       <section className={theme.spacing.section}>
-        <div className={theme.spacing.container">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

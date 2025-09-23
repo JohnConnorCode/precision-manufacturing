@@ -225,7 +225,7 @@ export default function EngineeringPage() {
       </section>
 
       {/* Capabilities Overview */}
-      <section className={styles.sectionLight900/5">
+      <section className={`${styles.sectionLight} bg-slate-900/5`}>
         <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -338,7 +338,7 @@ export default function EngineeringPage() {
       </section>
 
       {/* Design Capabilities */}
-      <section className={styles.sectionLight50">
+      <section className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -438,7 +438,7 @@ export default function EngineeringPage() {
       </section>
 
       {/* Engineering Process */}
-      <section className={styles.sectionLight50">
+      <section className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
