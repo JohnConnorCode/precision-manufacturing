@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -29,12 +29,11 @@ export default function ParallaxImagePro({
   scale = true,
   blur = true,
   gradient = 'dark',
-  priority = false,
+  priority = true,
   fill = true,
   objectFit = 'cover',
   aspectRatio
 }: ParallaxImageProProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const isInView = useInView(containerRef, { once: true, margin: '100px' });
@@ -73,12 +72,6 @@ export default function ParallaxImagePro({
       className={cn('relative overflow-hidden', className)}
       style={containerStyles}
     >
-      {/* Loading shimmer */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-slate-900 animate-pulse">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800 to-transparent shimmer" />
-        </div>
-      )}
 
       {/* Main image with parallax */}
       <motion.div
@@ -90,7 +83,7 @@ export default function ParallaxImagePro({
         }}
         initial={{ opacity: 0 }}
         animate={{
-          opacity: isInView && isLoaded ? 1 : 0,
+          opacity: isInView ? 1 : 0,
         }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
@@ -119,14 +112,12 @@ export default function ParallaxImagePro({
             fill={fill}
             className={cn(
               'relative z-10',
-              objectFit === 'cover' ? 'object-cover' : `object-${objectFit}`,
-              isLoaded ? 'opacity-100' : 'opacity-0',
-              'transition-opacity duration-700'
+              objectFit === 'cover' ? 'object-cover' : `object-${objectFit}`
             )}
             priority={priority}
             quality={90}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-            onLoadingComplete={() => setIsLoaded(true)}
+            onLoadingComplete={() => {}}
           />
         </div>
       </motion.div>
