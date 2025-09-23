@@ -153,7 +153,7 @@ export default function EngineeringPage() {
           <ParallaxImage
             src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80"
             alt="Engineering and design services"
-            className="w-full h-full opacity-20"
+            className="w-full h-full opacity-30"
             speed={0.3}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />

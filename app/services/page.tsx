@@ -58,10 +58,10 @@ export default function ServicesPage() {
           <ParallaxImage
             src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
             alt="Manufacturing services"
-            className="w-full h-full opacity-15"
+            className="w-full h-full opacity-30"
             speed={0.3}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
         </div>
 
         <div className="container relative z-10">

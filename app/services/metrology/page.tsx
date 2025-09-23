@@ -111,7 +111,7 @@ export default function MetrologyPage() {
           <ParallaxImage
             src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
             alt="Precision metrology equipment"
-            className="w-full h-full opacity-20"
+            className="w-full h-full opacity-30"
             speed={0.3}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
