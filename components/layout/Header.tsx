@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, Zap } from 'lucide-react';
 import Logo from '@/components/ui/logo';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,6 +17,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import { theme } from '@/lib/theme';
 
 const navigation = [
   {
@@ -73,24 +74,21 @@ export default function Header() {
   return (
     <>
       {/* Top Info Bar - Hidden on mobile */}
-      <div className="hidden lg:block fixed top-0 z-[100] w-full bg-slate-950 border-b border-slate-800">
+      <div className="hidden lg:block fixed top-0 z-[100] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/10">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-slate-200 transition-colors">
-              <Phone className="h-3 w-3" />
+            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group">
+              <Phone className="h-3 w-3 group-hover:text-cyan-400" />
               <span>503-231-9093</span>
             </a>
-            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-slate-200 transition-colors">
-              <Mail className="h-3 w-3" />
+            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group">
+              <Mail className="h-3 w-3 group-hover:text-cyan-400" />
               <span>officemgr@iismet.com</span>
             </a>
           </div>
-          <div className="flex items-center space-x-4 text-xs text-slate-400">
-            <span>ISO 9001</span>
-            <span>•</span>
-            <span>AS9100D</span>
-            <span>•</span>
-            <span>ITAR REGISTERED</span>
+          <div className="flex items-center space-x-4">
+            <Zap className="h-3 w-3 text-cyan-400" />
+            <span className={cn(theme.typography.badge, 'text-slate-400')}>ISO 9001 • AS9100D • ITAR REGISTERED</span>
           </div>
         </div>
       </div>
@@ -100,9 +98,8 @@ export default function Header() {
         className={cn(
           'fixed z-[90] w-full transition-all duration-300',
           isScrolled
-            ? 'bg-white backdrop-blur-xl shadow-md top-0'
-            : 'bg-white/95 backdrop-blur-lg lg:top-10 top-0',
-          'border-b border-slate-200'
+            ? 'bg-white/95 backdrop-blur-xl shadow-lg top-0 border-b-2 border-cyan-500/20'
+            : 'bg-white/90 backdrop-blur-xl lg:top-10 top-0 border-b border-slate-200/50'
         )}
       >
         <nav className="container flex h-20 items-center justify-between">
@@ -117,7 +114,7 @@ export default function Header() {
                 <NavigationMenuItem key={item.name}>
                   {item.children ? (
                     <>
-                      <NavigationMenuTrigger className="bg-transparent hover:bg-slate-50 data-[state=open]:bg-slate-50 text-slate-700">
+                      <NavigationMenuTrigger className="bg-transparent hover:bg-slate-50 data-[state=open]:bg-slate-50 text-slate-700 font-medium">
                         {item.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -158,7 +155,7 @@ export default function Header() {
                       className={cn(
                         'group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2',
                         'text-sm font-medium transition-all',
-                        'hover:bg-slate-50 text-slate-700',
+                        'hover:bg-slate-50 text-slate-700 font-medium',
                         pathname === item.href && 'bg-slate-100/50'
                       )}
                     >

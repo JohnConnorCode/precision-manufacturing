@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { ArrowRight, Users, Factory, Award, TrendingUp, CheckCircle, Target, Zap, Clock } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import { theme, styles, cn } from '@/lib/theme';
 
 export default function AboutPage() {
   const companyStats = [
@@ -157,7 +158,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+      <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
           <ParallaxImage
             src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
@@ -168,7 +169,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
 
-        <div className="container relative z-10">
+        <div className={theme.spacing.container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -234,8 +235,8 @@ export default function AboutPage() {
       </section>
 
       {/* Company Stats */}
-      <section className="py-20 bg-slate-900/5">
-        <div className="container">
+      <section className={styles.sectionLight900/5">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -268,8 +269,8 @@ export default function AboutPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -350,8 +351,8 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -398,8 +399,8 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -443,8 +444,8 @@ export default function AboutPage() {
       </section>
 
       {/* Capabilities & Certifications */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Capabilities */}
             <motion.div
@@ -515,8 +516,8 @@ export default function AboutPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

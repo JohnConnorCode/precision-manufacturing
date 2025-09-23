@@ -8,19 +8,19 @@ interface LogoProps {
 export default function Logo({ className = '', variant = 'default' }: LogoProps) {
   const colors = {
     default: {
-      primary: '#334155',
+      primary: '#3B82F6', // Blue-500
       secondary: '#0F172A',
-      accent: '#64748B'
+      accent: '#06B6D4' // Cyan-500
     },
     light: {
-      primary: '#E2E8F0',
+      primary: '#93C5FD', // Blue-300
       secondary: '#FFFFFF',
-      accent: '#CBD5E1'
+      accent: '#67E8F9' // Cyan-300
     },
     dark: {
-      primary: '#334155',
+      primary: '#3B82F6', // Blue-500
       secondary: '#0F172A',
-      accent: '#64748B'
+      accent: '#06B6D4' // Cyan-500
     }
   };
 

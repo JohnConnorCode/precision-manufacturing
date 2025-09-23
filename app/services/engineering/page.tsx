@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { ArrowRight, Wrench, Lightbulb, Cog, Shield, CheckCircle, Settings, Layers, FileText } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import { theme, styles, cn } from '@/lib/theme';
 
 export default function EngineeringPage() {
   const capabilities = [
@@ -224,8 +225,8 @@ export default function EngineeringPage() {
       </section>
 
       {/* Capabilities Overview */}
-      <section className="py-20 bg-slate-900/5">
-        <div className="container">
+      <section className={styles.sectionLight900/5">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -258,8 +259,8 @@ export default function EngineeringPage() {
       </section>
 
       {/* Engineering Services */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -337,8 +338,8 @@ export default function EngineeringPage() {
       </section>
 
       {/* Design Capabilities */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -379,8 +380,8 @@ export default function EngineeringPage() {
       </section>
 
       {/* Project Types */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -437,8 +438,8 @@ export default function EngineeringPage() {
       </section>
 
       {/* Engineering Process */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -508,8 +509,8 @@ export default function EngineeringPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

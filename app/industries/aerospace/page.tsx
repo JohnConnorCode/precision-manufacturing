@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { ArrowRight, Plane, Shield, Award, CheckCircle, Gauge, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import { theme, styles, cn } from '@/lib/theme';
 
 export default function AerospacePage() {
   const capabilities = [
@@ -132,7 +133,7 @@ export default function AerospacePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+      <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
           <ParallaxImage
             src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
@@ -143,7 +144,7 @@ export default function AerospacePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
 
-        <div className="container relative z-10">
+        <div className={theme.spacing.container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -209,8 +210,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Aerospace Capabilities */}
-      <section className="py-20 bg-slate-900/5">
-        <div className="container">
+      <section className={styles.sectionLight900/5">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -243,8 +244,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Component Categories */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -334,8 +335,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -398,8 +399,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Process Benefits */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -446,8 +447,8 @@ export default function AerospacePage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

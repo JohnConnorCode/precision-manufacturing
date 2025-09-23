@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { ArrowRight, Zap, Shield, Award, CheckCircle, Battery, Flame, Wind } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import { theme, styles, cn } from '@/lib/theme';
 
 export default function EnergyPage() {
   const capabilities = [
@@ -133,7 +134,7 @@ export default function EnergyPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+      <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
           <ParallaxImage
             src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80"
@@ -144,7 +145,7 @@ export default function EnergyPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
 
-        <div className="container relative z-10">
+        <div className={theme.spacing.container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,8 +211,8 @@ export default function EnergyPage() {
       </section>
 
       {/* Energy Capabilities */}
-      <section className="py-20 bg-slate-900/5">
-        <div className="container">
+      <section className={styles.sectionLight900/5">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -244,8 +245,8 @@ export default function EnergyPage() {
       </section>
 
       {/* Energy Sectors */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -334,8 +335,8 @@ export default function EnergyPage() {
       </section>
 
       {/* Quality Standards */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -379,8 +380,8 @@ export default function EnergyPage() {
       </section>
 
       {/* Detailed Capabilities */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -423,8 +424,8 @@ export default function EnergyPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight50">
+        <div className={theme.spacing.container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

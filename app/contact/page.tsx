@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { theme, styles, cn } from '@/lib/theme';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),

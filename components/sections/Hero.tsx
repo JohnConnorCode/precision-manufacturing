@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Award, Gauge, Calendar, ChevronDown } from 'lucide-react';
+import { ArrowRight, Shield, Award, Gauge, Calendar, ChevronDown, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 import BackgroundSlider from '@/components/ui/background-slider';
+import { theme, styles, cn } from '@/lib/theme';
 
 export default function Hero() {
   const heroImages = [
@@ -23,7 +24,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background pt-32 lg:pt-40">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pt-32 lg:pt-40">
       {/* Dynamic Background Slider */}
       <BackgroundSlider
         images={heroImages}
@@ -31,9 +32,10 @@ export default function Hero() {
         className="opacity-30"
       />
 
-      {/* Subtle Grid Pattern */}
+      {/* Tech Grid Pattern */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid opacity-[0.01]" />
+        <div className="absolute inset-0 bg-grid-white/[0.02]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950" />
       </div>
 
       <div className="container relative z-10">
@@ -50,9 +52,9 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-6"
           >
-            <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-              <Shield className="w-3 h-3 mr-2" />
-              ITAR REGISTERED • AS9100D • ISO 9001:2015
+            <span className={cn(theme.components.badge.dark, 'px-4 py-2')}>
+              <Zap className="w-3 h-3 mr-2 text-cyan-400" />
+              PRECISION AEROSPACE MANUFACTURING • EST. 1995
             </span>
           </motion.div>
 
@@ -61,12 +63,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6"
+            className={cn(theme.typography.h1, 'mb-6')}
           >
-            <span className="text-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400">
               INTEGRATED
             </span>
-            <span className="block text-slate-300 mt-2">
+            <span className="block text-white mt-2">
               INSPECTION SYSTEMS
             </span>
           </motion.h1>
@@ -76,9 +78,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg md:text-xl text-slate-400 mb-6 font-medium"
+            className={cn(theme.typography.lead, 'text-cyan-400/80 mb-6')}
           >
-            Innovative Machining Since 1995
+            Advanced Precision Manufacturing Solutions
           </motion.p>
 
           {/* Company Mission */}
@@ -86,11 +88,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base md:text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className={cn(theme.typography.body, 'text-slate-400 mb-12 max-w-3xl mx-auto')}
           >
-            Quality is not inspected into a product but is inherently designed
-            and built into every process. Dedicated to continuous improvement
-            of our Quality Management System.
+            Aerospace-grade precision with cutting-edge technology. ITAR registered,
+            AS9100D certified, delivering mission-critical components with
+            uncompromising quality standards.
           </motion.p>
 
           {/* Stats Grid */}
@@ -106,11 +108,11 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + index * 0.1 }}
-                className="bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-lg p-4"
+                className={cn(theme.components.card.glass, 'p-4 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 group')}
               >
-                <stat.icon className="w-5 h-5 text-slate-500 mb-3 mx-auto" />
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mt-1">
+                <stat.icon className="w-5 h-5 text-cyan-400 mb-3 mx-auto group-hover:scale-110 transition-transform" />
+                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">{stat.value}</div>
+                <div className={cn(theme.typography.badge, 'text-slate-400 mt-1')}>
                   {stat.label}
                 </div>
               </motion.div>
@@ -126,19 +128,22 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="group px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow-xl"
+              className={cn(theme.components.button.primary, 'group px-8 py-4 relative overflow-hidden')}
             >
-              Request Quote
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <span className="relative z-10 flex items-center">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               asChild
-              className="px-6 py-3 border-slate-700 text-slate-300 hover:bg-slate-800/50 hover:text-white font-semibold text-base"
+              className="px-8 py-4 border-2 border-slate-600 text-slate-300 hover:border-cyan-500 hover:text-cyan-400 font-semibold text-base transition-all duration-300"
             >
               <Link href="/services">
-                Our Capabilities
+                Explore Capabilities
               </Link>
             </Button>
           </motion.div>
@@ -148,17 +153,17 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.8 }}
-            className="flex flex-wrap justify-center items-center gap-8 text-sm text-slate-600"
+            className="flex flex-wrap justify-center items-center gap-8 text-sm"
           >
-            <span>Machining</span>
-            <span>•</span>
-            <span>Inspection</span>
-            <span>•</span>
-            <span>Fixture Design</span>
-            <span>•</span>
-            <span>Metrology</span>
-            <span>•</span>
-            <span>Metbase®</span>
+            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">5-Axis Machining</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">CMM Inspection</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">Fixture Design</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">Metrology</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">Metbase®</span>
           </motion.div>
         </motion.div>
 
@@ -173,10 +178,11 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Subtle Background Accents */}
+      {/* High-Tech Background Accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-slate-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-blue-500/5 rounded-full blur-[100px]" />
       </div>
     </section>
   );
