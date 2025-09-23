@@ -74,7 +74,7 @@ export default function Header() {
   return (
     <>
       {/* Top Info Bar - Hidden on mobile */}
-      <div className="hidden lg:block fixed top-0 z-[100] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/10">
+      <div className="hidden lg:block fixed top-0 z-[150] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/10">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
             <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group">
@@ -96,7 +96,7 @@ export default function Header() {
       {/* Main Navigation */}
       <header
         className={cn(
-          'fixed z-[90] w-full transition-all duration-300',
+          'fixed z-[140] w-full transition-all duration-300',
           isScrolled
             ? 'bg-white/95 backdrop-blur-xl shadow-lg top-0 border-b-2 border-cyan-500/20'
             : 'bg-white/90 backdrop-blur-xl lg:top-10 top-0 border-b border-slate-200/50'

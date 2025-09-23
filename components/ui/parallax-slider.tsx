@@ -63,19 +63,19 @@ export default function ParallaxSlider({
         style={{ opacity }}
       >
         {/* Primary gradient - Dark to transparent */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950/60" />
 
         {/* Secondary gradient - Radial for vignette effect */}
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/50 to-slate-950" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/30 to-slate-950/70" />
 
         {/* Accent gradient - Blue/Cyan tint */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-transparent to-cyan-950/20 mix-blend-multiply" />
 
         {/* Top fade for navigation */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950/90 to-transparent" />
 
         {/* Bottom fade for content */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950/80 via-slate-950/60 to-transparent" />
       </motion.div>
 
       {/* Animated tech pattern overlay */}

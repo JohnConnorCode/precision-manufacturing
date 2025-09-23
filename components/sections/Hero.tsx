@@ -8,8 +8,8 @@ import ParallaxSlider from '@/components/ui/parallax-slider';
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  const textY = useTransform(scrollY, [0, 300], [0, 50]);
-  const textOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const textY = useTransform(scrollY, [0, 500], [0, 50]);
+  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const heroImages = [
     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80',
