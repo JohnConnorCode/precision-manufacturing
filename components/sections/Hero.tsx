@@ -1,13 +1,23 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { Suspense, lazy } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Award, Gauge, Calendar, ChevronDown, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 import BackgroundSlider from '@/components/ui/background-slider';
 import { theme, styles, cn } from '@/lib/theme';
+import { useScrollReveal, fadeInUp, scaleIn } from '@/hooks/useScrollReveal';
+import { useMouseParallax, useMouseRotation } from '@/hooks/useMouseParallax';
+
+// Lazy load 3D components
+const PrecisionPart = lazy(() => import('@/components/3d/PrecisionPart'));
+const ParticleField = lazy(() => import('@/components/effects/ParticleField'));
 
 export default function Hero() {
+  const { ref: revealRef, controls } = useScrollReveal();
+  const { ref: parallaxRef } = useMouseParallax(0.02);
+  const rotation = useMouseRotation(0.01);
   const heroImages = [
     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
     'https://images.unsplash.com/photo-1565043666747-69f6646db940',
@@ -32,25 +42,43 @@ export default function Hero() {
         className="opacity-30"
       />
 
+      {/* Particle Background */}
+      <Suspense fallback={null}>
+        <ParticleField className="opacity-30" />
+      </Suspense>
+
       {/* Tech Grid Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid-white/[0.02]" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950" />
       </div>
 
+      {/* 3D Precision Part */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 opacity-20 lg:opacity-40">
+        <Suspense fallback={null}>
+          <PrecisionPart className="w-full h-full" />
+        </Suspense>
+      </div>
+
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          ref={revealRef}
+          initial="hidden"
+          animate={controls}
+          variants={fadeInUp}
           transition={{ duration: 0.8 }}
           className="text-center max-w-5xl mx-auto"
         >
-          {/* Company Badge */}
+          {/* Company Badge with Mouse Parallax */}
           <motion.div
+            ref={parallaxRef as any}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-6"
+            style={{
+              transform: `perspective(1000px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`
+            }}
           >
             <span className={cn(theme.components.badge.dark, 'px-4 py-2')}>
               <Zap className="w-3 h-3 mr-2 text-cyan-400" />
@@ -95,7 +123,7 @@ export default function Hero() {
             uncompromising quality standards.
           </motion.p>
 
-          {/* Stats Grid */}
+          {/* Stats Grid with Stagger Animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +136,8 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + index * 0.1 }}
-                className={cn(theme.components.card.glass, 'p-4 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 group')}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className={cn(theme.components.card.glass, 'p-4 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 group cursor-pointer')}
               >
                 <stat.icon className="w-5 h-5 text-cyan-400 mb-3 mx-auto group-hover:scale-110 transition-transform" />
                 <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">{stat.value}</div>

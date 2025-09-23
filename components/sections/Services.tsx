@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Cog, Cpu, Gauge, Users } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import { useScrollReveal, fadeInUp, scaleIn } from '@/hooks/useScrollReveal';
 
 const services = [
   {
@@ -42,8 +44,17 @@ const services = [
 ];
 
 export default function Services() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section ref={containerRef} className="relative py-32 bg-white overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid opacity-[0.02]" />
@@ -71,13 +82,22 @@ export default function Services() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, rotateX: -10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
               >
                 <Link href={service.href}>
-                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 border-slate-200 group relative bg-white">
+                  <Card className="h-full overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 border-slate-200 group relative bg-white">
                     {/* Image Header */}
                     <div className="relative h-48 overflow-hidden bg-slate-100">
                       <ParallaxImage
