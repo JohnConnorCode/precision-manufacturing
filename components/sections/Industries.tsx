@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Plane, Zap, Shield } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
+import ParallaxImage from '@/components/ui/parallax-image';
 
 const industries = [
   {
     title: 'Aerospace',
     description: 'Critical components for commercial and military aircraft. From turbine blades to structural assemblies.',
     icon: Plane,
-    image: '/images/aerospace.jpg',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
     href: '/industries/aerospace',
     features: ['FAA approved', 'NADCAP certified', 'Zero defect delivery'],
   },
@@ -19,7 +19,7 @@ const industries = [
     title: 'Energy & Turbines',
     description: 'High-temperature alloy components for power generation. Supporting renewable and traditional energy sectors.',
     icon: Zap,
-    image: '/images/energy.jpg',
+    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb',
     href: '/industries/energy',
     features: ['Superalloy expertise', 'Large part capability', 'Field service support'],
   },
@@ -27,7 +27,7 @@ const industries = [
     title: 'Defense',
     description: 'ITAR-compliant manufacturing for defense contractors. Maintaining highest security and quality standards.',
     icon: Shield,
-    image: '/images/defense.jpg',
+    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940',
     href: '/industries/defense',
     features: ['ITAR registered', 'Secure facility', 'Rapid prototyping'],
   },
@@ -65,9 +65,19 @@ export default function Industries() {
               >
                 <Link href={industry.href}>
                   <Card className="overflow-hidden hover:shadow-hover transition-all duration-300 group">
-                    <div className="relative h-48 bg-gradient-to-br from-accent/5 to-accent-cyan/5 flex items-center justify-center">
-                      <Icon className="h-24 w-24 text-accent-cyan/20" />
+                    <div className="relative h-48 overflow-hidden">
+                      <ParallaxImage
+                        src={industry.image}
+                        alt={industry.title}
+                        className="w-full h-full group-hover:scale-105 transition-transform duration-500"
+                        speed={0.2}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                      <div className="absolute bottom-4 left-4">
+                        <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                          <Icon className="h-6 w-6 text-slate-700" />
+                        </div>
+                      </div>
                     </div>
                     <div className="p-6">
                       <h3 className="text-xl font-semibold mb-2 flex items-center">

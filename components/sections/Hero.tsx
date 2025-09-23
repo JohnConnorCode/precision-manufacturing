@@ -4,9 +4,17 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Award, Gauge, Calendar, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxImage from '@/components/ui/parallax-image';
+import BackgroundSlider from '@/components/ui/background-slider';
 
 export default function Hero() {
+  const heroImages = [
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
+    'https://images.unsplash.com/photo-1565043666747-69f6646db940',
+    'https://images.unsplash.com/photo-1635070041078-e363dbe005cb',
+    'https://images.unsplash.com/photo-1581092921461-eab62e97a780',
+    'https://images.unsplash.com/photo-1581092160562-40aa08e78837'
+  ];
+
   const stats = [
     { label: 'FOUNDED', value: '1995', icon: Calendar },
     { label: 'CERTIFIED', value: 'AS9100D', icon: Award },
@@ -16,16 +24,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
-      {/* Professional Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <ParallaxImage
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
-          alt="Precision inspection and manufacturing"
-          className="w-full h-full opacity-20"
-          speed={0.5}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-      </div>
+      {/* Dynamic Background Slider */}
+      <BackgroundSlider
+        images={heroImages}
+        interval={6000}
+        className="opacity-30"
+      />
 
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0">
@@ -59,10 +63,10 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8"
           >
-            <span className="text-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">
               INTEGRATED
             </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 mt-2">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mt-2">
               INSPECTION SYSTEMS
             </span>
           </motion.h1>
@@ -72,7 +76,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl md:text-2xl text-slate-400 mb-4 font-light"
+            className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 mb-4 font-semibold"
           >
             Innovative Machining Since 1995
           </motion.p>
@@ -122,7 +126,7 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold text-base shadow-xl"
+              className="group px-8 py-6 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold text-base shadow-xl"
             >
               Request Quote
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
