@@ -40,7 +40,7 @@ export default function ParallaxSlider({
           exit={{ opacity: 0 }}
           transition={{
             duration: 2.5,
-            ease: [0.43, 0.13, 0.23, 0.96]
+            ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number]
           }}
           style={{ y }}
           className="absolute inset-0 w-full h-[120%] -top-[10%]"
