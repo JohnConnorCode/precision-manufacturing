@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, Settings, Zap, Layers, Shield, CheckCircle, Cog, Precision } from 'lucide-react';
+import { ArrowRight, Settings, Zap, Layers, Shield, CheckCircle, Cog, Target } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
 
@@ -144,7 +144,7 @@ export default function FiveAxisMachiningPage() {
               className="mb-8"
             >
               <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Precision className="w-3 h-3 mr-2" />
+                <Target className="w-3 h-3 mr-2" />
                 ADVANCED MACHINING SERVICES
               </span>
             </motion.div>
