@@ -84,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-xl md:text-2xl lg:text-3xl font-bold text-muted-foreground mb-6"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-muted-foreground mb-6"
           >
             ADVANCED AEROSPACE MANUFACTURING
           </motion.p>
