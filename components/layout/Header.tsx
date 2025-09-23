@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
+import Logo from '@/components/ui/logo';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -81,17 +82,39 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-background/95 backdrop-blur-md border-b' : 'bg-background',
-        hideHeader ? '-translate-y-full' : 'translate-y-0'
-      )}
-    >
-      <nav className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">PRECISION MFG</span>
-        </Link>
+    <>
+      {/* Top Bar with Contact Info */}
+      <div className="hidden lg:block fixed top-0 z-50 w-full bg-accent-cyan/10 border-b border-accent-cyan/20">
+        <div className="container flex h-10 items-center justify-between text-sm">
+          <div className="flex items-center space-x-6">
+            <a href="tel:+15031234567" className="flex items-center space-x-2 hover:text-accent-cyan transition-colors">
+              <Phone className="h-3 w-3" />
+              <span className="font-medium">503-123-4567</span>
+            </a>
+            <a href="mailto:contact@precisionmfg.com" className="flex items-center space-x-2 hover:text-accent-cyan transition-colors">
+              <Mail className="h-3 w-3" />
+              <span className="font-medium">contact@precisionmfg.com</span>
+            </a>
+          </div>
+          <div className="flex items-center space-x-6 text-xs">
+            <span className="font-bold text-accent-cyan">ISO 9001</span>
+            <span className="font-bold text-accent-cyan">AS9100D</span>
+            <span className="font-bold text-accent-cyan">ITAR REGISTERED</span>
+          </div>
+        </div>
+      </div>
+
+      <header
+        className={cn(
+          'fixed z-50 w-full transition-all duration-300 border-b-2 border-accent-cyan/20',
+          isScrolled ? 'bg-background/98 backdrop-blur-lg shadow-lg top-0' : 'bg-background lg:top-10 top-0',
+          hideHeader ? '-translate-y-full' : 'translate-y-0'
+        )}
+      >
+        <nav className="container flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2">
+            <Logo className="h-12 w-auto" />
+          </Link>
 
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
@@ -138,8 +161,12 @@ export default function Header() {
         </NavigationMenu>
 
         <div className="hidden lg:flex items-center space-x-4">
-          <Button variant="outline" size="sm">
-            Get Quote
+          <Button
+            variant="outline"
+            size="default"
+            className="border-2 border-accent-cyan hover:bg-accent-cyan hover:text-background font-bold text-sm px-6"
+          >
+            REQUEST QUOTE
           </Button>
         </div>
 
@@ -188,5 +215,6 @@ export default function Header() {
         </Sheet>
       </nav>
     </header>
+    </>
   );
 }

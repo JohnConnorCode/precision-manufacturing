@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
-        <main className="min-h-screen pt-16">
+        <main className="min-h-screen lg:pt-32 pt-20">
           {children}
         </main>
         <Footer />
