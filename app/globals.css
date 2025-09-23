@@ -290,6 +290,11 @@
     @apply transition-transform duration-300 hover:scale-105;
   }
 
+  /* Radial Gradient */
+  .bg-radial-gradient {
+    background: radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-via, var(--tw-gradient-from)) 50%, var(--tw-gradient-to) 100%);
+  }
+
   /* Loading Animations */
   .shimmer {
     background: linear-gradient(
