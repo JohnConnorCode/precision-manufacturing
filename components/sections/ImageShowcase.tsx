@@ -123,7 +123,7 @@ export default function ImageShowcase() {
         >
           <div className="text-center">
             <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-              29+
+              30+
             </div>
             <div className="text-sm text-slate-600 mt-1">Years Experience</div>
           </div>
