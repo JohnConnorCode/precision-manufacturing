@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/compliance/supplier-requirements`,
       lastModified: new Date(),
-      changeFrequency: 'quarterly',
+      changeFrequency: 'monthly',
       priority: 0.6,
     },
   ];

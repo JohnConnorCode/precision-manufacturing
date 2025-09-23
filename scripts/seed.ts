@@ -248,7 +248,7 @@ async function seedContent() {
         children: [
           {
             _type: 'span',
-            text: 'In aerospace manufacturing, precision is not just a goal—it's an absolute requirement.',
+            text: 'In aerospace manufacturing, precision is not just a goal—it is an absolute requirement.',
           },
         ],
       },
