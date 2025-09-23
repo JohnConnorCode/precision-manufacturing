@@ -2,8 +2,26 @@ import Hero from '@/components/sections/Hero';
 import Services from '@/components/sections/Services';
 import ImageShowcase from '@/components/sections/ImageShowcase';
 import CTA from '@/components/sections/CTA';
+import { client } from '@/sanity/lib/sanity';
+import { homePageQuery } from '@/sanity/lib/queries';
 
-export default function Home() {
+async function getHomePageData() {
+  try {
+    const data = await client.fetch(homePageQuery, {}, {
+      next: { revalidate: 60 }, // Revalidate every minute
+    });
+    return data;
+  } catch (error) {
+    console.log('No CMS content available, using defaults');
+    return null;
+  }
+}
+
+export default async function Home() {
+  const cmsData = await getHomePageData();
+
+  // CMS data is fetched and ready for when content is added
+  // Components will be updated to use CMS data when available
   return (
     <>
       <Hero />
