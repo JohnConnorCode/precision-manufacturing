@@ -21,6 +21,7 @@ import {
 import { Card } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { theme, styles, cn } from '@/lib/theme';
+import BackgroundSlider from '@/components/ui/background-slider';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -68,20 +69,45 @@ export default function ContactPage() {
     }
   };
 
+  const heroImages = [
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80',
+    'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80',
+  ];
+
   return (
-    <div className="container py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-6xl mx-auto"
-      >
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg text-muted-foreground">
-            Get in touch with our team for quotes, technical questions, or partnership opportunities
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <BackgroundSlider
+          images={heroImages}
+          interval={6000}
+          className="opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/80" />
+
+        <div className="container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">Contact Us</h1>
+            <p className="text-xl text-slate-400">
+              Get in touch with our team for quotes, technical questions, or partnership opportunities
+            </p>
+          </motion.div>
         </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="container py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-6xl mx-auto"
+        >
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
@@ -254,6 +280,7 @@ export default function ContactPage() {
           </div>
         </div>
       </motion.div>
+      </section>
     </div>
   );
 }

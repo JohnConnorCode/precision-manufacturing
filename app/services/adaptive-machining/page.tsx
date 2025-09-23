@@ -146,7 +146,7 @@ export default function AdaptiveMachiningPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 pb-8"
             >
               <Button
                 size="lg"

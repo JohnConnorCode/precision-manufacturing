@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const stats = [
-  { value: 25, suffix: '+', label: 'Years Experience' },
+  { value: 29, suffix: '+', label: 'Years Experience' },
   { value: 99.97, suffix: '%', label: 'On-Time Delivery' },
   { value: 0.0001, suffix: '"', label: 'Min Tolerance', prefix: '±' },
   { value: 500, suffix: '+', label: 'Active Clients' },
@@ -28,7 +28,11 @@ function Counter({ from, to, duration = 2, prefix = '', suffix = '' }: {
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-      setCount(Math.floor(progress * (to - from) + from * 100) / 100);
+
+      // Calculate interpolated value
+      const current = progress * (to - from) + from;
+      // For values < 1, keep decimal precision; otherwise round
+      setCount(to < 1 ? Math.round(current * 10000) / 10000 : Math.round(current * 100) / 100);
 
       if (progress < 1) {
         window.requestAnimationFrame(step);

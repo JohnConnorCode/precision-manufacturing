@@ -30,18 +30,19 @@ export default function BackgroundSlider({
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${images[currentIndex]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'brightness(0.7)'
-          }}
-        />
+        >
+          <img
+            src={images[currentIndex]}
+            alt="Manufacturing facility"
+            className="w-full h-full object-cover"
+            style={{ filter: 'brightness(0.6) contrast(1.1)' }}
+          />
+        </motion.div>
       </AnimatePresence>
 
       {/* Gradient Overlay */}

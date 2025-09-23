@@ -163,7 +163,7 @@ export default function FiveAxisMachiningPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className={cn(styles.pageSubtitle, "mb-12")}
+              className={cn(styles.pageSubtitle, "mb-8")}
             >
               Advanced 5-axis simultaneous machining capabilities for the most complex aerospace and defense components. Precision manufacturing with uncompromising quality.
             </motion.p>
@@ -172,7 +172,7 @@ export default function FiveAxisMachiningPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 pb-8"
             >
               <Button
                 size="lg"
