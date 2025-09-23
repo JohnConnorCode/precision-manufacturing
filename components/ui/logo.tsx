@@ -8,19 +8,19 @@ interface LogoProps {
 export default function Logo({ className = '', variant = 'default' }: LogoProps) {
   const colors = {
     default: {
-      primary: '#22D3EE',
+      primary: '#334155',
       secondary: '#0F172A',
-      accent: '#00D4FF'
+      accent: '#64748B'
     },
     light: {
-      primary: '#22D3EE',
+      primary: '#E2E8F0',
       secondary: '#FFFFFF',
-      accent: '#00D4FF'
+      accent: '#CBD5E1'
     },
     dark: {
-      primary: '#22D3EE',
+      primary: '#334155',
       secondary: '#0F172A',
-      accent: '#00D4FF'
+      accent: '#64748B'
     }
   };
 
@@ -28,15 +28,15 @@ export default function Logo({ className = '', variant = 'default' }: LogoProps)
 
   return (
     <svg
-      viewBox="0 0 240 60"
+      viewBox="0 0 280 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="Precision Manufacturing Logo"
+      aria-label="Integrated Inspection Systems Logo"
     >
-      {/* Icon - Precision Gear/Target Hybrid */}
+      {/* Icon - Professional Precision Symbol */}
       <g>
-        {/* Outer Ring */}
+        {/* Outer Ring with measurement marks */}
         <circle
           cx="30"
           cy="30"
@@ -46,19 +46,18 @@ export default function Logo({ className = '', variant = 'default' }: LogoProps)
           fill="none"
         />
 
-        {/* Inner Precision Cross */}
+        {/* Inner precision crosshair */}
         <path
           d="M30 10 L30 50 M10 30 L50 30"
           stroke={primary}
-          strokeWidth="1.5"
+          strokeWidth="1"
           strokeLinecap="round"
         />
 
-        {/* Center Target */}
-        <circle cx="30" cy="30" r="8" fill={accent} opacity="0.2" />
-        <circle cx="30" cy="30" r="4" fill={primary} />
+        {/* Center dot */}
+        <circle cx="30" cy="30" r="3" fill={primary} />
 
-        {/* Precision Marks */}
+        {/* Corner measurement marks */}
         <g>
           {[0, 90, 180, 270].map((angle) => (
             <line
@@ -75,54 +74,66 @@ export default function Logo({ className = '', variant = 'default' }: LogoProps)
           ))}
         </g>
 
-        {/* Tech Accent Lines */}
-        <path
-          d="M18 18 L24 24 M42 42 L36 36 M42 18 L36 24 M18 42 L24 36"
-          stroke={accent}
-          strokeWidth="1"
-          strokeLinecap="round"
-          opacity="0.6"
-        />
+        {/* Quadrant marks */}
+        <g opacity="0.6">
+          {[45, 135, 225, 315].map((angle) => (
+            <circle
+              key={angle}
+              cx="30"
+              cy="12"
+              r="1"
+              fill={accent}
+              transform={`rotate(${angle} 30 30)`}
+            />
+          ))}
+        </g>
       </g>
 
-      {/* Typography - Bold Industrial Style */}
+      {/* Typography - Company Name */}
       <g>
-        {/* PRECISION */}
+        {/* IIS */}
         <text
           x="65"
           y="28"
           fill={secondary}
-          fontSize="20"
+          fontSize="22"
           fontWeight="800"
           fontFamily="Inter, system-ui, -apple-system, sans-serif"
           letterSpacing="-0.02em"
         >
-          PRECISION
+          IIS
         </text>
 
-        {/* MFG */}
+        {/* Integrated Inspection Systems */}
         <text
           x="65"
-          y="46"
-          fill={primary}
-          fontSize="18"
-          fontWeight="700"
+          y="44"
+          fill={accent}
+          fontSize="11"
+          fontWeight="600"
           fontFamily="Inter, system-ui, -apple-system, sans-serif"
-          letterSpacing="0.05em"
+          letterSpacing="0.02em"
         >
-          MFG
+          INTEGRATED INSPECTION SYSTEMS
         </text>
 
         {/* Accent Line */}
-        <rect x="65" y="32" width="40" height="1" fill={accent} opacity="0.5" />
+        <rect x="65" y="31" width="160" height="0.5" fill={accent} opacity="0.3" />
       </g>
 
-      {/* Tech Pattern Background */}
-      <defs>
-        <pattern id="techGrid" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
-          <rect x="0" y="0" width="1" height="1" fill={primary} opacity="0.05" />
-        </pattern>
-      </defs>
+      {/* Tagline */}
+      <text
+        x="228"
+        y="44"
+        fill={accent}
+        fontSize="8"
+        fontWeight="500"
+        fontFamily="Inter, system-ui, -apple-system, sans-serif"
+        fontStyle="italic"
+        opacity="0.7"
+      >
+        Inc.
+      </text>
     </svg>
   );
 }

@@ -10,12 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Precision Manufacturing | Aerospace & Defense Supplier",
-  description: "ITAR-compliant precision manufacturing for aerospace, defense, and energy industries. Specializing in 5-axis machining, adaptive manufacturing, and ultra-precision tolerances.",
-  keywords: "aerospace manufacturing, precision machining, ITAR compliant, 5-axis machining, defense contractor",
+  title: "Integrated Inspection Systems, Inc. | Innovative Machining & Inspection",
+  description: "Founded in 1995, IIS provides precision machining, inspection, fixture design, and metrology services. AS9100D certified, ITAR registered, ISO 9001 compliant.",
+  keywords: "precision machining, inspection services, fixture design, metrology, AS9100D, ITAR registered, ISO 9001, Metbase, Clackamas Oregon",
   openGraph: {
-    title: "Precision Manufacturing | Aerospace & Defense Supplier",
-    description: "ITAR-compliant precision manufacturing for aerospace, defense, and energy industries.",
+    title: "Integrated Inspection Systems, Inc. | Innovative Machining",
+    description: "Quality is not inspected into a product but inherently designed and built into every process. AS9100D certified, ITAR registered.",
     type: "website",
   },
 };

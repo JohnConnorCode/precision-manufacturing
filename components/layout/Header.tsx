@@ -16,25 +16,26 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
   {
     name: 'Services',
     href: '/services',
     children: [
-      { name: '5-Axis Machining', href: '/services/5-axis-machining' },
-      { name: 'Adaptive Machining', href: '/services/adaptive-machining' },
-      { name: 'Metrology & Inspection', href: '/services/metrology' },
-      { name: 'Engineering Support', href: '/services/engineering' },
+      { name: '5-Axis Machining', href: '/services/5-axis-machining', description: 'Complex geometries with precision' },
+      { name: 'Adaptive Machining', href: '/services/adaptive-machining', description: 'Real-time process adjustments' },
+      { name: 'Metrology & Inspection', href: '/services/metrology', description: 'Complete dimensional verification' },
+      { name: 'Engineering Support', href: '/services/engineering', description: 'Design for manufacturability' },
     ],
   },
   {
     name: 'Industries',
     href: '/industries',
     children: [
-      { name: 'Aerospace', href: '/industries/aerospace' },
-      { name: 'Energy & Turbines', href: '/industries/energy' },
-      { name: 'Defense', href: '/industries/defense' },
+      { name: 'Aerospace', href: '/industries/aerospace', description: 'Critical aerospace components' },
+      { name: 'Energy & Turbines', href: '/industries/energy', description: 'Power generation solutions' },
+      { name: 'Defense', href: '/industries/defense', description: 'ITAR compliant manufacturing' },
     ],
   },
   {
@@ -45,8 +46,8 @@ const navigation = [
     name: 'Compliance',
     href: '#',
     children: [
-      { name: 'Terms & Conditions', href: '/compliance/terms' },
-      { name: 'Supplier Requirements', href: '/compliance/supplier-requirements' },
+      { name: 'Terms & Conditions', href: '/compliance/terms', description: 'Purchase order terms' },
+      { name: 'Supplier Requirements', href: '/compliance/supplier-requirements', description: 'Supplier guidelines' },
     ],
   },
   {
@@ -57,58 +58,51 @@ const navigation = [
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [hideHeader, setHideHeader] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setIsScrolled(currentScrollY > 10);
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setHideHeader(true);
-      } else {
-        setHideHeader(false);
-      }
-
-      setLastScrollY(currentScrollY);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <>
-      {/* Top Bar with Contact Info */}
-      <div className="hidden lg:block fixed top-0 z-50 w-full bg-accent-cyan/10 border-b border-accent-cyan/20">
+      {/* Top Info Bar - Hidden on mobile */}
+      <div className="hidden lg:block fixed top-0 z-50 w-full bg-slate-900/80 backdrop-blur-xl border-b border-slate-800/50">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:+15031234567" className="flex items-center space-x-2 hover:text-accent-cyan transition-colors">
+            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors">
               <Phone className="h-3 w-3" />
-              <span className="font-medium">503-123-4567</span>
+              <span>503-231-9093</span>
             </a>
-            <a href="mailto:contact@precisionmfg.com" className="flex items-center space-x-2 hover:text-accent-cyan transition-colors">
+            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors">
               <Mail className="h-3 w-3" />
-              <span className="font-medium">contact@precisionmfg.com</span>
+              <span>officemgr@iismet.com</span>
             </a>
           </div>
-          <div className="flex items-center space-x-6 text-xs">
-            <span className="font-bold text-accent-cyan">ISO 9001</span>
-            <span className="font-bold text-accent-cyan">AS9100D</span>
-            <span className="font-bold text-accent-cyan">ITAR REGISTERED</span>
+          <div className="flex items-center space-x-4 text-xs text-slate-500">
+            <span className="font-semibold">ISO 9001</span>
+            <span>•</span>
+            <span className="font-semibold">AS9100D</span>
+            <span>•</span>
+            <span className="font-semibold">ITAR REGISTERED</span>
           </div>
         </div>
       </div>
 
+      {/* Main Navigation */}
       <header
         className={cn(
-          'fixed z-50 w-full transition-all duration-300 border-b-2 border-accent-cyan/20',
-          isScrolled ? 'bg-background/98 backdrop-blur-lg shadow-lg top-0' : 'bg-background lg:top-10 top-0',
-          hideHeader ? '-translate-y-full' : 'translate-y-0'
+          'fixed z-40 w-full transition-all duration-300',
+          isScrolled
+            ? 'bg-white/80 backdrop-blur-xl shadow-lg top-0'
+            : 'bg-white/60 backdrop-blur-md lg:top-10 top-0',
+          'border-b border-slate-200/50'
         )}
       >
         <nav className="container flex h-20 items-center justify-between">
@@ -116,105 +110,124 @@ export default function Header() {
             <Logo className="h-12 w-auto" />
           </Link>
 
-        <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList>
-            {navigation.map((item) => (
-              <NavigationMenuItem key={item.name}>
-                {item.children ? (
-                  <>
-                    <NavigationMenuTrigger>{item.name}</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                        {item.children.map((child) => (
-                          <li key={child.name}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                href={child.href}
-                                className={cn(
-                                  'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
-                                )}
-                              >
-                                <div className="text-sm font-medium leading-none">
-                                  {child.name}
-                                </div>
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50',
-                      pathname === item.href && 'bg-accent'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <div className="hidden lg:flex items-center space-x-4">
-          <Button
-            variant="outline"
-            size="default"
-            className="border-2 border-accent-cyan hover:bg-accent-cyan hover:text-background font-bold text-sm px-6"
-          >
-            REQUEST QUOTE
-          </Button>
-        </div>
-
-        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-          <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <nav className="flex flex-col space-y-4 mt-8">
+          {/* Desktop Navigation */}
+          <NavigationMenu className="hidden lg:flex">
+            <NavigationMenuList>
               {navigation.map((item) => (
-                <div key={item.name}>
+                <NavigationMenuItem key={item.name}>
                   {item.children ? (
-                    <div className="space-y-2">
-                      <div className="font-medium text-sm text-muted-foreground">
+                    <>
+                      <NavigationMenuTrigger className="bg-transparent hover:bg-slate-100/50 data-[state=open]:bg-slate-100/50">
                         {item.name}
-                      </div>
-                      <div className="space-y-1 pl-4">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.name}
-                            href={child.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block py-2 text-sm hover:text-accent-cyan transition-colors"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <motion.ul
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="grid w-[500px] gap-2 p-4 bg-white/95 backdrop-blur-xl border border-slate-200/50 rounded-xl shadow-xl"
+                        >
+                          {item.children.map((child) => (
+                            <li key={child.name}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={child.href}
+                                  className={cn(
+                                    'block select-none rounded-lg p-4 no-underline outline-none transition-all',
+                                    'hover:bg-slate-100/80 hover:shadow-sm',
+                                    'group'
+                                  )}
+                                >
+                                  <div className="text-sm font-semibold text-slate-900 group-hover:text-slate-700">
+                                    {child.name}
+                                  </div>
+                                  {child.description && (
+                                    <p className="text-xs text-slate-500 mt-1">
+                                      {child.description}
+                                    </p>
+                                  )}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      </NavigationMenuContent>
+                    </>
                   ) : (
                     <Link
                       href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block py-2 font-medium hover:text-accent-cyan transition-colors"
+                      className={cn(
+                        'group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2',
+                        'text-sm font-medium transition-all',
+                        'hover:bg-slate-100/50',
+                        pathname === item.href && 'bg-slate-100/50'
+                      )}
                     >
                       {item.name}
                     </Link>
                   )}
-                </div>
+                </NavigationMenuItem>
               ))}
-              <Button className="mt-4 w-full">Get Quote</Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </nav>
-    </header>
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <Button
+              size="default"
+              className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 shadow-lg"
+            >
+              REQUEST QUOTE
+            </Button>
+          </div>
+
+          {/* Mobile Menu */}
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild className="lg:hidden">
+              <Button variant="ghost" size="icon" className="hover:bg-slate-100/50">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white/95 backdrop-blur-xl">
+              <nav className="flex flex-col space-y-6 mt-8">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.children ? (
+                      <div className="space-y-3">
+                        <div className="font-semibold text-sm text-slate-900">
+                          {item.name}
+                        </div>
+                        <div className="space-y-2 pl-4">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.name}
+                              href={child.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-2 font-semibold text-slate-900 hover:text-slate-700 transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                <Button className="mt-6 w-full bg-slate-900 hover:bg-slate-800 text-white">
+                  Request Quote
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </nav>
+      </header>
     </>
   );
 }
