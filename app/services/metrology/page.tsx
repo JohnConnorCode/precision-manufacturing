@@ -22,7 +22,7 @@ export default function MetrologyPage() {
       description: 'High-precision dimensional inspection using state-of-the-art CMM systems for complex geometries.',
       icon: Target,
       features: ['3D coordinate measurement', 'GD&T inspection', 'Statistical analysis', 'Automated reporting'],
-      image: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
       capabilities: [
         'Zeiss CONTURA G2 RDS CMM',
         'Working volume: 700x1000x600mm',
@@ -48,7 +48,7 @@ export default function MetrologyPage() {
       description: 'Non-contact optical measurement for delicate parts and surface characteristics analysis.',
       icon: Eye,
       features: ['Surface roughness', 'Profile measurement', 'Edge detection', 'Multi-sensor integration'],
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
       capabilities: [
         'Keyence IM Series',
         'Sub-micron accuracy',
@@ -109,7 +109,7 @@ export default function MetrologyPage() {
       <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1562408590-e32931084e23?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
             alt="Precision metrology equipment"
             className="w-full h-full opacity-20"
             speed={0.3}

@@ -37,7 +37,7 @@ export default function EnergyPage() {
       title: 'Oil & Gas',
       description: 'Downstream and upstream components for drilling, extraction, and processing',
       icon: Flame,
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
       applications: [
         'Downhole tools',
         'Valve components',

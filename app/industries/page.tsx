@@ -24,7 +24,7 @@ export default function IndustriesPage() {
       description: 'Mission-critical components for defense systems with stringent security and quality requirements.',
       icon: Shield,
       href: '/industries/defense',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
       applications: ['Weapon systems', 'Radar components', 'Vehicle parts', 'Electronics'],
       certifications: ['ITAR', 'DFARS', 'Security clearance'],
       stats: { volume: '15%', clients: '25+', experience: '25+ years' }

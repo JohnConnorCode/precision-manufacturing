@@ -48,7 +48,7 @@ export default function EngineeringPage() {
       description: 'Expert programming services for complex machining operations and toolpath optimization.',
       icon: Layers,
       features: ['Multi-axis programming', 'Toolpath optimization', 'Simulation & verification', 'Post-processing'],
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
       benefits: [
         'Optimized cycle times',
         'Improved surface finish',

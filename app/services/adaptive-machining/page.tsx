@@ -57,7 +57,7 @@ export default function AdaptiveMachiningPage() {
     {
       title: 'Defense System Parts',
       description: 'High-reliability components for mission-critical defense applications',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80',
       challenges: ['Material hardness', 'Precision requirements', 'Traceability', 'Quality standards']
     },
     {
@@ -97,7 +97,7 @@ export default function AdaptiveMachiningPage() {
       <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80"
             alt="Adaptive machining technology"
             className="w-full h-full opacity-20"
             speed={0.3}

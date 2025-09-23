@@ -23,7 +23,7 @@ export default function ServicesPage() {
       icon: Cpu,
       href: '/services/adaptive-machining',
       features: ['Real-time Monitoring', 'Intelligent Control', 'Quality Assurance', 'Process Optimization'],
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80'
     },
     {
       title: 'Precision Metrology',
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       icon: Target,
       href: '/services/metrology',
       features: ['CMM Inspection', 'Laser Scanning', 'Dimensional Analysis', 'First Article'],
-      image: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'
     },
     {
       title: 'Engineering Services',
