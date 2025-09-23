@@ -253,7 +253,7 @@ export default function PredictiveAnalyticsPage() {
 
                 <div className={cn("relative h-96 rounded-lg overflow-hidden",
                   index % 2 === 1 ? "md:order-1" : "")}>
-                  <ParallaxImage
+                  <ParallaxImagePro
                     src={service.image}
                     alt={service.title}
                     className="rounded-lg"

@@ -135,7 +135,7 @@ export default function AerospacePage() {
       {/* Hero Section */}
       <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
-          <ParallaxImage
+          <ParallaxImagePro
             src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
             alt="Aerospace manufacturing"
             className="w-full h-full opacity-20"
@@ -272,7 +272,7 @@ export default function AerospacePage() {
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
                     {/* Image Section */}
                     <div className="lg:col-span-2 relative h-64 lg:h-auto overflow-hidden">
-                      <ParallaxImage
+                      <ParallaxImagePro
                         src={component.image}
                         alt={component.category}
                         className="w-full h-full"

@@ -246,7 +246,7 @@ export default function MetrologyPage() {
               >
                 <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
-                    <ParallaxImage
+                    <ParallaxImagePro
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full group-hover:scale-105 transition-transform duration-500"
@@ -383,7 +383,7 @@ export default function MetrologyPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <ParallaxImage
+              <ParallaxImagePro
                 src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
                 alt="Quality control laboratory"
                 className="w-full h-96 rounded-lg"

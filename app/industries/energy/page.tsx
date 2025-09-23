@@ -136,7 +136,7 @@ export default function EnergyPage() {
       {/* Hero Section */}
       <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
-          <ParallaxImage
+          <ParallaxImagePro
             src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80"
             alt="Energy sector manufacturing"
             className="w-full h-full opacity-20"
@@ -272,7 +272,7 @@ export default function EnergyPage() {
                 <Card className="overflow-hidden border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-xl bg-white/50 backdrop-blur-sm">
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
                     <div className="lg:col-span-2 relative h-64 lg:h-auto overflow-hidden">
-                      <ParallaxImage
+                      <ParallaxImagePro
                         src={sector.image}
                         alt={sector.title}
                         className="w-full h-full"

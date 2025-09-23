@@ -288,7 +288,7 @@ export default function EngineeringPage() {
               >
                 <Card className="group h-full overflow-hidden border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-xl bg-white/50 backdrop-blur-sm">
                   <div className="relative h-64 overflow-hidden">
-                    <ParallaxImage
+                    <ParallaxImagePro
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full group-hover:scale-105 transition-transform duration-500"

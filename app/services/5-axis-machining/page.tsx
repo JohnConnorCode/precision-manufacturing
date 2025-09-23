@@ -260,7 +260,7 @@ export default function FiveAxisMachiningPage() {
               >
                 <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
-                    <ParallaxImage
+                    <ParallaxImagePro
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full group-hover:scale-105 transition-transform duration-500"

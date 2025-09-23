@@ -302,7 +302,7 @@ export default function AdaptiveMachiningPage() {
               >
                 <Card className={cn(styles.featureCard, "overflow-hidden")}>
                   <div className="relative h-48">
-                    <ParallaxImage
+                    <ParallaxImagePro
                       src={application.image}
                       alt={application.title}
                       className="w-full h-full"
@@ -428,7 +428,7 @@ export default function AdaptiveMachiningPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <ParallaxImage
+              <ParallaxImagePro
                 src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
                 alt="Smart manufacturing control"
                 className="w-full h-96 rounded-lg"

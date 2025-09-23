@@ -78,7 +78,7 @@ export default function MedicalPage() {
     <main className="relative min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center">
-        <ParallaxImage
+        <ParallaxImagePro
           src="https://images.unsplash.com/photo-1581595220975-9c8e49937d49?w=1920&q=80"
           alt="Medical device manufacturing"
         />
@@ -199,7 +199,7 @@ export default function MedicalPage() {
 
                 <div className={cn("relative h-96 rounded-lg overflow-hidden",
                   index % 2 === 1 ? "md:order-1" : "")}>
-                  <ParallaxImage
+                  <ParallaxImagePro
                     src={app.image}
                     alt={app.category}
                     className="rounded-lg"
