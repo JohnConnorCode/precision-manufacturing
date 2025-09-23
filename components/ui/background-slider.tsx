@@ -35,15 +35,13 @@ export default function BackgroundSlider({
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0"
-        >
-          <ParallaxImage
-            src={images[currentIndex]}
-            alt="Background"
-            className="w-full h-full"
-            speed={0.3}
-            scale={true}
-          />
-        </motion.div>
+          style={{
+            backgroundImage: `url(${images[currentIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'brightness(0.7)'
+          }}
+        />
       </AnimatePresence>
 
       {/* Gradient Overlay */}

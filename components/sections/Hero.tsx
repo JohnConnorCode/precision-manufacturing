@@ -39,7 +39,7 @@ export default function Hero() {
       <BackgroundSlider
         images={heroImages}
         interval={6000}
-        className="opacity-30"
+        className="opacity-40"
       />
 
       {/* Particle Background */}
@@ -54,7 +54,7 @@ export default function Hero() {
       </div>
 
       {/* 3D Precision Part */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 opacity-20 lg:opacity-40">
+      <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 opacity-30 lg:opacity-50 pointer-events-none">
         <Suspense fallback={null}>
           <PrecisionPart className="w-full h-full" />
         </Suspense>
@@ -69,21 +69,32 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-5xl mx-auto"
         >
-          {/* Company Badge with Mouse Parallax */}
+          {/* Company Excellence Badge */}
           <motion.div
-            ref={parallaxRef as any}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-6"
-            style={{
-              transform: `perspective(1000px) rotateX(${rotation.rotateX}deg) rotateY(${rotation.rotateY}deg)`
-            }}
+            className="mb-8"
           >
-            <span className={cn(theme.components.badge.dark, 'px-4 py-2')}>
-              <Zap className="w-3 h-3 mr-2 text-cyan-400" />
-              PRECISION AEROSPACE MANUFACTURING • EST. 1995
-            </span>
+            <div className="inline-flex flex-col items-center">
+              <span className="text-xs font-medium text-cyan-400 uppercase tracking-wider mb-2">Certified Excellence</span>
+              <div className="flex items-center gap-4 px-6 py-3 rounded-full bg-slate-900/80 backdrop-blur-sm border border-cyan-500/30">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-cyan-400" />
+                  <span className="text-sm font-semibold text-white">ITAR</span>
+                </div>
+                <span className="text-cyan-500">•</span>
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-cyan-400" />
+                  <span className="text-sm font-semibold text-white">AS9100D</span>
+                </div>
+                <span className="text-cyan-500">•</span>
+                <div className="flex items-center gap-2">
+                  <Gauge className="w-4 h-4 text-cyan-400" />
+                  <span className="text-sm font-semibold text-white">ISO 9001:2015</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Main Headline */}
@@ -182,17 +193,20 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.8 }}
-            className="flex flex-wrap justify-center items-center gap-8 text-sm"
+            className="mt-16"
           >
-            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">5-Axis Machining</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">CMM Inspection</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">Fixture Design</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">Metrology</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">Metbase®</span>
+            <p className="text-xs uppercase tracking-wider text-cyan-400 mb-4">Core Capabilities</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
+              <Link href="/services/5-axis-machining" className="text-slate-400 hover:text-cyan-400 transition-colors">5-Axis Machining</Link>
+              <span className="text-slate-600">•</span>
+              <Link href="/services/metrology" className="text-slate-400 hover:text-cyan-400 transition-colors">CMM Inspection</Link>
+              <span className="text-slate-600">•</span>
+              <Link href="/services" className="text-slate-400 hover:text-cyan-400 transition-colors">Fixture Design</Link>
+              <span className="text-slate-600">•</span>
+              <Link href="/services/metrology" className="text-slate-400 hover:text-cyan-400 transition-colors">Metrology</Link>
+              <span className="text-slate-600">•</span>
+              <Link href="/services" className="text-slate-400 hover:text-cyan-400 transition-colors">Metbase®</Link>
+            </div>
           </motion.div>
         </motion.div>
 
