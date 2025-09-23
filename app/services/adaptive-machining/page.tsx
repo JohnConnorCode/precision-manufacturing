@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Cpu, Zap, TrendingUp, Shield, CheckCircle, Activity, Brain } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxImage from '@/components/ui/parallax-image';
+import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
 
 export default function AdaptiveMachiningPage() {
@@ -96,11 +96,14 @@ export default function AdaptiveMachiningPage() {
       {/* Hero Section */}
       <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
-          <ParallaxImage
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80"
-            alt="Adaptive machining technology"
-            className="w-full h-full opacity-30"
-            speed={0.3}
+          <ParallaxImagePro
+            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=2400&q=85"
+            alt="Smart adaptive machining with AI control"
+            className="w-full h-full"
+            gradient="dark"
+            speed={0.4}
+            scale={true}
+            blur={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>

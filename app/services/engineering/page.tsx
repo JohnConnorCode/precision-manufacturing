@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Wrench, Lightbulb, Cog, Shield, CheckCircle, Settings, Layers, FileText } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxImage from '@/components/ui/parallax-image';
+import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
 
 export default function EngineeringPage() {
@@ -150,11 +150,14 @@ export default function EngineeringPage() {
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
         <div className="absolute inset-0 -z-10">
-          <ParallaxImage
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80"
-            alt="Engineering and design services"
-            className="w-full h-full opacity-30"
-            speed={0.3}
+          <ParallaxImagePro
+            src="https://images.unsplash.com/photo-1581091877018-dac6a371d50f?w=2400&q=85"
+            alt="Advanced CAD engineering and design services"
+            className="w-full h-full"
+            gradient="dark"
+            speed={0.4}
+            scale={true}
+            blur={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>

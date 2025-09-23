@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Target, Ruler, Search, Shield, CheckCircle, Eye, Gauge } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxImage from '@/components/ui/parallax-image';
+import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
 
 export default function MetrologyPage() {
@@ -108,11 +108,14 @@ export default function MetrologyPage() {
       {/* Hero Section */}
       <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
-          <ParallaxImage
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
-            alt="Precision metrology equipment"
-            className="w-full h-full opacity-30"
-            speed={0.3}
+          <ParallaxImagePro
+            src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?w=2400&q=85"
+            alt="Precision metrology and CMM inspection"
+            className="w-full h-full"
+            gradient="dark"
+            speed={0.4}
+            scale={true}
+            blur={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>

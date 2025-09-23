@@ -4,19 +4,44 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxSlider from '@/components/ui/parallax-slider';
+import ParallaxSliderPro from '@/components/ui/parallax-slider-pro';
 
 export default function Hero() {
   const { scrollY } = useScroll();
   const textY = useTransform(scrollY, [0, 500], [0, 50]);
   const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
-  const heroImages = [
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80',
-    'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80',
-    'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1920&q=80',
-    'https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1920&q=80',
-    'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80'
+  const heroSlides = [
+    {
+      src: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=85',
+      alt: 'Precision CNC machining center',
+      title: '5-Axis Precision',
+      subtitle: 'Advanced Manufacturing'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=85',
+      alt: 'Quality inspection and metrology',
+      title: 'CMM Inspection',
+      subtitle: 'Quality Assurance'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=2400&q=85',
+      alt: 'Aerospace component manufacturing',
+      title: 'Aerospace Grade',
+      subtitle: 'AS9100D Certified'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=2400&q=85',
+      alt: 'Advanced robotics and automation',
+      title: 'Smart Factory',
+      subtitle: 'Industry 4.0'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=2400&q=85',
+      alt: 'Precision measurement technology',
+      title: 'Metrology Lab',
+      subtitle: 'ISO 17025 Accredited'
+    }
   ];
 
   // Sequential animation variants
@@ -58,8 +83,8 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax Background Slider */}
-      <ParallaxSlider images={heroImages} />
+      {/* Enhanced Parallax Background Slider */}
+      <ParallaxSliderPro slides={heroSlides} overlayIntensity="medium" />
 
       {/* Content Container */}
       <motion.div

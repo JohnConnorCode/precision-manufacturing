@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Cog, Cpu, Target, Wrench, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxImage from '@/components/ui/parallax-image';
+import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 
 export default function ServicesPage() {
   const services = [
@@ -55,11 +55,14 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
         <div className="absolute inset-0 -z-10">
-          <ParallaxImage
-            src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
-            alt="Manufacturing services"
-            className="w-full h-full opacity-30"
+          <ParallaxImagePro
+            src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=85"
+            alt="Advanced manufacturing services"
+            className="w-full h-full"
+            gradient="dark"
             speed={0.3}
+            scale={true}
+            blur={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
         </div>

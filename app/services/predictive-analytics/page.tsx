@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Brain, TrendingUp, AlertTriangle, Shield, Cpu, LineChart, CheckCircle, BarChart3 } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxImage from '@/components/ui/parallax-image';
+import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
 
 export default function PredictiveAnalyticsPage() {
@@ -108,9 +108,13 @@ export default function PredictiveAnalyticsPage() {
     <main className="relative min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center">
-        <ParallaxImage
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80"
-          alt="Predictive analytics dashboard"
+        <ParallaxImagePro
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=2400&q=85"
+          alt="AI-powered predictive analytics dashboard"
+          gradient="dark"
+          speed={0.4}
+          scale={true}
+          blur={true}
         />
 
         <div className="container relative z-10 pt-24">
