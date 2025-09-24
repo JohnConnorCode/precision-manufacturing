@@ -79,10 +79,11 @@ export default function HeroSliderPremium({
             alt={slides[currentIndex].alt}
             fill
             className={cn(
-              "object-cover transition-transform duration-[7000ms] ease-out",
+              "object-cover transition-transform ease-out",
               getFocalPosition(slides[currentIndex].focal),
               !isTransitioning ? 'scale-105' : 'scale-100'
             )}
+            style={{ transitionDuration: '7000ms' }}
             priority
             quality={90}
             sizes="100vw"
