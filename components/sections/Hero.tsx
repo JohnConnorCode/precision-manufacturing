@@ -79,20 +79,49 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* Main Title - Bold and Clear */}
+          {/* Main Title - Bold and Clear with Unique Animation */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.05]">
-              <span className="block text-white drop-shadow-2xl">Aerospace</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 drop-shadow-2xl">
+              <motion.span
+                className="block text-white drop-shadow-2xl"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Aerospace
+              </motion.span>
+              <motion.span
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 drop-shadow-2xl relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              >
                 Precision
-              </span>
-              <span className="block text-white drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mt-2">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-cyan-300/20 to-blue-400/20 blur-2xl"
+                  animate={{
+                    opacity: [0.5, 1, 0.5],
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </motion.span>
+              <motion.span
+                className="block text-white drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mt-2"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.9, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              >
                 Manufacturing Excellence
-              </span>
+              </motion.span>
             </h1>
           </motion.div>
 
