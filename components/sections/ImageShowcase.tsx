@@ -133,22 +133,15 @@ export default function ImageShowcase() {
                       />
                     </motion.div>
 
-                    {/* Premium Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                    {/* Lighter Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-                    {/* Animated Border Glow */}
-                    <motion.div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{
-                        background: 'radial-gradient(circle at center, rgba(6, 182, 212, 0.1) 0%, transparent 70%)'
-                      }}
-                    />
 
                     {/* Content with Animation */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <motion.div
-                        initial={{ y: 10, opacity: 0.8 }}
-                        whileHover={{ y: 0, opacity: 1 }}
+                        initial={{ y: 10 }}
+                        whileHover={{ y: 0 }}
                         transition={{ duration: 0.3 }}
                       >
                         <p className="text-xs font-bold text-cyan-400 uppercase tracking-[0.2em] mb-2">

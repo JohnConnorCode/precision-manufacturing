@@ -131,11 +131,11 @@ export default function Services() {
                       <ParallaxImagePro
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full opacity-60 group-hover:opacity-90 transition-all duration-700"
+                        className="w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-700"
                         speed={0.3}
                         scale={true}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
 
                       {/* Floating Icon with Glow */}
                       <motion.div

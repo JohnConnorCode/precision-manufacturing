@@ -112,43 +112,27 @@ export default function HeroSliderPremium({
         </div>
       </motion.div>
 
-      {/* Premium gradient overlay - subtle and elegant */}
+      {/* Enhanced gradient overlay for better contrast */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Main gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/70" />
+        {/* Main gradient - stronger for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
 
-        {/* Radial vignette for depth */}
+        {/* Center spotlight for hero text */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(15, 23, 42, 0.2) 60%, rgba(15, 23, 42, 0.5) 100%)'
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.7) 100%)'
           }}
         />
 
         {/* Top fade for header */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950/80 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/90 to-transparent" />
 
         {/* Bottom fade for content */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950/90 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black to-transparent" />
       </div>
 
-      {/* Subtle animated accent */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        animate={{
-          background: [
-            'radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
-            'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
-          ]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'linear'
-        }}
-      />
+      {/* Remove animated accent for cleaner look */}
 
       {/* Premium slide indicators */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30">

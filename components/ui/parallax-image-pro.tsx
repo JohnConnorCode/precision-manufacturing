@@ -54,9 +54,9 @@ export default function ParallaxImagePro({
   });
 
   const gradients = {
-    dark: 'bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-slate-950/90',
-    light: 'bg-gradient-to-b from-white/90 via-white/50 to-white/90',
-    blue: 'bg-gradient-to-br from-blue-950/80 via-transparent to-cyan-950/80',
+    dark: 'bg-gradient-to-b from-slate-950/60 via-slate-950/20 to-slate-950/60',
+    light: 'bg-gradient-to-b from-white/60 via-white/20 to-white/60',
+    blue: 'bg-gradient-to-br from-blue-950/50 via-transparent to-cyan-950/50',
     none: ''
   };
 
@@ -131,31 +131,7 @@ export default function ParallaxImagePro({
         )} />
       )}
 
-      {/* Tech grid overlay for aerospace feel */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none z-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(0deg, rgba(6,182,212,0.5) 0%, transparent 1px),
-            linear-gradient(90deg, rgba(6,182,212,0.5) 0%, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }}
-      />
 
-      {/* Animated scan line */}
-      <motion.div
-        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent z-30"
-        initial={{ top: '0%' }}
-        animate={isInView ? {
-          top: ['0%', '100%', '0%']
-        } : {}}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'linear'
-        }}
-      />
     </div>
   );
 }

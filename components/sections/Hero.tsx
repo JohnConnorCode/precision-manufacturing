@@ -47,7 +47,7 @@ export default function Hero() {
       {/* Content Container - Clean and Focused */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="container relative z-10 pt-32 pb-16"
+        className="container relative z-10 pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-8"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,12 +55,12 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-5xl mx-auto"
         >
-          {/* Certification Badges - Subtle and Premium */}
+          {/* Certification Badges - Better visibility */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-4 mb-10"
+            className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12"
           >
             {['AS9100D', 'ITAR', 'ISO 9001:2015', 'NADCAP'].map((cert, index) => (
               <motion.div
@@ -68,59 +68,60 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className="px-4 py-2 rounded-full border border-cyan-500/20 bg-slate-950/30 backdrop-blur-sm"
+                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-cyan-400/40 bg-black/60 backdrop-blur-md"
               >
-                <span className="text-xs font-medium text-cyan-400/90">{cert}</span>
+                <span className="text-[10px] md:text-xs font-semibold text-cyan-400">{cert}</span>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Main Title - Clean Typography */}
+          {/* Main Title - Improved sizing and contrast */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]"
           >
-            <span className="text-white">Precision</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"> Beyond</span>
-            <br />
-            <span className="text-white">Expectations</span>
+            <span className="text-white drop-shadow-2xl">Precision</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 drop-shadow-2xl"> Beyond</span>
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
+            <span className="text-white drop-shadow-2xl">Expectations</span>
           </motion.h1>
 
-          {/* Tagline - Sophisticated */}
+          {/* Tagline - Better contrast */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-xl md:text-2xl text-slate-300 mb-10 font-light"
+            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 md:mb-12 font-light drop-shadow-lg"
           >
             Advanced aerospace manufacturing with
-            <span className="text-cyan-400 font-normal"> ±0.0001"</span> precision
+            <span className="text-cyan-400 font-semibold"> ±0.0001"</span> precision
           </motion.p>
 
-          {/* CTA Buttons - Premium Design */}
+          {/* CTA Buttons - Better mobile layout */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="flex flex-wrap gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
           >
             <Button
               size="lg"
-              className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-300 px-8"
+              className="group w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-500/40 transition-all duration-300 px-6 md:px-8 h-12 md:h-14 text-base md:text-lg"
               asChild
             >
               <Link href="/contact">
                 Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
 
             <Button
               size="lg"
               variant="outline"
-              className="border-slate-700 bg-slate-950/50 text-white hover:border-cyan-500/50 hover:bg-slate-900/50 backdrop-blur-sm transition-all duration-300 px-8"
+              className="w-full sm:w-auto border-white/30 bg-black/40 text-white hover:border-cyan-400/60 hover:bg-black/60 backdrop-blur-md transition-all duration-300 px-6 md:px-8 h-12 md:h-14 text-base md:text-lg font-medium"
               asChild
             >
               <Link href="/services">
@@ -129,15 +130,15 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* Company Info - Subtle */}
+          {/* Company Info - Better visibility */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3, duration: 1 }}
-            className="mt-16 text-sm text-slate-400"
+            className="mt-12 md:mt-16 text-sm text-white/70"
           >
-            <p>Integrated Inspection Systems, Inc.</p>
-            <p className="text-xs mt-1 text-slate-500">Serving aerospace & defense since 1995</p>
+            <p className="font-medium">Integrated Inspection Systems, Inc.</p>
+            <p className="text-xs mt-1 text-white/50">Serving aerospace & defense since 1995</p>
           </motion.div>
         </motion.div>
       </motion.div>
