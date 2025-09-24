@@ -114,7 +114,12 @@ export default function Header() {
                 <NavigationMenuItem key={item.name}>
                   {item.children ? (
                     <>
-                      <NavigationMenuTrigger className="bg-transparent hover:bg-slate-50 data-[state=open]:bg-slate-50 text-slate-700 font-medium">
+                      <NavigationMenuTrigger
+                        className="bg-transparent hover:bg-slate-50 data-[state=open]:bg-slate-50 text-slate-700 font-medium"
+                        aria-label={`${item.name} menu`}
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                      >
                         {item.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -131,8 +136,10 @@ export default function Header() {
                                   className={cn(
                                     'block select-none rounded-lg p-4 no-underline outline-none transition-all',
                                     'hover:bg-slate-100/80 hover:shadow-sm',
+                                    'focus:bg-slate-100 focus:outline-2 focus:outline-cyan-500',
                                     'group'
                                   )}
+                                  aria-label={`${child.name} - ${child.description || ''}`}
                                 >
                                   <div className="text-sm font-semibold text-slate-900 group-hover:text-slate-700">
                                     {child.name}
