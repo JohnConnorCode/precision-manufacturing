@@ -11,7 +11,12 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "vercel:check": "./scripts/check-vercel-status.sh",
+    "vercel:monitor": "node ./scripts/monitor-vercel.js",
+    "vercel:watch": "node ./scripts/monitor-vercel.js --watch",
+    "vercel:auto": "./scripts/auto-check-deployment.sh",
+    "deploy:check": "git push && npm run vercel:auto"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
