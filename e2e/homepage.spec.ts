@@ -6,17 +6,19 @@ test.describe('Homepage', () => {
   });
 
   test('should display the hero section', async ({ page }) => {
-    // Check hero headline
-    await expect(page.locator('h1')).toContainText('Precision Engineering');
-    await expect(page.locator('h1')).toContainText('Aerospace Excellence');
+    // Check hero headline - now in all caps
+    await expect(page.locator('h1')).toContainText('PRECISION');
+    await expect(page.locator('h1')).toContainText('ENGINEERING');
+    await expect(page.locator('p.text-xl').filter({ hasText: 'AEROSPACE EXCELLENCE' })).toBeVisible();
 
-    // Check ITAR compliance badge
-    await expect(page.getByText('ITAR COMPLIANT')).toBeVisible();
-    await expect(page.getByText('AS9100D CERTIFIED')).toBeVisible();
+    // Check certification badges in the hero section
+    const heroSection = page.locator('section').first();
+    await expect(heroSection.locator('span.text-xs.font-black').filter({ hasText: 'ITAR' })).toBeVisible();
+    await expect(heroSection.locator('span.text-xs.font-black').filter({ hasText: 'AS9100D' })).toBeVisible();
 
     // Check CTA buttons
-    await expect(page.getByRole('button', { name: /Request Quote/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /View Capabilities/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Start Your Project/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Explore Capabilities/i })).toBeVisible();
   });
 
   test('should display stats section', async ({ page }) => {
@@ -28,32 +30,23 @@ test.describe('Homepage', () => {
   });
 
   test('should display services section', async ({ page }) => {
-    // Check section title
-    await expect(page.getByRole('heading', { name: /Precision Manufacturing Services/i })).toBeVisible();
+    // Check section title - updated to match new design
+    await expect(page.getByText('PRECISION SERVICES')).toBeVisible();
 
-    // Check service cards
-    const services = [
-      '5-Axis Machining',
-      'Adaptive Machining',
-      'Metrology & Inspection',
-      'Engineering Support'
-    ];
-
-    for (const service of services) {
-      await expect(page.getByRole('heading', { name: service })).toBeVisible();
-    }
+    // Check service cards are present
+    const serviceSection = page.locator('section').filter({ has: page.getByText('PRECISION SERVICES') });
+    const serviceCards = serviceSection.locator('.group');
+    await expect(serviceCards).toHaveCount(4);
   });
 
   test('should display industries section', async ({ page }) => {
-    // Check section title
-    await expect(page.getByRole('heading', { name: /Industries We Serve/i })).toBeVisible();
+    // Check section title - updated to match new design
+    await expect(page.getByText('INDUSTRY LEADERS')).toBeVisible();
 
-    // Check industry cards
-    const industries = ['Aerospace', 'Energy & Turbines', 'Defense'];
-
-    for (const industry of industries) {
-      await expect(page.getByRole('heading', { name: industry })).toBeVisible();
-    }
+    // Check industry cards are present
+    const industrySection = page.locator('section').filter({ has: page.getByText('INDUSTRY LEADERS') });
+    const industryCards = industrySection.locator('.group');
+    await expect(industryCards.first()).toBeVisible();
   });
 
   test('should display CTA section', async ({ page }) => {

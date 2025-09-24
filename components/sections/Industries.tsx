@@ -41,14 +41,26 @@ export default function Industries() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Industries We Serve
+          {/* Clear Section Purpose */}
+          <p className="text-sm font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2">
+            SPECIALIZED SECTOR EXPERTISE
+          </p>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
+            <span className="text-slate-900">INDUSTRY</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> LEADERS</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Trusted partner for mission-critical manufacturing across multiple sectors
+
+          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">
+            Three decades of trusted partnerships in mission-critical sectors
+          </p>
+
+          <p className="text-base text-slate-500 max-w-2xl mx-auto">
+            Our certifications and clearances enable us to serve the most demanding industries
+            where component failure can mean mission failure
           </p>
         </motion.div>
 

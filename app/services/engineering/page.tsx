@@ -148,7 +148,7 @@ export default function EngineeringPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+      <section className={cn(styles.pageHeader)}>
         <div className="absolute inset-0 -z-10">
           <ParallaxImagePro
             src="https://images.unsplash.com/photo-1581091877018-dac6a371d50f?w=2400&q=85"

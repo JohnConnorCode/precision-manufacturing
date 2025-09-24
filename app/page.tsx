@@ -1,6 +1,9 @@
 import Hero from '@/components/sections/Hero';
+import TechnicalSpecs from '@/components/sections/TechnicalSpecs';
 import Services from '@/components/sections/Services';
+import Industries from '@/components/sections/Industries';
 import ImageShowcase from '@/components/sections/ImageShowcase';
+import Stats from '@/components/sections/Stats';
 import CTA from '@/components/sections/CTA';
 import { client } from '@/sanity/lib/sanity';
 import { homePageQuery } from '@/sanity/lib/queries';
@@ -25,8 +28,11 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <TechnicalSpecs />
       <Services />
+      <Industries />
       <ImageShowcase />
+      <Stats />
       <CTA />
     </>
   );

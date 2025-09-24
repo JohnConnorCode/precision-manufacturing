@@ -11,12 +11,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Integrated Inspection Systems, Inc. | Innovative Machining & Inspection",
-  description: "Founded in 1995, IIS provides precision machining, inspection, fixture design, and metrology services. AS9100D certified, ITAR registered, ISO 9001 compliant.",
-  keywords: "precision machining, inspection services, fixture design, metrology, AS9100D, ITAR registered, ISO 9001, Metbase, Clackamas Oregon",
+  title: "Precision Manufacturing | Aerospace & Defense Supplier",
+  description: "ITAR-compliant precision manufacturing for aerospace, defense, and energy industries. AS9100D certified with tolerances to ±0.0001\". Since 1995.",
+  keywords: "precision manufacturing, aerospace manufacturing, defense contractor, AS9100D, ITAR registered, ISO 9001, CNC machining, metrology",
   openGraph: {
-    title: "Integrated Inspection Systems, Inc. | Innovative Machining",
-    description: "Quality is not inspected into a product but inherently designed and built into every process. AS9100D certified, ITAR registered.",
+    title: "Precision Manufacturing | Aerospace & Defense",
+    description: "ITAR-compliant precision manufacturing with 5-axis machining, adaptive manufacturing, and ultra-precision tolerances.",
     type: "website",
   },
 };

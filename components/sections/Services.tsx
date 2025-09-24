@@ -76,21 +76,29 @@ export default function Services() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-16 md:mb-20"
         >
+          {/* Section Context */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-sm font-semibold text-cyan-600 uppercase tracking-[0.2em] mb-4"
+            className="text-sm font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2"
           >
-            Core Capabilities
+            COMPREHENSIVE MANUFACTURING SOLUTIONS
           </motion.p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-slate-900">Precision</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> Manufacturing</span>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
+            <span className="text-slate-900">PRECISION</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> SERVICES</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light">
-            Advanced manufacturing solutions for aerospace, defense, and high-tech industries
+
+          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">
+            Four core service pillars delivering unmatched precision and reliability
+          </p>
+
+          <p className="text-base text-slate-500 max-w-2xl mx-auto">
+            From complex 5-axis machining to advanced metrology, our integrated services ensure
+            your most critical components meet the strictest aerospace and defense standards
           </p>
         </motion.div>
 

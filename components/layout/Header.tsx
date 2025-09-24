@@ -74,24 +74,24 @@ export default function Header() {
   return (
     <>
       {/* Top Info Bar - Hidden on mobile */}
-      <div className="hidden lg:block fixed top-0 z-[150] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/10">
+      <aside className="hidden lg:block fixed top-0 z-[150] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/10" role="complementary" aria-label="Contact information">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group">
-              <Phone className="h-3 w-3 group-hover:text-cyan-400" />
+            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group" aria-label="Phone: 503-231-9093">
+              <Phone className="h-3 w-3 group-hover:text-cyan-400" aria-hidden="true" />
               <span>503-231-9093</span>
             </a>
-            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group">
-              <Mail className="h-3 w-3 group-hover:text-cyan-400" />
+            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group" aria-label="Email: officemgr@iismet.com">
+              <Mail className="h-3 w-3 group-hover:text-cyan-400" aria-hidden="true" />
               <span>officemgr@iismet.com</span>
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <Zap className="h-3 w-3 text-cyan-400" />
+            <Zap className="h-3 w-3 text-cyan-400" aria-hidden="true" />
             <span className={cn(theme.typography.badge, 'text-slate-400')}>ISO 9001 • AS9100D • ITAR REGISTERED</span>
           </div>
         </div>
-      </div>
+      </aside>
 
       {/* Main Navigation */}
       <header
@@ -192,7 +192,7 @@ export default function Header() {
           {/* Mobile Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="hover:bg-slate-100/50">
+              <Button variant="ghost" size="icon" className="hover:bg-slate-100/50" aria-label="Open menu">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>

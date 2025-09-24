@@ -92,14 +92,11 @@ export default function CTA() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Precision Manufacturing for
-            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-              Critical Aerospace Systems
-            </span>
+            Ready to Start Your Project?
           </h2>
 
           <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-            From prototype to production, we deliver AS9100D-certified precision components
+            Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components
             with tolerances to ±0.0001" for aerospace, defense, and medical applications.
           </p>
 
@@ -167,7 +164,7 @@ export default function CTA() {
               className="group flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-colors"
             >
               <Award className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm font-medium text-slate-300">AS9100D Certified</span>
+              <span className="text-sm font-medium text-slate-300">AS9100D</span>
             </motion.div>
           </div>
 

@@ -107,7 +107,7 @@ export default function PredictiveAnalyticsPage() {
   return (
     <main className="relative min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center">
+      <section className={cn(styles.pageHeader)}>
         <ParallaxImagePro
           src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=2400&q=85"
           alt="AI-powered predictive analytics dashboard"
@@ -117,7 +117,7 @@ export default function PredictiveAnalyticsPage() {
           blur={true}
         />
 
-        <div className="container relative z-10 pt-24">
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

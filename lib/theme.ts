@@ -133,7 +133,7 @@ export const styles = {
   pageHeader: cn(
     'relative overflow-hidden',
     'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950',
-    'pt-32 pb-16 md:pt-40 md:pb-24'
+    'pt-48 pb-32 md:pt-56 md:pb-40 lg:pt-64 lg:pb-48' // Much more spacious
   ),
 
   pageTitle: cn(

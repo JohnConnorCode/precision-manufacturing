@@ -165,7 +165,7 @@ export default function ImageShowcase() {
         >
           <div className="inline-flex flex-col items-center p-8 md:p-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-2xl">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Ready to Start Your Project?
+              Get Started Today
             </h3>
             <p className="text-lg text-slate-300 mb-8 max-w-md">
               Let's discuss how we can deliver precision manufacturing solutions for your needs
