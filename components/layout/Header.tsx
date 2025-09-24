@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Phone, Mail, Zap } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, Zap, ArrowRight } from 'lucide-react';
 import Logo from '@/components/ui/logo';
 import { Button } from '@/components/ui/button';
 import {
@@ -167,13 +167,25 @@ export default function Header() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA - Premium Design */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button
               size="default"
-              className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 shadow-lg"
+              asChild
+              className="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold px-6 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
             >
-              REQUEST QUOTE
+              <Link href="/contact">
+                <span className="relative z-10 flex items-center">
+                  REQUEST QUOTE
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500"
+                  initial={{ x: '100%' }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </Link>
             </Button>
           </div>
 
@@ -217,8 +229,16 @@ export default function Header() {
                     )}
                   </div>
                 ))}
-                <Button className="mt-6 w-full bg-slate-900 hover:bg-slate-800 text-white">
-                  Request Quote
+                <Button
+                  className="mt-6 w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold shadow-lg"
+                  asChild
+                >
+                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                    <span className="flex items-center justify-center">
+                      Request Quote
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </span>
+                  </Link>
                 </Button>
               </nav>
             </SheetContent>

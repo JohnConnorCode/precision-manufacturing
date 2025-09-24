@@ -25,13 +25,10 @@ import {
   Clock,
   ArrowRight,
   CheckCircle,
-  Building2,
   Shield,
-  Zap,
-  Users
+  Award,
+  Activity
 } from 'lucide-react';
-import ParallaxImagePro from '@/components/ui/parallax-image-pro';
-import { theme, styles, cn } from '@/lib/theme';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -84,178 +81,200 @@ export default function ContactPage() {
     }
   };
 
-  // Sequential fade-in animation variants
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const staggerItem = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 }
-  };
-
   return (
-    <main className="relative min-h-screen bg-slate-950">
-      {/* Hero Section with Parallax */}
-      <section className="relative h-[60vh] flex items-center">
-        <ParallaxImagePro
-          src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
-          alt="Precision manufacturing facility"
-          gradient="dark"
-          speed={0.3}
-        />
+    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      {/* Clean Hero Section */}
+      <section className="relative py-32 overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-grid opacity-[0.02]" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        </div>
 
-        <div className="container relative z-10 pt-24">
+        <div className="container relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <Building2 className="w-8 h-8 text-cyan-400" />
-              <span className="text-cyan-400 uppercase tracking-wider text-sm font-medium">
-                Get In Touch
-              </span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-8">
+              <Activity className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm font-medium text-cyan-400">Get Started</span>
             </div>
 
-            <h1 className={cn(styles.pageTitle, "mb-6")}>
-              Start Your Precision Manufacturing Project
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-white">Contact</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"> Our Team</span>
             </h1>
 
-            <p className={cn(theme.typography.lead, "text-slate-300")}>
-              Connect with Integrated Inspection Systems' engineering team for custom solutions,
-              quotes, and technical consultations. 30 years of excellence in aerospace manufacturing.
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              Connect with Integrated Inspection Systems for precision manufacturing solutions,
+              technical consultations, and project quotes.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Trust Indicators Bar */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        className="py-8 bg-gradient-to-b from-slate-950 to-slate-900 border-y border-slate-800"
-      >
+      {/* Main Content */}
+      <section className="py-20">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="flex items-center gap-3">
-              <Shield className="w-8 h-8 text-cyan-400" />
+          <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-8"
+            >
               <div>
-                <div className="text-sm text-slate-500">Response Time</div>
-                <div className="font-semibold text-white">&lt; 2 Hours</div>
+                <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+                <p className="text-slate-400 mb-8">
+                  Our engineering team is ready to discuss your precision manufacturing needs.
+                </p>
               </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Zap className="w-8 h-8 text-cyan-400" />
-              <div>
-                <div className="text-sm text-slate-500">Production</div>
-                <div className="font-semibold text-white">24/7 Operation</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Users className="w-8 h-8 text-cyan-400" />
-              <div>
-                <div className="text-sm text-slate-500">Clients Served</div>
-                <div className="font-semibold text-white">500+ Companies</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-cyan-400" />
-              <div>
-                <div className="text-sm text-slate-500">Quality Rate</div>
-                <div className="font-semibold text-white">99.99%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
 
-      {/* Contact Form Section */}
-      <section className="py-20 bg-slate-900">
-        <div className="container">
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-            className="grid lg:grid-cols-3 gap-12 max-w-7xl mx-auto"
-          >
+              {/* Contact Cards */}
+              <Card className="p-6 bg-slate-900/50 border-slate-800 backdrop-blur-sm">
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white mb-1">Headquarters</h3>
+                      <p className="text-sm text-slate-400">
+                        Integrated Inspection Systems, Inc.<br />
+                        12345 Precision Way<br />
+                        Torrance, CA 90501
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white mb-1">Phone</h3>
+                      <a href="tel:+15032319093" className="text-sm text-slate-400 hover:text-cyan-400 transition-colors">
+                        (503) 231-9093
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white mb-1">Email</h3>
+                      <a href="mailto:officemgr@iismet.com" className="text-sm text-slate-400 hover:text-cyan-400 transition-colors">
+                        officemgr@iismet.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white mb-1">Business Hours</h3>
+                      <p className="text-sm text-slate-400">
+                        Monday - Friday: 7:00 AM - 5:00 PM PST<br />
+                        24/7 Production Facility
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Certifications */}
+              <Card className="p-6 bg-slate-900/50 border-slate-800 backdrop-blur-sm">
+                <h3 className="font-semibold text-white mb-4">Certifications</h3>
+                <div className="space-y-3">
+                  {['AS9100D', 'ISO 9001:2015', 'ITAR Registered', 'NADCAP'].map((cert) => (
+                    <div key={cert} className="flex items-center gap-3">
+                      <Shield className="w-4 h-4 text-cyan-400" />
+                      <span className="text-sm text-slate-400">{cert}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
+
             {/* Contact Form */}
-            <motion.div variants={staggerItem} className="lg:col-span-2">
-              <Card className="bg-slate-950/50 border-slate-800 p-8">
-                <h2 className="text-2xl font-bold mb-6 text-white">Project Inquiry Form</h2>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="lg:col-span-2"
+            >
+              <Card className="p-8 bg-slate-900/50 border-slate-800 backdrop-blur-sm">
+                <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <motion.div variants={staggerItem}>
+                    <div>
                       <Label htmlFor="name" className="text-slate-300">Full Name *</Label>
                       <Input
                         id="name"
                         {...register('name')}
                         placeholder="John Doe"
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500"
+                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
                       />
                       {errors.name && (
                         <p className="text-sm text-red-400 mt-1">{errors.name.message}</p>
                       )}
-                    </motion.div>
+                    </div>
 
-                    <motion.div variants={staggerItem}>
+                    <div>
                       <Label htmlFor="email" className="text-slate-300">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
                         {...register('email')}
                         placeholder="john@company.com"
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500"
+                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
                       />
                       {errors.email && (
                         <p className="text-sm text-red-400 mt-1">{errors.email.message}</p>
                       )}
-                    </motion.div>
+                    </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <motion.div variants={staggerItem}>
+                    <div>
                       <Label htmlFor="company" className="text-slate-300">Company *</Label>
                       <Input
                         id="company"
                         {...register('company')}
                         placeholder="Acme Aerospace"
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500"
+                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
                       />
                       {errors.company && (
                         <p className="text-sm text-red-400 mt-1">{errors.company.message}</p>
                       )}
-                    </motion.div>
+                    </div>
 
-                    <motion.div variants={staggerItem}>
-                      <Label htmlFor="phone" className="text-slate-300">Phone Number</Label>
+                    <div>
+                      <Label htmlFor="phone" className="text-slate-300">Phone</Label>
                       <Input
                         id="phone"
                         type="tel"
                         {...register('phone')}
                         placeholder="+1 (555) 123-4567"
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500"
+                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
                       />
-                    </motion.div>
+                    </div>
                   </div>
 
-                  <motion.div variants={staggerItem}>
+                  <div>
                     <Label htmlFor="interest" className="text-slate-300">Inquiry Type *</Label>
                     <Select onValueChange={(value) => setValue('interest', value as any)}>
-                      <SelectTrigger className="bg-slate-900/50 border-slate-700 text-white focus:border-cyan-500">
+                      <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
                         <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
                       <SelectContent className="bg-slate-900 border-slate-700">
@@ -270,18 +289,14 @@ export default function ContactPage() {
                     {errors.interest && (
                       <p className="text-sm text-red-400 mt-1">{errors.interest.message}</p>
                     )}
-                  </motion.div>
+                  </div>
 
                   {(interest === 'quote' || interest === 'technical') && (
-                    <>
-                      <motion.div
-                        variants={staggerItem}
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                      >
-                        <Label htmlFor="projectType" className="text-slate-300">Industry/Project Type</Label>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="projectType" className="text-slate-300">Industry</Label>
                         <Select onValueChange={(value) => setValue('projectType', value as any)}>
-                          <SelectTrigger className="bg-slate-900/50 border-slate-700 text-white focus:border-cyan-500">
+                          <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
                             <SelectValue placeholder="Select industry" />
                           </SelectTrigger>
                           <SelectContent className="bg-slate-900 border-slate-700">
@@ -292,220 +307,110 @@ export default function ContactPage() {
                             <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
-                      </motion.div>
+                      </div>
 
-                      <motion.div
-                        variants={staggerItem}
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                      >
-                        <Label htmlFor="timeline" className="text-slate-300">Project Timeline</Label>
+                      <div>
+                        <Label htmlFor="timeline" className="text-slate-300">Timeline</Label>
                         <Select onValueChange={(value) => setValue('timeline', value as any)}>
-                          <SelectTrigger className="bg-slate-900/50 border-slate-700 text-white focus:border-cyan-500">
+                          <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
                             <SelectValue placeholder="Select timeline" />
                           </SelectTrigger>
                           <SelectContent className="bg-slate-900 border-slate-700">
-                            <SelectItem value="immediate">Immediate (ASAP)</SelectItem>
+                            <SelectItem value="immediate">Immediate</SelectItem>
                             <SelectItem value="1-3months">1-3 Months</SelectItem>
                             <SelectItem value="3-6months">3-6 Months</SelectItem>
                             <SelectItem value="6months+">6+ Months</SelectItem>
                           </SelectContent>
                         </Select>
-                      </motion.div>
-                    </>
+                      </div>
+                    </div>
                   )}
 
-                  <motion.div variants={staggerItem}>
-                    <Label htmlFor="message" className="text-slate-300">Project Details *</Label>
+                  <div>
+                    <Label htmlFor="message" className="text-slate-300">Message *</Label>
                     <Textarea
                       id="message"
                       {...register('message')}
-                      placeholder="Please describe your requirements, specifications, or questions..."
+                      placeholder="Please describe your project requirements..."
                       rows={6}
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500"
+                      className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 resize-none mt-1"
                     />
                     {errors.message && (
                       <p className="text-sm text-red-400 mt-1">{errors.message.message}</p>
                     )}
-                  </motion.div>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-slate-500">
+                      * Required fields
+                    </p>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-8"
+                    >
+                      {isSubmitting ? (
+                        'Sending...'
+                      ) : (
+                        <>
+                          Send Message
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </>
+                      )}
+                    </Button>
+                  </div>
 
                   {submitResult && (
                     <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className={cn(
-                        "p-4 rounded-lg",
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`p-4 rounded-lg ${
                         submitResult.success
-                          ? "bg-green-500/10 text-green-400 border border-green-500/20"
-                          : "bg-red-500/10 text-red-400 border border-red-500/20"
-                      )}
+                          ? 'bg-green-500/10 border border-green-500/20'
+                          : 'bg-red-500/10 border border-red-500/20'
+                      }`}
                     >
-                      {submitResult.message}
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className={`w-5 h-5 ${
+                          submitResult.success ? 'text-green-400' : 'text-red-400'
+                        }`} />
+                        <p className={`text-sm ${
+                          submitResult.success ? 'text-green-400' : 'text-red-400'
+                        }`}>
+                          {submitResult.message}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
-
-                  <motion.div variants={staggerItem}>
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white"
-                    >
-                      {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </motion.div>
                 </form>
               </Card>
             </motion.div>
+          </div>
 
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <motion.div variants={staggerItem}>
-                <Card className="bg-slate-950/50 border-slate-800 p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-white">Corporate Headquarters</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-cyan-400 mt-0.5" />
-                      <div>
-                        <p className="font-medium text-white">Main Facility</p>
-                        <p className="text-sm text-slate-400">
-                          Integrated Inspection Systems, Inc.<br />
-                          12345 Precision Way<br />
-                          Torrance, CA 90501<br />
-                          United States
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <Phone className="w-5 h-5 text-cyan-400 mt-0.5" />
-                      <div>
-                        <p className="font-medium text-white">Contact Numbers</p>
-                        <p className="text-sm text-slate-400">
-                          Main: +1 (310) 555-0100<br />
-                          Engineering: +1 (310) 555-0150<br />
-                          24/7 Production: +1 (310) 555-0199
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <Mail className="w-5 h-5 text-cyan-400 mt-0.5" />
-                      <div>
-                        <p className="font-medium text-white">Email Departments</p>
-                        <p className="text-sm text-slate-400">
-                          Sales: sales@iismet.com<br />
-                          Engineering: engineering@iismet.com<br />
-                          Quality: quality@iismet.com
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <Clock className="w-5 h-5 text-cyan-400 mt-0.5" />
-                      <div>
-                        <p className="font-medium text-white">Operating Hours</p>
-                        <p className="text-sm text-slate-400">
-                          Office: Mon-Fri 7:00 AM - 6:00 PM PST<br />
-                          Production: 24/7/365<br />
-                          Emergency Line: Always Available
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-
-              <motion.div variants={staggerItem}>
-                <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20 p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-cyan-400">Priority Response</h3>
-                  <p className="text-sm text-slate-300 mb-4">
-                    For urgent aerospace and defense projects requiring immediate attention:
-                  </p>
-                  <p className="text-2xl font-bold text-white mb-2">+1 (310) 555-0911</p>
-                  <p className="text-xs text-slate-400">Average response time: 15 minutes</p>
-                </Card>
-              </motion.div>
-
-              <motion.div variants={staggerItem}>
-                <Card className="bg-slate-950/50 border-slate-800 p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-white">Certifications & Compliance</h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-300">AS9100D Aerospace Certified</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-300">ISO 9001:2015 Quality Management</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-300">ITAR Registered (DDTC)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-300">NADCAP Accredited</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-300">FDA Registered Facility</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-300">ISO 14001 Environmental</span>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-
-              <motion.div variants={staggerItem}>
-                <Card className="bg-slate-950/50 border-slate-800 p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-white">Global Reach</h3>
-                  <p className="text-sm text-slate-400 mb-3">
-                    Serving aerospace and defense contractors worldwide with facilities in:
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 text-sm text-slate-300">
-                    <div>• United States</div>
-                    <div>• United Kingdom</div>
-                    <div>• Germany</div>
-                    <div>• Japan</div>
-                    <div>• Canada</div>
-                    <div>• Australia</div>
-                  </div>
-                </Card>
-              </motion.div>
+          {/* Bottom Info Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-20 text-center"
+          >
+            <div className="inline-flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <span>Response within 2 hours</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4 text-cyan-400" />
+                <span>30+ years of excellence</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-cyan-400" />
+                <span>ITAR compliant</span>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
-
-      {/* Map Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="relative h-96 bg-slate-950"
-      >
-        <ParallaxImagePro
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80"
-          alt="Manufacturing facility location"
-          gradient="dark"
-          speed={0.2}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Card className="bg-slate-950/90 border-slate-800 p-8 backdrop-blur-sm">
-            <h3 className="text-2xl font-bold text-white mb-2">Visit Our Facility</h3>
-            <p className="text-slate-400 mb-4">Schedule a tour of our 150,000 sq ft manufacturing center</p>
-            <Button variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10">
-              Schedule Facility Tour
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Card>
-        </div>
-      </motion.section>
     </main>
   );
 }

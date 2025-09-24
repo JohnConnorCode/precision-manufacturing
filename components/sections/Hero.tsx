@@ -4,307 +4,158 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import ParallaxSliderPro from '@/components/ui/parallax-slider-pro';
+import HeroSliderPremium from '@/components/ui/hero-slider-premium';
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  const textY = useTransform(scrollY, [0, 500], [0, 50]);
+  const textY = useTransform(scrollY, [0, 500], [0, 30]);
   const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const heroSlides = [
     {
-      src: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=85',
+      src: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=90',
       alt: 'Precision CNC machining center',
-      title: '5-Axis Precision',
-      subtitle: 'Advanced Manufacturing'
+      focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=85',
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=90',
       alt: 'Quality inspection and metrology',
-      title: 'CMM Inspection',
-      subtitle: 'Quality Assurance'
+      focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=2400&q=85',
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=2400&q=90',
       alt: 'Aerospace component manufacturing',
-      title: 'Aerospace Grade',
-      subtitle: 'AS9100D Certified'
+      focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=2400&q=85',
+      src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=2400&q=90',
       alt: 'Advanced robotics and automation',
-      title: 'Smart Factory',
-      subtitle: 'Industry 4.0'
+      focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=2400&q=85',
+      src: 'https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=2400&q=90',
       alt: 'Precision measurement technology',
-      title: 'Metrology Lab',
-      subtitle: 'ISO 17025 Accredited'
+      focal: 'top' as const
     }
   ];
 
-  // Sequential animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number]
-      }
-    }
-  };
-
-  const letterAnimation = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.05 * i,
-        duration: 0.5,
-        ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number]
-      }
-    })
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced Parallax Background Slider */}
-      <ParallaxSliderPro slides={heroSlides} overlayIntensity="medium" />
+      {/* Premium Background Slider */}
+      <HeroSliderPremium slides={heroSlides} />
 
-      {/* Content Container */}
+      {/* Content Container - Clean and Focused */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
         className="container relative z-10 pt-32 pb-16"
       >
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-5xl mx-auto"
         >
-          {/* Certification Badges - Fade in first */}
+          {/* Certification Badges - Subtle and Premium */}
           <motion.div
-            variants={itemVariants}
-            className="flex justify-center gap-4 mb-8"
-          >
-            <motion.span
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-900/60 backdrop-blur-sm text-cyan-400 border border-cyan-500/30"
-            >
-              AS9100D Certified
-            </motion.span>
-            <motion.span
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-900/60 backdrop-blur-sm text-cyan-400 border border-cyan-500/30"
-            >
-              ITAR Registered
-            </motion.span>
-            <motion.span
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.7, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-900/60 backdrop-blur-sm text-cyan-400 border border-cyan-500/30"
-            >
-              ISO 9001:2015
-            </motion.span>
-          </motion.div>
-
-          {/* Company Name - Letter by letter animation */}
-          <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
-          >
-            <motion.div className="overflow-hidden">
-              <motion.span className="inline-block">
-                {"INTEGRATED".split("").map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    custom={i}
-                    initial="hidden"
-                    animate="visible"
-                    variants={letterAnimation}
-                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400"
-                    style={{ marginRight: letter === " " ? "0.25em" : "0" }}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </motion.span>
-            </motion.div>
-
-            <motion.div className="overflow-hidden mt-2">
-              <motion.div
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number] }}
-                className="text-white"
-              >
-                INSPECTION SYSTEMS
-              </motion.div>
-            </motion.div>
-          </motion.h1>
-
-          {/* Tagline with typewriter effect */}
-          <motion.div
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-slate-300 mb-4"
-          >
-            <motion.span
-              initial={{ width: 0 }}
-              animate={{ width: "auto" }}
-              transition={{ delay: 1.5, duration: 1.5, ease: "easeInOut" }}
-              className="inline-block overflow-hidden whitespace-nowrap"
-            >
-              Aerospace-Grade Precision Manufacturing
-            </motion.span>
-          </motion.div>
-
-          {/* Sub-tagline */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.8 }}
-            className="text-base md:text-lg text-slate-400 mb-10"
-          >
-            Delivering Excellence Since 1995 • 30+ Years of Innovation
-          </motion.p>
-
-          {/* CTAs with stagger animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.3, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="flex flex-wrap justify-center gap-4 mb-10"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
-                asChild
-              >
-                <Link href="/contact">
-                  Request Quote
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-4 border-2 border-slate-600 backdrop-blur-sm bg-slate-900/30 text-slate-300 hover:border-cyan-500 hover:text-cyan-400 hover:bg-slate-900/50 font-medium text-lg transition-all duration-300"
-              >
-                <Link href="/services">
-                  Our Capabilities
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* Service highlights - Fade in last */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.8, duration: 1 }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
-          >
-            {[
-              { label: '5-Axis', value: 'Machining' },
-              { label: 'CMM', value: 'Inspection' },
-              { label: 'Fixture', value: 'Design' },
-              { label: 'Metrology', value: 'Services' }
-            ].map((item, i) => (
+            {['AS9100D', 'ITAR', 'ISO 9001:2015', 'NADCAP'].map((cert, index) => (
               <motion.div
-                key={item.label}
-                initial={{ opacity: 0, scale: 0.8 }}
+                key={cert}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  delay: 3 + (i * 0.1),
-                  type: "spring",
-                  stiffness: 100
-                }}
-                className="text-center"
+                transition={{ delay: 0.4 + index * 0.1 }}
+                className="px-4 py-2 rounded-full border border-cyan-500/20 bg-slate-950/30 backdrop-blur-sm"
               >
-                <div className="text-2xl font-bold text-cyan-400">{item.label}</div>
-                <div className="text-xs text-slate-500 uppercase tracking-wider">{item.value}</div>
+                <span className="text-xs font-medium text-cyan-400/90">{cert}</span>
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
 
-        {/* Animated Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          {/* Main Title - Clean Typography */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
           >
-            <ChevronDown className="w-6 h-6 text-cyan-400/50" />
+            <span className="text-white">Precision</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"> Beyond</span>
+            <br />
+            <span className="text-white">Expectations</span>
+          </motion.h1>
+
+          {/* Tagline - Sophisticated */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="text-xl md:text-2xl text-slate-300 mb-10 font-light"
+          >
+            Advanced aerospace manufacturing with
+            <span className="text-cyan-400 font-normal"> ±0.0001"</span> precision
+          </motion.p>
+
+          {/* CTA Buttons - Premium Design */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="flex flex-wrap gap-4 justify-center"
+          >
+            <Button
+              size="lg"
+              className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-300 px-8"
+              asChild
+            >
+              <Link href="/contact">
+                Start Your Project
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-slate-700 bg-slate-950/50 text-white hover:border-cyan-500/50 hover:bg-slate-900/50 backdrop-blur-sm transition-all duration-300 px-8"
+              asChild
+            >
+              <Link href="/services">
+                Explore Capabilities
+              </Link>
+            </Button>
+          </motion.div>
+
+          {/* Company Info - Subtle */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3, duration: 1 }}
+            className="mt-16 text-sm text-slate-400"
+          >
+            <p>Integrated Inspection Systems, Inc.</p>
+            <p className="text-xs mt-1 text-slate-500">Serving aerospace & defense since 1995</p>
           </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Animated accent lines */}
+      {/* Scroll Indicator - Minimal */}
       <motion.div
-        className="absolute inset-0 pointer-events-none overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 2 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.div
-          className="absolute top-1/4 -left-48 w-96 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"
-          animate={{
-            x: [-200, 2000],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 0
-          }}
-        />
-        <motion.div
-          className="absolute top-3/4 -right-48 w-96 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"
-          animate={{
-            x: [200, -2000],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 2
-          }}
-        />
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-white/40 hover:text-white/60 transition-colors cursor-pointer"
+        >
+          <ChevronDown className="h-8 w-8" />
+        </motion.div>
       </motion.div>
     </section>
   );
