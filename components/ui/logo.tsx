@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 interface LogoProps {
   className?: string;
   showText?: boolean;
@@ -18,121 +16,100 @@ export default function Logo({
   const colors = {
     default: {
       primary: '#06B6D4', // cyan-500
-      secondary: '#0F172A', // slate-900
       text: '#0F172A', // slate-900
       textSecondary: '#64748B' // slate-500
     },
     light: {
       primary: '#06B6D4', // cyan-500
-      secondary: '#FFFFFF',
       text: '#FFFFFF',
       textSecondary: '#E2E8F0' // slate-200
     },
     dark: {
       primary: '#06B6D4',
-      secondary: '#0F172A',
       text: '#0F172A',
       textSecondary: '#475569' // slate-600
     }
   };
 
   const sizes = {
-    sm: { logo: 32, text: 16 },
-    md: { logo: 40, text: 20 },
-    lg: { logo: 48, text: 24 }
+    sm: { logo: 28, text: 14 },
+    md: { logo: 36, text: 18 },
+    lg: { logo: 44, text: 22 }
   };
 
-  const { primary, secondary, text, textSecondary } = colors[variant];
+  const { primary, text, textSecondary } = colors[variant];
   const { logo: logoSize } = sizes[size];
 
   return (
     <div className={`flex items-center ${className}`}>
-      <div className="flex items-center space-x-3">
-        {/* Clean, professional logo mark */}
+      <div className="flex items-center space-x-2.5">
+        {/* Ultra-clean, minimal logo mark */}
         <div className="relative">
           <svg
             width={logoSize}
             height={logoSize}
-            viewBox="0 0 48 48"
+            viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <defs>
-              <linearGradient id={`logo-gradient-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor={primary} />
-                <stop offset="100%" stopColor={primary} stopOpacity="0.7" />
-              </linearGradient>
-            </defs>
-
-            {/* Clean geometric design representing precision and aerospace */}
+            {/* Simple, modern design */}
             <g>
-              {/* Outer ring - represents global reach and completeness */}
-              <circle
-                cx="24"
-                cy="24"
-                r="22"
+              {/* Clean hexagon shape for aerospace/precision feel */}
+              <path
+                d="M20 4 L34 12 L34 28 L20 36 L6 28 L6 12 Z"
                 stroke={primary}
                 strokeWidth="2"
                 fill="none"
               />
 
-              {/* Inner precision elements - minimalist IIS representation */}
-              <g transform="translate(24, 24)">
-                {/* Vertical bars for "II" */}
+              {/* Minimalist "IIS" monogram inside */}
+              <g transform="translate(20, 20)">
+                {/* Letter I - vertical line */}
                 <rect
-                  x="-9"
+                  x="-8"
                   y="-8"
-                  width="3"
+                  width="2"
                   height="16"
-                  fill={`url(#logo-gradient-${variant})`}
-                  rx="0.5"
+                  fill={primary}
                 />
+
+                {/* Letter I - second vertical */}
                 <rect
                   x="-3"
                   y="-8"
-                  width="3"
+                  width="2"
                   height="16"
-                  fill={`url(#logo-gradient-${variant})`}
-                  rx="0.5"
+                  fill={primary}
                 />
 
-                {/* Stylized "S" - simple curve */}
+                {/* Letter S - simplified */}
                 <path
-                  d="M 3 -8 C 3 -8, 9 -8, 9 -4 C 9 0, 3 0, 3 0 C 3 0, 9 0, 9 4 C 9 8, 3 8, 3 8"
-                  stroke={`url(#logo-gradient-${variant})`}
-                  strokeWidth="3"
+                  d="M 2 -8 L 8 -8 L 8 -2 L 2 2 L 8 2 L 8 8 L 2 8"
+                  stroke={primary}
+                  strokeWidth="2"
                   fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  strokeLinecap="square"
                 />
-              </g>
-
-              {/* Subtle corner marks for precision */}
-              <g opacity="0.5">
-                <path d="M 8,8 L 8,12 M 8,8 L 12,8" stroke={primary} strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M 40,8 L 40,12 M 40,8 L 36,8" stroke={primary} strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M 40,40 L 40,36 M 40,40 L 36,40" stroke={primary} strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M 8,40 L 8,36 M 8,40 L 12,40" stroke={primary} strokeWidth="1.5" strokeLinecap="round"/>
               </g>
             </g>
           </svg>
         </div>
 
         {showText && (
-          <div className="flex flex-col">
-            {/* Company name - clean typography */}
+          <div className="flex flex-col -space-y-0.5">
+            {/* Company name - ultra clean */}
             <div className="flex items-baseline">
               <span
-                className={`font-bold tracking-tight ${
-                  size === 'sm' ? 'text-base' : size === 'lg' ? 'text-2xl' : 'text-xl'
+                className={`font-semibold tracking-tight ${
+                  size === 'sm' ? 'text-sm' : size === 'lg' ? 'text-xl' : 'text-lg'
                 }`}
                 style={{ color: text }}
               >
                 IIS
               </span>
               <span
-                className={`font-bold ${
-                  size === 'sm' ? 'text-base' : size === 'lg' ? 'text-2xl' : 'text-xl'
+                className={`font-semibold ${
+                  size === 'sm' ? 'text-sm' : size === 'lg' ? 'text-xl' : 'text-lg'
                 }`}
                 style={{ color: primary }}
               >
@@ -140,12 +117,12 @@ export default function Logo({
               </span>
             </div>
             <div
-              className={`uppercase tracking-[0.2em] font-medium opacity-80 ${
-                size === 'sm' ? 'text-[9px]' : size === 'lg' ? 'text-xs' : 'text-[10px]'
+              className={`uppercase tracking-[0.15em] font-medium ${
+                size === 'sm' ? 'text-[8px]' : size === 'lg' ? 'text-[11px]' : 'text-[9px]'
               }`}
               style={{ color: textSecondary }}
             >
-              Precision MFG
+              Precision Systems
             </div>
           </div>
         )}

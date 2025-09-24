@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
@@ -19,44 +19,23 @@ interface HeroSliderPremiumProps {
 
 export default function HeroSliderPremium({
   slides,
-  interval = 7000,
+  interval = 8000,
   className = ''
 }: HeroSliderPremiumProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState(1);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const { scrollY } = useScroll();
 
   // Smooth parallax effect
-  const y = useTransform(scrollY, [0, 1000], [0, -200], {
-    clamp: false
-  });
-
-  const opacity = useTransform(scrollY, [0, 400], [1, 0.3]);
-  const scale = useTransform(scrollY, [0, 1000], [1, 1.1]);
+  const y = useTransform(scrollY, [0, 1000], [0, -150]);
+  const scale = useTransform(scrollY, [0, 1000], [1, 1.15]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex(nextIndex);
-        setNextIndex((nextIndex + 1) % slides.length);
-        setIsTransitioning(false);
-      }, 50);
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, interval);
 
     return () => clearInterval(timer);
-  }, [nextIndex, slides.length, interval]);
-
-  const goToSlide = (index: number) => {
-    if (index === currentIndex) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentIndex(index);
-      setNextIndex((index + 1) % slides.length);
-      setIsTransitioning(false);
-    }, 50);
-  };
+  }, [slides.length, interval]);
 
   const getFocalPosition = (focal?: string) => {
     switch(focal) {
@@ -68,134 +47,72 @@ export default function HeroSliderPremium({
 
   return (
     <div className={cn('absolute inset-0 overflow-hidden', className)}>
-      {/* Current image layer */}
-      <motion.div
-        className="absolute inset-0 w-full h-[120%] -top-[10%]"
-        style={{ y, scale, opacity }}
-      >
-        <div className="relative w-full h-full">
-          <Image
-            src={slides[currentIndex].src}
-            alt={slides[currentIndex].alt}
-            fill
-            className={cn(
-              "object-cover transition-transform ease-out",
-              getFocalPosition(slides[currentIndex].focal),
-              !isTransitioning ? 'scale-105' : 'scale-100'
-            )}
-            style={{ transitionDuration: '7000ms' }}
-            priority
-            quality={90}
-            sizes="100vw"
-          />
-        </div>
-      </motion.div>
+      {/* Smooth cross-fade image transition */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          className="absolute inset-0 w-full h-[115%] -top-[7.5%]"
+          style={{ y, scale }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            opacity: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
+          }}
+        >
+          <div className="relative w-full h-full">
+            <Image
+              src={slides[currentIndex].src}
+              alt={slides[currentIndex].alt}
+              fill
+              className={cn(
+                "object-cover",
+                getFocalPosition(slides[currentIndex].focal)
+              )}
+              priority
+              quality={95}
+              sizes="100vw"
+            />
 
-      {/* Next image layer (underneath for seamless transition) */}
-      <motion.div
-        className="absolute inset-0 w-full h-[120%] -top-[10%]"
-        style={{ y, scale }}
-      >
-        <div className="relative w-full h-full">
-          <Image
-            src={slides[nextIndex].src}
-            alt={slides[nextIndex].alt}
-            fill
-            className={cn(
-              "object-cover",
-              getFocalPosition(slides[nextIndex].focal)
-            )}
-            priority={false}
-            quality={90}
-            sizes="100vw"
-          />
-        </div>
-      </motion.div>
+            {/* Subtle Ken Burns effect */}
+            <motion.div
+              className="absolute inset-0"
+              animate={{
+                scale: [1, 1.08],
+              }}
+              transition={{
+                scale: {
+                  duration: interval / 1000,
+                  ease: "linear"
+                }
+              }}
+            />
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Enhanced gradient overlay for better contrast */}
+      {/* Strong gradient overlay for maximum text contrast */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Main gradient - stronger for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        {/* Base dark layer */}
+        <div className="absolute inset-0 bg-black/40" />
 
-        {/* Center spotlight for hero text */}
+        {/* Main gradient for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+
+        {/* Center focus vignette */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.7) 100%)'
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.6) 100%)'
           }}
         />
 
-        {/* Top fade for header */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/90 to-transparent" />
+        {/* Strong top fade for nav */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/90 to-transparent" />
 
-        {/* Bottom fade for content */}
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black to-transparent" />
+        {/* Strong bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
       </div>
-
-      {/* Remove animated accent for cleaner look */}
-
-      {/* Premium slide indicators */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30">
-        <div className="flex items-center gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className="relative p-1 group"
-              aria-label={`Go to slide ${index + 1}`}
-            >
-              <div className="relative">
-                <div className={cn(
-                  'h-[2px] transition-all duration-700 ease-out',
-                  index === currentIndex
-                    ? 'w-10 bg-cyan-400'
-                    : 'w-6 bg-white/20 hover:bg-white/40 group-hover:w-8'
-                )} />
-
-                {/* Active indicator glow */}
-                {index === currentIndex && (
-                  <motion.div
-                    className="absolute inset-0 h-[2px] w-10 bg-cyan-400"
-                    animate={{
-                      boxShadow: [
-                        '0 0 0 0 rgba(6, 182, 212, 0)',
-                        '0 0 20px 4px rgba(6, 182, 212, 0.3)',
-                        '0 0 0 0 rgba(6, 182, 212, 0)'
-                      ]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeOut'
-                    }}
-                  />
-                )}
-
-                {/* Progress bar for active slide */}
-                {index === currentIndex && (
-                  <motion.div
-                    className="absolute inset-0 h-[2px] bg-white/60 origin-left"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{
-                      duration: interval / 1000,
-                      ease: 'linear'
-                    }}
-                  />
-                )}
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Cross-fade overlay for transitions */}
-      <motion.div
-        className="absolute inset-0 bg-slate-950 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isTransitioning ? 0.3 : 0 }}
-        transition={{ duration: 0.8, ease: 'easeInOut' }}
-      />
     </div>
   );
 }
