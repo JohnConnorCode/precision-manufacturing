@@ -30,13 +30,13 @@ test.describe('Navigation', () => {
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 
     // Check company info
-    await expect(page.getByText('PRECISION MFG')).toBeVisible();
-    await expect(page.getByText(/Advancing aerospace/i)).toBeVisible();
+    await expect(page.getByText('INTEGRATED INSPECTION SYSTEMS')).toBeVisible();
+    await expect(page.getByText(/Quality is not inspected/i)).toBeVisible();
 
     // Check footer sections
     await expect(page.getByRole('heading', { name: /Services/i }).last()).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Industries/i }).last()).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Company/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Quick Links/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Contact/i }).last()).toBeVisible();
   });
 
   test('should have responsive mobile menu', async ({ page, isMobile }) => {
