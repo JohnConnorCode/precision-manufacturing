@@ -7,6 +7,7 @@ import { ArrowRight, Settings, Zap, Layers, Shield, CheckCircle, Cog, Target } f
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
+import HeroSection from '@/components/ui/hero-section';
 
 export default function FiveAxisMachiningPage() {
   const capabilities = [
@@ -120,85 +121,36 @@ export default function FiveAxisMachiningPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1565117650576-09f9469ac3b2?w=2400&q=90"
-            alt="Advanced 5-axis CNC machining center"
-            className="w-full h-full object-cover"
-            gradient="dark"
-            speed={0.5}
-            scale={true}
-            blur={false}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className={theme.components.badge.dark}>
-                <Target className="w-3 h-3 mr-2" />
-                ADVANCED MACHINING SERVICES
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className={cn(styles.pageTitle)}
-            >
-              5-Axis <span className={cn(theme.effects.gradient.text, "from-blue-400 to-cyan-400")}>Machining</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className={cn(styles.pageSubtitle, "mb-8")}
-            >
-              Advanced 5-axis simultaneous machining capabilities for the most complex aerospace and defense components. Precision manufacturing with uncompromising quality.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pb-8"
-            >
-              <Button
-                size="lg"
-                className={cn(styles.ctaPrimary, "group")}
-              >
-                Request Quote
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className={cn(styles.ctaSecondary, "border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white")}
-              >
-                <Link href="/contact">
-                  Technical Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1565117650576-09f9469ac3b2?w=2400&q=90"
+        imageAlt="Advanced 5-axis CNC machining center in operation"
+        height="large"
+        alignment="center"
+        showScrollIndicator={true}
+        badge={{
+          text: "ADVANCED MACHINING SERVICES",
+          icon: Target
+        }}
+        title={
+          <>
+            5-Axis <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Machining</span>
+          </>
+        }
+        subtitle="Precision Manufacturing Excellence"
+        description="Advanced 5-axis simultaneous machining capabilities for the most complex aerospace and defense components. Uncompromising quality and precision for mission-critical applications."
+        buttons={[
+          {
+            label: "Get Quote",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Capabilities",
+            href: "/services",
+            variant: "secondary"
+          }
+        ]}
+      />
 
       {/* Capabilities Overview */}
       <section className={styles.sectionLight}>

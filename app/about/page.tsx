@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Users, Factory, Award, TrendingUp, CheckCircle, Target, Zap, Clock } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
@@ -157,85 +158,37 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImage
-            src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
-            alt="Precision manufacturing facility"
-            className="w-full h-full opacity-20"
-            speed={0.3}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-        </div>
-
-        <div className={`${theme.spacing.container} relative z-10`}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Factory className="w-3 h-3 mr-2" />
-                PRECISION MANUFACTURING SINCE 1993
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
-            >
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Our Company</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-slate-400 mb-12 max-w-3xl"
-            >
-              Three decades of precision manufacturing excellence, serving aerospace, defense, and energy industries with unwavering commitment to quality and innovation.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold"
-              >
-                Our Capabilities
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold"
-              >
-                <Link href="/contact">
-                  Contact Our Team
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
+        imageAlt="Precision manufacturing facility - 30 years of excellence"
+        badge={{
+          text: "PRECISION MANUFACTURING SINCE 1993",
+          icon: Factory
+        }}
+        title={
+          <>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-teal-400">Our Company</span>
+          </>
+        }
+        description="Three decades of precision manufacturing excellence, serving aerospace, defense, and energy industries with unwavering commitment to quality and innovation."
+        buttons={[
+          {
+            label: "Our Capabilities",
+            href: "#capabilities",
+            variant: "primary"
+          },
+          {
+            label: "Contact Our Team",
+            href: "/contact",
+            variant: "secondary"
+          }
+        ]}
+        height="large"
+        alignment="center"
+      />
 
       {/* Company Stats */}
-      <section className={`${styles.sectionLight} bg-slate-900/5`}>
+      <section id="stats" className={`${styles.sectionLight} bg-slate-900/5`}>
         <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -444,7 +397,7 @@ export default function AboutPage() {
       </section>
 
       {/* Capabilities & Certifications */}
-      <section className={styles.sectionLight}>
+      <section id="capabilities" className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Capabilities */}

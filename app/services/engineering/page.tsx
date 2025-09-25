@@ -7,6 +7,7 @@ import { ArrowRight, Wrench, Lightbulb, Cog, Shield, CheckCircle, Settings, Laye
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
+import HeroSection from '@/components/ui/hero-section';
 
 export default function EngineeringPage() {
   const capabilities = [
@@ -148,85 +149,36 @@ export default function EngineeringPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1581092918482-a8fee14d45f0?w=2400&q=90"
-            alt="Advanced CAD engineering and design services"
-            className="w-full h-full"
-            gradient="dark"
-            speed={0.4}
-            scale={true}
-            blur={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Wrench className="w-3 h-3 mr-2" />
-                COMPREHENSIVE DESIGN SERVICES
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
-            >
-              Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Services</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-slate-400 mb-12 max-w-3xl"
-            >
-              Complete engineering solutions from concept to production, including design optimization, rapid prototyping, and manufacturing process development.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pb-8"
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold"
-              >
-                Start Project
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold"
-              >
-                <Link href="/contact">
-                  Engineering Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1581092918482-a8fee14d45f0?w=2400&q=90"
+        imageAlt="Advanced CAD engineering and design services workstation"
+        height="large"
+        alignment="center"
+        showScrollIndicator={true}
+        badge={{
+          text: "COMPREHENSIVE DESIGN SERVICES",
+          icon: Wrench
+        }}
+        title={
+          <>
+            Engineering <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Services</span>
+          </>
+        }
+        subtitle="From Concept to Production"
+        description="Complete engineering solutions from initial concept through final production, including design optimization, rapid prototyping, and manufacturing process development."
+        buttons={[
+          {
+            label: "Start Project",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Capabilities",
+            href: "/services",
+            variant: "secondary"
+          }
+        ]}
+      />
 
       {/* Capabilities Overview */}
       <section className={`${styles.sectionLight} bg-slate-900/5`}>

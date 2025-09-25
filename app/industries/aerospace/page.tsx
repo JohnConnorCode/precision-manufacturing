@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Plane, Shield, Award, CheckCircle, Gauge, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
@@ -132,88 +133,37 @@ export default function AerospacePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=2400&q=90"
-            alt="Aerospace manufacturing"
-            className="w-full h-full object-cover"
-            gradient="dark"
-            speed={0.5}
-            scale={true}
-            blur={false}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-background" />
-        </div>
-
-        <div className="container relative z-10 py-32 md:py-40 lg:py-48">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Plane className="w-3 h-3 mr-2" />
-                AEROSPACE MANUFACTURING EXCELLENCE
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
-            >
-              Aerospace <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Components</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-slate-400 mb-12 max-w-3xl"
-            >
-              Trusted partner for critical aerospace components, delivering precision-machined parts for commercial and military aircraft with full AS9100D compliance and ITAR registration.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold"
-              >
-                Request Aerospace Quote
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold"
-              >
-                <Link href="/contact">
-                  Aerospace Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=2400&q=90"
+        imageAlt="Aerospace manufacturing - precision machined aircraft components"
+        badge={{
+          text: "AEROSPACE MANUFACTURING EXCELLENCE",
+          icon: Plane
+        }}
+        title={
+          <>
+            Aerospace <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Components</span>
+          </>
+        }
+        description="Trusted partner for critical aerospace components, delivering precision-machined parts for commercial and military aircraft with full AS9100D compliance and ITAR registration."
+        buttons={[
+          {
+            label: "Request Aerospace Quote",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Capabilities",
+            href: "#capabilities",
+            variant: "secondary"
+          }
+        ]}
+        height="large"
+        alignment="center"
+      />
 
       {/* Aerospace Capabilities */}
-      <section className={`${styles.sectionLight} bg-slate-900/5`}>
+      <section id="capabilities" className={`${styles.sectionLight} bg-slate-900/5`}>
         <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

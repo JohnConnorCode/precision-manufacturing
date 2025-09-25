@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Zap, Shield, Award, CheckCircle, Battery, Flame, Wind } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
@@ -133,85 +134,37 @@ export default function EnergyPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80"
-            alt="Energy sector manufacturing"
-            className="w-full h-full opacity-20"
-            speed={0.3}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-        </div>
-
-        <div className={`${theme.spacing.container} relative z-10`}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Zap className="w-3 h-3 mr-2" />
-                ENERGY SECTOR SOLUTIONS
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
-            >
-              Energy <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Manufacturing</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-slate-400 mb-12 max-w-3xl"
-            >
-              Precision components for power generation, oil & gas, and renewable energy systems. Supporting critical infrastructure with proven reliability and industry compliance.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold"
-              >
-                Request Energy Quote
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold"
-              >
-                <Link href="/contact">
-                  Energy Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80"
+        imageAlt="Energy sector manufacturing - power generation and renewable energy components"
+        badge={{
+          text: "ENERGY SECTOR SOLUTIONS",
+          icon: Zap
+        }}
+        title={
+          <>
+            Energy <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600">Manufacturing</span>
+          </>
+        }
+        description="Precision components for power generation, oil & gas, and renewable energy systems. Supporting critical infrastructure with proven reliability and industry compliance."
+        buttons={[
+          {
+            label: "Request Energy Quote",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Capabilities",
+            href: "#capabilities",
+            variant: "secondary"
+          }
+        ]}
+        height="large"
+        alignment="center"
+      />
 
       {/* Energy Capabilities */}
-      <section className={`${styles.sectionLight} bg-slate-900/5`}>
+      <section id="capabilities" className={`${styles.sectionLight} bg-slate-900/5`}>
         <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

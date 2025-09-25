@@ -7,6 +7,7 @@ import { ArrowRight, Brain, TrendingUp, AlertTriangle, Shield, Cpu, LineChart, C
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
+import HeroSection from '@/components/ui/hero-section';
 
 export default function PredictiveAnalyticsPage() {
   const capabilities = [
@@ -107,65 +108,36 @@ export default function PredictiveAnalyticsPage() {
   return (
     <main className="relative min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=90"
-            alt="AI-powered predictive analytics dashboard"
-            className="w-full h-full"
-            gradient="dark"
-            speed={0.4}
-            scale={true}
-            blur={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Brain className="w-3 h-3 mr-2" />
-                AI-POWERED MANUFACTURING INTELLIGENCE
-              </span>
-            </motion.div>
-
-            <h1 className={cn(styles.pageTitle, "mb-6")}>
-              Predictive Analytics
-            </h1>
-
-            <p className={cn(theme.typography.lead, "text-slate-300 mb-8")}>
-              Harness the power of artificial intelligence and machine learning to predict equipment failures,
-              optimize production schedules, and maximize operational efficiency.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white" asChild>
-                <Link href="/contact">
-                  Schedule Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:border-cyan-500 hover:text-cyan-400" asChild>
-                <Link href="/case-studies">
-                  View Case Studies
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=90"
+        imageAlt="AI-powered predictive analytics dashboard display"
+        height="large"
+        alignment="center"
+        showScrollIndicator={true}
+        badge={{
+          text: "AI-POWERED MANUFACTURING INTELLIGENCE",
+          icon: Brain
+        }}
+        title={
+          <>
+            Predictive <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Analytics</span>
+          </>
+        }
+        subtitle="Smart Manufacturing Intelligence"
+        description="Harness the power of artificial intelligence and machine learning to predict equipment failures, optimize production schedules, and maximize operational efficiency."
+        buttons={[
+          {
+            label: "Get Started",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Capabilities",
+            href: "/services",
+            variant: "secondary"
+          }
+        ]}
+      />
 
       {/* Stats Section */}
       <motion.section {...fadeInUp} className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">

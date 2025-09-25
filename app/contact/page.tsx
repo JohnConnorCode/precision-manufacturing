@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/ui/hero-section';
 import {
   Mail,
   Phone,
@@ -82,43 +83,38 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      {/* Clean Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-8">
-              <Activity className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm font-medium text-cyan-400">Get Started</span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-white">Contact</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"> Our Team</span>
-            </h1>
-
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Connect with Integrated Inspection Systems for precision manufacturing solutions,
-              technical consultations, and project quotes.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-background">
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=80"
+        imageAlt="Contact our precision manufacturing team"
+        badge={{
+          text: "GET STARTED",
+          icon: Activity
+        }}
+        title={
+          <>
+            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Our Team</span>
+          </>
+        }
+        description="Connect with Integrated Inspection Systems for precision manufacturing solutions, technical consultations, and project quotes."
+        buttons={[
+          {
+            label: "Start Your Project",
+            href: "#contact-form",
+            variant: "primary"
+          },
+          {
+            label: "Call Us Today",
+            href: "tel:+15032319093",
+            variant: "secondary"
+          }
+        ]}
+        height="large"
+        alignment="center"
+      />
 
       {/* Main Content */}
-      <section className="py-20">
+      <section id="contact-form" className="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}

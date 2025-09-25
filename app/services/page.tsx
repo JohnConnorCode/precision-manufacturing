@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Cog, Cpu, Target, Wrench, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
@@ -52,88 +53,37 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=85"
-            alt="Advanced manufacturing services"
-            className="w-full h-full"
-            gradient="dark"
-            speed={0.3}
-            scale={true}
-            blur={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Shield className="w-3 h-3 mr-2" />
-                PRECISION MANUFACTURING SERVICES
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
-            >
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Services</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-slate-400 mb-12 max-w-3xl mx-auto"
-            >
-              Advanced manufacturing capabilities delivering precision components for aerospace, defense, and energy sectors with industry-leading quality standards.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold"
-              >
-                Request Quote
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold"
-              >
-                <Link href="/contact">
-                  Schedule Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=85"
+        imageAlt="Advanced manufacturing services - precision CNC machining and quality control"
+        badge={{
+          text: "PRECISION MANUFACTURING SERVICES",
+          icon: Shield
+        }}
+        title={
+          <>
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Services</span>
+          </>
+        }
+        description="Advanced manufacturing capabilities delivering precision components for aerospace, defense, and energy sectors with industry-leading quality standards."
+        buttons={[
+          {
+            label: "Request Quote",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Capabilities",
+            href: "#capabilities",
+            variant: "secondary"
+          }
+        ]}
+        height="large"
+        alignment="center"
+      />
 
       {/* Capabilities Overview */}
-      <section className="py-20 bg-slate-900/5">
+      <section id="capabilities" className="py-20 bg-slate-900/5">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -167,7 +117,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section id="services" className="py-20">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Plane, Zap, Shield, Factory, Award, Users, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
@@ -120,86 +121,37 @@ export default function IndustriesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImage
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=90"
-            alt="Industrial manufacturing"
-            className="w-full h-full object-cover"
-            speed={0.5}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Factory className="w-3 h-3 mr-2" />
-                CRITICAL INDUSTRY SOLUTIONS
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
-            >
-              Industries <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">We Serve</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-slate-400 mb-12 max-w-3xl mx-auto"
-            >
-              Trusted partner for aerospace, defense, and energy sectors, delivering mission-critical components with uncompromising quality and precision.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button
-                size="lg"
-                className="group px-8 py-6 bg-white text-slate-900 hover:bg-slate-100 font-semibold"
-              >
-                Explore Capabilities
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="px-8 py-6 border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white font-semibold"
-              >
-                <Link href="/contact">
-                  Industry Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=90"
+        imageAlt="Industrial manufacturing - precision components for critical industries"
+        badge={{
+          text: "CRITICAL INDUSTRY SOLUTIONS",
+          icon: Factory
+        }}
+        title={
+          <>
+            Industries <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">We Serve</span>
+          </>
+        }
+        description="Trusted partner for aerospace, defense, and energy sectors, delivering mission-critical components with uncompromising quality and precision."
+        buttons={[
+          {
+            label: "Explore Industries",
+            href: "#industries",
+            variant: "primary"
+          },
+          {
+            label: "Industry Consultation",
+            href: "/contact",
+            variant: "secondary"
+          }
+        ]}
+        height="large"
+        alignment="center"
+      />
 
       {/* Industry Capabilities */}
-      <section className="py-20 bg-slate-900/5">
+      <section id="capabilities" className="py-20 bg-slate-900/5">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -233,7 +185,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Industries Grid */}
-      <section className="py-20">
+      <section id="industries" className="py-20">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

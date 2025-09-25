@@ -7,6 +7,7 @@ import { ArrowRight, Target, Ruler, Search, Shield, CheckCircle, Eye, Gauge } fr
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
+import HeroSection from '@/components/ui/hero-section';
 
 export default function MetrologyPage() {
   const capabilities = [
@@ -106,85 +107,36 @@ export default function MetrologyPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1537462589942-f3e10db0e074?w=2400&q=90"
-            alt="Precision metrology and CMM inspection"
-            className="w-full h-full"
-            gradient="dark"
-            speed={0.4}
-            scale={true}
-            blur={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
-        </div>
-
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
-                <Ruler className="w-3 h-3 mr-2" />
-                PRECISION MEASUREMENT SERVICES
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className={cn(styles.pageTitle)}
-            >
-              Precision <span className={cn(theme.effects.gradient.text, "from-blue-400 to-cyan-400")}>Metrology</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className={cn(styles.pageSubtitle, "mb-12")}
-            >
-              Advanced measurement and inspection services ensuring dimensional accuracy and quality compliance for aerospace and defense manufacturing.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pb-8"
-            >
-              <Button
-                size="lg"
-                className={cn(styles.ctaPrimary, "group")}
-              >
-                Request Inspection
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className={cn(styles.ctaSecondary, "border-slate-700 text-slate-300 hover:bg-slate-900/50 hover:text-white")}
-              >
-                <Link href="/contact">
-                  Metrology Consultation
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage="https://images.unsplash.com/photo-1537462589942-f3e10db0e074?w=2400&q=90"
+        imageAlt="Precision metrology and CMM inspection equipment"
+        height="large"
+        alignment="center"
+        showScrollIndicator={true}
+        badge={{
+          text: "PRECISION MEASUREMENT SERVICES",
+          icon: Ruler
+        }}
+        title={
+          <>
+            Precision <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Metrology</span>
+          </>
+        }
+        subtitle="Quality Assurance Excellence"
+        description="Advanced measurement and inspection services ensuring dimensional accuracy and quality compliance for aerospace and defense manufacturing."
+        buttons={[
+          {
+            label: "Get Quote",
+            href: "/contact",
+            variant: "primary"
+          },
+          {
+            label: "View Services",
+            href: "/services",
+            variant: "secondary"
+          }
+        ]}
+      />
 
       {/* Capabilities Overview */}
       <section className={styles.sectionLight}>
