@@ -148,10 +148,10 @@ export default function EngineeringPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1581091877018-dac6a371d50f?w=2400&q=85"
+            src="https://images.unsplash.com/photo-1581092918482-a8fee14d45f0?w=2400&q=90"
             alt="Advanced CAD engineering and design services"
             className="w-full h-full"
             gradient="dark"
@@ -159,7 +159,8 @@ export default function EngineeringPage() {
             scale={true}
             blur={true}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
         </div>
 
         <div className="container relative z-10">
@@ -167,7 +168,7 @@ export default function EngineeringPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
           >
             <motion.div
               initial={{ opacity: 0, y: -20 }}

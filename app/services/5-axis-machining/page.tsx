@@ -22,7 +22,7 @@ export default function FiveAxisMachiningPage() {
       description: 'Advanced 5-axis machining for turbine blades, impellers, and complex geometries requiring continuous contouring.',
       icon: Settings,
       features: ['Turbine blade manufacturing', 'Impeller machining', 'Complex curve generation', 'Simultaneous 5-axis contouring'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
+      image: 'https://images.unsplash.com/photo-1565330520212-2c0f706646ac',
       capabilities: [
         'Hermle C42U 5-axis machining center',
         'Heidenhain iTNC 530 control',
@@ -35,7 +35,7 @@ export default function FiveAxisMachiningPage() {
       description: 'High-precision machining of defense components with complex angles and tight tolerances for critical applications.',
       icon: Shield,
       features: ['Defense component machining', 'Complex angle programming', 'Tight tolerance manufacturing', 'ITAR compliance'],
-      image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940',
+      image: 'https://images.unsplash.com/photo-1609421137215-dfcdafcb06c9',
       capabilities: [
         'ITAR registered facility',
         'Security clearance available',
@@ -48,7 +48,7 @@ export default function FiveAxisMachiningPage() {
       description: 'Rapid prototyping and low-volume production using advanced 5-axis capabilities for complex part geometries.',
       icon: Zap,
       features: ['Rapid prototyping', 'Complex geometry machining', 'Material optimization', 'Design validation'],
-      image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb',
+      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
       capabilities: [
         'CAD/CAM integration',
         'Multiple material capability',
@@ -61,7 +61,7 @@ export default function FiveAxisMachiningPage() {
       description: 'High-volume production capabilities with consistent quality and repeatability for complex manufactured parts.',
       icon: Cog,
       features: ['High-volume production', 'Process optimization', 'Quality consistency', 'Automated workflows'],
-      image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780',
+      image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180',
       capabilities: [
         'Statistical process control',
         'Automated inspection',
@@ -120,26 +120,27 @@ export default function FiveAxisMachiningPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=2400&q=85"
+            src="https://images.unsplash.com/photo-1565117650576-09f9469ac3b2?w=2400&q=90"
             alt="Advanced 5-axis CNC machining center"
-            className="w-full h-full"
+            className="w-full h-full object-cover"
             gradient="dark"
-            speed={0.4}
+            speed={0.5}
             scale={true}
-            blur={true}
+            blur={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
         </div>
 
-        <div className={cn(theme.spacing.container, "relative z-10")}>
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
           >
             <motion.div
               initial={{ opacity: 0, y: -20 }}

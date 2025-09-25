@@ -98,7 +98,7 @@ export default function Header() {
         className={cn(
           'fixed z-[140] w-full transition-all duration-300',
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-lg top-0 border-b-2 border-cyan-500/20'
+            ? 'bg-white/95 backdrop-blur-xl shadow-lg lg:top-10 top-0 border-b-2 border-cyan-500/20'
             : 'bg-white/90 backdrop-blur-xl lg:top-10 top-0 border-b border-slate-200/50'
         )}
       >

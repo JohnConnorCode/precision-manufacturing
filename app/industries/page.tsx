@@ -121,15 +121,16 @@ export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=90"
             alt="Industrial manufacturing"
-            className="w-full h-full opacity-15"
-            speed={0.3}
+            className="w-full h-full object-cover"
+            speed={0.5}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
         </div>
 
         <div className="container relative z-10">
@@ -157,7 +158,7 @@ export default function IndustriesPage() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white"
             >
-              Industries <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">We Serve</span>
+              Industries <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">We Serve</span>
             </motion.h1>
 
             <motion.p

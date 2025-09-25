@@ -47,80 +47,32 @@ export default function Hero() {
       {/* Content Container - Professional and Clean */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="container relative z-10 pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-8"
+        className="container relative z-10 pt-24 md:pt-28 pb-16 md:pb-20 px-4 md:px-8"
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center max-w-6xl mx-auto"
+          className="text-center max-w-5xl mx-auto"
         >
-          {/* Industry Leadership Context */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-            className="mb-12"
-          >
-            <p className="text-sm md:text-base text-cyan-400 font-bold uppercase tracking-[0.2em] mb-4">
-              TRUSTED BY AEROSPACE & DEFENSE LEADERS
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-              {[
-                { cert: 'AS9100D', desc: 'Aerospace Quality' },
-                { cert: 'ITAR', desc: 'Defense Registered' },
-                { cert: 'ISO 9001:2015', desc: 'Quality Management' },
-                { cert: 'NADCAP', desc: 'Process Excellence' }
-              ].map((item, index) => (
-                <motion.div
-                  key={item.cert}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.3 + index * 0.08,
-                    duration: 0.5,
-                    ease: "easeOut"
-                  }}
-                  className="group"
-                >
-                  <div className="px-5 py-3 rounded-xl border border-cyan-400/20 bg-black/30 backdrop-blur-md hover:bg-black/40 hover:border-cyan-400/40 transition-all duration-300">
-                    <span className="text-xs font-black text-cyan-400 tracking-[0.15em] uppercase block">{item.cert}</span>
-                    <span className="text-[10px] text-white/60 uppercase tracking-wider">{item.desc}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
 
-          {/* Main Title - Bold All-Caps Style with Bottom-Up Animation */}
+          {/* Main Title - Cleaner and more impactful */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 md:mb-8 tracking-tighter leading-[0.9]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95]">
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 drop-shadow-2xl relative uppercase"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 drop-shadow-2xl uppercase"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
               >
                 PRECISION
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-cyan-300/20 to-blue-400/20 blur-2xl"
-                  animate={{
-                    opacity: [0.5, 1, 0.5],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
               </motion.span>
               <motion.span
-                className="block text-white drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-2 uppercase font-black"
+                className="block text-white drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.65, duration: 0.7, ease: "easeOut" }}
@@ -130,30 +82,18 @@ export default function Hero() {
             </h1>
           </motion.div>
 
-          {/* Tagline - All Caps with Strong Animation */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/90 mb-6 font-bold uppercase tracking-wider"
-          >
-            AEROSPACE EXCELLENCE
-          </motion.p>
-
+          {/* Single focused tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.95, duration: 0.6, ease: "easeOut" }}
-            className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 md:mb-14 font-light leading-relaxed max-w-3xl mx-auto"
+            transition={{ delay: 0.85, duration: 0.6, ease: "easeOut" }}
+            className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 md:mb-12 font-light leading-relaxed max-w-2xl mx-auto"
           >
-            Delivering mission-critical components with
-            <span className="text-cyan-400 font-semibold"> ±0.0001"</span> precision
-            <span className="block text-base md:text-lg text-white/70 mt-3">
-              Since 1995 • Bali, Indonesia
-            </span>
+            Ultra-Precision Manufacturing for
+            <span className="text-cyan-400 font-semibold"> Aerospace Critical Components</span>
           </motion.p>
 
-          {/* CTA Buttons - Professional Design */}
+          {/* CTA Buttons - Cleaner design */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -162,69 +102,27 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="group w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transition-all duration-500 px-8 md:px-10 h-14 md:h-16 text-base md:text-lg"
+              className="group w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-white font-semibold shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
               asChild
             >
               <Link href="/contact">
                 Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
 
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-md transition-all duration-500 px-8 md:px-10 h-14 md:h-16 text-base md:text-lg font-medium"
+              className="w-full sm:w-auto border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
               asChild
             >
               <Link href="/services">
-                Explore Capabilities
+                View Capabilities
               </Link>
             </Button>
           </motion.div>
 
-          {/* Performance Metrics - Clear Context */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3, duration: 0.8 }}
-            className="mt-16 md:mt-20"
-          >
-            <p className="text-xs md:text-sm text-white/50 uppercase tracking-[0.2em] mb-6 font-medium">
-              PROVEN TRACK RECORD OF EXCELLENCE
-            </p>
-            <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-              {[
-                { value: '30+', label: 'Years', desc: 'Industry Experience' },
-                { value: '500+', label: 'Projects', desc: 'Delivered On-Time' },
-                { value: '99.97%', label: 'Quality', desc: 'First-Pass Yield' }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    delay: 1.4 + index * 0.1,
-                    duration: 0.6,
-                    ease: "easeOut"
-                  }}
-                  className="text-center group"
-                >
-                  <div className="inline-block">
-                    <div className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs md:text-sm text-white/80 uppercase tracking-wider font-bold">
-                      {stat.label}
-                    </div>
-                    <div className="text-[10px] text-white/40 uppercase tracking-wider mt-1">
-                      {stat.desc}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </motion.div>
 

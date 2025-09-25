@@ -107,29 +107,39 @@ export default function PredictiveAnalyticsPage() {
   return (
     <main className="relative min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
-        <ParallaxImagePro
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=2400&q=85"
-          alt="AI-powered predictive analytics dashboard"
-          gradient="dark"
-          speed={0.4}
-          scale={true}
-          blur={true}
-        />
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <ParallaxImagePro
+            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=90"
+            alt="AI-powered predictive analytics dashboard"
+            className="w-full h-full"
+            gradient="dark"
+            speed={0.4}
+            scale={true}
+            blur={true}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
+        </div>
 
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="text-center max-w-4xl mx-auto"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <Brain className="w-8 h-8 text-cyan-400" />
-              <span className="text-cyan-400 uppercase tracking-wider text-sm font-medium">
-                AI-Powered Manufacturing Intelligence
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="mb-8"
+            >
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
+                <Brain className="w-3 h-3 mr-2" />
+                AI-POWERED MANUFACTURING INTELLIGENCE
               </span>
-            </div>
+            </motion.div>
 
             <h1 className={cn(styles.pageTitle, "mb-6")}>
               Predictive Analytics

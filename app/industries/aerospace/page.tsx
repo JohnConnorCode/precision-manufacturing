@@ -133,18 +133,21 @@ export default function AerospacePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=2400&q=90"
             alt="Aerospace manufacturing"
-            className="w-full h-full opacity-20"
-            speed={0.3}
+            className="w-full h-full object-cover"
+            gradient="dark"
+            speed={0.5}
+            scale={true}
+            blur={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-background" />
         </div>
 
-        <div className={`${theme.spacing.container} relative z-10`}>
+        <div className="container relative z-10 py-32 md:py-40 lg:py-48">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

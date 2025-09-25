@@ -94,10 +94,10 @@ export default function AdaptiveMachiningPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className={cn(styles.pageHeader)}>
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <ParallaxImagePro
-            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=2400&q=85"
+            src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=2400&q=90"
             alt="Smart adaptive machining with AI control"
             className="w-full h-full"
             gradient="dark"
@@ -105,15 +105,16 @@ export default function AdaptiveMachiningPage() {
             scale={true}
             blur={true}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
         </div>
 
-        <div className={cn(theme.spacing.container, "relative z-10")}>
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
           >
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -121,7 +122,7 @@ export default function AdaptiveMachiningPage() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mb-8"
             >
-              <span className={theme.components.badge.dark}>
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50 backdrop-blur-sm">
                 <Cpu className="w-3 h-3 mr-2" />
                 INTELLIGENT MANUFACTURING
               </span>
