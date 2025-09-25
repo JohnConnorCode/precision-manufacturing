@@ -102,8 +102,8 @@ export default function Header() {
             : 'bg-white/90 backdrop-blur-xl lg:top-10 top-0 border-b border-slate-200/50'
         )}
       >
-        <nav aria-label="Main" className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
+        <nav className="container flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2" aria-label="IIS - Integrated Inspection Systems Home">
             <Logo className="h-12 w-auto" />
           </Link>
 

@@ -28,10 +28,10 @@ const showcaseImages = [
 ];
 
 const stats = [
-  { icon: Award, value: 'AS9100D', label: 'Certified Quality', color: 'text-cyan-600' },
+  { icon: Award, value: 'AS9100D', label: 'Certified Quality', color: 'text-blue-600' },
   { icon: Shield, value: 'ITAR', label: 'Registered', color: 'text-blue-600' },
   { icon: Clock, value: '24/7', label: 'Production', color: 'text-indigo-600' },
-  { icon: Target, value: '±0.0001"', label: 'Tolerance', color: 'text-cyan-600' }
+  { icon: Target, value: '±0.0001"', label: 'Tolerance', color: 'text-blue-600' }
 ];
 
 export default function ImageShowcase() {
@@ -58,12 +58,12 @@ export default function ImageShowcase() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-16 md:mb-20"
         >
-          <p className="text-sm font-semibold text-cyan-600 uppercase tracking-[0.2em] mb-4">
+          <p className="text-sm font-semibold text-slate-600 uppercase tracking-[0.2em] mb-4">
             Manufacturing Excellence
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-slate-900">Precision</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> Delivered</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Delivered</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light">
             From concept to completion, we deliver aerospace-grade components with uncompromising precision
@@ -102,7 +102,7 @@ export default function ImageShowcase() {
 
                     {/* Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <p className="text-xs font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2">
+                      <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] mb-2">
                         {item.category}
                       </p>
                       <h3 className="text-2xl font-bold text-white mb-3">
@@ -173,7 +173,7 @@ export default function ImageShowcase() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-cyan-600 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
               >
                 Request Quote
                 <ArrowRight className="ml-2 h-5 w-5" />

@@ -2,480 +2,525 @@
 
 ```yaml
 - generic [ref=e1]:
-  - navigation [ref=e2]:
-    - generic [ref=e4]:
-      - link "JC John Connor Technology Strategist" [ref=e6] [cursor=pointer]:
+  - complementary "Contact information" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - 'link "Phone: 503-231-9093" [ref=e5] [cursor=pointer]':
+          - /url: tel:+15032319093
+          - img [ref=e6] [cursor=pointer]
+          - generic [ref=e8] [cursor=pointer]: 503-231-9093
+        - 'link "Email: officemgr@iismet.com" [ref=e9] [cursor=pointer]':
+          - /url: mailto:officemgr@iismet.com
+          - img [ref=e10] [cursor=pointer]
+          - generic [ref=e13] [cursor=pointer]: officemgr@iismet.com
+      - generic [ref=e14]:
+        - img [ref=e15]
+        - generic [ref=e17]: ISO 9001 • AS9100D • ITAR REGISTERED
+  - banner [ref=e18]:
+    - navigation [ref=e19]:
+      - link "IIS - Integrated Inspection Systems Home" [active] [ref=e20] [cursor=pointer]:
         - /url: /
-        - generic [ref=e7] [cursor=pointer]:
-          - generic [ref=e12] [cursor=pointer]: JC
-          - generic [ref=e13] [cursor=pointer]:
-            - generic [ref=e14] [cursor=pointer]: John Connor
-            - generic [ref=e15] [cursor=pointer]: Technology Strategist
-      - generic [ref=e16]:
-        - link "Home" [ref=e18] [cursor=pointer]:
-          - /url: /
-          - img [ref=e19] [cursor=pointer]
-          - generic [ref=e22] [cursor=pointer]: Home
-        - link "Work" [active] [ref=e24] [cursor=pointer]:
-          - /url: /work
-          - img [ref=e25] [cursor=pointer]
-          - generic [ref=e28] [cursor=pointer]: Work
-        - link "Blog" [ref=e30] [cursor=pointer]:
-          - /url: /blog
-          - img [ref=e31] [cursor=pointer]
-          - generic [ref=e33] [cursor=pointer]: Blog
-        - link "Thoughts" [ref=e35] [cursor=pointer]:
-          - /url: /thoughts
-          - img [ref=e36] [cursor=pointer]
-          - generic [ref=e38] [cursor=pointer]: Thoughts
-        - link "Philosophy" [ref=e40] [cursor=pointer]:
-          - /url: /philosophy
-          - img [ref=e41] [cursor=pointer]
-          - generic [ref=e49] [cursor=pointer]: Philosophy
-        - link "Contact" [ref=e51] [cursor=pointer]:
-          - /url: /contact
-          - img [ref=e52] [cursor=pointer]
-          - generic [ref=e55] [cursor=pointer]: Contact
-  - main [ref=e56]:
-    - generic [ref=e64]:
-      - heading "J O H N C O N N O R" [level=1] [ref=e65]:
-        - generic [ref=e66]:
-          - generic [ref=e67]: J
-          - generic [ref=e68]: O
-          - generic [ref=e69]: H
-          - generic [ref=e70]: "N"
-          - generic [ref=e72]: C
-          - generic [ref=e73]: O
-          - generic [ref=e74]: "N"
-          - generic [ref=e75]: "N"
-          - generic [ref=e76]: O
-          - generic [ref=e77]: R
-      - paragraph [ref=e79]: Building systems that serve humanity.
-      - paragraph [ref=e81]:
-        - generic [ref=e82]: Product strategy. Human-first technology. Real impact.
-      - generic [ref=e83]:
-        - link "View My Work" [ref=e85] [cursor=pointer]:
-          - /url: /work
-          - button "View My Work" [ref=e86] [cursor=pointer]
-        - link "My Philosophy" [ref=e88] [cursor=pointer]:
-          - /url: /philosophy
-          - button "My Philosophy" [ref=e89] [cursor=pointer]
-    - generic [ref=e97]:
-      - generic [ref=e98]:
-        - heading "PROVEN IMPACT" [level=2] [ref=e99]:
-          - generic [ref=e100]: PROVEN
-          - generic [ref=e101]: IMPACT
-        - paragraph [ref=e102]: Real outcomes from solving actual product problems
-      - generic [ref=e103]:
-        - generic [ref=e105]:
-          - img [ref=e107]
-          - paragraph [ref=e114]: $20M+
-          - paragraph [ref=e115]: Funding Enabled
-          - paragraph [ref=e116]: Through product-market fit
-        - generic [ref=e118]:
-          - img [ref=e120]
-          - paragraph [ref=e124]: 50+
-          - paragraph [ref=e125]: Product Problems Solved
-          - paragraph [ref=e126]: Usability & market fit issues
-        - generic [ref=e128]:
-          - img [ref=e130]
-          - paragraph [ref=e133]: 15 Years
-          - paragraph [ref=e134]: Technology Strategy
-          - paragraph [ref=e135]: AI/Web3 & human-centered design
-        - generic [ref=e137]:
-          - img [ref=e139]
-          - paragraph [ref=e145]: 200+
-          - paragraph [ref=e146]: User Research Sessions
-          - paragraph [ref=e147]: Finding real product-market fit
-      - paragraph [ref=e149]:
-        - text: Building what
-        - generic [ref=e150]: actually works
-    - img [ref=e152]
-    - generic [ref=e160]:
-      - generic [ref=e161]:
-        - generic [ref=e162]:
-          - img [ref=e163]
-          - generic [ref=e169]: SUPERDEBATE.ORG
-        - heading "Structured Debate Platform" [level=2] [ref=e170]:
-          - generic [ref=e171]: Structured
-          - generic [ref=e172]: Debate Platform
-        - paragraph [ref=e173]: A platform for organizing and hosting in-person debate clubs with modular formats adaptable to any community
-        - link "Learn More" [ref=e175] [cursor=pointer]:
-          - /url: /super-debate
-          - button "Learn More" [ref=e176] [cursor=pointer]:
-            - generic [ref=e177] [cursor=pointer]: Learn More
-            - img [ref=e178] [cursor=pointer]
-      - generic [ref=e180]:
-        - generic [ref=e184]:
-          - img [ref=e185]
-          - heading "Live Debates" [level=3] [ref=e188]
-          - paragraph [ref=e189]: In-person events in cities worldwide
-        - generic [ref=e193]:
-          - img [ref=e194]
-          - heading "Local Clubs" [level=3] [ref=e199]
-          - paragraph [ref=e200]: Join debate communities in your city
-        - generic [ref=e204]:
-          - img [ref=e205]
-          - heading "Modular Format" [level=3] [ref=e209]
-          - paragraph [ref=e210]: Adaptable to any topic or community
-        - generic [ref=e214]:
-          - img [ref=e215]
-          - heading "Regular Meetups" [level=3] [ref=e217]
-          - paragraph [ref=e218]: Weekly and monthly debate events
-      - generic [ref=e220]:
-        - generic [ref=e221]:
-          - img [ref=e222]
-          - heading "One Format, Endless Adaptability" [level=3] [ref=e224]
-        - generic [ref=e225]:
-          - generic [ref=e226]:
-            - heading "Flexible Structure" [level=4] [ref=e227]
-            - paragraph [ref=e228]: Adapt speech lengths, rounds, and judging criteria to fit your community's needs and topics
-          - generic [ref=e229]:
-            - heading "City Chapters" [level=4] [ref=e230]
-            - paragraph [ref=e231]: Each city runs its own debates with local flavor while maintaining consistent quality
-    - img [ref=e235]
-    - generic [ref=e244]:
-      - generic [ref=e245]:
-        - generic [ref=e246]:
-          - img [ref=e247]
-          - generic [ref=e249]: ACCELERATEWITH.US
-        - heading "Where Web3 Builders Connect" [level=2] [ref=e250]:
-          - generic [ref=e251]: Where Web3
-          - generic [ref=e252]: Builders Connect
-        - paragraph [ref=e253]: The ecosystem platform connecting builders, investors, and resources for Web3 innovation
-        - generic [ref=e254]:
-          - link "Explore Platform" [ref=e255] [cursor=pointer]:
-            - /url: https://acceleratewith.us
-            - button "Explore Platform" [ref=e256] [cursor=pointer]:
-              - generic [ref=e257] [cursor=pointer]: Explore Platform
-              - img [ref=e258] [cursor=pointer]
-          - link "Learn More" [ref=e260] [cursor=pointer]:
-            - /url: /accelerate
-            - button "Learn More" [ref=e261] [cursor=pointer]
-      - generic [ref=e262]:
-        - generic [ref=e266]:
-          - img [ref=e267]
-          - heading "Global Ecosystem" [level=3] [ref=e270]
-          - paragraph [ref=e271]: Connect with builders, funders, and projects worldwide
-        - generic [ref=e275]:
-          - img [ref=e276]
-          - heading "Funding Discovery" [level=3] [ref=e278]
-          - paragraph [ref=e279]: Find grants, accelerators, and investment opportunities
-        - generic [ref=e283]:
-          - img [ref=e284]
-          - heading "Talent Network" [level=3] [ref=e289]
-          - paragraph [ref=e290]: Match with developers, designers, and marketers
-        - generic [ref=e294]:
-          - img [ref=e295]
-          - heading "Resource Hub" [level=3] [ref=e297]
-          - paragraph [ref=e298]: Access tools, guides, and strategic resources
-      - generic [ref=e300]:
-        - generic [ref=e301]:
-          - img [ref=e302]
-          - heading "Complete Web3 Ecosystem" [level=3] [ref=e305]
-        - generic [ref=e306]:
-          - generic [ref=e307]:
-            - generic [ref=e308]: 607+
-            - generic [ref=e309]: Projects
-          - generic [ref=e310]:
-            - generic [ref=e311]: 433+
-            - generic [ref=e312]: Funding Programs
-          - generic [ref=e313]:
-            - generic [ref=e314]: 363+
-            - generic [ref=e315]: Resources
-        - generic [ref=e316]:
-          - heading "Smart Matching Technology" [level=4] [ref=e318]
-          - paragraph [ref=e319]: AI-powered recommendations connect projects with the right funding, talent, and resources at the perfect time.
-      - generic [ref=e320]:
-        - paragraph [ref=e321]: Join hundreds of Web3 builders accelerating their projects
-        - link "Get Started" [ref=e322] [cursor=pointer]:
-          - /url: https://acceleratewith.us
-          - button "Get Started" [ref=e323] [cursor=pointer]:
-            - img [ref=e324] [cursor=pointer]
-            - generic [ref=e326] [cursor=pointer]: Get Started
-            - img [ref=e327] [cursor=pointer]
-    - img [ref=e330]
-    - generic [ref=e333]:
-      - generic [ref=e334]:
-        - heading "WORKING WITH ME" [level=2] [ref=e335]:
-          - generic [ref=e336]: WORKING
-          - generic [ref=e337]: WITH ME
-        - paragraph [ref=e338]: Structured transformation. Quick wins. Long-term impact.
-      - generic [ref=e339]:
-        - generic [ref=e340]:
-          - heading "THE PROCESS" [level=3] [ref=e341]:
-            - generic [ref=e342]: THE
-            - generic [ref=e343]: PROCESS
-          - paragraph [ref=e344]: From discovery to scale in 8 weeks.
-        - generic [ref=e345]:
-          - generic [ref=e347]:
-            - generic [ref=e348]:
-              - img [ref=e350]
-              - generic [ref=e352]:
-                - heading "Discovery" [level=4] [ref=e353]
-                - paragraph [ref=e354]: Week 1
-            - list [ref=e355]:
-              - listitem [ref=e356]:
-                - img [ref=e357]
-                - generic [ref=e360]: Initial strategy call
-              - listitem [ref=e361]:
-                - img [ref=e362]
-                - generic [ref=e365]: Deep dive into your challenges
-              - listitem [ref=e366]:
-                - img [ref=e367]
-                - generic [ref=e370]: Audit existing systems
-              - listitem [ref=e371]:
-                - img [ref=e372]
-                - generic [ref=e375]: Define success metrics
-          - generic [ref=e377]:
-            - generic [ref=e378]:
-              - img [ref=e380]
-              - generic [ref=e388]:
-                - heading "Design" [level=4] [ref=e389]
-                - paragraph [ref=e390]: Week 2-3
-            - list [ref=e391]:
-              - listitem [ref=e392]:
-                - img [ref=e393]
-                - generic [ref=e396]: Solution architecture
-              - listitem [ref=e397]:
-                - img [ref=e398]
-                - generic [ref=e401]: Technology stack selection
-              - listitem [ref=e402]:
-                - img [ref=e403]
-                - generic [ref=e406]: Team alignment sessions
-              - listitem [ref=e407]:
-                - img [ref=e408]
-                - generic [ref=e411]: Roadmap creation
-          - generic [ref=e413]:
-            - generic [ref=e414]:
-              - img [ref=e416]
-              - generic [ref=e421]:
-                - heading "Build" [level=4] [ref=e422]
-                - paragraph [ref=e423]: Week 4-8
-            - list [ref=e424]:
-              - listitem [ref=e425]:
-                - img [ref=e426]
-                - generic [ref=e429]: Rapid prototyping
-              - listitem [ref=e430]:
-                - img [ref=e431]
-                - generic [ref=e434]: Weekly progress reviews
-              - listitem [ref=e435]:
-                - img [ref=e436]
-                - generic [ref=e439]: Continuous iteration
-              - listitem [ref=e440]:
-                - img [ref=e441]
-                - generic [ref=e444]: Team training
-          - generic [ref=e446]:
-            - generic [ref=e447]:
-              - img [ref=e449]
-              - generic [ref=e453]:
-                - heading "Scale" [level=4] [ref=e454]
-                - paragraph [ref=e455]: Ongoing
-            - list [ref=e456]:
-              - listitem [ref=e457]:
-                - img [ref=e458]
-                - generic [ref=e461]: Performance optimization
-              - listitem [ref=e462]:
-                - img [ref=e463]
-                - generic [ref=e466]: Growth strategy execution
-              - listitem [ref=e467]:
-                - img [ref=e468]
-                - generic [ref=e471]: Knowledge transfer
-              - listitem [ref=e472]:
-                - img [ref=e473]
-                - generic [ref=e476]: Long-term support
-      - generic [ref=e477]:
-        - generic [ref=e478]:
-          - heading "MY PRINCIPLES" [level=3] [ref=e479]:
-            - generic [ref=e480]: MY
-            - generic [ref=e481]: PRINCIPLES
-          - paragraph [ref=e482]: Core values that guide every engagement.
-        - generic [ref=e483]:
-          - generic [ref=e485]:
-            - img
-            - generic [ref=e487]:
-              - img [ref=e490]
-              - generic [ref=e493]:
-                - heading "Radical Transparency" [level=4] [ref=e494]
-                - paragraph [ref=e495]: No black boxes. You understand every system we build and own the IP.
-          - generic [ref=e497]:
-            - img
-            - generic [ref=e499]:
-              - img [ref=e502]
-              - generic [ref=e504]:
-                - heading "Speed to Value" [level=4] [ref=e505]
-                - paragraph [ref=e506]: First measurable impact within 2 weeks, not months.
-          - generic [ref=e508]:
-            - img
-            - generic [ref=e510]:
-              - img [ref=e513]
-              - generic [ref=e518]:
-                - heading "Human-Centered" [level=4] [ref=e519]
-                - paragraph [ref=e520]: Technology serves your team, not the other way around.
-          - generic [ref=e522]:
-            - img
-            - generic [ref=e524]:
-              - img [ref=e527]
-              - generic [ref=e530]:
-                - heading "No Vendor Lock-in" [level=4] [ref=e531]
-                - paragraph [ref=e532]: Open systems you can maintain and evolve without me.
-      - generic [ref=e533]:
-        - generic [ref=e534]:
-          - heading "WHAT YOU GET" [level=3] [ref=e535]:
-            - generic [ref=e536]: WHAT YOU
-            - generic [ref=e537]: GET
-          - paragraph [ref=e538]: Direct partnership. Strategic insight. Tangible results.
-        - generic [ref=e539]:
-          - generic [ref=e541]:
-            - img
-            - generic [ref=e543]:
-              - img [ref=e546]
-              - heading "Direct Access" [level=4] [ref=e551]
-              - paragraph [ref=e552]: Weekly calls, async communication, and rapid response times. I'm embedded in your team.
-          - generic [ref=e554]:
-            - img
-            - generic [ref=e556]:
-              - img [ref=e559]
-              - heading "Strategic Thinking" [level=4] [ref=e567]
-              - paragraph [ref=e568]: 15 years of pattern recognition across industries, applied to your specific challenges.
-          - generic [ref=e570]:
-            - img
-            - generic [ref=e572]:
-              - img [ref=e575]
-              - heading "Execution Power" [level=4] [ref=e580]
-              - paragraph [ref=e581]: I don't just advise—I build, ship, and iterate alongside your team.
-      - generic [ref=e582]:
-        - paragraph [ref=e583]: Ready to transform your organization?
-        - generic [ref=e584]:
-          - link "Schedule Discovery Call" [ref=e585] [cursor=pointer]:
-            - /url: /contact
-            - button "Schedule Discovery Call" [ref=e586] [cursor=pointer]:
-              - text: Schedule Discovery Call
-              - img [ref=e587] [cursor=pointer]
-          - link "View Case Studies" [ref=e589] [cursor=pointer]:
-            - /url: "#case-studies"
-            - button "View Case Studies" [ref=e590] [cursor=pointer]:
-              - text: View Case Studies
-              - img [ref=e591] [cursor=pointer]
-    - img [ref=e594]
-    - generic [ref=e598]:
-      - generic [ref=e599]:
-        - heading "THOUGHT LEADERSHIP" [level=2] [ref=e600]:
-          - generic [ref=e601]: THOUGHT
-          - generic [ref=e602]: LEADERSHIP
-        - paragraph [ref=e603]: Strategic insights on technology, community, and human potential
-      - generic [ref=e604]:
-        - article [ref=e605]:
-          - link "Featured [WEB3] Why Ecosystem Funding is Broken Traditional grant systems reward promises over delivery. Here's how to fix it. READ MORE" [ref=e606] [cursor=pointer]:
-            - /url: /blog/why-ecosystem-funding-is-broken
-            - generic [ref=e607] [cursor=pointer]:
-              - generic [ref=e608] [cursor=pointer]: Featured
-              - generic [ref=e609] [cursor=pointer]:
-                - img [ref=e611] [cursor=pointer]
-                - generic [ref=e614] [cursor=pointer]:
-                  - generic [ref=e615] [cursor=pointer]: "[WEB3]"
-                  - heading "Why Ecosystem Funding is Broken" [level=3] [ref=e616] [cursor=pointer]
-                  - paragraph [ref=e617] [cursor=pointer]: Traditional grant systems reward promises over delivery. Here's how to fix it.
-                  - generic [ref=e618] [cursor=pointer]:
-                    - text: READ MORE
-                    - img [ref=e619] [cursor=pointer]
-        - article [ref=e622]:
-          - link "[LEADERSHIP] Debate as Leadership Practice The best leaders embrace intellectual conflict and use it to sharpen thinking. READ MORE" [ref=e623] [cursor=pointer]:
-            - /url: /blog/debate-as-leadership-practice
-            - generic [ref=e625] [cursor=pointer]:
-              - img [ref=e627] [cursor=pointer]
-              - generic [ref=e632] [cursor=pointer]:
-                - generic [ref=e633] [cursor=pointer]: "[LEADERSHIP]"
-                - heading "Debate as Leadership Practice" [level=3] [ref=e634] [cursor=pointer]
-                - paragraph [ref=e635] [cursor=pointer]: The best leaders embrace intellectual conflict and use it to sharpen thinking.
-                - generic [ref=e636] [cursor=pointer]:
-                  - text: READ MORE
-                  - img [ref=e637] [cursor=pointer]
-        - article [ref=e640]:
-          - link "[AI] Automation as Human Right AI should free humans for creativity, not replace them entirely. READ MORE" [ref=e641] [cursor=pointer]:
-            - /url: /blog/automation-as-human-right
-            - generic [ref=e643] [cursor=pointer]:
-              - img [ref=e645] [cursor=pointer]
-              - generic [ref=e653] [cursor=pointer]:
-                - generic [ref=e654] [cursor=pointer]: "[AI]"
-                - heading "Automation as Human Right" [level=3] [ref=e655] [cursor=pointer]
-                - paragraph [ref=e656] [cursor=pointer]: AI should free humans for creativity, not replace them entirely.
-                - generic [ref=e657] [cursor=pointer]:
-                  - text: READ MORE
-                  - img [ref=e658] [cursor=pointer]
-        - article [ref=e661]:
-          - link "Featured [PRODUCT] Death of Growth Theater Why vanity metrics are killing startups and what to measure instead. READ MORE" [ref=e662] [cursor=pointer]:
-            - /url: /blog/death-of-growth-theater
-            - generic [ref=e663] [cursor=pointer]:
-              - generic [ref=e664] [cursor=pointer]: Featured
-              - generic [ref=e665] [cursor=pointer]:
-                - img [ref=e667] [cursor=pointer]
-                - generic [ref=e669] [cursor=pointer]:
-                  - generic [ref=e670] [cursor=pointer]: "[PRODUCT]"
-                  - heading "Death of Growth Theater" [level=3] [ref=e671] [cursor=pointer]
-                  - paragraph [ref=e672] [cursor=pointer]: Why vanity metrics are killing startups and what to measure instead.
-                  - generic [ref=e673] [cursor=pointer]:
-                    - text: READ MORE
-                    - img [ref=e674] [cursor=pointer]
-      - link "EXPLORE ALL WRITINGS" [ref=e678] [cursor=pointer]:
-        - /url: /blog
-        - button "EXPLORE ALL WRITINGS" [ref=e679] [cursor=pointer]:
-          - generic [ref=e680] [cursor=pointer]: EXPLORE ALL WRITINGS
-    - img [ref=e684]
-    - generic [ref=e688]:
-      - heading "Ready to Solve Your Product Problems?" [level=2] [ref=e692]
-      - paragraph [ref=e693]: Let's find what's preventing your users from adopting your product and fix it.
-      - link "Book a Discovery Call" [ref=e695] [cursor=pointer]:
+        - img [ref=e22] [cursor=pointer]:
+          - generic [ref=e31] [cursor=pointer]:
+            - generic [ref=e32] [cursor=pointer]: I
+            - generic [ref=e33] [cursor=pointer]: I
+            - generic [ref=e34] [cursor=pointer]: S
+          - generic [ref=e37] [cursor=pointer]:
+            - generic [ref=e38] [cursor=pointer]: INTEGRATED
+            - generic [ref=e39] [cursor=pointer]: INSPECTION
+            - generic [ref=e40] [cursor=pointer]: SYSTEMS
+      - navigation "Main" [ref=e42]:
+        - list [ref=e44]:
+          - listitem [ref=e45]:
+            - button "Services menu" [ref=e46] [cursor=pointer]:
+              - text: Services
+              - img [ref=e47] [cursor=pointer]
+          - listitem [ref=e49]:
+            - button "Industries menu" [ref=e50] [cursor=pointer]:
+              - text: Industries
+              - img [ref=e51] [cursor=pointer]
+          - listitem [ref=e53]:
+            - link "About" [ref=e54] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e55]:
+            - button "Compliance menu" [ref=e56] [cursor=pointer]:
+              - text: Compliance
+              - img [ref=e57] [cursor=pointer]
+          - listitem [ref=e59]:
+            - link "Contact" [ref=e60] [cursor=pointer]:
+              - /url: /contact
+      - link "REQUEST QUOTE" [ref=e62] [cursor=pointer]:
         - /url: /contact
-        - button "Book a Discovery Call" [ref=e696] [cursor=pointer]:
-          - img [ref=e697] [cursor=pointer]
-          - text: Book a Discovery Call
-          - img [ref=e699] [cursor=pointer]
-      - paragraph [ref=e701]: "Typical response time: Within 24 hours"
-  - contentinfo [ref=e702]:
-    - generic [ref=e703]:
-      - generic [ref=e704]:
-        - generic [ref=e705]:
-          - heading "About" [level=3] [ref=e706]
-          - paragraph [ref=e707]: Building systems that serve humanity. Technology should empower human judgment, not replace it.
-        - generic [ref=e708]:
-          - heading "Quick Links" [level=3] [ref=e709]
-          - list [ref=e710]:
-            - listitem [ref=e711]:
-              - link "Work" [ref=e712] [cursor=pointer]:
-                - /url: /work
-            - listitem [ref=e713]:
-              - link "Philosophy" [ref=e714] [cursor=pointer]:
-                - /url: /philosophy
-            - listitem [ref=e715]:
-              - link "Contact" [ref=e716] [cursor=pointer]:
+        - button "REQUEST QUOTE" [ref=e63] [cursor=pointer]:
+          - generic [ref=e67] [cursor=pointer]:
+            - text: REQUEST QUOTE
+            - img [ref=e68] [cursor=pointer]
+  - main [ref=e70]:
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - img "Advanced 5-axis CNC machining center" [ref=e75]
+        - img "Advanced 5-axis CNC machining center" [ref=e78]
+        - img "Precision metrology and inspection" [ref=e82]
+        - img "Automated manufacturing systems" [ref=e85]
+        - img "Industrial engineering and process development" [ref=e88]
+        - img "Defense and aerospace components manufacturing" [ref=e91]
+      - generic [ref=e93]:
+        - heading "PRECISION MANUFACTURING" [level=1] [ref=e95]:
+          - generic [ref=e96]: PRECISION
+          - generic [ref=e97]: MANUFACTURING
+        - paragraph [ref=e98]:
+          - generic [ref=e99]: Innovative Machining Since 1995
+        - generic [ref=e100]:
+          - generic [ref=e101]: Advanced CNC Machining
+          - generic [ref=e102]: Precision Metrology
+          - generic [ref=e103]: Engineering Excellence
+          - generic [ref=e104]: AS9100D Certified
+          - generic [ref=e105]: ITAR Registered
+        - generic [ref=e106]:
+          - link "Start Your Project" [ref=e107] [cursor=pointer]:
+            - /url: /contact
+            - text: Start Your Project
+            - img
+          - link "View Capabilities" [ref=e108] [cursor=pointer]:
+            - /url: /services
+      - img [ref=e111] [cursor=pointer]
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - heading "Precision By The Numbers" [level=2] [ref=e119]:
+          - text: Precision By The
+          - generic [ref=e120]: Numbers
+        - paragraph [ref=e121]: Industry-leading capabilities backed by decades of aerospace and defense manufacturing expertise
+      - generic [ref=e122]:
+        - generic [ref=e124]:
+          - img [ref=e128]
+          - generic [ref=e131]: ±0.0001"
+          - generic [ref=e132]: PRECISION
+          - generic [ref=e133]: Ultra-tight tolerances
+        - generic [ref=e135]:
+          - img [ref=e139]
+          - generic [ref=e142]: 5-AXIS
+          - generic [ref=e143]: CNC CAPABILITY
+          - generic [ref=e144]: Simultaneous machining
+        - generic [ref=e146]:
+          - img [ref=e150]
+          - generic [ref=e152]: AS9100D
+          - generic [ref=e153]: CERTIFIED
+          - generic [ref=e154]: Aerospace quality
+        - generic [ref=e156]:
+          - img [ref=e160]
+          - generic [ref=e162]: 99.97%
+          - generic [ref=e163]: FIRST PASS YIELD
+          - generic [ref=e164]: Quality rate
+        - generic [ref=e166]:
+          - img [ref=e170]
+          - generic [ref=e173]: 24/7
+          - generic [ref=e174]: PRODUCTION
+          - generic [ref=e175]: Continuous operation
+        - generic [ref=e177]:
+          - img [ref=e181]
+          - generic [ref=e185]: 99.8%
+          - generic [ref=e186]: ON-TIME
+          - generic [ref=e187]: Delivery performance
+        - generic [ref=e189]:
+          - img [ref=e193]
+          - generic [ref=e195]: 12,000
+          - generic [ref=e196]: RPM
+          - generic [ref=e197]: Spindle speed
+        - generic [ref=e199]:
+          - img [ref=e203]
+          - generic [ref=e206]: ITAR
+          - generic [ref=e207]: REGISTERED
+          - generic [ref=e208]: Defense compliant
+      - generic [ref=e209]:
+        - paragraph [ref=e210]: Ready to experience precision manufacturing excellence?
+        - paragraph [ref=e211]:
+          - text: Call
+          - link "503-231-9093" [ref=e212] [cursor=pointer]:
+            - /url: tel:+15032319093
+    - generic [ref=e216]:
+      - generic [ref=e217]:
+        - paragraph [ref=e218]: COMPREHENSIVE MANUFACTURING SOLUTIONS
+        - heading "PRECISION SERVICES" [level=2] [ref=e219]:
+          - generic [ref=e220]: PRECISION
+          - generic [ref=e221]: SERVICES
+        - paragraph [ref=e222]: Four core service pillars delivering unmatched precision and reliability
+        - paragraph [ref=e223]: From complex 5-axis machining to advanced metrology, our integrated services ensure your most critical components meet the strictest aerospace and defense standards
+      - generic [ref=e224]:
+        - link "5-Axis CNC Machining FEATURED 5-Axis CNC Machining Complex geometries with unmatched precision for aerospace components ±0.0001\" tolerance Titanium & exotic alloys Up to 60\" parts Learn More" [ref=e226] [cursor=pointer]:
+          - /url: /services/5-axis-machining
+          - generic [ref=e227] [cursor=pointer]:
+            - generic [ref=e228] [cursor=pointer]:
+              - img "5-Axis CNC Machining" [ref=e229] [cursor=pointer]
+              - img [ref=e233] [cursor=pointer]
+              - generic [ref=e245] [cursor=pointer]: FEATURED
+            - generic [ref=e246] [cursor=pointer]:
+              - heading "5-Axis CNC Machining" [level=3] [ref=e247] [cursor=pointer]
+              - paragraph [ref=e248] [cursor=pointer]: Complex geometries with unmatched precision for aerospace components
+              - list [ref=e249] [cursor=pointer]:
+                - listitem [ref=e250] [cursor=pointer]:
+                  - img [ref=e251] [cursor=pointer]
+                  - generic [ref=e254] [cursor=pointer]: ±0.0001" tolerance
+                - listitem [ref=e255] [cursor=pointer]:
+                  - img [ref=e256] [cursor=pointer]
+                  - generic [ref=e259] [cursor=pointer]: Titanium & exotic alloys
+                - listitem [ref=e260] [cursor=pointer]:
+                  - img [ref=e261] [cursor=pointer]
+                  - generic [ref=e264] [cursor=pointer]: Up to 60" parts
+              - generic [ref=e265] [cursor=pointer]:
+                - generic [ref=e266] [cursor=pointer]: Learn More
+                - img [ref=e268] [cursor=pointer]
+        - link "Adaptive Machining Adaptive Machining Real-time adjustments based on in-process measurements In-process verification Automated compensation Zero defect goal Learn More" [ref=e271] [cursor=pointer]:
+          - /url: /services/adaptive-machining
+          - generic [ref=e272] [cursor=pointer]:
+            - generic [ref=e273] [cursor=pointer]:
+              - img "Adaptive Machining" [ref=e274] [cursor=pointer]
+              - img [ref=e278] [cursor=pointer]
+            - generic [ref=e281] [cursor=pointer]:
+              - heading "Adaptive Machining" [level=3] [ref=e282] [cursor=pointer]
+              - paragraph [ref=e283] [cursor=pointer]: Real-time adjustments based on in-process measurements
+              - list [ref=e284] [cursor=pointer]:
+                - listitem [ref=e285] [cursor=pointer]:
+                  - img [ref=e286] [cursor=pointer]
+                  - generic [ref=e289] [cursor=pointer]: In-process verification
+                - listitem [ref=e290] [cursor=pointer]:
+                  - img [ref=e291] [cursor=pointer]
+                  - generic [ref=e294] [cursor=pointer]: Automated compensation
+                - listitem [ref=e295] [cursor=pointer]:
+                  - img [ref=e296] [cursor=pointer]
+                  - generic [ref=e299] [cursor=pointer]: Zero defect goal
+              - generic [ref=e300] [cursor=pointer]:
+                - generic [ref=e301] [cursor=pointer]: Learn More
+                - img [ref=e303] [cursor=pointer]
+        - link "Metrology & Inspection Metrology & Inspection Complete dimensional verification with CMM and laser scanning 0.00005\" accuracy GD&T analysis AS9102 certified Learn More" [ref=e306] [cursor=pointer]:
+          - /url: /services/metrology
+          - generic [ref=e307] [cursor=pointer]:
+            - generic [ref=e308] [cursor=pointer]:
+              - img "Metrology & Inspection" [ref=e309] [cursor=pointer]
+              - img [ref=e313] [cursor=pointer]
+            - generic [ref=e316] [cursor=pointer]:
+              - heading "Metrology & Inspection" [level=3] [ref=e317] [cursor=pointer]
+              - paragraph [ref=e318] [cursor=pointer]: Complete dimensional verification with CMM and laser scanning
+              - list [ref=e319] [cursor=pointer]:
+                - listitem [ref=e320] [cursor=pointer]:
+                  - img [ref=e321] [cursor=pointer]
+                  - generic [ref=e324] [cursor=pointer]: 0.00005" accuracy
+                - listitem [ref=e325] [cursor=pointer]:
+                  - img [ref=e326] [cursor=pointer]
+                  - generic [ref=e329] [cursor=pointer]: GD&T analysis
+                - listitem [ref=e330] [cursor=pointer]:
+                  - img [ref=e331] [cursor=pointer]
+                  - generic [ref=e334] [cursor=pointer]: AS9102 certified
+              - generic [ref=e335] [cursor=pointer]:
+                - generic [ref=e336] [cursor=pointer]: Learn More
+                - img [ref=e338] [cursor=pointer]
+        - link "Engineering Support Engineering Support Design optimization and manufacturing consultation DFM analysis Process planning Cost optimization Learn More" [ref=e341] [cursor=pointer]:
+          - /url: /services/engineering
+          - generic [ref=e342] [cursor=pointer]:
+            - generic [ref=e343] [cursor=pointer]:
+              - img "Engineering Support" [ref=e344] [cursor=pointer]
+              - img [ref=e348] [cursor=pointer]
+            - generic [ref=e353] [cursor=pointer]:
+              - heading "Engineering Support" [level=3] [ref=e354] [cursor=pointer]
+              - paragraph [ref=e355] [cursor=pointer]: Design optimization and manufacturing consultation
+              - list [ref=e356] [cursor=pointer]:
+                - listitem [ref=e357] [cursor=pointer]:
+                  - img [ref=e358] [cursor=pointer]
+                  - generic [ref=e361] [cursor=pointer]: DFM analysis
+                - listitem [ref=e362] [cursor=pointer]:
+                  - img [ref=e363] [cursor=pointer]
+                  - generic [ref=e366] [cursor=pointer]: Process planning
+                - listitem [ref=e367] [cursor=pointer]:
+                  - img [ref=e368] [cursor=pointer]
+                  - generic [ref=e371] [cursor=pointer]: Cost optimization
+              - generic [ref=e372] [cursor=pointer]:
+                - generic [ref=e373] [cursor=pointer]: Learn More
+                - img [ref=e375] [cursor=pointer]
+      - generic [ref=e377]:
+        - paragraph [ref=e378]: Need custom manufacturing solutions?
+        - link "Discuss Your Project" [ref=e379] [cursor=pointer]:
+          - /url: /contact
+          - text: Discuss Your Project
+          - img [ref=e380] [cursor=pointer]
+    - generic [ref=e383]:
+      - generic [ref=e384]:
+        - paragraph [ref=e385]: SPECIALIZED SECTOR EXPERTISE
+        - heading "INDUSTRY LEADERS" [level=2] [ref=e386]:
+          - generic [ref=e387]: INDUSTRY
+          - generic [ref=e388]: LEADERS
+        - paragraph [ref=e389]: Three decades of trusted partnerships in mission-critical sectors
+        - paragraph [ref=e390]: Our certifications and clearances enable us to serve the most demanding industries where component failure can mean mission failure
+      - generic [ref=e391]:
+        - link "Defense & Government Defense & Government ITAR-compliant manufacturing for defense contractors and government agencies. Secure, certified production. ITAR registered Secure facility Rapid prototyping" [ref=e393] [cursor=pointer]:
+          - /url: /industries/defense
+          - generic [ref=e394] [cursor=pointer]:
+            - generic [ref=e395] [cursor=pointer]:
+              - img "Defense & Government" [ref=e398] [cursor=pointer]
+              - img [ref=e402] [cursor=pointer]
+            - generic [ref=e404] [cursor=pointer]:
+              - heading "Defense & Government" [level=3] [ref=e405] [cursor=pointer]:
+                - img [ref=e406] [cursor=pointer]
+                - text: Defense & Government
+              - paragraph [ref=e408] [cursor=pointer]: ITAR-compliant manufacturing for defense contractors and government agencies. Secure, certified production.
+              - list [ref=e409] [cursor=pointer]:
+                - listitem [ref=e410] [cursor=pointer]: ITAR registered
+                - listitem [ref=e412] [cursor=pointer]: Secure facility
+                - listitem [ref=e414] [cursor=pointer]: Rapid prototyping
+        - link "Energy & Power Energy & Power Critical components for power generation and renewable energy. High-temperature alloys and superalloy expertise. Superalloy expertise Large part capability Field service support" [ref=e417] [cursor=pointer]:
+          - /url: /industries/energy
+          - generic [ref=e418] [cursor=pointer]:
+            - generic [ref=e419] [cursor=pointer]:
+              - img "Energy & Power" [ref=e422] [cursor=pointer]
+              - img [ref=e426] [cursor=pointer]
+            - generic [ref=e428] [cursor=pointer]:
+              - heading "Energy & Power" [level=3] [ref=e429] [cursor=pointer]:
+                - img [ref=e430] [cursor=pointer]
+                - text: Energy & Power
+              - paragraph [ref=e432] [cursor=pointer]: Critical components for power generation and renewable energy. High-temperature alloys and superalloy expertise.
+              - list [ref=e433] [cursor=pointer]:
+                - listitem [ref=e434] [cursor=pointer]: Superalloy expertise
+                - listitem [ref=e436] [cursor=pointer]: Large part capability
+                - listitem [ref=e438] [cursor=pointer]: Field service support
+        - link "Aerospace & Aviation Aerospace & Aviation Precision components for commercial and military aircraft. AS9100D certified production. AS9100D certified NADCAP accredited Zero defect delivery" [ref=e441] [cursor=pointer]:
+          - /url: /industries/aerospace
+          - generic [ref=e442] [cursor=pointer]:
+            - generic [ref=e443] [cursor=pointer]:
+              - img "Aerospace & Aviation" [ref=e446] [cursor=pointer]
+              - img [ref=e450] [cursor=pointer]
+            - generic [ref=e452] [cursor=pointer]:
+              - heading "Aerospace & Aviation" [level=3] [ref=e453] [cursor=pointer]:
+                - img [ref=e454] [cursor=pointer]
+                - text: Aerospace & Aviation
+              - paragraph [ref=e456] [cursor=pointer]: Precision components for commercial and military aircraft. AS9100D certified production.
+              - list [ref=e457] [cursor=pointer]:
+                - listitem [ref=e458] [cursor=pointer]: AS9100D certified
+                - listitem [ref=e460] [cursor=pointer]: NADCAP accredited
+                - listitem [ref=e462] [cursor=pointer]: Zero defect delivery
+    - generic [ref=e465]:
+      - generic [ref=e466]:
+        - paragraph [ref=e467]: Manufacturing Excellence
+        - heading "Precision Delivered" [level=2] [ref=e468]:
+          - generic [ref=e469]: Precision
+          - generic [ref=e470]: Delivered
+        - paragraph [ref=e471]: From concept to completion, we deliver aerospace-grade components with uncompromising precision
+      - generic [ref=e472]:
+        - link "Aerospace Components Turbine Blades Aerospace Components View Details" [ref=e474] [cursor=pointer]:
+          - /url: /services/5-axis-machining
+          - generic [ref=e476] [cursor=pointer]:
+            - img "Aerospace Components" [ref=e477] [cursor=pointer]
+            - generic [ref=e479] [cursor=pointer]:
+              - paragraph [ref=e480] [cursor=pointer]: Turbine Blades
+              - heading "Aerospace Components" [level=3] [ref=e481] [cursor=pointer]
+              - generic [ref=e482] [cursor=pointer]:
+                - generic [ref=e483] [cursor=pointer]: View Details
+                - img [ref=e484] [cursor=pointer]
+        - link "Defense Systems ITAR Certified Defense Systems View Details" [ref=e487] [cursor=pointer]:
+          - /url: /services/adaptive-machining
+          - generic [ref=e489] [cursor=pointer]:
+            - img "Defense Systems" [ref=e490] [cursor=pointer]
+            - generic [ref=e492] [cursor=pointer]:
+              - paragraph [ref=e493] [cursor=pointer]: ITAR Certified
+              - heading "Defense Systems" [level=3] [ref=e494] [cursor=pointer]
+              - generic [ref=e495] [cursor=pointer]:
+                - generic [ref=e496] [cursor=pointer]: View Details
+                - img [ref=e497] [cursor=pointer]
+        - link "Precision Metrology Quality Control Precision Metrology View Details" [ref=e500] [cursor=pointer]:
+          - /url: /services/metrology
+          - generic [ref=e502] [cursor=pointer]:
+            - img "Precision Metrology" [ref=e503] [cursor=pointer]
+            - generic [ref=e505] [cursor=pointer]:
+              - paragraph [ref=e506] [cursor=pointer]: Quality Control
+              - heading "Precision Metrology" [level=3] [ref=e507] [cursor=pointer]
+              - generic [ref=e508] [cursor=pointer]:
+                - generic [ref=e509] [cursor=pointer]: View Details
+                - img [ref=e510] [cursor=pointer]
+      - generic [ref=e512]:
+        - generic [ref=e513]:
+          - img [ref=e514]
+          - generic [ref=e517]: AS9100D
+          - generic [ref=e518]: Certified Quality
+        - generic [ref=e519]:
+          - img [ref=e520]
+          - generic [ref=e522]: ITAR
+          - generic [ref=e523]: Registered
+        - generic [ref=e524]:
+          - img [ref=e525]
+          - generic [ref=e528]: 24/7
+          - generic [ref=e529]: Production
+        - generic [ref=e530]:
+          - img [ref=e531]
+          - generic [ref=e535]: ±0.0001"
+          - generic [ref=e536]: Tolerance
+      - generic [ref=e538]:
+        - heading "Get Started Today" [level=3] [ref=e539]
+        - paragraph [ref=e540]: Let's discuss how we can deliver precision manufacturing solutions for your needs
+        - generic [ref=e541]:
+          - link "Request Quote" [ref=e542] [cursor=pointer]:
+            - /url: /contact
+            - text: Request Quote
+            - img [ref=e543] [cursor=pointer]
+          - link "Learn More" [ref=e545] [cursor=pointer]:
+            - /url: /about
+    - generic [ref=e549]:
+      - generic [ref=e550]:
+        - paragraph [ref=e551]: THE NUMBERS SPEAK FOR THEMSELVES
+        - heading "Operational Excellence" [level=2] [ref=e552]
+      - generic [ref=e553]:
+        - generic [ref=e555]:
+          - generic [ref=e557]:
+            - generic [ref=e558]: "0"
+            - text: +
+          - generic [ref=e559]: Years Experience
+        - generic [ref=e561]:
+          - generic [ref=e563]:
+            - generic [ref=e564]: "0"
+            - text: "%"
+          - generic [ref=e565]: On-Time Delivery
+        - generic [ref=e567]:
+          - generic [ref=e569]:
+            - text: ±
+            - generic [ref=e570]: "0"
+            - text: "\""
+          - generic [ref=e571]: Min Tolerance
+        - generic [ref=e573]:
+          - generic [ref=e575]:
+            - generic [ref=e576]: "0"
+            - text: +
+          - generic [ref=e577]: Active Clients
+    - generic [ref=e587]:
+      - generic [ref=e588]:
+        - img [ref=e589]
+        - generic [ref=e591]: 30 Years of Aerospace Excellence
+      - heading "Ready to Start Your Project?" [level=2] [ref=e592]
+      - paragraph [ref=e593]: Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.
+      - generic [ref=e594]:
+        - link "Request Engineering Quote" [ref=e595] [cursor=pointer]:
+          - /url: /contact
+          - button "Request Engineering Quote" [ref=e596] [cursor=pointer]:
+            - generic [ref=e600] [cursor=pointer]:
+              - text: Request Engineering Quote
+              - img [ref=e601] [cursor=pointer]
+        - link "Technical Specifications" [ref=e603] [cursor=pointer]:
+          - /url: /compliance/supplier-requirements
+          - button "Technical Specifications" [ref=e604] [cursor=pointer]:
+            - generic [ref=e608] [cursor=pointer]:
+              - img [ref=e609] [cursor=pointer]
+              - text: Technical Specifications
+      - generic [ref=e612]:
+        - generic [ref=e617]: 24/7 Production
+        - generic [ref=e618]:
+          - img [ref=e619]
+          - generic [ref=e621]: ITAR Registered
+        - generic [ref=e622]:
+          - img [ref=e623]
+          - generic [ref=e626]: AS9100D
+      - generic [ref=e628]:
+        - generic [ref=e629]: Trusted by leading
+        - generic [ref=e630]: aerospace & defense
+        - generic [ref=e631]: contractors worldwide
+  - contentinfo [ref=e632]:
+    - generic [ref=e633]:
+      - generic [ref=e634]:
+        - generic [ref=e635]:
+          - img [ref=e638]:
+            - generic [ref=e647]:
+              - generic [ref=e648]: I
+              - generic [ref=e649]: I
+              - generic [ref=e650]: S
+            - generic [ref=e653]:
+              - generic [ref=e654]: INTEGRATED
+              - generic [ref=e655]: INSPECTION
+              - generic [ref=e656]: SYSTEMS
+          - heading "INTEGRATED INSPECTION SYSTEMS" [level=3] [ref=e658]
+          - paragraph [ref=e659]: Quality is not inspected into a product but is inherently designed and built into every process.
+          - generic [ref=e660]:
+            - link "LinkedIn" [ref=e661] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e662] [cursor=pointer]
+            - link "Twitter" [ref=e666] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e667] [cursor=pointer]
+            - link "Facebook" [ref=e669] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e670] [cursor=pointer]
+        - generic [ref=e672]:
+          - heading "Services" [level=4] [ref=e673]
+          - list [ref=e674]:
+            - listitem [ref=e675]:
+              - link "Machining" [ref=e676] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e677]:
+              - link "Inspection" [ref=e678] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e679]:
+              - link "Fixture Design" [ref=e680] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e681]:
+              - link "Metrology" [ref=e682] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e683]:
+              - link "Metbase®" [ref=e684] [cursor=pointer]:
+                - /url: /services
+        - generic [ref=e685]:
+          - heading "Quick Links" [level=4] [ref=e686]
+          - list [ref=e687]:
+            - listitem [ref=e688]:
+              - link "About Us" [ref=e689] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e690]:
+              - link "Industries" [ref=e691] [cursor=pointer]:
+                - /url: /industries
+            - listitem [ref=e692]:
+              - link "Terms & Conditions" [ref=e693] [cursor=pointer]:
+                - /url: /compliance/terms
+            - listitem [ref=e694]:
+              - link "Supplier Requirements" [ref=e695] [cursor=pointer]:
+                - /url: /compliance/supplier-requirements
+            - listitem [ref=e696]:
+              - link "Contact" [ref=e697] [cursor=pointer]:
                 - /url: /contact
-            - listitem [ref=e717]:
-              - link "Features" [ref=e718] [cursor=pointer]:
-                - /url: /features
-        - generic [ref=e719]:
-          - heading "Connect" [level=3] [ref=e720]
+        - generic [ref=e698]:
+          - heading "Contact" [level=4] [ref=e699]
+          - list [ref=e700]:
+            - listitem [ref=e701]:
+              - img [ref=e702]
+              - link "officemgr@iismet.com" [ref=e705] [cursor=pointer]:
+                - /url: mailto:officemgr@iismet.com
+            - listitem [ref=e706]:
+              - img [ref=e707]
+              - link "+1 (503) 231-9093" [ref=e709] [cursor=pointer]:
+                - /url: tel:+15032319093
+            - listitem [ref=e710]:
+              - img [ref=e711]
+              - generic [ref=e714]:
+                - text: 14310 SE Industrial Way
+                - text: Clackamas, OR 97015
+                - text: United States
+      - generic [ref=e716]:
+        - paragraph [ref=e717]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
+        - generic [ref=e718]:
+          - img [ref=e719]
           - generic [ref=e721]:
-            - link "Twitter" [ref=e722] [cursor=pointer]:
-              - /url: https://twitter.com/ablockunchained
-              - img [ref=e723] [cursor=pointer]
-            - link "LinkedIn" [ref=e725] [cursor=pointer]:
-              - /url: https://linkedin.com/in/johnconnor
-              - img [ref=e726] [cursor=pointer]
-            - link "Email" [ref=e730] [cursor=pointer]:
-              - /url: mailto:john@johnconnor.xyz
-              - img [ref=e731] [cursor=pointer]
-      - paragraph [ref=e735]: © 2025 John Thomas Connor
-  - generic [ref=e740] [cursor=pointer]:
-    - button "Open Next.js Dev Tools" [ref=e741] [cursor=pointer]:
-      - img [ref=e742] [cursor=pointer]
-    - generic [ref=e745] [cursor=pointer]:
-      - button "Open issues overlay" [ref=e746] [cursor=pointer]:
-        - generic [ref=e747] [cursor=pointer]:
-          - generic [ref=e748] [cursor=pointer]: "0"
-          - generic [ref=e749] [cursor=pointer]: "1"
-        - generic [ref=e750] [cursor=pointer]: Issue
-      - button "Collapse issues badge" [ref=e751] [cursor=pointer]:
-        - img [ref=e752] [cursor=pointer]
-  - alert [ref=e754]
+            - generic [ref=e722]: Founded 1995
+            - generic [ref=e723]: •
+            - generic [ref=e724]: ISO 9001:2015
+            - generic [ref=e725]: •
+            - generic [ref=e726]: AS9100D
+            - generic [ref=e727]: •
+            - generic [ref=e728]: ITAR Registered
+  - generic [ref=e733] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e734] [cursor=pointer]:
+      - img [ref=e735] [cursor=pointer]
+    - generic [ref=e738] [cursor=pointer]:
+      - button "Open issues overlay" [ref=e739] [cursor=pointer]:
+        - generic [ref=e740] [cursor=pointer]:
+          - generic [ref=e741] [cursor=pointer]: "0"
+          - generic [ref=e742] [cursor=pointer]: "1"
+        - generic [ref=e743] [cursor=pointer]: Issue
+      - button "Collapse issues badge" [ref=e744] [cursor=pointer]:
+        - img [ref=e745] [cursor=pointer]
+  - alert [ref=e747]
+  - link "Setup CMS" [ref=e749] [cursor=pointer]:
+    - /url: /studio
+    - img [ref=e750] [cursor=pointer]
+    - generic [ref=e753] [cursor=pointer]: Setup CMS
 ```

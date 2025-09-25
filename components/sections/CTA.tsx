@@ -15,8 +15,8 @@ export default function CTA() {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(0deg, transparent 49%, rgba(6, 182, 212, 0.03) 50%, transparent 51%),
-              linear-gradient(90deg, transparent 49%, rgba(6, 182, 212, 0.03) 50%, transparent 51%)
+              linear-gradient(0deg, transparent 49%, rgba(59, 130, 246, 0.03) 50%, transparent 51%),
+              linear-gradient(90deg, transparent 49%, rgba(59, 130, 246, 0.03) 50%, transparent 51%)
             `,
             backgroundSize: '50px 50px',
           }}
@@ -32,7 +32,7 @@ export default function CTA() {
 
         {/* Scanning beam effect */}
         <motion.div
-          className="absolute h-px w-full bg-gradient-to-r from-transparent via-cyan-600/30 to-transparent"
+          className="absolute h-px w-full bg-gradient-to-r from-transparent via-blue-600/30 to-transparent"
           initial={{ top: '0%' }}
           animate={{ top: '100%' }}
           transition={{
@@ -55,7 +55,7 @@ export default function CTA() {
         />
 
         {/* Corner accent lights */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-cyan-600/10 rounded-full filter blur-3xl" />
+        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full filter blur-3xl" />
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl" />
       </div>
 
@@ -64,7 +64,7 @@ export default function CTA() {
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
-            repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(6, 182, 212, 0.1) 10deg, transparent 20deg),
+            repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(59, 130, 246, 0.1) 10deg, transparent 20deg),
             repeating-radial-gradient(circle at 50% 50%, transparent 0px, transparent 40px, rgba(59, 130, 246, 0.05) 50px, transparent 60px)
           `,
           backgroundSize: '200px 200px',
@@ -85,10 +85,10 @@ export default function CTA() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-cyan-600/20 bg-cyan-600/5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-blue-600/20 bg-blue-600/5 backdrop-blur-sm"
           >
-            <Activity className="w-4 h-4 text-cyan-600" />
-            <span className="text-sm font-medium text-cyan-600">30 Years of Aerospace Excellence</span>
+            <Activity className="w-4 h-4 text-blue-500" />
+            <span className="text-sm font-medium text-blue-500">30 Years of Aerospace Excellence</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -143,7 +143,7 @@ export default function CTA() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-colors"
             >
-              <Shield className="w-4 h-4 text-cyan-600" />
+              <Shield className="w-4 h-4 text-blue-500" />
               <span className="text-sm font-medium text-slate-300">ITAR Registered</span>
             </motion.div>
 
@@ -154,7 +154,7 @@ export default function CTA() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="group flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-colors"
             >
-              <Award className="w-4 h-4 text-cyan-600" />
+              <Award className="w-4 h-4 text-blue-500" />
               <span className="text-sm font-medium text-slate-300">AS9100D</span>
             </motion.div>
           </div>
@@ -169,7 +169,7 @@ export default function CTA() {
           >
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <span>Trusted by leading</span>
-              <span className="font-semibold text-cyan-600">aerospace & defense</span>
+              <span className="font-semibold text-blue-500">aerospace & defense</span>
               <span>contractors worldwide</span>
             </div>
           </motion.div>

@@ -6,6 +6,8 @@ import { Card } from '@/components/ui/card';
 import { Cog, Cpu, Gauge, Users, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AnimatedSection from '@/components/ui/animated-section';
+import { cardHover } from '@/lib/animations';
 
 const services = [
   {
@@ -69,53 +71,35 @@ export default function Services() {
         style={{ opacity }}
         className="container relative z-10"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-16 md:mb-20"
-        >
+        <AnimatedSection className="text-center mb-16 md:mb-20">
           {/* Section Context */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-sm font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2"
-          >
+          <p className="text-sm font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">
             COMPREHENSIVE MANUFACTURING SOLUTIONS
-          </motion.p>
+          </p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
-            <span className="text-cyan-600">PRECISION</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> SERVICES</span>
+            <span className="text-slate-900">PRECISION</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> SERVICES</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-blue-600 max-w-3xl mx-auto font-medium mb-4">
+          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">
             Four core service pillars delivering unmatched precision and reliability
           </p>
 
-          <p className="text-base text-cyan-600 max-w-2xl mx-auto">
+          <p className="text-base text-slate-600 max-w-2xl mx-auto">
             From complex 5-axis machining to advanced metrology, our integrated services ensure
             your most critical components meet the strictest aerospace and defense standards
           </p>
-        </motion.div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <motion.div
+              <AnimatedSection
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }}
+                delay={index * 0.1}
+                className="group"
                 whileHover={{
                   scale: 1.01,
                   y: -8,
@@ -125,11 +109,10 @@ export default function Services() {
                     damping: 25
                   }
                 }}
-                className="group"
               >
                 <Link href={service.href} className="block h-full">
-                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-600/20 border-slate-200 bg-white relative ${
-                    service.highlight ? 'ring-2 ring-cyan-600/20' : ''
+                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/20 border-slate-200 bg-white relative ${
+                    service.highlight ? 'ring-2 ring-blue-600/20' : ''
                   }`}>
                     {/* Image Header */}
                     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50">
@@ -152,14 +135,14 @@ export default function Services() {
                           damping: 20
                         }}
                       >
-                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-600/50 transition-shadow duration-300">
-                          <Icon className="h-6 w-6 text-cyan-600" />
+                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-600/50 transition-shadow duration-300">
+                          <Icon className="h-6 w-6 text-blue-600" />
                         </div>
                       </motion.div>
 
                       {service.highlight && (
                         <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-cyan-600 text-white text-xs font-semibold rounded-full">
+                          <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
                             FEATURED
                           </span>
                         </div>
@@ -168,23 +151,23 @@ export default function Services() {
 
                     {/* Content */}
                     <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2 text-cyan-600 group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="text-xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-blue-600 mb-4 leading-relaxed">
+                      <p className="text-sm text-slate-600 mb-4 leading-relaxed">
                         {service.description}
                       </p>
 
                       <ul className="space-y-2 mb-5">
                         {service.specs.map((spec) => (
-                          <li key={spec} className="flex items-start text-xs text-cyan-600">
-                            <CheckCircle className="h-3 w-3 text-cyan-600 mr-2 mt-0.5 flex-shrink-0" />
+                          <li key={spec} className="flex items-start text-xs text-slate-600">
+                            <CheckCircle className="h-3 w-3 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                             <span>{spec}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div className="flex items-center text-cyan-600 font-semibold text-sm group-hover:text-blue-600 transition-colors duration-300">
+                      <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:text-indigo-600 transition-colors duration-300">
                         <span>Learn More</span>
                         <motion.div
                           className="ml-1"
@@ -198,30 +181,24 @@ export default function Services() {
                     </div>
                   </Card>
                 </Link>
-              </motion.div>
+              </AnimatedSection>
             );
           })}
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mt-16 md:mt-20"
-        >
-          <p className="text-lg text-blue-600 mb-6">
+        <AnimatedSection delay={0.4} className="text-center mt-16 md:mt-20">
+          <p className="text-lg text-slate-700 mb-6">
             Need custom manufacturing solutions?
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-cyan-600 hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
             Discuss Your Project
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
-        </motion.div>
+        </AnimatedSection>
       </motion.div>
     </section>
   );
