@@ -5,6 +5,7 @@ import Industries from '@/components/sections/Industries';
 import ImageShowcase from '@/components/sections/ImageShowcase';
 import Stats from '@/components/sections/Stats';
 import CTA from '@/components/sections/CTA';
+import MetricsDashboard from '@/components/sections/MetricsDashboard';
 import { client } from '@/sanity/lib/sanity';
 import { homePageQuery } from '@/sanity/lib/queries';
 
@@ -29,6 +30,7 @@ export default async function Home() {
     <>
       <Hero />
       <TechnicalSpecs />
+      <MetricsDashboard />
       <Services />
       <Industries />
       <ImageShowcase />

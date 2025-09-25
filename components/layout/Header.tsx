@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Phone, Mail, Zap, ArrowRight } from 'lucide-react';
 import Logo from '@/components/ui/logo';
-import { Button } from '@/components/ui/button';
+import { PremiumButton } from '@/components/ui/premium-button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -176,34 +176,22 @@ export default function Header() {
 
           {/* Desktop CTA - Premium Design */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              size="default"
-              asChild
-              className="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold px-6 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
-            >
-              <Link href="/contact">
-                <span className="relative z-10 flex items-center">
-                  REQUEST QUOTE
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500"
-                  initial={{ x: '100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </Link>
-            </Button>
+            <Link href="/contact">
+              <PremiumButton>
+                REQUEST QUOTE
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </PremiumButton>
+            </Link>
           </div>
 
           {/* Mobile Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="hover:bg-slate-100/50" aria-label="Open menu">
+              <button className="p-2 hover:bg-slate-100/50 rounded-lg transition-colors" aria-label="Open menu">
                 <Menu className="h-5 w-5" />
-              </Button>
+              </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white/95 backdrop-blur-xl">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white/95 backdrop-blur-xl overflow-y-auto max-h-screen">
               <nav className="flex flex-col space-y-6 mt-8">
                 {navigation.map((item) => (
                   <div key={item.name}>
@@ -236,17 +224,12 @@ export default function Header() {
                     )}
                   </div>
                 ))}
-                <Button
-                  className="mt-6 w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold shadow-lg"
-                  asChild
-                >
-                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                    <span className="flex items-center justify-center">
-                      Request Quote
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </span>
-                  </Link>
-                </Button>
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block mt-6">
+                  <PremiumButton className="w-full">
+                    Request Quote
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </PremiumButton>
+                </Link>
               </nav>
             </SheetContent>
           </Sheet>

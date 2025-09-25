@@ -17,7 +17,7 @@ export default function TechnicalSpecs() {
       value: "5-AXIS",
       label: "CNC CAPABILITY",
       description: "Simultaneous machining",
-      gradient: "from-blue-600 to-indigo-600"
+      gradient: "from-blue-500 to-blue-700"
     },
     {
       icon: Shield,
@@ -31,35 +31,35 @@ export default function TechnicalSpecs() {
       value: "99.97%",
       label: "FIRST PASS YIELD",
       description: "Quality rate",
-      gradient: "from-blue-600 to-cyan-600"
+      gradient: "from-blue-600 to-cyan-500"
     },
     {
       icon: Clock,
       value: "24/7",
       label: "PRODUCTION",
       description: "Continuous operation",
-      gradient: "from-pink-600 to-red-600"
+      gradient: "from-blue-600 to-blue-500"
     },
     {
       icon: Target,
       value: "99.8%",
       label: "ON-TIME",
       description: "Delivery performance",
-      gradient: "from-red-600 to-orange-600"
+      gradient: "from-cyan-500 to-cyan-600"
     },
     {
       icon: Zap,
       value: "12,000",
       label: "RPM",
       description: "Spindle speed",
-      gradient: "from-orange-600 to-yellow-600"
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: Award,
       value: "ITAR",
       label: "REGISTERED",
       description: "Defense compliant",
-      gradient: "from-yellow-600 to-green-600"
+      gradient: "from-cyan-600 to-blue-700"
     }
   ];
 

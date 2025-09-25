@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { PremiumButton } from '@/components/ui/premium-button';
 import { ArrowRight, FileText, Shield, Award, Activity } from 'lucide-react';
 import Link from 'next/link';
 
@@ -101,28 +101,19 @@ export default function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              size="lg"
-              className="group bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold shadow-xl hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
-              asChild
-            >
-              <Link href="/contact">
+            <Link href="/contact">
+              <PremiumButton size="lg">
                 Request Engineering Quote
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+              </PremiumButton>
+            </Link>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-slate-700 bg-slate-900/50 text-slate-300 hover:border-cyan-500 hover:text-cyan-400 hover:bg-slate-900/80 backdrop-blur-sm transition-all duration-300"
-              asChild
-            >
-              <Link href="/compliance/supplier-requirements">
+            <Link href="/compliance/supplier-requirements">
+              <PremiumButton size="lg" variant="secondary">
                 <FileText className="mr-2 h-5 w-5" />
                 Technical Specifications
-              </Link>
-            </Button>
+              </PremiumButton>
+            </Link>
           </div>
 
           {/* Certification badges with subtle animation */}
