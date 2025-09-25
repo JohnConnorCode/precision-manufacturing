@@ -107,7 +107,7 @@ export default function AdaptiveMachiningPage() {
         }}
         title={
           <>
-            Adaptive <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Machining</span>
+            <span className="text-white">Adaptive</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Machining</span>
           </>
         }
         subtitle="AI-Driven Manufacturing Excellence"

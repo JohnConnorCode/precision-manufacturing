@@ -119,7 +119,7 @@ export default function MetrologyPage() {
         }}
         title={
           <>
-            Precision <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Metrology</span>
+            <span className="text-white">Precision</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Metrology</span>
           </>
         }
         subtitle="Quality Assurance Excellence"

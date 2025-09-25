@@ -133,7 +133,7 @@ export default function FiveAxisMachiningPage() {
         }}
         title={
           <>
-            5-Axis <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Machining</span>
+            <span className="text-white">5-Axis</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Machining</span>
           </>
         }
         subtitle="Precision Manufacturing Excellence"

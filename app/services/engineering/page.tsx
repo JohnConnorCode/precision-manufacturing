@@ -161,7 +161,7 @@ export default function EngineeringPage() {
         }}
         title={
           <>
-            Engineering <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Services</span>
+            <span className="text-white">Engineering</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Services</span>
           </>
         }
         subtitle="From Concept to Production"
