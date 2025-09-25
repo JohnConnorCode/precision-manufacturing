@@ -93,9 +93,9 @@ export default function ContactPage() {
           icon: Activity
         }}
         title={
-          <>
+          <span className="text-white">
             Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Our Team</span>
-          </>
+          </span>
         }
         description="Connect with Integrated Inspection Systems for precision manufacturing solutions, technical consultations, and project quotes."
         buttons={[

@@ -88,15 +88,15 @@ export default function Services() {
           </motion.p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
-            <span className="text-slate-900">PRECISION</span>
+            <span className="text-cyan-600">PRECISION</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> SERVICES</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">
+          <p className="text-lg md:text-xl text-blue-600 max-w-3xl mx-auto font-medium mb-4">
             Four core service pillars delivering unmatched precision and reliability
           </p>
 
-          <p className="text-base text-slate-500 max-w-2xl mx-auto">
+          <p className="text-base text-cyan-600 max-w-2xl mx-auto">
             From complex 5-axis machining to advanced metrology, our integrated services ensure
             your most critical components meet the strictest aerospace and defense standards
           </p>
@@ -116,10 +116,19 @@ export default function Services() {
                   delay: index * 0.1,
                   ease: [0.25, 0.1, 0.25, 1]
                 }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -8,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25
+                  }
+                }}
                 className="group"
               >
                 <Link href={service.href} className="block h-full">
-                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl border-slate-200 bg-white relative ${
+                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 border-slate-200 bg-white relative ${
                     service.highlight ? 'ring-2 ring-cyan-500/20' : ''
                   }`}>
                     {/* Image Header */}
@@ -128,18 +137,22 @@ export default function Services() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700 ease-out"
+                        className="object-cover opacity-90 group-hover:scale-115 group-hover:opacity-100 transition-all duration-700 ease-out"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-                      {/* Floating Icon */}
+                      {/* Floating Icon with Premium Effect */}
                       <motion.div
                         className="absolute bottom-4 left-4"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 20
+                        }}
                       >
-                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-500/50 transition-shadow duration-300">
                           <Icon className="h-6 w-6 text-cyan-600" />
                         </div>
                       </motion.div>
@@ -155,25 +168,32 @@ export default function Services() {
 
                     {/* Content */}
                     <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2 text-slate-900 group-hover:text-cyan-600 transition-colors duration-300">
+                      <h3 className="text-xl font-bold mb-2 text-cyan-600 group-hover:text-blue-600 transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                      <p className="text-sm text-blue-600 mb-4 leading-relaxed">
                         {service.description}
                       </p>
 
                       <ul className="space-y-2 mb-5">
                         {service.specs.map((spec) => (
-                          <li key={spec} className="flex items-start text-xs text-slate-500">
+                          <li key={spec} className="flex items-start text-xs text-cyan-600">
                             <CheckCircle className="h-3 w-3 text-cyan-500 mr-2 mt-0.5 flex-shrink-0" />
                             <span>{spec}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div className="flex items-center text-cyan-600 font-semibold text-sm">
+                      <div className="flex items-center text-cyan-600 font-semibold text-sm group-hover:text-blue-600 transition-colors duration-300">
                         <span>Learn More</span>
-                        <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-2" />
+                        <motion.div
+                          className="ml-1"
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 4 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                        >
+                          <ArrowRight className="w-4 h-4" />
+                        </motion.div>
                       </div>
                     </div>
                   </Card>
@@ -191,12 +211,12 @@ export default function Services() {
           transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mt-16 md:mt-20"
         >
-          <p className="text-lg text-slate-600 mb-6">
+          <p className="text-lg text-blue-600 mb-6">
             Need custom manufacturing solutions?
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center px-8 py-4 bg-cyan-600 hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
             Discuss Your Project
             <ArrowRight className="ml-2 h-5 w-5" />

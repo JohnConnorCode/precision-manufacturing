@@ -91,8 +91,9 @@ export default function HeroSection({
           src={backgroundImage}
           alt={imageAlt}
           fill
-          className="object-cover object-center"
-          priority
+          className="object-cover object-center animate-fade-in"
+          priority={true}
+          loading="eager"
           quality={95}
           sizes="100vw"
         />

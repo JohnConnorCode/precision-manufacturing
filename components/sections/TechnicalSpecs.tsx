@@ -24,14 +24,14 @@ export default function TechnicalSpecs() {
       value: "AS9100D",
       label: "CERTIFIED",
       description: "Aerospace quality",
-      gradient: "from-indigo-600 to-purple-600"
+      gradient: "from-cyan-600 to-blue-600"
     },
     {
       icon: Activity,
       value: "99.97%",
       label: "FIRST PASS YIELD",
       description: "Quality rate",
-      gradient: "from-purple-600 to-pink-600"
+      gradient: "from-blue-600 to-cyan-600"
     },
     {
       icon: Clock,

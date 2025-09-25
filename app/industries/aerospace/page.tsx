@@ -141,9 +141,9 @@ export default function AerospacePage() {
           icon: Plane
         }}
         title={
-          <>
-            Aerospace <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Components</span>
-          </>
+          <span className="text-white">
+            Aerospace <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Components</span>
+          </span>
         }
         description="Trusted partner for critical aerospace components, delivering precision-machined parts for commercial and military aircraft with full AS9100D compliance and ITAR registration."
         buttons={[

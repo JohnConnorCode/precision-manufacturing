@@ -31,7 +31,7 @@ const stats = [
   { icon: Award, value: 'AS9100D', label: 'Certified Quality', color: 'text-cyan-600' },
   { icon: Shield, value: 'ITAR', label: 'Registered', color: 'text-blue-600' },
   { icon: Clock, value: '24/7', label: 'Production', color: 'text-indigo-600' },
-  { icon: Target, value: '±0.0001"', label: 'Tolerance', color: 'text-purple-600' }
+  { icon: Target, value: '±0.0001"', label: 'Tolerance', color: 'text-cyan-600' }
 ];
 
 export default function ImageShowcase() {

@@ -142,9 +142,9 @@ export default function EnergyPage() {
           icon: Zap
         }}
         title={
-          <>
-            Energy <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600">Manufacturing</span>
-          </>
+          <span className="text-white">
+            Energy <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Manufacturing</span>
+          </span>
         }
         description="Precision components for power generation, oil & gas, and renewable energy systems. Supporting critical infrastructure with proven reliability and industry compliance."
         buttons={[
