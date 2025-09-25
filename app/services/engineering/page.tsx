@@ -23,7 +23,7 @@ export default function EngineeringPage() {
       description: 'Optimize part designs for efficient manufacturing while maintaining performance requirements.',
       icon: Settings,
       features: ['Cost optimization', 'Tolerance analysis', 'Material selection', 'Process optimization'],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90',
       benefits: [
         'Reduced manufacturing costs',
         'Improved producibility',
@@ -36,7 +36,7 @@ export default function EngineeringPage() {
       description: 'Fast-track product development with advanced prototyping technologies and processes.',
       icon: Lightbulb,
       features: ['3D printing', 'CNC prototypes', 'Functional testing', 'Design validation'],
-      image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=1600&q=90',
       benefits: [
         'Accelerated development',
         'Design verification',
@@ -49,7 +49,7 @@ export default function EngineeringPage() {
       description: 'Expert programming services for complex machining operations and toolpath optimization.',
       icon: Layers,
       features: ['Multi-axis programming', 'Toolpath optimization', 'Simulation & verification', 'Post-processing'],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=90',
       benefits: [
         'Optimized cycle times',
         'Improved surface finish',
@@ -62,7 +62,7 @@ export default function EngineeringPage() {
       description: 'Comprehensive manufacturing process development and optimization for new products.',
       icon: Cog,
       features: ['Process planning', 'Tooling design', 'Fixture development', 'Quality planning'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90',
       benefits: [
         'Robust processes',
         'Quality assurance',
@@ -150,7 +150,7 @@ export default function EngineeringPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1581092918482-a8fee14d45f0?w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced CAD engineering and design services workstation"
         height="large"
         alignment="center"

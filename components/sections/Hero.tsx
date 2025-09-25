@@ -13,27 +13,27 @@ export default function Hero() {
 
   const heroSlides = [
     {
-      src: 'https://images.unsplash.com/photo-1565117650576-09f9469ac3b2?w=2400&q=95',
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=95',
       alt: 'Advanced 5-axis CNC machining center',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=2400&q=95',
+      src: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=2400&q=95',
       alt: 'Precision metrology and inspection',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1609421137215-dfcdafcb06c9?w=2400&q=95',
+      src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2400&q=95',
       alt: 'Automated manufacturing systems',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=95',
+      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=95',
       alt: 'Industrial engineering and process development',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1581092918482-a8fee14d45f0?w=2400&q=95',
+      src: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=2400&q=95',
       alt: 'Defense and aerospace components manufacturing',
       focal: 'center' as const
     }
@@ -47,7 +47,7 @@ export default function Hero() {
       {/* Content Container - Professional and Clean */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="container relative z-10 pt-24 md:pt-28 pb-16 md:pb-20 px-4 md:px-8"
+        className="container relative z-10 pt-16 md:pt-20 pb-12 md:pb-16 px-4 md:px-8"
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -108,9 +108,9 @@ export default function Hero() {
             ].map((badge, index) => (
               <motion.span
                 key={badge}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 + index * 0.1, duration: 0.6, ease: "easeOut" }}
                 className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/20 backdrop-blur-sm"
               >
                 {badge}

@@ -23,7 +23,7 @@ export default function PredictiveAnalyticsPage() {
       description: 'Advanced AI algorithms predict equipment failures before they occur.',
       icon: Brain,
       features: ['Failure prediction', 'Pattern recognition', 'Anomaly detection', 'Performance forecasting'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1563770660941-906983ff0c26?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'TensorFlow & PyTorch models',
         'Neural network architectures',
@@ -36,7 +36,7 @@ export default function PredictiveAnalyticsPage() {
       description: 'Continuous monitoring and analysis of manufacturing data streams.',
       icon: TrendingUp,
       features: ['IoT sensor integration', 'Live dashboards', 'Alert systems', 'Performance metrics'],
-      image: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Apache Kafka streaming',
         'InfluxDB time-series database',
@@ -49,7 +49,7 @@ export default function PredictiveAnalyticsPage() {
       description: 'Schedule maintenance based on actual equipment condition and predictions.',
       icon: Shield,
       features: ['Condition-based scheduling', 'Resource optimization', 'Risk assessment', 'Cost analysis'],
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Predictive maintenance models',
         'Failure mode analysis',
@@ -109,7 +109,7 @@ export default function PredictiveAnalyticsPage() {
     <main className="relative min-h-screen bg-slate-950">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=90"
         imageAlt="AI-powered predictive analytics dashboard display"
         height="large"
         alignment="center"

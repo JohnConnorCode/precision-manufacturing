@@ -52,19 +52,19 @@ export default function AdaptiveMachiningPage() {
     {
       title: 'Aerospace Engine Components',
       description: 'Critical turbine parts requiring exceptional precision and surface quality',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1600&q=90',
       challenges: ['Complex geometries', 'Difficult materials', 'Tight tolerances', 'Surface requirements']
     },
     {
       title: 'Defense System Parts',
       description: 'High-reliability components for mission-critical defense applications',
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90',
       challenges: ['Material hardness', 'Precision requirements', 'Traceability', 'Quality standards']
     },
     {
       title: 'Energy Sector Components',
       description: 'Power generation and oil & gas industry precision components',
-      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=90',
       challenges: ['Large part size', 'Complex features', 'Material properties', 'Durability requirements']
     }
   ];
@@ -96,7 +96,7 @@ export default function AdaptiveMachiningPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Smart adaptive machining with AI control systems"
         height="large"
         alignment="center"
@@ -382,7 +382,7 @@ export default function AdaptiveMachiningPage() {
               className="relative"
             >
               <ParallaxImagePro
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=90"
                 alt="Smart manufacturing control"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}

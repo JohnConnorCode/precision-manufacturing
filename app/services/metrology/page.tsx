@@ -23,7 +23,7 @@ export default function MetrologyPage() {
       description: 'High-precision dimensional inspection using state-of-the-art CMM systems for complex geometries.',
       icon: Target,
       features: ['3D coordinate measurement', 'GD&T inspection', 'Statistical analysis', 'Automated reporting'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Zeiss CONTURA G2 RDS CMM',
         'Working volume: 700x1000x600mm',
@@ -36,7 +36,7 @@ export default function MetrologyPage() {
       description: 'Advanced 3D laser scanning for rapid inspection, reverse engineering, and digital documentation.',
       icon: Search,
       features: ['Point cloud generation', 'CAD comparison', 'Surface analysis', 'Digital archiving'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'ATOS Triple Scan system',
         '5 megapixel resolution',
@@ -49,7 +49,7 @@ export default function MetrologyPage() {
       description: 'Non-contact optical measurement for delicate parts and surface characteristics analysis.',
       icon: Eye,
       features: ['Surface roughness', 'Profile measurement', 'Edge detection', 'Multi-sensor integration'],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Keyence IM Series',
         'Sub-micron accuracy',
@@ -62,7 +62,7 @@ export default function MetrologyPage() {
       description: 'Comprehensive calibration services for measuring instruments and production tooling.',
       icon: Gauge,
       features: ['NIST traceable', 'Calibration certificates', 'Tool verification', 'Gage R&R studies'],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'NIST traceable standards',
         'Environmental controls',
@@ -108,7 +108,7 @@ export default function MetrologyPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1537462589942-f3e10db0e074?w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Precision metrology and CMM inspection equipment"
         height="large"
         alignment="center"
@@ -337,7 +337,7 @@ export default function MetrologyPage() {
               className="relative"
             >
               <ParallaxImagePro
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1600&q=90"
                 alt="Quality control laboratory"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}

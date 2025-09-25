@@ -16,7 +16,7 @@ export default function ServicesPage() {
       icon: Cog,
       href: '/services/5-axis-machining',
       features: ['±0.0001" Precision', 'Complex Geometries', 'Titanium & Inconel', 'Aerospace Grade'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90'
     },
     {
       title: 'Adaptive Machining',
@@ -24,7 +24,7 @@ export default function ServicesPage() {
       icon: Cpu,
       href: '/services/adaptive-machining',
       features: ['Real-time Monitoring', 'Intelligent Control', 'Quality Assurance', 'Process Optimization'],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=1600&q=90'
     },
     {
       title: 'Precision Metrology',
@@ -32,7 +32,7 @@ export default function ServicesPage() {
       icon: Target,
       href: '/services/metrology',
       features: ['CMM Inspection', 'Laser Scanning', 'Dimensional Analysis', 'First Article'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=90'
     },
     {
       title: 'Engineering Services',
@@ -40,7 +40,7 @@ export default function ServicesPage() {
       icon: Wrench,
       href: '/services/engineering',
       features: ['Design Optimization', 'Rapid Prototyping', 'DFM Analysis', 'Process Development'],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90'
     }
   ];
 
@@ -54,7 +54,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=85"
+        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced manufacturing services - precision CNC machining and quality control"
         badge={{
           text: "PRECISION MANUFACTURING SERVICES",
@@ -235,7 +235,7 @@ export default function ServicesPage() {
               className="relative"
             >
               <ParallaxImagePro
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                src="https://images.unsplash.com/photo-1563770660941-906983ff0c26?auto=format&fit=crop&w=1600&q=90"
                 alt="Quality assurance"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}

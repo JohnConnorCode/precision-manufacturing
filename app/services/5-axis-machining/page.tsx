@@ -23,7 +23,7 @@ export default function FiveAxisMachiningPage() {
       description: 'Advanced 5-axis machining for turbine blades, impellers, and complex geometries requiring continuous contouring.',
       icon: Settings,
       features: ['Turbine blade manufacturing', 'Impeller machining', 'Complex curve generation', 'Simultaneous 5-axis contouring'],
-      image: 'https://images.unsplash.com/photo-1565330520212-2c0f706646ac',
+      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Hermle C42U 5-axis machining center',
         'Heidenhain iTNC 530 control',
@@ -36,7 +36,7 @@ export default function FiveAxisMachiningPage() {
       description: 'High-precision machining of defense components with complex angles and tight tolerances for critical applications.',
       icon: Shield,
       features: ['Defense component machining', 'Complex angle programming', 'Tight tolerance manufacturing', 'ITAR compliance'],
-      image: 'https://images.unsplash.com/photo-1609421137215-dfcdafcb06c9',
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'ITAR registered facility',
         'Security clearance available',
@@ -49,7 +49,7 @@ export default function FiveAxisMachiningPage() {
       description: 'Rapid prototyping and low-volume production using advanced 5-axis capabilities for complex part geometries.',
       icon: Zap,
       features: ['Rapid prototyping', 'Complex geometry machining', 'Material optimization', 'Design validation'],
-      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'CAD/CAM integration',
         'Multiple material capability',
@@ -62,7 +62,7 @@ export default function FiveAxisMachiningPage() {
       description: 'High-volume production capabilities with consistent quality and repeatability for complex manufactured parts.',
       icon: Cog,
       features: ['High-volume production', 'Process optimization', 'Quality consistency', 'Automated workflows'],
-      image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180',
+      image: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Statistical process control',
         'Automated inspection',
@@ -122,7 +122,7 @@ export default function FiveAxisMachiningPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565117650576-09f9469ac3b2?w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced 5-axis CNC machining center in operation"
         height="large"
         alignment="center"

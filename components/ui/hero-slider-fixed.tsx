@@ -108,9 +108,9 @@ export default function HeroSliderFixed({
           </div>
         </div>
 
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        {/* Gradient overlays matching service pages */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
       </div>
     );
   }
@@ -186,27 +186,10 @@ export default function HeroSliderFixed({
         </motion.div>
       ))}
 
-      {/* Strong gradient overlay for maximum text contrast */}
+      {/* Gradient overlays matching service pages */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Base dark layer */}
-        <div className="absolute inset-0 bg-black/45" />
-
-        {/* Main gradient for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
-
-        {/* Center focus vignette */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.6) 100%)'
-          }}
-        />
-
-        {/* Top gradient for header */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent" />
-
-        {/* Bottom gradient for content */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/30 via-transparent to-blue-950/30" />
       </div>
 
     </div>
