@@ -1,0 +1,126 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "Permaculture Planner" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img [ref=e8] [cursor=pointer]
+          - generic [ref=e12] [cursor=pointer]: Permaculture Planner
+        - generic [ref=e13]:
+          - link "Home" [active] [ref=e14] [cursor=pointer]:
+            - /url: /
+            - img [ref=e15] [cursor=pointer]
+            - generic [ref=e18] [cursor=pointer]: Home
+          - link "Features" [ref=e20] [cursor=pointer]:
+            - /url: /features
+            - img [ref=e21] [cursor=pointer]
+            - generic [ref=e26] [cursor=pointer]: Features
+          - link "Tools" [ref=e28] [cursor=pointer]:
+            - /url: /tools
+            - img [ref=e29] [cursor=pointer]
+            - generic [ref=e32] [cursor=pointer]: Tools
+          - link "Demo" [ref=e34] [cursor=pointer]:
+            - /url: /demo
+            - img [ref=e35] [cursor=pointer]
+            - generic [ref=e39] [cursor=pointer]: Demo
+          - link "Wizard" [ref=e41] [cursor=pointer]:
+            - /url: /wizard
+            - img [ref=e42] [cursor=pointer]
+            - generic [ref=e47] [cursor=pointer]: Wizard
+          - link "Community" [ref=e49] [cursor=pointer]:
+            - /url: /community
+            - img [ref=e50] [cursor=pointer]
+            - generic [ref=e55] [cursor=pointer]: Community
+          - link "Learn" [ref=e57] [cursor=pointer]:
+            - /url: /docs
+            - img [ref=e58] [cursor=pointer]
+            - generic [ref=e61] [cursor=pointer]: Learn
+        - generic [ref=e63]:
+          - link "Sign In" [ref=e64] [cursor=pointer]:
+            - /url: /auth/login
+            - button "Sign In" [ref=e65] [cursor=pointer]:
+              - img [ref=e66] [cursor=pointer]
+              - text: Sign In
+          - link "Get Started" [ref=e70] [cursor=pointer]:
+            - /url: /auth/signup
+            - button "Get Started" [ref=e71] [cursor=pointer]:
+              - img [ref=e72] [cursor=pointer]
+              - generic [ref=e77] [cursor=pointer]: Get Started
+    - main [ref=e80]:
+      - generic [ref=e82]:
+        - heading "404" [level=1] [ref=e83]
+        - heading "This page could not be found." [level=2] [ref=e85]
+    - contentinfo [ref=e86]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - img [ref=e92]
+            - generic [ref=e96]: Permaculture Planner
+          - paragraph [ref=e97]: Design sustainable gardens with AI-powered permaculture planning. Free and open source for everyone.
+          - generic [ref=e98]:
+            - link "GitHub" [ref=e99] [cursor=pointer]:
+              - /url: https://github.com
+              - img [ref=e100] [cursor=pointer]
+            - link "Twitter" [ref=e103] [cursor=pointer]:
+              - /url: https://twitter.com
+              - img [ref=e104] [cursor=pointer]
+            - link "Email" [ref=e106] [cursor=pointer]:
+              - /url: mailto:contact@permaculture-planner.com
+              - img [ref=e107] [cursor=pointer]
+        - generic [ref=e110]:
+          - heading "Product" [level=3] [ref=e111]
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - link "Features" [ref=e114] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e115]:
+              - link "Demo" [ref=e116] [cursor=pointer]:
+                - /url: /demo
+            - listitem [ref=e117]:
+              - link "Garden Wizard" [ref=e118] [cursor=pointer]:
+                - /url: /wizard
+            - listitem [ref=e119]:
+              - link "Visual Designer" [ref=e120] [cursor=pointer]:
+                - /url: /editor
+        - generic [ref=e121]:
+          - heading "Resources" [level=3] [ref=e122]
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - link "Documentation" [ref=e125] [cursor=pointer]:
+                - /url: /docs
+            - listitem [ref=e126]:
+              - link "Community" [ref=e127] [cursor=pointer]:
+                - /url: /community
+            - listitem [ref=e128]:
+              - link "Support" [ref=e129] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e130]:
+              - link "Open Source" [ref=e131] [cursor=pointer]:
+                - /url: https://github.com/permaculture-planner
+        - generic [ref=e132]:
+          - heading "Company" [level=3] [ref=e133]
+          - list [ref=e134]:
+            - listitem [ref=e135]:
+              - link "About Us" [ref=e136] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e137]:
+              - link "Privacy Policy" [ref=e138] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e139]:
+              - link "Terms of Service" [ref=e140] [cursor=pointer]:
+                - /url: /terms
+            - listitem [ref=e141]:
+              - link "Contact" [ref=e142] [cursor=pointer]:
+                - /url: /contact
+      - generic [ref=e145]:
+        - paragraph [ref=e146]: © 2025 Permaculture Planner. All rights reserved.
+        - paragraph [ref=e147]:
+          - text: Made with
+          - img [ref=e148]
+          - text: for sustainable gardening
+  - region "Notifications (F8)":
+    - list
+```
