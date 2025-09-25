@@ -3,7 +3,8 @@ import { redirect } from 'next/navigation';
 
 export async function GET() {
   // Disable Draft Mode by removing the cookie
-  draftMode().disable();
+  const draft = await draftMode();
+  draft.disable();
 
   // Redirect to homepage
   redirect('/');
