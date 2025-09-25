@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import ParallaxImage from './parallax-image';
 
 interface BackgroundSliderProps {
@@ -36,11 +37,15 @@ export default function BackgroundSlider({
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <img
+          <Image
             src={images[currentIndex]}
             alt="Manufacturing facility"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             style={{ filter: 'brightness(0.6) contrast(1.1)' }}
+            priority={currentIndex === 0}
+            quality={85}
+            sizes="100vw"
           />
         </motion.div>
       </AnimatePresence>

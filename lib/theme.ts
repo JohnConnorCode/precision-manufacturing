@@ -53,14 +53,15 @@ export const theme = {
     // Cards
     card: {
       base: 'bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300',
-      dark: 'bg-slate-900/80 backdrop-blur-sm border border-slate-800/50 rounded-xl shadow-xl',
+      dark: 'bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl shadow-xl',
       glass: 'bg-white/10 backdrop-blur-md border border-white/20 rounded-xl',
+      form: 'bg-slate-900/50 border-slate-800 backdrop-blur-sm rounded-lg',
     },
 
     // Buttons
     button: {
-      primary: 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300',
-      secondary: 'bg-slate-800 hover:bg-slate-700 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300',
+      primary: 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30 transition-all duration-300',
+      secondary: 'border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300',
       outline: 'border-2 border-slate-300 hover:border-blue-500 text-slate-700 hover:text-blue-600 font-medium transition-all duration-300',
       ghost: 'hover:bg-slate-100 text-slate-700 font-medium transition-all duration-300',
     },
@@ -89,12 +90,22 @@ export const theme = {
     scaleIn: 'animate-in zoom-in-90 duration-300',
     float: 'animate-float',
     pulse: 'animate-pulse',
+    // Enhanced easing curve for smooth animations
+    easing: 'ease-[cubic-bezier(0.33,1,0.68,1)]',
+    duration: {
+      fast: 'duration-300',
+      normal: 'duration-600',
+      slow: 'duration-800',
+      slower: 'duration-1000',
+    },
   },
 
   // Spacing System
   spacing: {
     section: 'py-16 md:py-24 lg:py-32',
     container: 'container mx-auto px-4 sm:px-6 lg:px-8',
+    // Hero spacing - reduced padding
+    hero: 'pt-8 md:pt-12 pb-12 md:pb-16',
     stack: {
       sm: 'space-y-4',
       md: 'space-y-6',
@@ -129,11 +140,31 @@ export const cn = (...classes: (string | undefined | null | false)[]) => {
 
 // Style presets for common patterns
 export const styles = {
+  // Hero Animation Classes
+  heroAnimation: {
+    container: 'transition-all duration-1200 ease-[cubic-bezier(0.33,1,0.68,1)]',
+    title: 'transition-all duration-800 ease-[cubic-bezier(0.33,1,0.68,1)]',
+    subtitle: 'transition-all duration-800 ease-[cubic-bezier(0.33,1,0.68,1)]',
+    badge: 'transition-all duration-600 ease-[cubic-bezier(0.33,1,0.68,1)]',
+    button: 'transition-all duration-800 ease-[cubic-bezier(0.33,1,0.68,1)]',
+  },
+
+  // Form Elements
+  form: {
+    input: 'bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500',
+    select: {
+      trigger: 'bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500',
+      content: 'bg-slate-900 border-slate-700 text-white',
+      item: 'text-white hover:bg-slate-800',
+    },
+    textarea: 'bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 resize-none',
+    label: 'text-slate-300',
+  },
   // Page Headers
   pageHeader: cn(
     'relative overflow-hidden',
     'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950',
-    'pt-48 pb-32 md:pt-56 md:pb-40 lg:pt-64 lg:pb-48' // Much more spacious
+    'pt-24 pb-20 md:pt-32 md:pb-24 lg:pt-40 lg:pb-28' // Optimized spacing
   ),
 
   pageTitle: cn(

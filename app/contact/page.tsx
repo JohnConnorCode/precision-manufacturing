@@ -273,13 +273,13 @@ export default function ContactPage() {
                       <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
                         <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-900 border-slate-700">
-                        <SelectItem value="quote">Request Quote</SelectItem>
-                        <SelectItem value="technical">Technical Consultation</SelectItem>
-                        <SelectItem value="partnership">Strategic Partnership</SelectItem>
-                        <SelectItem value="supplier">Supplier Inquiry</SelectItem>
-                        <SelectItem value="career">Career Opportunities</SelectItem>
-                        <SelectItem value="general">General Information</SelectItem>
+                      <SelectContent className="bg-slate-900 border-slate-700 text-white">
+                        <SelectItem className="text-white hover:bg-slate-800" value="quote">Request Quote</SelectItem>
+                        <SelectItem className="text-white hover:bg-slate-800" value="technical">Technical Consultation</SelectItem>
+                        <SelectItem className="text-white hover:bg-slate-800" value="partnership">Strategic Partnership</SelectItem>
+                        <SelectItem className="text-white hover:bg-slate-800" value="supplier">Supplier Inquiry</SelectItem>
+                        <SelectItem className="text-white hover:bg-slate-800" value="career">Career Opportunities</SelectItem>
+                        <SelectItem className="text-white hover:bg-slate-800" value="general">General Information</SelectItem>
                       </SelectContent>
                     </Select>
                     {errors.interest && (
@@ -295,12 +295,12 @@ export default function ContactPage() {
                           <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
                             <SelectValue placeholder="Select industry" />
                           </SelectTrigger>
-                          <SelectContent className="bg-slate-900 border-slate-700">
-                            <SelectItem value="aerospace">Aerospace</SelectItem>
-                            <SelectItem value="defense">Defense</SelectItem>
-                            <SelectItem value="medical">Medical Devices</SelectItem>
-                            <SelectItem value="energy">Energy</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                          <SelectContent className="bg-slate-900 border-slate-700 text-white">
+                            <SelectItem className="text-white hover:bg-slate-800" value="aerospace">Aerospace</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="defense">Defense</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="medical">Medical Devices</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="energy">Energy</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -311,11 +311,11 @@ export default function ContactPage() {
                           <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
                             <SelectValue placeholder="Select timeline" />
                           </SelectTrigger>
-                          <SelectContent className="bg-slate-900 border-slate-700">
-                            <SelectItem value="immediate">Immediate</SelectItem>
-                            <SelectItem value="1-3months">1-3 Months</SelectItem>
-                            <SelectItem value="3-6months">3-6 Months</SelectItem>
-                            <SelectItem value="6months+">6+ Months</SelectItem>
+                          <SelectContent className="bg-slate-900 border-slate-700 text-white">
+                            <SelectItem className="text-white hover:bg-slate-800" value="immediate">Immediate</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="1-3months">1-3 Months</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="3-6months">3-6 Months</SelectItem>
+                            <SelectItem className="text-white hover:bg-slate-800" value="6months+">6+ Months</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>

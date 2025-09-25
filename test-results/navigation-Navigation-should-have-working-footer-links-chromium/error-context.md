@@ -494,8 +494,4 @@
             - generic [ref=e698]: •
             - generic [ref=e699]: ITAR Registered
   - alert [ref=e700]
-  - link "Setup CMS" [ref=e702] [cursor=pointer]:
-    - /url: /studio
-    - img [ref=e703] [cursor=pointer]
-    - generic [ref=e706] [cursor=pointer]: Setup CMS
 ```

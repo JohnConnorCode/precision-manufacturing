@@ -47,7 +47,7 @@ export default function Hero() {
       {/* Content Container - Professional and Clean */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="container relative z-10 pt-16 md:pt-20 pb-12 md:pb-16 px-4 md:px-8"
+        className="container relative z-10 pt-8 md:pt-12 pb-12 md:pb-16 px-4 md:px-8"
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -60,22 +60,22 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ delay: 0.3, duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95]">
               <motion.span
                 className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 drop-shadow-2xl uppercase"
-                initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
                 PRECISION
               </motion.span>
               <motion.span
                 className="block text-white drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
-                initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 0.6, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
                 MANUFACTURING
               </motion.span>
@@ -86,7 +86,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ delay: 0.9, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto"
           >
             <span className="font-medium">Innovative Machining Since 1995</span>
@@ -96,7 +96,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.95, duration: 0.8 }}
+            transition={{ delay: 1.1, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
             className="flex flex-wrap justify-center gap-3 mb-10 md:mb-12 max-w-4xl mx-auto"
           >
             {[
@@ -110,7 +110,7 @@ export default function Hero() {
                 key={badge}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1 + index * 0.1, duration: 0.6, ease: "easeOut" }}
+                transition={{ delay: 1.3 + index * 0.1, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                 className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/20 backdrop-blur-sm"
               >
                 {badge}
@@ -122,7 +122,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ delay: 1.8, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
@@ -155,7 +155,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 2.5, duration: 1, ease: [0.33, 1, 0.68, 1] }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.div
@@ -165,7 +165,7 @@ export default function Hero() {
           transition={{
             duration: 2,
             repeat: Infinity,
-            ease: [0.25, 0.1, 0.25, 1]
+            ease: [0.33, 1, 0.68, 1]
           }}
           className="text-white/50 hover:text-white/70 transition-colors cursor-pointer"
         >

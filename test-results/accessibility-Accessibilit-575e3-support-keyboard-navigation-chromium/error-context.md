@@ -1,7 +1,7 @@
 # Page snapshot
 
 ```yaml
-- generic [active] [ref=e1]:
+- generic [ref=e1]:
   - complementary "Contact information" [ref=e2]:
     - generic [ref=e3]:
       - generic [ref=e4]:
@@ -18,7 +18,7 @@
         - generic [ref=e17]: ISO 9001 • AS9100D • ITAR REGISTERED
   - banner [ref=e18]:
     - navigation [ref=e19]:
-      - link [ref=e20] [cursor=pointer]:
+      - link [active] [ref=e20] [cursor=pointer]:
         - /url: /
         - img [ref=e22] [cursor=pointer]:
           - generic [ref=e31] [cursor=pointer]:
