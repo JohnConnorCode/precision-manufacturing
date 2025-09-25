@@ -24,6 +24,8 @@ export default function HeroSliderFixed({
 }: HeroSliderFixedProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false);
   const { scrollY } = useScroll();
 
   // Smooth parallax effect
@@ -35,26 +37,47 @@ export default function HeroSliderFixed({
     setIsClient(true);
   }, []);
 
+  // Preload first image immediately
+  useEffect(() => {
+    if (!isClient || slides.length === 0) return;
+
+    const firstImg = new window.Image();
+    firstImg.onload = () => {
+      setFirstImageLoaded(true);
+    };
+    firstImg.src = slides[0].src;
+  }, [slides, isClient]);
+
   // Preload all images on mount
   useEffect(() => {
     if (!isClient) return;
 
-    slides.forEach((slide) => {
+    let loadedCount = 0;
+    slides.forEach((slide, index) => {
       const img = new window.Image();
+      img.onload = () => {
+        loadedCount++;
+        if (index === 0) {
+          setFirstImageLoaded(true);
+        }
+        if (loadedCount === slides.length) {
+          setImagesLoaded(true);
+        }
+      };
       img.src = slide.src;
     });
   }, [slides, isClient]);
 
-  // Auto-advance slides
+  // Auto-advance slides only after first image is loaded
   useEffect(() => {
-    if (!isClient) return;
+    if (!isClient || !firstImageLoaded) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, interval);
 
     return () => clearInterval(timer);
-  }, [slides.length, interval, isClient]);
+  }, [slides.length, interval, isClient, firstImageLoaded]);
 
   const getFocalPosition = (focal?: string) => {
     switch(focal) {
@@ -94,6 +117,24 @@ export default function HeroSliderFixed({
 
   return (
     <div className={cn('absolute inset-0 overflow-hidden', className)}>
+      {/* Always show first image as base layer to prevent grey background */}
+      <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+        <div className="relative w-full h-full">
+          <Image
+            src={slides[0].src}
+            alt={slides[0].alt}
+            fill
+            className={cn(
+              "object-cover",
+              getFocalPosition(slides[0].focal)
+            )}
+            priority
+            quality={100}
+            sizes="100vw"
+          />
+        </div>
+      </div>
+
       {/* Stack all images, only show current one */}
       {slides.map((slide, index) => (
         <motion.div
@@ -102,7 +143,7 @@ export default function HeroSliderFixed({
           style={{ y, scale }}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: index === currentIndex ? 1 : 0,
+            opacity: index === currentIndex && firstImageLoaded ? 1 : 0,
             transition: {
               opacity: {
                 duration: 1.5,
@@ -168,22 +209,6 @@ export default function HeroSliderFixed({
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={`indicator-${index}`}
-            onClick={() => setCurrentIndex(index)}
-            className={cn(
-              "w-2 h-2 rounded-full transition-all duration-300",
-              index === currentIndex
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/70"
-            )}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

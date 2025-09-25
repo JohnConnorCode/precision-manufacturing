@@ -82,18 +82,41 @@ export default function Hero() {
             </h1>
           </motion.div>
 
-          {/* Enhanced subtitle with more detail */}
+          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto"
           >
             <span className="font-medium">Innovative Machining Since 1995</span>
-            <span className="block mt-2 text-base sm:text-lg md:text-xl text-white/75">
-              Advanced CNC Machining • Precision Metrology • Engineering Excellence • AS9100D & ITAR Certified
-            </span>
           </motion.p>
+
+          {/* Certification Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.95, duration: 0.8 }}
+            className="flex flex-wrap justify-center gap-3 mb-10 md:mb-12 max-w-4xl mx-auto"
+          >
+            {[
+              'Advanced CNC Machining',
+              'Precision Metrology',
+              'Engineering Excellence',
+              'AS9100D Certified',
+              'ITAR Registered'
+            ].map((badge, index) => (
+              <motion.span
+                key={badge}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+                className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/20 backdrop-blur-sm"
+              >
+                {badge}
+              </motion.span>
+            ))}
+          </motion.div>
 
           {/* CTA Buttons - Cleaner design */}
           <motion.div
