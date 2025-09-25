@@ -64,7 +64,7 @@ export const LogoPrecisionTargetEnhanced = ({
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { duration: 1, ease: "easeInOut" },
+        pathLength: { duration: 1, ease: "easeInOut" as const },
         opacity: { duration: 0.5 }
       }
     }
@@ -95,7 +95,7 @@ export const LogoPrecisionTargetEnhanced = ({
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { duration: 0.8, ease: "easeInOut", delay: 0.8 },
+        pathLength: { duration: 0.8, ease: "easeInOut" as const, delay: 0.8 },
         opacity: { duration: 0.3, delay: 0.8 }
       }
     }
@@ -111,7 +111,7 @@ export const LogoPrecisionTargetEnhanced = ({
       x: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     }
   };
@@ -126,7 +126,7 @@ export const LogoPrecisionTargetEnhanced = ({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "backOut"
+        ease: "backOut" as const
       }
     }
   };
@@ -247,7 +247,7 @@ export const LogoPrecisionTargetEnhanced = ({
           <motion.text
             x="-11"
             y="5"
-            fill={color}
+            fill="#1e293b"
             fontSize="18"
             fontWeight="900"
             fontFamily="system-ui, -apple-system, sans-serif"
@@ -258,7 +258,7 @@ export const LogoPrecisionTargetEnhanced = ({
           <motion.text
             x="-3"
             y="5"
-            fill={color}
+            fill="#1e293b"
             fontSize="18"
             fontWeight="900"
             fontFamily="system-ui, -apple-system, sans-serif"
@@ -269,7 +269,7 @@ export const LogoPrecisionTargetEnhanced = ({
           <motion.text
             x="5"
             y="5"
-            fill={color}
+            fill="#1e293b"
             fontSize="18"
             fontWeight="900"
             fontFamily="system-ui, -apple-system, sans-serif"
@@ -439,7 +439,7 @@ export const IISLogo = ({
         <circle cx="0" cy="0" r="14" fill="none" stroke={color} strokeWidth="1.5" opacity="0.5" />
         <circle cx="0" cy="0" r="8" fill="none" stroke={color} strokeWidth="2" opacity="0.7" />
         <circle cx="0" cy="0" r="2" fill={color} />
-        <text x="0" y="5" fill={color} fontSize="18" fontWeight="900" fontFamily="system-ui, -apple-system, sans-serif" textAnchor="middle">
+        <text x="0" y="5" fill="#1e293b" fontSize="18" fontWeight="900" fontFamily="system-ui, -apple-system, sans-serif" textAnchor="middle">
           IIS
         </text>
         <path d="M-28 0h10M18 0h10M0 -28v10M0 18v10" stroke={color} strokeWidth="1.5" />
