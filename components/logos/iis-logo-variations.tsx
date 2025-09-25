@@ -553,7 +553,7 @@ export const IISLogoShowcase = () => {
                   <div className="bg-white border border-slate-200 p-4 rounded">
                     <LogoComponent variant="primary" size="md" />
                   </div>
-                  <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-4 rounded">
+                  <div className="bg-gradient-to-r from-cyan-600 to-blue-500 p-4 rounded">
                     <LogoComponent variant="mono" size="md" className="brightness-0 invert" />
                   </div>
                 </div>

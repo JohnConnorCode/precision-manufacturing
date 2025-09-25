@@ -119,7 +119,7 @@ export default function ParallaxSlider({
             onClick={() => setCurrentIndex(index)}
             className={`h-1 transition-all duration-300 ${
               index === currentIndex
-                ? 'w-8 bg-cyan-400'
+                ? 'w-8 bg-cyan-600'
                 : 'w-4 bg-white/30 hover:bg-white/50'
             }`}
             aria-label={`Go to slide ${index + 1}`}

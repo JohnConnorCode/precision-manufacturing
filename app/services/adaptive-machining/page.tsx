@@ -107,7 +107,7 @@ export default function AdaptiveMachiningPage() {
         }}
         title={
           <>
-            <span className="text-white">Adaptive</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Machining</span>
+            <span className="text-white">Adaptive</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Machining</span>
           </>
         }
         subtitle="AI-Driven Manufacturing Excellence"
@@ -214,7 +214,7 @@ export default function AdaptiveMachiningPage() {
                       <div className="space-y-2">
                         {tech.benefits.map((benefit) => (
                           <div key={benefit} className={cn("flex items-center", theme.typography.small)}>
-                            <CheckCircle className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-cyan-600 mr-2 flex-shrink-0" />
                             {benefit}
                           </div>
                         ))}
@@ -271,7 +271,7 @@ export default function AdaptiveMachiningPage() {
                       <div className="grid grid-cols-2 gap-2">
                         {application.challenges.map((challenge) => (
                           <div key={challenge} className={cn("flex items-center", theme.typography.small)}>
-                            <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2" />
+                            <div className="w-1.5 h-1.5 bg-cyan-600 rounded-full mr-2" />
                             {challenge}
                           </div>
                         ))}

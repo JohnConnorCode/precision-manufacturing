@@ -321,11 +321,11 @@
 
   /* Text Gradients */
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-600;
   }
 
   .gradient-text-primary {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-600;
   }
 
   .gradient-text-light {

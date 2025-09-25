@@ -553,7 +553,7 @@ export const EnhancedLogoShowcase = () => {
           <div className="bg-white border-2 border-slate-200 p-6 rounded-lg flex items-center justify-center">
             <IISLogo variant="primary" size="md" />
           </div>
-          <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-6 rounded-lg flex items-center justify-center">
+          <div className="bg-gradient-to-r from-cyan-600 to-blue-500 p-6 rounded-lg flex items-center justify-center">
             <IISLogo variant="mono" size="md" className="brightness-0 invert" />
           </div>
         </div>

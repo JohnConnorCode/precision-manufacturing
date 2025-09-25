@@ -68,7 +68,7 @@ export default function Hero() {
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95]">
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 drop-shadow-2xl uppercase"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400 drop-shadow-2xl uppercase"
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.5, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
@@ -131,7 +131,7 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="group w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-white font-semibold shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
+              className="group w-full sm:w-auto bg-cyan-600 hover:bg-cyan-600 text-white font-semibold shadow-2xl shadow-cyan-600/20 hover:shadow-cyan-600/30 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
               asChild
             >
               <Link href="/contact">

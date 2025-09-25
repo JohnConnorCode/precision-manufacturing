@@ -28,12 +28,12 @@ export function PrecisionLoader({ size = 'md', className = '' }: PrecisionLoader
           ease: "linear"
         }}
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-600 rounded-full" />
       </motion.div>
 
       {/* Inner ring */}
       <motion.div
-        className="absolute inset-2 rounded-full border border-cyan-500/30"
+        className="absolute inset-2 rounded-full border border-cyan-600/30"
         animate={{
           rotate: -360,
         }}
@@ -159,7 +159,7 @@ export function ProgressRing({
           cy={size / 2}
           r={radius}
           strokeWidth={strokeWidth}
-          className="stroke-cyan-400 fill-none"
+          className="stroke-cyan-600 fill-none"
           strokeDasharray={circumference}
           initial={{ strokeDashoffset: circumference }}
           animate={{ strokeDashoffset: offset }}

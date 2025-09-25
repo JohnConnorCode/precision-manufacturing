@@ -91,8 +91,8 @@ export default function MedicalPage() {
             className="max-w-3xl"
           >
             <div className="flex items-center gap-4 mb-6">
-              <Heart className="w-8 h-8 text-cyan-400" />
-              <span className="text-cyan-400 uppercase tracking-wider text-sm font-medium">
+              <Heart className="w-8 h-8 text-cyan-600" />
+              <span className="text-cyan-600 uppercase tracking-wider text-sm font-medium">
                 Medical & Life Sciences
               </span>
             </div>
@@ -114,7 +114,7 @@ export default function MedicalPage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:border-cyan-500 hover:text-cyan-400" asChild>
+              <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:border-cyan-600 hover:text-cyan-600" asChild>
                 <Link href="/certifications">
                   View Certifications
                 </Link>
@@ -137,7 +137,7 @@ export default function MedicalPage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-bold text-cyan-400 mb-2">
+                <div className="text-4xl font-bold text-cyan-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm text-slate-400">
@@ -180,7 +180,7 @@ export default function MedicalPage() {
                   index % 2 === 1 && "md:flex-row-reverse")}
               >
                 <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                  <h3 className={cn(theme.typography.h3, "text-cyan-400 mb-4")}>
+                  <h3 className={cn(theme.typography.h3, "text-cyan-600 mb-4")}>
                     {app.category}
                   </h3>
                   <p className={cn(theme.typography.body, "text-slate-400 mb-8")}>
@@ -190,7 +190,7 @@ export default function MedicalPage() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     {app.parts.map((part) => (
                       <div key={part} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-300 text-sm">{part}</span>
                       </div>
                     ))}
@@ -229,44 +229,44 @@ export default function MedicalPage() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
             <Card className="bg-slate-900/50 border-slate-800 p-6">
-              <h3 className="text-xl font-semibold mb-4 text-cyan-400">Quality Systems</h3>
+              <h3 className="text-xl font-semibold mb-4 text-cyan-600">Quality Systems</h3>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Full traceability and documentation</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Validated processes and equipment</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Clean room manufacturing (ISO 7/8)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Statistical process control</span>
                 </li>
               </ul>
             </Card>
 
             <Card className="bg-slate-900/50 border-slate-800 p-6">
-              <h3 className="text-xl font-semibold mb-4 text-cyan-400">Material Expertise</h3>
+              <h3 className="text-xl font-semibold mb-4 text-cyan-600">Material Expertise</h3>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Titanium and titanium alloys</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Stainless steel (316L, 17-4 PH)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>PEEK and biocompatible polymers</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
                   <span>Cobalt chrome alloys</span>
                 </li>
               </ul>
@@ -282,9 +282,9 @@ export default function MedicalPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-lg p-4 text-center"
+                className="bg-gradient-to-br from-cyan-600/10 to-blue-500/10 border border-cyan-600/20 rounded-lg p-4 text-center"
               >
-                <Award className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                <Award className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
                 <span className="text-sm text-slate-300">{cert}</span>
               </motion.div>
             ))}

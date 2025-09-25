@@ -102,7 +102,7 @@ export default function ImageShowcase() {
 
                     {/* Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <p className="text-xs font-bold text-cyan-400 uppercase tracking-[0.2em] mb-2">
+                      <p className="text-xs font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2">
                         {item.category}
                       </p>
                       <h3 className="text-2xl font-bold text-white mb-3">
@@ -173,7 +173,7 @@ export default function ImageShowcase() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
+                className="inline-flex items-center px-8 py-4 bg-cyan-600 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
               >
                 Request Quote
                 <ArrowRight className="ml-2 h-5 w-5" />

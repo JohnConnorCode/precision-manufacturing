@@ -11,7 +11,7 @@ export const theme = {
       DEFAULT: 'rgb(6, 182, 212)', // Cyan-500
       dark: 'rgb(14, 116, 144)', // Cyan-700
       light: 'rgb(103, 232, 249)', // Cyan-300
-      gradient: 'bg-gradient-to-r from-cyan-500 to-blue-500',
+      gradient: 'bg-gradient-to-r from-cyan-600 to-blue-500',
     },
     neutral: {
       50: 'rgb(248, 250, 252)',
@@ -60,7 +60,7 @@ export const theme = {
 
     // Buttons
     button: {
-      primary: 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30 transition-all duration-300',
+      primary: 'bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-2xl shadow-cyan-600/20 hover:shadow-cyan-600/30 transition-all duration-300',
       secondary: 'border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300',
       outline: 'border-2 border-slate-300 hover:border-blue-500 text-slate-700 hover:text-blue-600 font-medium transition-all duration-300',
       ghost: 'hover:bg-slate-100 text-slate-700 font-medium transition-all duration-300',
@@ -127,7 +127,7 @@ export const theme = {
     glassmorphism: 'bg-white/10 backdrop-blur-md border border-white/20',
     gradient: {
       text: 'text-transparent bg-clip-text bg-gradient-to-r',
-      mesh: 'bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-blue-500/10',
+      mesh: 'bg-gradient-to-br from-blue-500/10 via-cyan-600/10 to-blue-500/10',
     },
     grid: 'bg-grid-slate-900/[0.04] dark:bg-grid-slate-100/[0.02]',
   }
@@ -151,13 +151,13 @@ export const styles = {
 
   // Form Elements
   form: {
-    input: 'bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500',
+    input: 'bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-600',
     select: {
-      trigger: 'bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500',
+      trigger: 'bg-slate-950/50 border-slate-700 text-white focus:border-cyan-600',
       content: 'bg-slate-900 border-slate-700 text-white',
       item: 'text-white hover:bg-slate-800',
     },
-    textarea: 'bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 resize-none',
+    textarea: 'bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-600 resize-none',
     label: 'text-slate-300',
   },
   // Page Headers
@@ -198,7 +198,7 @@ export const styles = {
   statValue: cn(
     'text-3xl md:text-4xl font-bold',
     'text-transparent bg-clip-text',
-    'bg-gradient-to-r from-blue-400 to-cyan-400'
+    'bg-gradient-to-r from-blue-400 to-cyan-600'
   ),
 
   statLabel: cn(

@@ -128,8 +128,8 @@ export default function Services() {
                 className="group"
               >
                 <Link href={service.href} className="block h-full">
-                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 border-slate-200 bg-white relative ${
-                    service.highlight ? 'ring-2 ring-cyan-500/20' : ''
+                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-600/20 border-slate-200 bg-white relative ${
+                    service.highlight ? 'ring-2 ring-cyan-600/20' : ''
                   }`}>
                     {/* Image Header */}
                     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50">
@@ -152,14 +152,14 @@ export default function Services() {
                           damping: 20
                         }}
                       >
-                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-600/50 transition-shadow duration-300">
                           <Icon className="h-6 w-6 text-cyan-600" />
                         </div>
                       </motion.div>
 
                       {service.highlight && (
                         <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-cyan-500 text-white text-xs font-semibold rounded-full">
+                          <span className="px-3 py-1 bg-cyan-600 text-white text-xs font-semibold rounded-full">
                             FEATURED
                           </span>
                         </div>
@@ -178,7 +178,7 @@ export default function Services() {
                       <ul className="space-y-2 mb-5">
                         {service.specs.map((spec) => (
                           <li key={spec} className="flex items-start text-xs text-cyan-600">
-                            <CheckCircle className="h-3 w-3 text-cyan-500 mr-2 mt-0.5 flex-shrink-0" />
+                            <CheckCircle className="h-3 w-3 text-cyan-600 mr-2 mt-0.5 flex-shrink-0" />
                             <span>{spec}</span>
                           </li>
                         ))}

@@ -63,7 +63,7 @@ export default function ServicesPage() {
         }}
         title={
           <>
-            <span className="text-white">Our</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Services</span>
+            <span className="text-white">Our</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Services</span>
           </>
         }
         description="Advanced manufacturing capabilities delivering precision components for aerospace, defense, and energy sectors with industry-leading quality standards."

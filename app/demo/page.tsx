@@ -89,7 +89,7 @@ export default function DemoPage() {
         title={
           <>
             Experience{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">
               Precision Manufacturing
             </span>
           </>
@@ -198,7 +198,7 @@ export default function DemoPage() {
                       <div className="space-y-2">
                         {capability.features.map((feature) => (
                           <div key={feature} className="flex items-center text-sm">
-                            <div className="w-2 h-2 bg-cyan-500 rounded-full mr-2" />
+                            <div className="w-2 h-2 bg-cyan-600 rounded-full mr-2" />
                             <span>{feature}</span>
                           </div>
                         ))}
@@ -231,7 +231,7 @@ export default function DemoPage() {
 
           <div className="relative">
             {/* Connection Line */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 -translate-y-1/2" />
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-600 to-blue-500 -translate-y-1/2" />
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
               {processSteps.map((step, index) => (
@@ -244,7 +244,7 @@ export default function DemoPage() {
                   className="relative"
                 >
                   <Card className="p-6 text-center bg-white hover:shadow-lg transition-all duration-300">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
                       {step.step}
                     </div>
                     <h3 className="font-bold text-lg mb-2">{step.title}</h3>

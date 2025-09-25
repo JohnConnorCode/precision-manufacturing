@@ -119,7 +119,7 @@ export default function MetrologyPage() {
         }}
         title={
           <>
-            <span className="text-white">Precision</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Metrology</span>
+            <span className="text-white">Precision</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Metrology</span>
           </>
         }
         subtitle="Quality Assurance Excellence"
@@ -224,7 +224,7 @@ export default function MetrologyPage() {
                       <div className="grid grid-cols-1 gap-2">
                         {service.features.map((feature) => (
                           <div key={feature} className={cn("flex items-center", theme.typography.small)}>
-                            <CheckCircle className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-cyan-600 mr-2 flex-shrink-0" />
                             {feature}
                           </div>
                         ))}
@@ -236,7 +236,7 @@ export default function MetrologyPage() {
                       <div className="space-y-1">
                         {service.capabilities.map((capability) => (
                           <div key={capability} className={cn("flex items-center", theme.typography.small)}>
-                            <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2" />
+                            <div className="w-1.5 h-1.5 bg-cyan-600 rounded-full mr-2" />
                             {capability}
                           </div>
                         ))}

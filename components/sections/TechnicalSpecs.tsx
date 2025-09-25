@@ -10,7 +10,7 @@ export default function TechnicalSpecs() {
       value: "±0.0001\"",
       label: "PRECISION",
       description: "Ultra-tight tolerances",
-      gradient: "from-cyan-500 to-blue-600"
+      gradient: "from-cyan-600 to-blue-600"
     },
     {
       icon: Cpu,
@@ -31,7 +31,7 @@ export default function TechnicalSpecs() {
       value: "99.97%",
       label: "FIRST PASS YIELD",
       description: "Quality rate",
-      gradient: "from-blue-600 to-cyan-500"
+      gradient: "from-blue-600 to-cyan-600"
     },
     {
       icon: Clock,
@@ -45,14 +45,14 @@ export default function TechnicalSpecs() {
       value: "99.8%",
       label: "ON-TIME",
       description: "Delivery performance",
-      gradient: "from-cyan-500 to-cyan-600"
+      gradient: "from-cyan-600 to-cyan-600"
     },
     {
       icon: Zap,
       value: "12,000",
       label: "RPM",
       description: "Spindle speed",
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-blue-500 to-cyan-600"
     },
     {
       icon: Award,
@@ -80,7 +80,7 @@ export default function TechnicalSpecs() {
           className="text-center mb-16 max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Precision By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Numbers</span>
+            Precision By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Numbers</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-400">
             Industry-leading capabilities backed by decades of aerospace and defense manufacturing expertise
@@ -100,7 +100,7 @@ export default function TechnicalSpecs() {
                 transition={{ delay: index * 0.05, duration: 0.6 }}
                 className="group relative"
               >
-                <div className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-6 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(6,182,212,0.15)] hover:bg-slate-900/70">
+                <div className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-6 hover:border-cyan-600/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(6,182,212,0.15)] hover:bg-slate-900/70">
                   {/* Gradient Glow Effect */}
                   <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${metric.gradient} blur-3xl -z-10`} />
 
@@ -117,7 +117,7 @@ export default function TechnicalSpecs() {
                   </div>
 
                   {/* Label */}
-                  <div className="text-[10px] font-bold text-cyan-400 uppercase tracking-[0.2em] mb-2">
+                  <div className="text-[10px] font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2">
                     {metric.label}
                   </div>
 
@@ -144,7 +144,7 @@ export default function TechnicalSpecs() {
         >
           <p className="text-slate-400 mb-2">Ready to experience precision manufacturing excellence?</p>
           <p className="text-2xl font-bold text-white">
-            Call <a href="tel:+15032319093" className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/30 underline-offset-4 hover:decoration-cyan-300">503-231-9093</a>
+            Call <a href="tel:+15032319093" className="text-cyan-600 hover:text-cyan-300 transition-colors underline decoration-cyan-600/30 underline-offset-4 hover:decoration-cyan-300">503-231-9093</a>
           </p>
         </motion.div>
       </div>

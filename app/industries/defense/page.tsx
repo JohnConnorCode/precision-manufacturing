@@ -168,7 +168,7 @@ export default function DefensePage() {
         }}
         title={
           <span className="text-white">
-            Defense <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Systems</span>
+            Defense <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Systems</span>
           </span>
         }
         description="Trusted defense contractor delivering mission-critical components for national security applications. ITAR registered facility with full security clearance and compliance protocols."

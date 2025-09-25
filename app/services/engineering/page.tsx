@@ -161,7 +161,7 @@ export default function EngineeringPage() {
         }}
         title={
           <>
-            <span className="text-white">Engineering</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Services</span>
+            <span className="text-white">Engineering</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Services</span>
           </>
         }
         subtitle="From Concept to Production"
@@ -278,7 +278,7 @@ export default function EngineeringPage() {
                         <div className="space-y-2">
                           {service.benefits.map((benefit) => (
                             <div key={benefit} className={cn("flex items-center", theme.typography.small)}>
-                              <CheckCircle className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-cyan-600 mr-2 flex-shrink-0" />
                               {benefit}
                             </div>
                           ))}
@@ -323,7 +323,7 @@ export default function EngineeringPage() {
                   <div className="space-y-2">
                     {capability.tools.map((tool) => (
                       <div key={tool} className={cn("flex items-center", theme.typography.small)}>
-                        <CheckCircle className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-cyan-600 mr-2 flex-shrink-0" />
                         {tool}
                       </div>
                     ))}

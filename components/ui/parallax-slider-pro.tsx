@@ -180,7 +180,7 @@ export default function ParallaxSliderPro({
 
         {/* Scan lines */}
         <motion.div
-          className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent"
+          className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-600/20 to-transparent"
           animate={{
             top: ['-10%', '110%'],
           }}
@@ -219,7 +219,7 @@ export default function ParallaxSliderPro({
               <div className={cn(
                 'h-1 transition-all duration-500',
                 index === currentIndex
-                  ? 'w-12 bg-cyan-400'
+                  ? 'w-12 bg-cyan-600'
                   : 'w-6 bg-white/30 hover:bg-white/50 hover:w-8'
               )} />
 
@@ -245,7 +245,7 @@ export default function ParallaxSliderPro({
             transition={{ duration: 0.5 }}
             className="absolute bottom-20 left-8 z-30"
           >
-            <h3 className="text-sm font-medium text-cyan-400 mb-1">
+            <h3 className="text-sm font-medium text-cyan-600 mb-1">
               {slides[currentIndex].subtitle}
             </h3>
             <h2 className="text-2xl font-bold text-white">

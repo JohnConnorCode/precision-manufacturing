@@ -190,7 +190,7 @@ export default function HeroSection({
                     className={cn(
                       'group h-12 md:h-14 px-8 md:px-10 text-base font-semibold',
                       isPrimary
-                        ? 'bg-cyan-500 hover:bg-cyan-400 text-white shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30'
+                        ? 'bg-cyan-600 hover:bg-cyan-600 text-white shadow-2xl shadow-cyan-600/20 hover:shadow-cyan-600/30'
                         : 'border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm'
                     )}
                     asChild

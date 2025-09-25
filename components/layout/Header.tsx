@@ -74,20 +74,20 @@ export default function Header() {
   return (
     <>
       {/* Top Info Bar - Hidden on mobile */}
-      <aside className="hidden lg:block fixed top-0 z-[150] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/10" role="complementary" aria-label="Contact information">
+      <aside className="hidden lg:block fixed top-0 z-[150] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-600/10" role="complementary" aria-label="Contact information">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group" aria-label="Phone: 503-231-9093">
-              <Phone className="h-3 w-3 group-hover:text-cyan-400" aria-hidden="true" />
+            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-600 transition-colors group" aria-label="Phone: 503-231-9093">
+              <Phone className="h-3 w-3 group-hover:text-cyan-600" aria-hidden="true" />
               <span>503-231-9093</span>
             </a>
-            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-colors group" aria-label="Email: officemgr@iismet.com">
-              <Mail className="h-3 w-3 group-hover:text-cyan-400" aria-hidden="true" />
+            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-cyan-600 transition-colors group" aria-label="Email: officemgr@iismet.com">
+              <Mail className="h-3 w-3 group-hover:text-cyan-600" aria-hidden="true" />
               <span>officemgr@iismet.com</span>
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <Zap className="h-3 w-3 text-cyan-400" aria-hidden="true" />
+            <Zap className="h-3 w-3 text-cyan-600" aria-hidden="true" />
             <span className={cn(theme.typography.badge, 'text-slate-400')}>ISO 9001 • AS9100D • ITAR REGISTERED</span>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function Header() {
         className={cn(
           'fixed z-[140] w-full transition-all duration-300',
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-lg lg:top-10 top-0 border-b-2 border-cyan-500/20'
+            ? 'bg-white/95 backdrop-blur-xl shadow-lg lg:top-10 top-0 border-b-2 border-cyan-600/20'
             : 'bg-white/90 backdrop-blur-xl lg:top-10 top-0 border-b border-slate-200/50'
         )}
       >
@@ -136,7 +136,7 @@ export default function Header() {
                                   className={cn(
                                     'block select-none rounded-lg p-4 no-underline outline-none transition-all',
                                     'hover:bg-slate-100/80 hover:shadow-sm',
-                                    'focus:bg-slate-100 focus:outline-2 focus:outline-cyan-500',
+                                    'focus:bg-slate-100 focus:outline-2 focus:outline-cyan-600',
                                     'group'
                                   )}
                                   aria-label={`${child.name} - ${child.description || ''}`}

@@ -142,7 +142,7 @@ export default function AerospacePage() {
         }}
         title={
           <span className="text-white">
-            Aerospace <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Components</span>
+            Aerospace <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Components</span>
           </span>
         }
         description="Trusted partner for critical aerospace components, delivering precision-machined parts for commercial and military aircraft with full AS9100D compliance and ITAR registration."

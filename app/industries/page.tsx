@@ -130,7 +130,7 @@ export default function IndustriesPage() {
         }}
         title={
           <span className="text-white">
-            Industries <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">We Serve</span>
+            Industries <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">We Serve</span>
           </span>
         }
         description="Trusted partner for aerospace, defense, and energy sectors, delivering mission-critical components with uncompromising quality and precision."
