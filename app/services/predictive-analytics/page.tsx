@@ -106,7 +106,7 @@ export default function PredictiveAnalyticsPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-slate-950">
+    <main className="relative min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
         backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=90"
@@ -140,8 +140,8 @@ export default function PredictiveAnalyticsPage() {
       />
 
       {/* Stats Section */}
-      <motion.section {...fadeInUp} className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container">
+      <motion.section {...fadeInUp} className={styles.sectionDark}>
+        <div className={theme.spacing.container}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {capabilities.map((stat, index) => (
               <motion.div
@@ -152,13 +152,13 @@ export default function PredictiveAnalyticsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-bold text-cyan-400 mb-2">
+                <div className={styles.statValue}>
                   {stat.value}
                 </div>
-                <div className="text-sm text-slate-400">
+                <div className={cn(theme.typography.badge, "text-slate-400")}>
                   {stat.label}
                 </div>
-                <div className="text-xs text-slate-600 mt-1">
+                <div className={cn(theme.typography.small, "mt-1")}>
                   {stat.description}
                 </div>
               </motion.div>
@@ -168,8 +168,8 @@ export default function PredictiveAnalyticsPage() {
       </motion.section>
 
       {/* Services Section */}
-      <section className="py-20 bg-slate-900">
-        <div className="container">
+      <section className={cn(theme.spacing.section, "bg-slate-900")}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -206,26 +206,26 @@ export default function PredictiveAnalyticsPage() {
                   </p>
 
                   <div className="mb-8">
-                    <h4 className="text-sm font-semibold text-slate-300 mb-4 uppercase tracking-wider">
+                    <h4 className={cn(theme.typography.badge, "text-slate-300 mb-4")}>
                       Key Features
                     </h4>
                     <div className="grid sm:grid-cols-2 gap-3">
                       {service.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-3">
                           <CheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                          <span className="text-sm text-slate-300">{feature}</span>
+                          <span className={cn(theme.typography.small, "text-slate-300")}>{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-300 mb-4 uppercase tracking-wider">
+                    <h4 className={cn(theme.typography.badge, "text-slate-300 mb-4")}>
                       Technologies
                     </h4>
                     <div className="space-y-2">
                       {service.capabilities.map((capability) => (
-                        <div key={capability} className="text-sm text-slate-400">
+                        <div key={capability} className={theme.typography.small}>
                           • {capability}
                         </div>
                       ))}
@@ -248,8 +248,8 @@ export default function PredictiveAnalyticsPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950">
-        <div className="container">
+      <section className={cn(theme.spacing.section, "bg-gradient-to-b from-slate-900 to-slate-950")}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -275,8 +275,8 @@ export default function PredictiveAnalyticsPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-cyan-400">{step.step}</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-white">{step.title}</h3>
-                <p className="text-sm text-slate-400">{step.description}</p>
+                <h3 className={cn(theme.typography.h5, "mb-2 text-white")}>{step.title}</h3>
+                <p className={cn(theme.typography.small, "text-slate-400")}>{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -298,27 +298,27 @@ export default function PredictiveAnalyticsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-slate-900/50 border-slate-800 p-6">
+          <div className={styles.grid3Col}>
+            <Card className={cn(theme.components.card.dark, "p-6")}>
               <BarChart3 className="w-8 h-8 text-cyan-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-white">Reduce Costs</h3>
-              <p className="text-slate-400">
+              <h3 className={cn(theme.typography.h4, "mb-3 text-white")}>Reduce Costs</h3>
+              <p className={cn(theme.typography.body, "text-slate-400")}>
                 Minimize expensive emergency repairs and reduce inventory costs through accurate demand forecasting.
               </p>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-800 p-6">
+            <Card className={cn(theme.components.card.dark, "p-6")}>
               <TrendingUp className="w-8 h-8 text-cyan-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-white">Increase Uptime</h3>
-              <p className="text-slate-400">
+              <h3 className={cn(theme.typography.h4, "mb-3 text-white")}>Increase Uptime</h3>
+              <p className={cn(theme.typography.body, "text-slate-400")}>
                 Predict and prevent equipment failures before they occur, maximizing production availability.
               </p>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-800 p-6">
+            <Card className={cn(theme.components.card.dark, "p-6")}>
               <Shield className="w-8 h-8 text-cyan-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-white">Improve Quality</h3>
-              <p className="text-slate-400">
+              <h3 className={cn(theme.typography.h4, "mb-3 text-white")}>Improve Quality</h3>
+              <p className={cn(theme.typography.body, "text-slate-400")}>
                 Identify quality issues early in the production process and adjust parameters in real-time.
               </p>
             </Card>
@@ -327,8 +327,8 @@ export default function PredictiveAnalyticsPage() {
       </section>
 
       {/* Technologies */}
-      <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container">
+      <section className={cn(theme.spacing.section, "bg-gradient-to-b from-slate-950 to-slate-900")}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -349,9 +349,9 @@ export default function PredictiveAnalyticsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-slate-900/50 border border-slate-800 rounded-lg px-6 py-3"
+                className={cn(theme.components.badge.dark, "px-6 py-3 rounded-lg")}
               >
-                <span className="text-sm text-slate-300">{tech}</span>
+                <span className={cn(theme.typography.small, "text-slate-300")}>{tech}</span>
               </motion.div>
             ))}
           </div>
@@ -359,22 +359,22 @@ export default function PredictiveAnalyticsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-4">
+      <section className={cn(theme.spacing.section, theme.colors.primary.gradient)}>
+        <div className={cn(theme.spacing.container, "text-center")}>
+          <h2 className={cn(theme.typography.h2, "mb-4 text-white")}>
             Ready to Predict the Future?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className={cn(theme.typography.lead, "text-white/90 mb-8 max-w-2xl mx-auto")}>
             Let\'s discuss how predictive analytics can transform your manufacturing operations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-slate-900 hover:bg-slate-100" asChild>
+            <Button size="lg" className={cn(styles.ctaSecondary, "bg-white text-slate-900 hover:bg-slate-100")} asChild>
               <Link href="/contact">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+            <Button size="lg" variant="outline" className={cn(styles.ctaSecondary, "border-white text-white hover:bg-white/10")} asChild>
               <Link href="/resources/predictive-analytics-whitepaper">
                 Download Whitepaper
               </Link>

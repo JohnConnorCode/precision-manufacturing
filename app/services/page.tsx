@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/ui/hero-section';
+import { theme, styles, cn } from '@/lib/theme';
 import { ArrowRight, Cog, Cpu, Target, Wrench, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
@@ -83,14 +84,14 @@ export default function ServicesPage() {
       />
 
       {/* Capabilities Overview */}
-      <section id="capabilities" className="py-20 bg-slate-900/5">
-        <div className="container">
+      <section id="capabilities" className={styles.sectionLight}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+            className={cn(styles.grid4Col, "mb-20")}
           >
             {capabilities.map((capability, index) => (
               <motion.div
@@ -101,13 +102,13 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                <div className={styles.statValue}>
                   {capability.value}
                 </div>
-                <div className="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">
+                <div className={cn(theme.typography.badge, "text-slate-700 mb-2")}>
                   {capability.label}
                 </div>
-                <div className="text-sm text-slate-600">
+                <div className={theme.typography.small}>
                   {capability.description}
                 </div>
               </motion.div>
@@ -117,8 +118,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section id="services" className="py-20">
-        <div className="container">
+      <section id="services" className={theme.spacing.section}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -126,13 +127,13 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Manufacturing Capabilities</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Capabilities</h2>
+            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Comprehensive precision manufacturing services backed by advanced technology and industry certifications.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={styles.grid2Col}>
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -141,7 +142,7 @@ export default function ServicesPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="group h-full overflow-hidden border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-xl bg-white/50 backdrop-blur-sm">
+                <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
                     <ParallaxImagePro
                       src={service.image}
@@ -156,17 +157,17 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-slate-700 transition-colors">
+                    <h3 className={cn(theme.typography.h4, "mb-4 group-hover:text-blue-600 transition-colors")}>
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 mb-6 leading-relaxed">
+                    <p className={cn(theme.typography.body, "mb-6")}>
                       {service.description}
                     </p>
 
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {service.features.map((feature) => (
-                        <div key={feature} className="flex items-center text-sm text-slate-600">
-                          <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2" />
+                        <div key={feature} className={cn("flex items-center", theme.typography.small)}>
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
                           {feature}
                         </div>
                       ))}
@@ -175,7 +176,7 @@ export default function ServicesPage() {
                     <Button
                       asChild
                       variant="outline"
-                      className="w-full group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 transition-all"
+                      className={cn(styles.ctaSecondary, "w-full group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900")}
                     >
                       <Link href={service.href}>
                         Learn More
@@ -191,8 +192,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Quality Assurance Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container">
+      <section className={styles.sectionLight}>
+        <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -200,8 +201,8 @@ export default function ServicesPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-6">Quality Assurance</h2>
-              <p className="text-lg text-slate-600 mb-8">
+              <h2 className={cn(theme.typography.h2, "mb-6")}>Quality Assurance</h2>
+              <p className={cn(theme.typography.lead, "mb-8")}>
                 Our comprehensive quality management system ensures every component meets or exceeds specifications with full traceability and documentation.
               </p>
 
@@ -221,7 +222,7 @@ export default function ServicesPage() {
                     className="flex items-center"
                   >
                     <Award className="w-5 h-5 text-slate-600 mr-3" />
-                    <span className="text-slate-700">{item}</span>
+                    <span className={theme.typography.body}>{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -246,8 +247,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20">
-        <div className="container">
+      <section className={theme.spacing.section}>
+        <div className={theme.spacing.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -255,16 +256,16 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
-            <p className="text-xl text-slate-600 mb-8">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Ready to Start Your Project?</h2>
+            <p className={cn(theme.typography.lead, "mb-8")}>
               Partner with us for precision manufacturing solutions that meet the highest industry standards.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold">
+              <Button size="lg" className={styles.ctaPrimary}>
                 Get Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" asChild className="px-8 py-6 font-semibold">
+              <Button size="lg" variant="outline" asChild className={styles.ctaSecondary}>
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>

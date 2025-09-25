@@ -170,7 +170,7 @@ export default function AerospacePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className={styles.grid4Col}
           >
             {capabilities.map((capability, index) => (
               <motion.div
@@ -181,13 +181,13 @@ export default function AerospacePage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                <div className={styles.statValue}>
                   {capability.value}
                 </div>
-                <div className="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">
+                <div className={cn(theme.typography.badge, "text-slate-700 mb-2")}>
                   {capability.label}
                 </div>
-                <div className="text-sm text-slate-600">
+                <div className={theme.typography.small}>
                   {capability.description}
                 </div>
               </motion.div>
@@ -206,8 +206,8 @@ export default function AerospacePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Aerospace Component Expertise</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Aerospace Component Expertise</h2>
+            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Specialized manufacturing capabilities for critical aerospace applications, from engine components to structural assemblies.
             </p>
           </motion.div>
@@ -221,7 +221,7 @@ export default function AerospacePage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="overflow-hidden border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-xl bg-white/50 backdrop-blur-sm">
+                <Card className={cn(styles.featureCard, "overflow-hidden")}>
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
                     {/* Image Section */}
                     <div className="lg:col-span-2 relative h-64 lg:h-auto overflow-hidden">
@@ -233,19 +233,19 @@ export default function AerospacePage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4">
-                        <h3 className="text-2xl font-bold text-white">{component.category}</h3>
+                        <h3 className={cn(theme.typography.h3, "text-white")}>{component.category}</h3>
                       </div>
                     </div>
 
                     {/* Content Section */}
                     <div className="lg:col-span-3 p-8">
-                      <p className="text-slate-600 mb-6 leading-relaxed text-lg">
+                      <p className={cn(theme.typography.lead, "mb-6")}>
                         {component.description}
                       </p>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <h4 className="font-semibold text-slate-800 mb-3">Typical Components</h4>
+                          <h4 className={cn(theme.typography.label, "mb-3")}>Typical Components</h4>
                           <div className="space-y-2">
                             {component.parts.map((part) => (
                               <div key={part} className="flex items-center text-sm text-slate-600">
@@ -257,7 +257,7 @@ export default function AerospacePage() {
                         </div>
 
                         <div>
-                          <h4 className="font-semibold text-slate-800 mb-3">Materials</h4>
+                          <h4 className={cn(theme.typography.label, "mb-3")}>Materials</h4>
                           <div className="space-y-2 mb-4">
                             {component.materials.map((material) => (
                               <div key={material} className="flex items-center text-sm text-slate-600">
@@ -267,7 +267,7 @@ export default function AerospacePage() {
                             ))}
                           </div>
 
-                          <h4 className="font-semibold text-slate-800 mb-3">Key Requirements</h4>
+                          <h4 className={cn(theme.typography.label, "mb-3")}>Key Requirements</h4>
                           <div className="space-y-2">
                             {component.requirements.map((requirement) => (
                               <div key={requirement} className="flex items-center text-sm text-slate-600">

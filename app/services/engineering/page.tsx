@@ -188,7 +188,7 @@ export default function EngineeringPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className={styles.grid4Col}
           >
             {capabilities.map((capability, index) => (
               <motion.div
@@ -199,13 +199,13 @@ export default function EngineeringPage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                <div className={styles.statValue}>
                   {capability.value}
                 </div>
-                <div className="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">
+                <div className={cn(theme.typography.badge, "text-slate-700 mb-2")}>
                   {capability.label}
                 </div>
-                <div className="text-sm text-slate-600">
+                <div className={theme.typography.small}>
                   {capability.description}
                 </div>
               </motion.div>
@@ -224,13 +224,13 @@ export default function EngineeringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Engineering Capabilities</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Engineering Capabilities</h2>
+            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               From initial concept to production-ready designs, our engineering team delivers comprehensive solutions optimized for manufacturing excellence.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={styles.grid2Col}>
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -239,7 +239,7 @@ export default function EngineeringPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="group h-full overflow-hidden border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-xl bg-white/50 backdrop-blur-sm">
+                <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
                     <ParallaxImagePro
                       src={service.image}
@@ -254,31 +254,31 @@ export default function EngineeringPage() {
                   </div>
 
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-slate-700 transition-colors">
+                    <h3 className={cn(theme.typography.h4, "mb-4 group-hover:text-blue-600 transition-colors")}>
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 mb-6 leading-relaxed">
+                    <p className={cn(theme.typography.body, "mb-6")}>
                       {service.description}
                     </p>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="font-semibold text-slate-800 mb-3">Services</h4>
+                        <h4 className={cn(theme.typography.label, "mb-3")}>Services</h4>
                         <div className="space-y-2">
                           {service.features.map((feature) => (
-                            <div key={feature} className="flex items-center text-sm text-slate-600">
-                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2" />
+                            <div key={feature} className={cn("flex items-center", theme.typography.small)}>
+                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
                               {feature}
                             </div>
                           ))}
                         </div>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-800 mb-3">Benefits</h4>
+                        <h4 className={cn(theme.typography.label, "mb-3")}>Benefits</h4>
                         <div className="space-y-2">
                           {service.benefits.map((benefit) => (
-                            <div key={benefit} className="flex items-center text-sm text-slate-600">
-                              <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                            <div key={benefit} className={cn("flex items-center", theme.typography.small)}>
+                              <CheckCircle className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
                               {benefit}
                             </div>
                           ))}
@@ -303,13 +303,13 @@ export default function EngineeringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6">Design & Manufacturing Tools</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Design & Manufacturing Tools</h2>
+            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               State-of-the-art software and technologies supporting every phase of product development.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className={styles.grid4Col}>
             {designCapabilities.map((capability, index) => (
               <motion.div
                 key={capability.category}
@@ -318,12 +318,12 @@ export default function EngineeringPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 h-full border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-lg">
-                  <h3 className="text-lg font-bold mb-4">{capability.category}</h3>
+                <Card className={cn(styles.featureCard, "p-6 h-full")}>
+                  <h3 className={cn(theme.typography.h5, "mb-4")}>{capability.category}</h3>
                   <div className="space-y-2">
                     {capability.tools.map((tool) => (
-                      <div key={tool} className="flex items-center text-sm text-slate-600">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                      <div key={tool} className={cn("flex items-center", theme.typography.small)}>
+                        <CheckCircle className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
                         {tool}
                       </div>
                     ))}
@@ -345,8 +345,8 @@ export default function EngineeringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6">Project Types</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Project Types</h2>
+            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Flexible engagement models to meet diverse engineering needs from concept development to production optimization.
             </p>
           </motion.div>
@@ -360,27 +360,27 @@ export default function EngineeringPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 h-full border-slate-200 hover:border-slate-300 transition-all duration-300 hover:shadow-lg">
+                <Card className={cn(styles.featureCard, "p-8 h-full")}>
                   <div className="flex items-center mb-4">
                     <FileText className="w-6 h-6 text-slate-600 mr-3" />
-                    <h3 className="text-xl font-bold">{project.type}</h3>
+                    <h3 className={cn(theme.typography.h4)}>{project.type}</h3>
                   </div>
 
-                  <p className="text-slate-600 mb-4">{project.description}</p>
+                  <p className={cn(theme.typography.body, "mb-4")}>{project.description}</p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div>
-                      <span className="text-sm font-semibold text-slate-800">Timeline:</span>
-                      <p className="text-sm text-slate-600">{project.timeline}</p>
+                      <span className={cn(theme.typography.label, "text-sm")}>Timeline:</span>
+                      <p className={theme.typography.small}>{project.timeline}</p>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-slate-800 mb-3">Typical Deliverables</h4>
+                    <h4 className={cn(theme.typography.label, "mb-3")}>Typical Deliverables</h4>
                     <div className="space-y-2">
                       {project.deliverables.map((deliverable) => (
-                        <div key={deliverable} className="flex items-center text-sm text-slate-600">
-                          <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2" />
+                        <div key={deliverable} className={cn("flex items-center", theme.typography.small)}>
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
                           {deliverable}
                         </div>
                       ))}
@@ -403,8 +403,8 @@ export default function EngineeringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6">Our Engineering Process</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Our Engineering Process</h2>
+            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Structured approach ensuring successful project outcomes from initial consultation to final delivery.
             </p>
           </motion.div>
@@ -453,11 +453,11 @@ export default function EngineeringPage() {
                 {index < 5 && (
                   <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-slate-300 to-transparent -translate-x-1/2" />
                 )}
-                <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4 relative z-10">
+                <div className={cn("w-16 h-16 text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4 relative z-10", theme.colors.primary.gradient)}>
                   {process.step}
                 </div>
-                <h3 className="text-lg font-bold mb-2">{process.title}</h3>
-                <p className="text-sm text-slate-600">{process.description}</p>
+                <h3 className={cn(theme.typography.h5, "mb-2")}>{process.title}</h3>
+                <p className={theme.typography.small}>{process.description}</p>
               </motion.div>
             ))}
           </div>
@@ -474,16 +474,16 @@ export default function EngineeringPage() {
             viewport={{ once: true }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
-            <p className="text-xl text-slate-600 mb-8">
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Ready to Start Your Project?</h2>
+            <p className={cn(theme.typography.lead, "mb-8")}>
               Partner with our engineering team to transform your concepts into production-ready designs optimized for manufacturing success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold">
+              <Button size="lg" className={styles.ctaPrimary}>
                 Start Engineering Project
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" asChild className="px-8 py-6 font-semibold">
+              <Button size="lg" variant="outline" asChild className={styles.ctaSecondary}>
                 <Link href="/services">View All Services</Link>
               </Button>
             </div>

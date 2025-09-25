@@ -9,7 +9,8 @@ test.describe('Homepage', () => {
     // Check hero headline - now in all caps
     await expect(page.locator('h1')).toContainText('PRECISION');
     await expect(page.locator('h1')).toContainText('MANUFACTURING');
-    await expect(page.locator('p.text-xl').filter({ hasText: 'Innovative Machining Since 1995' })).toBeVisible();
+    // Check tagline - using more flexible selector
+    await expect(page.getByText('Innovative Machining Since 1995')).toBeVisible();
 
     // Check certification badges in the hero section
     const heroSection = page.locator('section').first();
@@ -60,7 +61,7 @@ test.describe('Homepage', () => {
 
     // Check meta description
     const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
-    expect(metaDescription).toContain('ITAR-compliant');
+    expect(metaDescription).toContain('ITAR-registered');
     expect(metaDescription).toContain('aerospace');
   });
 });

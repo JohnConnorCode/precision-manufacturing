@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/ui/hero-section';
+import { theme, styles, cn } from '@/lib/theme';
 import {
   Mail,
   Phone,
@@ -114,8 +115,8 @@ export default function ContactPage() {
       />
 
       {/* Main Content */}
-      <section id="contact-form" className="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-        <div className="container">
+      <section id="contact-form" className={styles.sectionDark}>
+        <div className={theme.spacing.container}>
           <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
             <motion.div
@@ -125,22 +126,22 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
-                <p className="text-slate-400 mb-8">
+                <h2 className={cn(theme.typography.h3, "text-white mb-6")}>Get in Touch</h2>
+                <p className={cn(theme.typography.body, "text-slate-400 mb-8")}>
                   Our engineering team is ready to discuss your precision manufacturing needs.
                 </p>
               </div>
 
               {/* Contact Cards */}
-              <Card className="p-6 bg-slate-900/50 border-slate-800 backdrop-blur-sm">
+              <Card className={cn(theme.components.card.form, "p-6")}>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-1">Headquarters</h3>
-                      <p className="text-sm text-slate-400">
+                      <h3 className={cn(theme.typography.label, "text-white mb-1")}>Headquarters</h3>
+                      <p className={theme.typography.small}>
                         Integrated Inspection Systems, Inc.<br />
                         12345 Precision Way<br />
                         Torrance, CA 90501
@@ -153,8 +154,8 @@ export default function ContactPage() {
                       <Phone className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-1">Phone</h3>
-                      <a href="tel:+15032319093" className="text-sm text-slate-400 hover:text-cyan-400 transition-colors">
+                      <h3 className={cn(theme.typography.label, "text-white mb-1")}>Phone</h3>
+                      <a href="tel:+15032319093" className={cn(theme.typography.small, "hover:text-cyan-400 transition-colors")}>
                         (503) 231-9093
                       </a>
                     </div>
@@ -165,8 +166,8 @@ export default function ContactPage() {
                       <Mail className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-1">Email</h3>
-                      <a href="mailto:officemgr@iismet.com" className="text-sm text-slate-400 hover:text-cyan-400 transition-colors">
+                      <h3 className={cn(theme.typography.label, "text-white mb-1")}>Email</h3>
+                      <a href="mailto:officemgr@iismet.com" className={cn(theme.typography.small, "hover:text-cyan-400 transition-colors")}>
                         officemgr@iismet.com
                       </a>
                     </div>
@@ -177,8 +178,8 @@ export default function ContactPage() {
                       <Clock className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-1">Business Hours</h3>
-                      <p className="text-sm text-slate-400">
+                      <h3 className={cn(theme.typography.label, "text-white mb-1")}>Business Hours</h3>
+                      <p className={theme.typography.small}>
                         Monday - Friday: 7:00 AM - 5:00 PM PST<br />
                         24/7 Production Facility
                       </p>
@@ -188,13 +189,13 @@ export default function ContactPage() {
               </Card>
 
               {/* Certifications */}
-              <Card className="p-6 bg-slate-900/50 border-slate-800 backdrop-blur-sm">
-                <h3 className="font-semibold text-white mb-4">Certifications</h3>
+              <Card className={cn(theme.components.card.form, "p-6")}>
+                <h3 className={cn(theme.typography.label, "text-white mb-4")}>Certifications</h3>
                 <div className="space-y-3">
                   {['AS9100D', 'ISO 9001:2015', 'ITAR Registered', 'NADCAP'].map((cert) => (
                     <div key={cert} className="flex items-center gap-3">
                       <Shield className="w-4 h-4 text-cyan-400" />
-                      <span className="text-sm text-slate-400">{cert}</span>
+                      <span className={theme.typography.small}>{cert}</span>
                     </div>
                   ))}
                 </div>
@@ -208,18 +209,18 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="lg:col-span-2"
             >
-              <Card className="p-8 bg-slate-900/50 border-slate-800 backdrop-blur-sm">
-                <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
+              <Card className={cn(theme.components.card.form, "p-8")}>
+                <h2 className={cn(theme.typography.h3, "text-white mb-6")}>Send a Message</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="name" className="text-slate-300">Full Name *</Label>
+                      <Label htmlFor="name" className={styles.form.label}>Full Name *</Label>
                       <Input
                         id="name"
                         {...register('name')}
                         placeholder="John Doe"
-                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
+                        className={cn(styles.form.input, "mt-1")}
                       />
                       {errors.name && (
                         <p className="text-sm text-red-400 mt-1">{errors.name.message}</p>
@@ -227,13 +228,13 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <Label htmlFor="email" className="text-slate-300">Email Address *</Label>
+                      <Label htmlFor="email" className={styles.form.label}>Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
                         {...register('email')}
                         placeholder="john@company.com"
-                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
+                        className={cn(styles.form.input, "mt-1")}
                       />
                       {errors.email && (
                         <p className="text-sm text-red-400 mt-1">{errors.email.message}</p>
@@ -243,12 +244,12 @@ export default function ContactPage() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="company" className="text-slate-300">Company *</Label>
+                      <Label htmlFor="company" className={styles.form.label}>Company *</Label>
                       <Input
                         id="company"
                         {...register('company')}
                         placeholder="Acme Aerospace"
-                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
+                        className={cn(styles.form.input, "mt-1")}
                       />
                       {errors.company && (
                         <p className="text-sm text-red-400 mt-1">{errors.company.message}</p>
@@ -256,30 +257,30 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <Label htmlFor="phone" className="text-slate-300">Phone</Label>
+                      <Label htmlFor="phone" className={styles.form.label}>Phone</Label>
                       <Input
                         id="phone"
                         type="tel"
                         {...register('phone')}
                         placeholder="+1 (555) 123-4567"
-                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 mt-1"
+                        className={cn(styles.form.input, "mt-1")}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="interest" className="text-slate-300">Inquiry Type *</Label>
+                    <Label htmlFor="interest" className={styles.form.label}>Inquiry Type *</Label>
                     <Select onValueChange={(value) => setValue('interest', value as any)}>
-                      <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
+                      <SelectTrigger className={cn(styles.form.select.trigger, "mt-1")}>
                         <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-900 border-slate-700 text-white">
-                        <SelectItem className="text-white hover:bg-slate-800" value="quote">Request Quote</SelectItem>
-                        <SelectItem className="text-white hover:bg-slate-800" value="technical">Technical Consultation</SelectItem>
-                        <SelectItem className="text-white hover:bg-slate-800" value="partnership">Strategic Partnership</SelectItem>
-                        <SelectItem className="text-white hover:bg-slate-800" value="supplier">Supplier Inquiry</SelectItem>
-                        <SelectItem className="text-white hover:bg-slate-800" value="career">Career Opportunities</SelectItem>
-                        <SelectItem className="text-white hover:bg-slate-800" value="general">General Information</SelectItem>
+                      <SelectContent className={styles.form.select.content}>
+                        <SelectItem className={styles.form.select.item} value="quote">Request Quote</SelectItem>
+                        <SelectItem className={styles.form.select.item} value="technical">Technical Consultation</SelectItem>
+                        <SelectItem className={styles.form.select.item} value="partnership">Strategic Partnership</SelectItem>
+                        <SelectItem className={styles.form.select.item} value="supplier">Supplier Inquiry</SelectItem>
+                        <SelectItem className={styles.form.select.item} value="career">Career Opportunities</SelectItem>
+                        <SelectItem className={styles.form.select.item} value="general">General Information</SelectItem>
                       </SelectContent>
                     </Select>
                     {errors.interest && (
@@ -290,32 +291,32 @@ export default function ContactPage() {
                   {(interest === 'quote' || interest === 'technical') && (
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="projectType" className="text-slate-300">Industry</Label>
+                        <Label htmlFor="projectType" className={styles.form.label}>Industry</Label>
                         <Select onValueChange={(value) => setValue('projectType', value as any)}>
-                          <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
+                          <SelectTrigger className={cn(styles.form.select.trigger, "mt-1")}>
                             <SelectValue placeholder="Select industry" />
                           </SelectTrigger>
-                          <SelectContent className="bg-slate-900 border-slate-700 text-white">
-                            <SelectItem className="text-white hover:bg-slate-800" value="aerospace">Aerospace</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="defense">Defense</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="medical">Medical Devices</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="energy">Energy</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="other">Other</SelectItem>
+                          <SelectContent className={styles.form.select.content}>
+                            <SelectItem className={styles.form.select.item} value="aerospace">Aerospace</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="defense">Defense</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="medical">Medical Devices</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="energy">Energy</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div>
-                        <Label htmlFor="timeline" className="text-slate-300">Timeline</Label>
+                        <Label htmlFor="timeline" className={styles.form.label}>Timeline</Label>
                         <Select onValueChange={(value) => setValue('timeline', value as any)}>
-                          <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white focus:border-cyan-500 mt-1">
+                          <SelectTrigger className={cn(styles.form.select.trigger, "mt-1")}>
                             <SelectValue placeholder="Select timeline" />
                           </SelectTrigger>
-                          <SelectContent className="bg-slate-900 border-slate-700 text-white">
-                            <SelectItem className="text-white hover:bg-slate-800" value="immediate">Immediate</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="1-3months">1-3 Months</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="3-6months">3-6 Months</SelectItem>
-                            <SelectItem className="text-white hover:bg-slate-800" value="6months+">6+ Months</SelectItem>
+                          <SelectContent className={styles.form.select.content}>
+                            <SelectItem className={styles.form.select.item} value="immediate">Immediate</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="1-3months">1-3 Months</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="3-6months">3-6 Months</SelectItem>
+                            <SelectItem className={styles.form.select.item} value="6months+">6+ Months</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -323,13 +324,13 @@ export default function ContactPage() {
                   )}
 
                   <div>
-                    <Label htmlFor="message" className="text-slate-300">Message *</Label>
+                    <Label htmlFor="message" className={styles.form.label}>Message *</Label>
                     <Textarea
                       id="message"
                       {...register('message')}
                       placeholder="Please describe your project requirements..."
                       rows={6}
-                      className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-500 resize-none mt-1"
+                      className={cn(styles.form.textarea, "mt-1")}
                     />
                     {errors.message && (
                       <p className="text-sm text-red-400 mt-1">{errors.message.message}</p>
@@ -337,13 +338,13 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <p className="text-xs text-slate-500">
+                    <p className={cn(theme.typography.small, "text-xs text-slate-500")}>
                       * Required fields
                     </p>
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-8"
+                      className={cn(styles.ctaPrimary, "group")}
                     >
                       {isSubmitting ? (
                         'Sending...'
