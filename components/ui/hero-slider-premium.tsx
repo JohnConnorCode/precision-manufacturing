@@ -23,6 +23,7 @@ export default function HeroSliderPremium({
   className = ''
 }: HeroSliderPremiumProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState<boolean[]>(new Array(slides.length).fill(false));
   const { scrollY } = useScroll();
 
   // Smooth parallax effect
@@ -66,13 +67,24 @@ export default function HeroSliderPremium({
               alt={slides[currentIndex].alt}
               fill
               className={cn(
-                "object-cover",
-                getFocalPosition(slides[currentIndex].focal)
+                "object-cover transition-opacity duration-500",
+                getFocalPosition(slides[currentIndex].focal),
+                imageLoaded[currentIndex] ? "opacity-100" : "opacity-0"
               )}
-              priority
+              priority={currentIndex === 0}
               quality={95}
               sizes="100vw"
+              onLoad={() => {
+                const newLoadedState = [...imageLoaded];
+                newLoadedState[currentIndex] = true;
+                setImageLoaded(newLoadedState);
+              }}
             />
+
+            {/* Fallback gradient while loading */}
+            {!imageLoaded[currentIndex] && (
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+            )}
 
             {/* Subtle Ken Burns effect */}
             <motion.div
@@ -94,7 +106,7 @@ export default function HeroSliderPremium({
       {/* Strong gradient overlay for maximum text contrast */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Base dark layer */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/45" />
 
         {/* Main gradient for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />

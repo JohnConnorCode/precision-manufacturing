@@ -8,28 +8,28 @@ import ParallaxImage from '@/components/ui/parallax-image';
 
 const industries = [
   {
-    title: 'Aerospace',
-    description: 'Critical components for commercial and military aircraft. From turbine blades to structural assemblies.',
-    icon: Plane,
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
-    href: '/industries/aerospace',
-    features: ['FAA approved', 'NADCAP certified', 'Zero defect delivery'],
-  },
-  {
-    title: 'Energy & Turbines',
-    description: 'High-temperature alloy components for power generation. Supporting renewable and traditional energy sectors.',
-    icon: Zap,
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb',
-    href: '/industries/energy',
-    features: ['Superalloy expertise', 'Large part capability', 'Field service support'],
-  },
-  {
-    title: 'Defense',
-    description: 'ITAR-compliant manufacturing for defense contractors. Maintaining highest security and quality standards.',
+    title: 'Defense & Government',
+    description: 'ITAR-compliant manufacturing for defense contractors and government agencies. Secure, certified production.',
     icon: Shield,
     image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940',
     href: '/industries/defense',
     features: ['ITAR registered', 'Secure facility', 'Rapid prototyping'],
+  },
+  {
+    title: 'Energy & Power',
+    description: 'Critical components for power generation and renewable energy. High-temperature alloys and superalloy expertise.',
+    icon: Zap,
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e',
+    href: '/industries/energy',
+    features: ['Superalloy expertise', 'Large part capability', 'Field service support'],
+  },
+  {
+    title: 'Aerospace & Aviation',
+    description: 'Precision components for commercial and military aircraft. AS9100D certified production.',
+    icon: Plane,
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
+    href: '/industries/aerospace',
+    features: ['AS9100D certified', 'NADCAP accredited', 'Zero defect delivery'],
   },
 ];
 

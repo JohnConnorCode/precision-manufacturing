@@ -13,28 +13,28 @@ export default function Hero() {
 
   const heroSlides = [
     {
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=90',
+      src: 'https://images.unsplash.com/photo-1565117650576-09f9469ac3b2?w=2400&q=95',
       alt: 'Advanced 5-axis CNC machining center',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=2400&q=90',
-      alt: 'Precision aerospace components manufacturing',
+      src: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=2400&q=95',
+      alt: 'Precision metrology and inspection',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2400&q=90',
-      alt: 'High-precision metrology and inspection',
+      src: 'https://images.unsplash.com/photo-1609421137215-dfcdafcb06c9?w=2400&q=95',
+      alt: 'Automated manufacturing systems',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=2400&q=90',
-      alt: 'Aerospace turbine blade manufacturing',
+      src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=95',
+      alt: 'Industrial engineering and process development',
       focal: 'center' as const
     },
     {
-      src: 'https://images.unsplash.com/photo-1633614907351-22492e5458bb?w=2400&q=90',
-      alt: 'Defense systems precision engineering',
+      src: 'https://images.unsplash.com/photo-1581092918482-a8fee14d45f0?w=2400&q=95',
+      alt: 'Defense and aerospace components manufacturing',
       focal: 'center' as const
     }
   ];
@@ -60,37 +60,39 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ delay: 0.3, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95]">
               <motion.span
                 className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 drop-shadow-2xl uppercase"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 PRECISION
               </motion.span>
               <motion.span
                 className="block text-white drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.65, duration: 0.7, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.6, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                ENGINEERING
+                MANUFACTURING
               </motion.span>
             </h1>
           </motion.div>
 
-          {/* Single focused tagline */}
+          {/* Enhanced subtitle with more detail */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85, duration: 0.6, ease: "easeOut" }}
-            className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 md:mb-12 font-light leading-relaxed max-w-2xl mx-auto"
+            transition={{ delay: 0.85, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto"
           >
-            Ultra-Precision Manufacturing for
-            <span className="text-cyan-400 font-semibold"> Aerospace Critical Components</span>
+            <span className="font-medium">Innovative Machining Since 1995</span>
+            <span className="block mt-2 text-base sm:text-lg md:text-xl text-white/75">
+              Advanced CNC Machining • Precision Metrology • Engineering Excellence • AS9100D & ITAR Certified
+            </span>
           </motion.p>
 
           {/* CTA Buttons - Cleaner design */}
