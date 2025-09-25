@@ -1,0 +1,447 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link [ref=e4]:
+        - /url: /
+        - img [ref=e6]:
+          - generic [ref=e14]: IIS
+          - generic [ref=e16]:
+            - generic [ref=e17]: INTEGRATED
+            - generic [ref=e18]: INSPECTION
+            - generic [ref=e19]: SYSTEMS
+      - button "Open menu" [ref=e21] [cursor=pointer]:
+        - img
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - img "Advanced 5-axis CNC machining center" [ref=e27]
+      - generic [ref=e30]:
+        - heading "PRECISION MANUFACTURING" [level=1] [ref=e32]:
+          - generic [ref=e33]: PRECISION
+          - generic [ref=e34]: MANUFACTURING
+        - paragraph [ref=e35]:
+          - generic [ref=e36]: Innovative Machining Since 1995
+          - generic [ref=e37]: Advanced CNC Machining • Precision Metrology • Engineering Excellence • AS9100D & ITAR Certified
+        - generic [ref=e38]:
+          - link "Start Your Project" [ref=e39]:
+            - /url: /contact
+            - text: Start Your Project
+            - img
+          - link "View Capabilities" [ref=e40]:
+            - /url: /services
+      - img [ref=e43] [cursor=pointer]
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - heading "Precision By The Numbers" [level=2] [ref=e51]:
+          - text: Precision By The
+          - generic [ref=e52]: Numbers
+        - paragraph [ref=e53]: Industry-leading capabilities backed by decades of aerospace and defense manufacturing expertise
+      - generic [ref=e54]:
+        - generic [ref=e56]:
+          - img [ref=e60]
+          - generic [ref=e63]: ±0.0001"
+          - generic [ref=e64]: PRECISION
+          - generic [ref=e65]: Ultra-tight tolerances
+        - generic [ref=e67]:
+          - img [ref=e71]
+          - generic [ref=e74]: 5-AXIS
+          - generic [ref=e75]: CNC CAPABILITY
+          - generic [ref=e76]: Simultaneous machining
+        - generic [ref=e78]:
+          - img [ref=e82]
+          - generic [ref=e84]: AS9100D
+          - generic [ref=e85]: CERTIFIED
+          - generic [ref=e86]: Aerospace quality
+        - generic [ref=e88]:
+          - img [ref=e92]
+          - generic [ref=e94]: 99.97%
+          - generic [ref=e95]: FIRST PASS YIELD
+          - generic [ref=e96]: Quality rate
+        - generic [ref=e98]:
+          - img [ref=e102]
+          - generic [ref=e105]: 24/7
+          - generic [ref=e106]: PRODUCTION
+          - generic [ref=e107]: Continuous operation
+        - generic [ref=e109]:
+          - img [ref=e113]
+          - generic [ref=e117]: 99.8%
+          - generic [ref=e118]: ON-TIME
+          - generic [ref=e119]: Delivery performance
+        - generic [ref=e121]:
+          - img [ref=e125]
+          - generic [ref=e127]: 12,000
+          - generic [ref=e128]: RPM
+          - generic [ref=e129]: Spindle speed
+        - generic [ref=e131]:
+          - img [ref=e135]
+          - generic [ref=e138]: ITAR
+          - generic [ref=e139]: REGISTERED
+          - generic [ref=e140]: Defense compliant
+      - generic [ref=e141]:
+        - paragraph [ref=e142]: Ready to experience precision manufacturing excellence?
+        - paragraph [ref=e143]:
+          - text: Call
+          - link "503-231-9093" [ref=e144]:
+            - /url: tel:+15032319093
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - paragraph [ref=e150]: COMPREHENSIVE MANUFACTURING SOLUTIONS
+        - heading "PRECISION SERVICES" [level=2] [ref=e151]:
+          - generic [ref=e152]: PRECISION
+          - generic [ref=e153]: SERVICES
+        - paragraph [ref=e154]: Four core service pillars delivering unmatched precision and reliability
+        - paragraph [ref=e155]: From complex 5-axis machining to advanced metrology, our integrated services ensure your most critical components meet the strictest aerospace and defense standards
+      - generic [ref=e156]:
+        - link "5-Axis CNC Machining FEATURED 5-Axis CNC Machining Complex geometries with unmatched precision for aerospace components ±0.0001\" tolerance Titanium & exotic alloys Up to 60\" parts Learn More" [ref=e158]:
+          - /url: /services/5-axis-machining
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - img "5-Axis CNC Machining" [ref=e161]
+              - img [ref=e165]
+              - generic [ref=e177]: FEATURED
+            - generic [ref=e178]:
+              - heading "5-Axis CNC Machining" [level=3] [ref=e179]
+              - paragraph [ref=e180]: Complex geometries with unmatched precision for aerospace components
+              - list [ref=e181]:
+                - listitem [ref=e182]:
+                  - img [ref=e183]
+                  - generic [ref=e186]: ±0.0001" tolerance
+                - listitem [ref=e187]:
+                  - img [ref=e188]
+                  - generic [ref=e191]: Titanium & exotic alloys
+                - listitem [ref=e192]:
+                  - img [ref=e193]
+                  - generic [ref=e196]: Up to 60" parts
+              - generic [ref=e197]:
+                - generic [ref=e198]: Learn More
+                - img [ref=e199]
+        - link "Adaptive Machining Adaptive Machining Real-time adjustments based on in-process measurements In-process verification Automated compensation Zero defect goal Learn More" [ref=e202]:
+          - /url: /services/adaptive-machining
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - img "Adaptive Machining" [ref=e205]
+              - img [ref=e209]
+            - generic [ref=e212]:
+              - heading "Adaptive Machining" [level=3] [ref=e213]
+              - paragraph [ref=e214]: Real-time adjustments based on in-process measurements
+              - list [ref=e215]:
+                - listitem [ref=e216]:
+                  - img [ref=e217]
+                  - generic [ref=e220]: In-process verification
+                - listitem [ref=e221]:
+                  - img [ref=e222]
+                  - generic [ref=e225]: Automated compensation
+                - listitem [ref=e226]:
+                  - img [ref=e227]
+                  - generic [ref=e230]: Zero defect goal
+              - generic [ref=e231]:
+                - generic [ref=e232]: Learn More
+                - img [ref=e233]
+        - link "Metrology & Inspection Metrology & Inspection Complete dimensional verification with CMM and laser scanning 0.00005\" accuracy GD&T analysis AS9102 certified Learn More" [ref=e236]:
+          - /url: /services/metrology
+          - generic [ref=e237]:
+            - generic [ref=e238]:
+              - img "Metrology & Inspection" [ref=e239]
+              - img [ref=e243]
+            - generic [ref=e246]:
+              - heading "Metrology & Inspection" [level=3] [ref=e247]
+              - paragraph [ref=e248]: Complete dimensional verification with CMM and laser scanning
+              - list [ref=e249]:
+                - listitem [ref=e250]:
+                  - img [ref=e251]
+                  - generic [ref=e254]: 0.00005" accuracy
+                - listitem [ref=e255]:
+                  - img [ref=e256]
+                  - generic [ref=e259]: GD&T analysis
+                - listitem [ref=e260]:
+                  - img [ref=e261]
+                  - generic [ref=e264]: AS9102 certified
+              - generic [ref=e265]:
+                - generic [ref=e266]: Learn More
+                - img [ref=e267]
+        - link "Engineering Support Engineering Support Design optimization and manufacturing consultation DFM analysis Process planning Cost optimization Learn More" [ref=e270]:
+          - /url: /services/engineering
+          - generic [ref=e271]:
+            - generic [ref=e272]:
+              - img "Engineering Support" [ref=e273]
+              - img [ref=e277]
+            - generic [ref=e282]:
+              - heading "Engineering Support" [level=3] [ref=e283]
+              - paragraph [ref=e284]: Design optimization and manufacturing consultation
+              - list [ref=e285]:
+                - listitem [ref=e286]:
+                  - img [ref=e287]
+                  - generic [ref=e290]: DFM analysis
+                - listitem [ref=e291]:
+                  - img [ref=e292]
+                  - generic [ref=e295]: Process planning
+                - listitem [ref=e296]:
+                  - img [ref=e297]
+                  - generic [ref=e300]: Cost optimization
+              - generic [ref=e301]:
+                - generic [ref=e302]: Learn More
+                - img [ref=e303]
+      - generic [ref=e305]:
+        - paragraph [ref=e306]: Need custom manufacturing solutions?
+        - link "Discuss Your Project" [ref=e307]:
+          - /url: /contact
+          - text: Discuss Your Project
+          - img [ref=e308]
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - paragraph [ref=e313]: SPECIALIZED SECTOR EXPERTISE
+        - heading "INDUSTRY LEADERS" [level=2] [ref=e314]:
+          - generic [ref=e315]: INDUSTRY
+          - generic [ref=e316]: LEADERS
+        - paragraph [ref=e317]: Three decades of trusted partnerships in mission-critical sectors
+        - paragraph [ref=e318]: Our certifications and clearances enable us to serve the most demanding industries where component failure can mean mission failure
+      - generic [ref=e319]:
+        - link "Defense & Government Defense & Government ITAR-compliant manufacturing for defense contractors and government agencies. Secure, certified production. ITAR registered Secure facility Rapid prototyping" [ref=e321]:
+          - /url: /industries/defense
+          - generic [ref=e322]:
+            - generic [ref=e323]:
+              - img "Defense & Government" [ref=e326]
+              - img [ref=e330]
+            - generic [ref=e332]:
+              - heading "Defense & Government" [level=3] [ref=e333]:
+                - img [ref=e334]
+                - text: Defense & Government
+              - paragraph [ref=e336]: ITAR-compliant manufacturing for defense contractors and government agencies. Secure, certified production.
+              - list [ref=e337]:
+                - listitem [ref=e338]: ITAR registered
+                - listitem [ref=e340]: Secure facility
+                - listitem [ref=e342]: Rapid prototyping
+        - link "Energy & Power Energy & Power Critical components for power generation and renewable energy. High-temperature alloys and superalloy expertise. Superalloy expertise Large part capability Field service support" [ref=e345]:
+          - /url: /industries/energy
+          - generic [ref=e346]:
+            - generic [ref=e347]:
+              - img "Energy & Power" [ref=e350]
+              - img [ref=e354]
+            - generic [ref=e356]:
+              - heading "Energy & Power" [level=3] [ref=e357]:
+                - img [ref=e358]
+                - text: Energy & Power
+              - paragraph [ref=e360]: Critical components for power generation and renewable energy. High-temperature alloys and superalloy expertise.
+              - list [ref=e361]:
+                - listitem [ref=e362]: Superalloy expertise
+                - listitem [ref=e364]: Large part capability
+                - listitem [ref=e366]: Field service support
+        - link "Aerospace & Aviation Aerospace & Aviation Precision components for commercial and military aircraft. AS9100D certified production. AS9100D certified NADCAP accredited Zero defect delivery" [ref=e369]:
+          - /url: /industries/aerospace
+          - generic [ref=e370]:
+            - generic [ref=e371]:
+              - img "Aerospace & Aviation" [ref=e374]
+              - img [ref=e378]
+            - generic [ref=e380]:
+              - heading "Aerospace & Aviation" [level=3] [ref=e381]:
+                - img [ref=e382]
+                - text: Aerospace & Aviation
+              - paragraph [ref=e384]: Precision components for commercial and military aircraft. AS9100D certified production.
+              - list [ref=e385]:
+                - listitem [ref=e386]: AS9100D certified
+                - listitem [ref=e388]: NADCAP accredited
+                - listitem [ref=e390]: Zero defect delivery
+    - generic [ref=e393]:
+      - generic [ref=e394]:
+        - paragraph [ref=e395]: Manufacturing Excellence
+        - heading "Precision Delivered" [level=2] [ref=e396]:
+          - generic [ref=e397]: Precision
+          - generic [ref=e398]: Delivered
+        - paragraph [ref=e399]: From concept to completion, we deliver aerospace-grade components with uncompromising precision
+      - generic [ref=e400]:
+        - link "Aerospace Components Turbine Blades Aerospace Components View Details" [ref=e402]:
+          - /url: /services/5-axis-machining
+          - generic [ref=e404]:
+            - img "Aerospace Components" [ref=e405]
+            - generic [ref=e407]:
+              - paragraph [ref=e408]: Turbine Blades
+              - heading "Aerospace Components" [level=3] [ref=e409]
+              - generic [ref=e410]:
+                - generic [ref=e411]: View Details
+                - img [ref=e412]
+        - link "Defense Systems ITAR Certified Defense Systems View Details" [ref=e415]:
+          - /url: /services/adaptive-machining
+          - generic [ref=e417]:
+            - img "Defense Systems" [ref=e418]
+            - generic [ref=e420]:
+              - paragraph [ref=e421]: ITAR Certified
+              - heading "Defense Systems" [level=3] [ref=e422]
+              - generic [ref=e423]:
+                - generic [ref=e424]: View Details
+                - img [ref=e425]
+        - link "Precision Metrology Quality Control Precision Metrology View Details" [ref=e428]:
+          - /url: /services/metrology
+          - generic [ref=e430]:
+            - img "Precision Metrology" [ref=e431]
+            - generic [ref=e433]:
+              - paragraph [ref=e434]: Quality Control
+              - heading "Precision Metrology" [level=3] [ref=e435]
+              - generic [ref=e436]:
+                - generic [ref=e437]: View Details
+                - img [ref=e438]
+      - generic [ref=e440]:
+        - generic [ref=e441]:
+          - img [ref=e442]
+          - generic [ref=e445]: AS9100D
+          - generic [ref=e446]: Certified Quality
+        - generic [ref=e447]:
+          - img [ref=e448]
+          - generic [ref=e450]: ITAR
+          - generic [ref=e451]: Registered
+        - generic [ref=e452]:
+          - img [ref=e453]
+          - generic [ref=e456]: 24/7
+          - generic [ref=e457]: Production
+        - generic [ref=e458]:
+          - img [ref=e459]
+          - generic [ref=e463]: ±0.0001"
+          - generic [ref=e464]: Tolerance
+      - generic [ref=e466]:
+        - heading "Get Started Today" [level=3] [ref=e467]
+        - paragraph [ref=e468]: Let's discuss how we can deliver precision manufacturing solutions for your needs
+        - generic [ref=e469]:
+          - link "Request Quote" [ref=e470]:
+            - /url: /contact
+            - text: Request Quote
+            - img [ref=e471]
+          - link "Learn More" [ref=e473]:
+            - /url: /about
+    - generic [ref=e477]:
+      - generic [ref=e478]:
+        - paragraph [ref=e479]: THE NUMBERS SPEAK FOR THEMSELVES
+        - heading "Operational Excellence" [level=2] [ref=e480]
+      - generic [ref=e481]:
+        - generic [ref=e483]:
+          - generic [ref=e485]: 0+
+          - generic [ref=e486]: Years Experience
+        - generic [ref=e488]:
+          - generic [ref=e490]: 0%
+          - generic [ref=e491]: On-Time Delivery
+        - generic [ref=e493]:
+          - generic [ref=e495]: ±0"
+          - generic [ref=e496]: Min Tolerance
+        - generic [ref=e498]:
+          - generic [ref=e500]: 0+
+          - generic [ref=e501]: Active Clients
+    - generic [ref=e511]:
+      - generic [ref=e512]:
+        - img [ref=e513]
+        - generic [ref=e515]: 30 Years of Aerospace Excellence
+      - heading "Ready to Start Your Project?" [level=2] [ref=e516]
+      - paragraph [ref=e517]: Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.
+      - generic [ref=e518]:
+        - link "Request Engineering Quote" [ref=e519]:
+          - /url: /contact
+          - text: Request Engineering Quote
+          - img
+        - link "Technical Specifications" [ref=e520]:
+          - /url: /compliance/supplier-requirements
+          - img
+          - text: Technical Specifications
+      - generic [ref=e521]:
+        - generic [ref=e526]: 24/7 Production
+        - generic [ref=e527]:
+          - img [ref=e528]
+          - generic [ref=e530]: ITAR Registered
+        - generic [ref=e531]:
+          - img [ref=e532]
+          - generic [ref=e535]: AS9100D
+      - generic [ref=e537]:
+        - generic [ref=e538]: Trusted by leading
+        - generic [ref=e539]: aerospace & defense
+        - generic [ref=e540]: contractors worldwide
+  - contentinfo [ref=e541]:
+    - generic [ref=e542]:
+      - generic [ref=e543]:
+        - generic [ref=e544]:
+          - img [ref=e546]:
+            - generic [ref=e554]: IIS
+            - generic [ref=e556]:
+              - generic [ref=e557]: INTEGRATED
+              - generic [ref=e558]: INSPECTION
+              - generic [ref=e559]: SYSTEMS
+          - heading "INTEGRATED INSPECTION SYSTEMS" [level=3] [ref=e561]
+          - paragraph [ref=e562]: Quality is not inspected into a product but is inherently designed and built into every process.
+          - generic [ref=e563]:
+            - link "LinkedIn" [ref=e564]:
+              - /url: "#"
+              - img [ref=e565]
+            - link "Twitter" [ref=e569]:
+              - /url: "#"
+              - img [ref=e570]
+            - link "Facebook" [ref=e572]:
+              - /url: "#"
+              - img [ref=e573]
+        - generic [ref=e575]:
+          - heading "Services" [level=4] [ref=e576]
+          - list [ref=e577]:
+            - listitem [ref=e578]:
+              - link "Machining" [ref=e579]:
+                - /url: /services
+            - listitem [ref=e580]:
+              - link "Inspection" [ref=e581]:
+                - /url: /services
+            - listitem [ref=e582]:
+              - link "Fixture Design" [ref=e583]:
+                - /url: /services
+            - listitem [ref=e584]:
+              - link "Metrology" [ref=e585]:
+                - /url: /services
+            - listitem [ref=e586]:
+              - link "Metbase®" [ref=e587]:
+                - /url: /services
+        - generic [ref=e588]:
+          - heading "Quick Links" [level=4] [ref=e589]
+          - list [ref=e590]:
+            - listitem [ref=e591]:
+              - link "About Us" [ref=e592]:
+                - /url: /about
+            - listitem [ref=e593]:
+              - link "Industries" [ref=e594]:
+                - /url: /industries
+            - listitem [ref=e595]:
+              - link "Terms & Conditions" [ref=e596]:
+                - /url: /compliance/terms
+            - listitem [ref=e597]:
+              - link "Supplier Requirements" [ref=e598]:
+                - /url: /compliance/supplier-requirements
+            - listitem [ref=e599]:
+              - link "Contact" [ref=e600]:
+                - /url: /contact
+        - generic [ref=e601]:
+          - heading "Contact" [level=4] [ref=e602]
+          - list [ref=e603]:
+            - listitem [ref=e604]:
+              - img [ref=e605]
+              - link "officemgr@iismet.com" [ref=e608]:
+                - /url: mailto:officemgr@iismet.com
+            - listitem [ref=e609]:
+              - img [ref=e610]
+              - link "+1 (503) 231-9093" [ref=e612]:
+                - /url: tel:+15032319093
+            - listitem [ref=e613]:
+              - img [ref=e614]
+              - generic [ref=e617]:
+                - text: 14310 SE Industrial Way
+                - text: Clackamas, OR 97015
+                - text: United States
+      - generic [ref=e619]:
+        - paragraph [ref=e620]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
+        - generic [ref=e621]:
+          - img [ref=e622]
+          - generic [ref=e624]:
+            - generic [ref=e625]: Founded 1995
+            - generic [ref=e626]: •
+            - generic [ref=e627]: ISO 9001:2015
+            - generic [ref=e628]: •
+            - generic [ref=e629]: AS9100D
+            - generic [ref=e630]: •
+            - generic [ref=e631]: ITAR Registered
+  - alert [ref=e632]
+  - link "Setup CMS" [ref=e634]:
+    - /url: /studio
+    - img [ref=e635]
+    - generic [ref=e638]: Setup CMS
+```

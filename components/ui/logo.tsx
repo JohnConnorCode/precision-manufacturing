@@ -1,6 +1,6 @@
 'use client';
 
-import { IISLogo } from '@/components/logos/iis-logo-enhanced';
+import { LogoPrecisionTargetEnhanced } from '@/components/logos/iis-logo-enhanced';
 
 interface LogoProps {
   className?: string;
@@ -31,9 +31,11 @@ export default function Logo({
 
   return (
     <div className={className}>
-      <IISLogo
+      <LogoPrecisionTargetEnhanced
         variant={variantMap[variant]}
         size={sizeMap[size]}
+        animated={true}
+        showAnimation={true}
         className={variant === 'light' ? 'brightness-0 invert' : ''}
       />
     </div>
