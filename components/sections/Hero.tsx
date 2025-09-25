@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import HeroSliderPremium from '@/components/ui/hero-slider-premium';
+import HeroSliderFixed from '@/components/ui/hero-slider-fixed';
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Premium Background Slider */}
-      <HeroSliderPremium slides={heroSlides} />
+      <HeroSliderFixed slides={heroSlides} />
 
       {/* Content Container - Professional and Clean */}
       <motion.div
