@@ -49,7 +49,7 @@ export const PremiumButton = React.forwardRef<
   variant,
   size,
   shimmer = true,
-  magneticHover = false,
+  magneticHover: _magneticHover = false,
   ripple = false,
   children,
   onClick,
@@ -70,7 +70,7 @@ export const PremiumButton = React.forwardRef<
       }, 600)
     }
 
-    onClick?.(event as any)
+    onClick?.(event)
   }
 
   return (

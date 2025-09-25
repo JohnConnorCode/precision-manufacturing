@@ -33,7 +33,7 @@ export async function submitContactForm(formData: FormData) {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     // For now, just log the data
-    console.log('Contact form submission:', validatedData);
+    console.error('Contact form submission:', validatedData);
 
     return {
       success: true,

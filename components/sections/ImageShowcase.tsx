@@ -92,7 +92,7 @@ export default function ImageShowcase() {
                       src={item.src}
                       alt={item.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority={index < 3}
                     />
@@ -168,7 +168,7 @@ export default function ImageShowcase() {
               Get Started Today
             </h3>
             <p className="text-lg text-slate-300 mb-8 max-w-md">
-              Let's discuss how we can deliver precision manufacturing solutions for your needs
+              Let&apos;s discuss how we can deliver precision manufacturing solutions for your needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

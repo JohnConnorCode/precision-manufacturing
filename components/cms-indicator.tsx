@@ -15,8 +15,8 @@ export default function CMSIndicator() {
       try {
         const result = await client.fetch(`count(*[_type in ["home", "service", "industry", "siteSettings"]])`);
         setHasCMS(result > 0);
-      } catch (error) {
-        console.log('CMS not configured or no content yet');
+      } catch (_error) {
+        console.error('CMS not configured or no content yet');
         setHasCMS(false);
       } finally {
         setIsChecking(false);

@@ -117,7 +117,7 @@ export default function Services() {
                   ease: [0.25, 0.1, 0.25, 1]
                 }}
                 whileHover={{
-                  scale: 1.03,
+                  scale: 1.01,
                   y: -8,
                   transition: {
                     type: "spring",
@@ -137,7 +137,7 @@ export default function Services() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover opacity-90 group-hover:scale-115 group-hover:opacity-100 transition-all duration-700 ease-out"
+                        className="object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -145,7 +145,7 @@ export default function Services() {
                       {/* Floating Icon with Premium Effect */}
                       <motion.div
                         className="absolute bottom-4 left-4"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        whileHover={{ scale: 1.05, rotate: 2 }}
                         transition={{
                           type: "spring",
                           stiffness: 300,

@@ -270,8 +270,8 @@ export default function ContactPage() {
 
                   <div>
                     <Label htmlFor="interest" className={styles.form.label}>Inquiry Type *</Label>
-                    <Select onValueChange={(value) => setValue('interest', value as any)}>
-                      <SelectTrigger className={cn(styles.form.select.trigger, "mt-1")}>
+                    <Select onValueChange={(value) => setValue('interest', value as ContactFormData['interest'])}>
+                      <SelectTrigger id="interest" aria-label="Inquiry Type" className={cn(styles.form.select.trigger, "mt-1")}>
                         <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
                       <SelectContent className={styles.form.select.content}>
@@ -292,8 +292,8 @@ export default function ContactPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <Label htmlFor="projectType" className={styles.form.label}>Industry</Label>
-                        <Select onValueChange={(value) => setValue('projectType', value as any)}>
-                          <SelectTrigger className={cn(styles.form.select.trigger, "mt-1")}>
+                        <Select onValueChange={(value) => setValue('projectType', value as ContactFormData['projectType'])}>
+                          <SelectTrigger id="projectType" aria-label="Industry" className={cn(styles.form.select.trigger, "mt-1")}>
                             <SelectValue placeholder="Select industry" />
                           </SelectTrigger>
                           <SelectContent className={styles.form.select.content}>
@@ -308,8 +308,8 @@ export default function ContactPage() {
 
                       <div>
                         <Label htmlFor="timeline" className={styles.form.label}>Timeline</Label>
-                        <Select onValueChange={(value) => setValue('timeline', value as any)}>
-                          <SelectTrigger className={cn(styles.form.select.trigger, "mt-1")}>
+                        <Select onValueChange={(value) => setValue('timeline', value as ContactFormData['timeline'])}>
+                          <SelectTrigger id="timeline" aria-label="Timeline" className={cn(styles.form.select.trigger, "mt-1")}>
                             <SelectValue placeholder="Select timeline" />
                           </SelectTrigger>
                           <SelectContent className={styles.form.select.content}>

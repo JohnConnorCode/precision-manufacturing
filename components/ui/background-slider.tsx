@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import ParallaxImage from './parallax-image';
 
 interface BackgroundSliderProps {
   images: string[];

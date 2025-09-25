@@ -408,7 +408,7 @@ export default function IndustriesPage() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Partner with Industry Experts</h2>
             <p className="text-xl text-slate-600 mb-8">
-              Join the industry leaders who trust us with their most critical manufacturing requirements. Let's discuss your specific needs.
+              Join the industry leaders who trust us with their most critical manufacturing requirements. Let&apos;s discuss your specific needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="px-8 py-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold">

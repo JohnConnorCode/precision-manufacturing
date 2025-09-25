@@ -18,13 +18,13 @@ export function getClient(preview?: boolean) {
 }
 
 // Helper to fetch with preview support
-export async function sanityFetch<T = any>({
+export async function sanityFetch<T = unknown>({
   query,
   params = {},
   preview = false,
 }: {
   query: string;
-  params?: Record<string, any>;
+  params?: Record<string, unknown>;
   preview?: boolean;
 }): Promise<T> {
   const client = getClient(preview);

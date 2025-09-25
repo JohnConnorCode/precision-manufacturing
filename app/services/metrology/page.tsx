@@ -334,14 +334,17 @@ export default function MetrologyPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative lg:sticky lg:top-32"
             >
-              <ParallaxImagePro
-                src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1600&q=90"
-                alt="Quality control laboratory"
-                className="w-full h-96 rounded-lg"
-                speed={0.2}
-              />
+              <div className="relative overflow-hidden rounded-xl shadow-2xl">
+                <ParallaxImagePro
+                  src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1600&q=90"
+                  alt="Quality control laboratory"
+                  className="w-full h-[400px] lg:h-[500px] object-cover"
+                  speed={0.2}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
             </motion.div>
           </div>
         </div>

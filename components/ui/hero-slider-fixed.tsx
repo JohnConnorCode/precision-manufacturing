@@ -24,7 +24,7 @@ export default function HeroSliderFixed({
 }: HeroSliderFixedProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [_imagesLoaded, setImagesLoaded] = useState(false);
   const [firstImageLoaded, setFirstImageLoaded] = useState(false);
   const { scrollY } = useScroll();
 

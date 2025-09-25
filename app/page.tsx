@@ -14,14 +14,14 @@ async function getHomePageData() {
       next: { revalidate: 60 }, // Revalidate every minute
     });
     return data;
-  } catch (error) {
-    console.log('No CMS content available, using defaults');
+  } catch (_error) {
+    console.error('No CMS content available, using defaults');
     return null;
   }
 }
 
 export default async function Home() {
-  const cmsData = await getHomePageData();
+  const _cmsData = await getHomePageData();
 
   // CMS data is fetched and ready for when content is added
   // Components will be updated to use CMS data when available

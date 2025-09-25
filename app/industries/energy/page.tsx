@@ -7,7 +7,7 @@ import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Zap, Shield, Award, CheckCircle, Battery, Flame, Wind } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
-import { theme, styles, cn } from '@/lib/theme';
+import { theme, styles } from '@/lib/theme';
 
 export default function EnergyPage() {
   const capabilities = [

@@ -17,7 +17,7 @@ export default function TechnicalSpecs() {
       value: "5-AXIS",
       label: "CNC CAPABILITY",
       description: "Simultaneous machining",
-      gradient: "from-blue-500 to-blue-700"
+      gradient: "from-cyan-600 to-blue-600"
     },
     {
       icon: Shield,
@@ -38,28 +38,28 @@ export default function TechnicalSpecs() {
       value: "24/7",
       label: "PRODUCTION",
       description: "Continuous operation",
-      gradient: "from-blue-600 to-blue-500"
+      gradient: "from-cyan-600 to-blue-600"
     },
     {
       icon: Target,
       value: "99.8%",
       label: "ON-TIME",
       description: "Delivery performance",
-      gradient: "from-cyan-600 to-cyan-600"
+      gradient: "from-cyan-600 to-blue-600"
     },
     {
       icon: Zap,
       value: "12,000",
       label: "RPM",
       description: "Spindle speed",
-      gradient: "from-blue-500 to-cyan-600"
+      gradient: "from-blue-600 to-cyan-600"
     },
     {
       icon: Award,
       value: "ITAR",
       label: "REGISTERED",
       description: "Defense compliant",
-      gradient: "from-cyan-600 to-blue-700"
+      gradient: "from-cyan-600 to-blue-600"
     }
   ];
 
@@ -80,7 +80,7 @@ export default function TechnicalSpecs() {
           className="text-center mb-16 max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Precision By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Numbers</span>
+            Precision By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Numbers</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-400">
             Industry-leading capabilities backed by decades of aerospace and defense manufacturing expertise

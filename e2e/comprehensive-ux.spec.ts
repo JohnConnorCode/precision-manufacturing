@@ -8,7 +8,8 @@ test.describe('Comprehensive UX Testing', () => {
   test.describe('Critical UX Elements', () => {
     test('navigation should be fully accessible and functional', async ({ page }) => {
       // Check top bar exists on desktop
-      if (!page.viewportSize() || page.viewportSize().width >= 1024) {
+      const viewportSize = page.viewportSize();
+      if (!viewportSize || viewportSize.width >= 1024) {
         const topBar = page.locator('.fixed.top-0.z-\\[150\\]');
         await expect(topBar).toBeVisible();
 
@@ -28,7 +29,8 @@ test.describe('Comprehensive UX Testing', () => {
       await expect(page.locator('a[href="/"]').first()).toBeVisible();
 
       // Desktop navigation
-      if (!page.viewportSize() || page.viewportSize().width >= 1024) {
+      const viewportSizeForNav = page.viewportSize();
+      if (!viewportSizeForNav || viewportSizeForNav.width >= 1024) {
         // Check dropdown menus work
         const servicesBtn = page.getByRole('button', { name: /Services/i });
         await servicesBtn.hover();

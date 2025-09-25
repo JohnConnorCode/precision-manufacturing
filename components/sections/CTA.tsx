@@ -97,7 +97,7 @@ export default function CTA() {
 
           <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
             Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components
-            with tolerances to ±0.0001" for aerospace, defense, and medical applications.
+            with tolerances to ±0.0001&quot; for aerospace, defense, and medical applications.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

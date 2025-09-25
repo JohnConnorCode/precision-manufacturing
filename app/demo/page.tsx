@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/ui/hero-section';
-import { Factory, Zap, Shield, Cpu, Settings, Award, Users, TrendingUp, Brain, Gauge, Target, Layers } from 'lucide-react';
-import Link from 'next/link';
+import { Factory, Zap, Cpu, Settings, Award, Users, TrendingUp, Brain, Target, Layers } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function DemoPage() {
   // Demo data for showcasing capabilities

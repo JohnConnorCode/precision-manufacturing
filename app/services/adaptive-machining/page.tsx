@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, Cpu, Zap, TrendingUp, Shield, CheckCircle, Activity, Brain } from 'lucide-react';
+import { ArrowRight, Cpu, TrendingUp, Shield, CheckCircle, Activity, Brain } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';

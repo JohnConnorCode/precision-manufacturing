@@ -55,7 +55,7 @@ test.describe('Performance', () => {
     const jsCoverage = await page.coverage.stopJSCoverage();
 
     const totalBytes = jsCoverage.reduce((total, entry) => {
-      return total + entry.text.length;
+      return total + (entry.source?.length || 0);
     }, 0);
 
     // JavaScript should be under 500KB
@@ -68,7 +68,7 @@ test.describe('Performance', () => {
     const cssCoverage = await page.coverage.stopCSSCoverage();
 
     const totalBytes = cssCoverage.reduce((total, entry) => {
-      return total + entry.text.length;
+      return total + (entry.text?.length || 0);
     }, 0);
 
     // CSS should be under 100KB

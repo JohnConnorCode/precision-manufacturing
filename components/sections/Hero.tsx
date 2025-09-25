@@ -10,7 +10,6 @@ import { usePrefersReducedMotion, getMotionVariants } from '@/lib/motion';
 export default function Hero() {
   const { scrollY } = useScroll();
   const prefersReducedMotion = usePrefersReducedMotion();
-  const motionVariants = getMotionVariants(prefersReducedMotion);
 
   const textY = useTransform(scrollY, [0, 500], prefersReducedMotion ? [0, 0] : [0, 50]);
   const textOpacity = useTransform(scrollY, [0, 300], prefersReducedMotion ? [1, 1] : [1, 0]);

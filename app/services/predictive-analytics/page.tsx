@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, Brain, TrendingUp, AlertTriangle, Shield, Cpu, LineChart, CheckCircle, BarChart3 } from 'lucide-react';
+import { ArrowRight, Brain, TrendingUp, Shield, CheckCircle, BarChart3 } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
@@ -365,7 +365,7 @@ export default function PredictiveAnalyticsPage() {
             Ready to Predict the Future?
           </h2>
           <p className={cn(theme.typography.lead, "text-white/90 mb-8 max-w-2xl mx-auto")}>
-            Let\'s discuss how predictive analytics can transform your manufacturing operations.
+            Let&apos;s discuss how predictive analytics can transform your manufacturing operations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className={cn(styles.ctaSecondary, "bg-white text-slate-900 hover:bg-slate-100")} asChild>

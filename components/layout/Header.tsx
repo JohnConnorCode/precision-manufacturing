@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Phone, Mail, Zap, ArrowRight } from 'lucide-react';
+import { Menu, Phone, Mail, Zap, ArrowRight } from 'lucide-react';
 import Logo from '@/components/ui/logo';
 import { PremiumButton } from '@/components/ui/premium-button';
 import {
@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { theme } from '@/lib/theme';
 
 const navigation = [
@@ -102,7 +102,7 @@ export default function Header() {
             : 'bg-white/90 backdrop-blur-xl lg:top-10 top-0 border-b border-slate-200/50'
         )}
       >
-        <nav className="container flex h-20 items-center justify-between">
+        <nav aria-label="Main" className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Logo className="h-12 w-auto" />
           </Link>

@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/ui/hero-section';
-import { ArrowRight, Users, Factory, Award, TrendingUp, CheckCircle, Target, Zap, Clock } from 'lucide-react';
+import { ArrowRight, Users, Factory, Award, CheckCircle, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
-import { theme, styles, cn } from '@/lib/theme';
+import { theme, styles } from '@/lib/theme';
 
 export default function AboutPage() {
   const companyStats = [
@@ -237,10 +237,10 @@ export default function AboutPage() {
                   Founded in 1993, we began as a small precision machining shop with a vision to become the most trusted manufacturer of critical aerospace components. What started with a handful of employees and basic CNC equipment has grown into a state-of-the-art facility serving the most demanding industries.
                 </p>
                 <p>
-                  Our journey has been marked by continuous investment in technology, people, and processes. We've built our reputation on delivering zero-defect components while maintaining the personal service and attention to detail that our customers value.
+                  Our journey has been marked by continuous investment in technology, people, and processes. We&apos;ve built our reputation on delivering zero-defect components while maintaining the personal service and attention to detail that our customers value.
                 </p>
                 <p>
-                  Today, we're proud to be a certified AS9100D manufacturer, ITAR-registered facility, and trusted partner to Fortune 500 companies worldwide. Our commitment to excellence drives everything we do.
+                  Today, we&apos;re proud to be a certified AS9100D manufacturer, ITAR-registered facility, and trusted partner to Fortune 500 companies worldwide. Our commitment to excellence drives everything we do.
                 </p>
               </div>
             </motion.div>

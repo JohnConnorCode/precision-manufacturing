@@ -11,7 +11,7 @@ interface LogoProps {
 
 export default function Logo({
   className = '',
-  showText = true,
+  showText: _showText = true,
   variant = 'default',
   size = 'md'
 }: LogoProps) {
