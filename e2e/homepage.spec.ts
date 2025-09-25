@@ -8,17 +8,17 @@ test.describe('Homepage', () => {
   test('should display the hero section', async ({ page }) => {
     // Check hero headline - now in all caps
     await expect(page.locator('h1')).toContainText('PRECISION');
-    await expect(page.locator('h1')).toContainText('ENGINEERING');
-    await expect(page.locator('p.text-xl').filter({ hasText: 'AEROSPACE EXCELLENCE' })).toBeVisible();
+    await expect(page.locator('h1')).toContainText('MANUFACTURING');
+    await expect(page.locator('p.text-xl').filter({ hasText: 'Innovative Machining Since 1995' })).toBeVisible();
 
     // Check certification badges in the hero section
     const heroSection = page.locator('section').first();
-    await expect(heroSection.locator('span.text-xs.font-black').filter({ hasText: 'ITAR' })).toBeVisible();
-    await expect(heroSection.locator('span.text-xs.font-black').filter({ hasText: 'AS9100D' })).toBeVisible();
+    await expect(heroSection.locator('span').filter({ hasText: 'ITAR Registered' })).toBeVisible();
+    await expect(heroSection.locator('span').filter({ hasText: 'AS9100D Certified' })).toBeVisible();
 
     // Check CTA buttons
     await expect(page.getByRole('link', { name: /Start Your Project/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Explore Capabilities/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /View Capabilities/i })).toBeVisible();
   });
 
   test('should display stats section', async ({ page }) => {
@@ -56,7 +56,7 @@ test.describe('Homepage', () => {
 
   test('should have proper SEO meta tags', async ({ page }) => {
     // Check title
-    await expect(page).toHaveTitle(/Precision Manufacturing.*Aerospace.*Defense/i);
+    await expect(page).toHaveTitle(/IIS.*Innovative Industrial Solutions.*Precision Manufacturing/i);
 
     // Check meta description
     const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
