@@ -143,7 +143,7 @@ export default function EnergyPage() {
         }}
         title={
           <span className="text-white">
-            Energy <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Manufacturing</span>
+            Energy <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Manufacturing</span>
           </span>
         }
         description="Precision components for power generation, oil & gas, and renewable energy systems. Supporting critical infrastructure with proven reliability and industry compliance."

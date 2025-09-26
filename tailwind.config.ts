@@ -80,6 +80,8 @@ const config: Config = {
         "slide-in": "slide-in 0.3s ease-out",
         "border-sweep": "border-sweep 1s ease-out",
         "counter": "counter 1.5s ease-out",
+        "shimmer": "shimmer 2s infinite linear",
+        "pulse": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         "fade-up": {
@@ -126,6 +128,11 @@ const config: Config = {
           "100%": {
             opacity: "1",
             transform: "translateY(0)",
+          },
+        },
+        "shimmer": {
+          "100%": {
+            transform: "translateX(100%)",
           },
         },
       },

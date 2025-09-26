@@ -127,7 +127,7 @@ export default function SupplierRequirementsPage() {
         }}
         title={
           <span className="text-white">
-            Supplier <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Requirements</span>
+            Supplier <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Requirements</span>
           </span>
         }
         subtitle="Partner with us in precision manufacturing excellence"
@@ -159,7 +159,7 @@ export default function SupplierRequirementsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-cyan-600">Core</span>
+              <span className="text-blue-600">Core</span>
               <span className="text-blue-600"> Requirements</span>
             </h2>
             <p className="text-lg text-blue-600 max-w-3xl mx-auto">
@@ -180,15 +180,15 @@ export default function SupplierRequirementsPage() {
                 >
                   <Card className="h-full p-6 hover:shadow-xl transition-shadow duration-300 border-slate-200">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-cyan-600" />
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-blue-600" />
                       </div>
-                      <h3 className="text-xl font-bold text-cyan-600">{req.category}</h3>
+                      <h3 className="text-xl font-bold text-blue-600">{req.category}</h3>
                     </div>
                     <ul className="space-y-3">
                       {req.items.map((item) => (
                         <li key={item} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                           <span className="text-sm text-blue-600">{item}</span>
                         </li>
                       ))}
@@ -212,7 +212,7 @@ export default function SupplierRequirementsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-cyan-600">Application</span>
+              <span className="text-blue-600">Application</span>
               <span className="text-blue-600"> Process</span>
             </h2>
             <p className="text-lg text-blue-600 max-w-3xl mx-auto">
@@ -231,12 +231,12 @@ export default function SupplierRequirementsPage() {
                 className="relative"
               >
                 <div className="text-center">
-                  <div className="text-5xl font-black text-cyan-200 mb-2">{step.step}</div>
-                  <h3 className="text-lg font-bold text-cyan-600 mb-2">{step.title}</h3>
+                  <div className="text-5xl font-black text-blue-200 mb-2">{step.step}</div>
+                  <h3 className="text-lg font-bold text-blue-600 mb-2">{step.title}</h3>
                   <p className="text-sm text-blue-600">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-8 w-6 h-6 text-cyan-300" />
+                  <ArrowRight className="hidden md:block absolute top-8 -right-8 w-6 h-6 text-blue-300" />
                 )}
               </motion.div>
             ))}
@@ -255,7 +255,7 @@ export default function SupplierRequirementsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-cyan-600">Required</span>
+              <span className="text-blue-600">Required</span>
               <span className="text-blue-600"> Documents</span>
             </h2>
             <p className="text-lg text-blue-600 max-w-3xl mx-auto">
@@ -274,18 +274,18 @@ export default function SupplierRequirementsPage() {
               >
                 <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-slate-200">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-cyan-600" />
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-blue-600" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-cyan-600 mb-1">{doc.title}</h3>
+                      <h3 className="font-bold text-blue-600 mb-1">{doc.title}</h3>
                       <p className="text-sm text-blue-600 mb-2">{doc.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-cyan-600">{doc.format} • {doc.size}</span>
+                        <span className="text-xs text-blue-600">{doc.format} • {doc.size}</span>
                         <Button
                           size="sm"
                           variant="ghost"
-                          className="text-cyan-600 hover:text-blue-600"
+                          className="text-blue-600 hover:text-blue-600"
                         >
                           <Download className="w-4 h-4 mr-1" />
                           Download
@@ -310,9 +310,9 @@ export default function SupplierRequirementsPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <ClipboardCheck className="w-16 h-16 text-cyan-600 mx-auto mb-6" />
+            <ClipboardCheck className="w-16 h-16 text-blue-600 mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-cyan-600">Ready to</span>
+              <span className="text-blue-600">Ready to</span>
               <span className="text-blue-600"> Partner?</span>
             </h2>
             <p className="text-lg text-blue-600 mb-8">
@@ -322,7 +322,7 @@ export default function SupplierRequirementsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-cyan-600 hover:bg-blue-600 text-white"
+                className="bg-blue-600 hover:bg-blue-600 text-white"
                 asChild
               >
                 <Link href="/contact">
@@ -333,7 +333,7 @@ export default function SupplierRequirementsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-cyan-600 text-cyan-600 hover:bg-cyan-50"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50"
                 asChild
               >
                 <Link href="/about">

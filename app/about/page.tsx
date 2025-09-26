@@ -167,7 +167,7 @@ export default function AboutPage() {
         }}
         title={
           <span className="text-white">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Our Company</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Our Company</span>
           </span>
         }
         description="Three decades of precision manufacturing excellence, serving aerospace, defense, and energy industries with unwavering commitment to quality and innovation."

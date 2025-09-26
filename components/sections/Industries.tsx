@@ -45,13 +45,13 @@ export default function Industries() {
           className="text-center mb-16 md:mb-20"
         >
           {/* Clear Section Purpose */}
-          <p className="text-sm font-bold text-cyan-600 uppercase tracking-[0.2em] mb-2">
+          <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-2">
             SPECIALIZED SECTOR EXPERTISE
           </p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
             <span className="text-slate-900">INDUSTRY</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"> LEADERS</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600"> LEADERS</span>
           </h2>
 
           <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">

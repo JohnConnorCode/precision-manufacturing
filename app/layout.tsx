@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CMSIndicator from "@/components/cms-indicator";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -198,6 +199,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
         <CMSIndicator />
       </body>
     </html>

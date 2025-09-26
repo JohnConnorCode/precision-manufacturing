@@ -92,7 +92,7 @@ export function StatsCounter({ stats, className = "" }: StatsCounterProps) {
               prefix={stat.prefix}
               suffix={stat.suffix}
               decimals={stat.decimals}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400"
             />
           </div>
           <div className="text-sm text-slate-400 uppercase tracking-wider">

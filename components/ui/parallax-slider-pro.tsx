@@ -54,17 +54,17 @@ export default function ParallaxSliderPro({
     light: {
       primary: 'from-slate-950/60 via-slate-950/40 to-slate-950/50',
       secondary: 'from-transparent via-slate-950/20 to-slate-950/60',
-      accent: 'from-blue-950/10 via-transparent to-cyan-950/10'
+      accent: 'from-blue-950/10 via-transparent to-blue-950/10'
     },
     medium: {
       primary: 'from-slate-950/80 via-slate-950/60 to-slate-950/70',
       secondary: 'from-transparent via-slate-950/30 to-slate-950/70',
-      accent: 'from-blue-950/20 via-transparent to-cyan-950/20'
+      accent: 'from-blue-950/20 via-transparent to-blue-950/20'
     },
     heavy: {
       primary: 'from-slate-950/90 via-slate-950/80 to-slate-950/85',
       secondary: 'from-transparent via-slate-950/50 to-slate-950/80',
-      accent: 'from-blue-950/30 via-transparent to-cyan-950/30'
+      accent: 'from-blue-950/30 via-transparent to-blue-950/30'
     }
   };
 
@@ -180,7 +180,7 @@ export default function ParallaxSliderPro({
 
         {/* Scan lines */}
         <motion.div
-          className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-600/20 to-transparent"
+          className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-600/20 to-transparent"
           animate={{
             top: ['-10%', '110%'],
           }}
@@ -219,7 +219,7 @@ export default function ParallaxSliderPro({
               <div className={cn(
                 'h-1 transition-all duration-500',
                 index === currentIndex
-                  ? 'w-12 bg-cyan-600'
+                  ? 'w-12 bg-blue-600'
                   : 'w-6 bg-white/30 hover:bg-white/50 hover:w-8'
               )} />
 
@@ -245,7 +245,7 @@ export default function ParallaxSliderPro({
             transition={{ duration: 0.5 }}
             className="absolute bottom-20 left-8 z-30"
           >
-            <h3 className="text-sm font-medium text-cyan-600 mb-1">
+            <h3 className="text-sm font-medium text-blue-600 mb-1">
               {slides[currentIndex].subtitle}
             </h3>
             <h2 className="text-2xl font-bold text-white">

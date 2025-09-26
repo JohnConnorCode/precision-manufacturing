@@ -21,7 +21,7 @@ export const LogoGearTech = ({ variant = 'primary', size = 'md', animated = fals
 
   const colors = {
     primary: {
-      gear: '#06b6d4', // cyan-600
+      gear: '#06b6d4', // blue-600
       circuit: '#3b82f6', // blue-500
       text: '#1e293b' // slate-800
     },

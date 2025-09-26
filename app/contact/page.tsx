@@ -94,7 +94,7 @@ export default function ContactPage() {
         }}
         title={
           <span className="text-white">
-            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">Our Team</span>
+            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Our Team</span>
           </span>
         }
         description="Connect with Integrated Inspection Systems for precision manufacturing solutions, technical consultations, and project quotes."
@@ -136,8 +136,8 @@ export default function ContactPage() {
               <Card className={cn(theme.components.card.form, "p-6")}>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-600/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-cyan-600" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
                       <h3 className={cn(theme.typography.label, "text-white mb-1")}>Headquarters</h3>
@@ -150,32 +150,32 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-600/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-cyan-600" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
                       <h3 className={cn(theme.typography.label, "text-white mb-1")}>Phone</h3>
-                      <a href="tel:+15032319093" className={cn(theme.typography.small, "hover:text-cyan-600 transition-colors")}>
+                      <a href="tel:+15032319093" className={cn(theme.typography.small, "hover:text-blue-600 transition-colors")}>
                         (503) 231-9093
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-600/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5 text-cyan-600" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
                       <h3 className={cn(theme.typography.label, "text-white mb-1")}>Email</h3>
-                      <a href="mailto:officemgr@iismet.com" className={cn(theme.typography.small, "hover:text-cyan-600 transition-colors")}>
+                      <a href="mailto:officemgr@iismet.com" className={cn(theme.typography.small, "hover:text-blue-600 transition-colors")}>
                         officemgr@iismet.com
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-600/10 flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 text-cyan-600" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
                       <h3 className={cn(theme.typography.label, "text-white mb-1")}>Business Hours</h3>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   {['AS9100D', 'ISO 9001:2015', 'ITAR Registered', 'NADCAP'].map((cert) => (
                     <div key={cert} className="flex items-center gap-3">
-                      <Shield className="w-4 h-4 text-cyan-600" />
+                      <Shield className="w-4 h-4 text-blue-600" />
                       <span className={theme.typography.small}>{cert}</span>
                     </div>
                   ))}
@@ -397,11 +397,11 @@ export default function ContactPage() {
                 <span>Response within 2 hours</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-cyan-600" />
+                <Award className="w-4 h-4 text-blue-600" />
                 <span>30+ years of excellence</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-cyan-600" />
+                <Shield className="w-4 h-4 text-blue-600" />
                 <span>ITAR compliant</span>
               </div>
             </div>

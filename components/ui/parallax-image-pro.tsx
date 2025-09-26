@@ -56,7 +56,7 @@ export default function ParallaxImagePro({
   const gradients = {
     dark: 'bg-gradient-to-b from-slate-950/60 via-slate-950/20 to-slate-950/60',
     light: 'bg-gradient-to-b from-white/60 via-white/20 to-white/60',
-    blue: 'bg-gradient-to-br from-blue-950/50 via-transparent to-cyan-950/50',
+    blue: 'bg-gradient-to-br from-blue-950/50 via-transparent to-blue-950/50',
     none: ''
   };
 

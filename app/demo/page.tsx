@@ -89,7 +89,7 @@ export default function DemoPage() {
         title={
           <>
             Experience{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
               Precision Manufacturing
             </span>
           </>
@@ -139,7 +139,7 @@ export default function DemoPage() {
                   viewport={{ once: true }}
                 >
                   <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 group">
-                    <Icon className="w-10 h-10 text-cyan-600 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                    <Icon className="w-10 h-10 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                     <div className="text-3xl font-bold text-slate-900 mb-2">
                       {metric.value}
                     </div>
@@ -198,12 +198,12 @@ export default function DemoPage() {
                       <div className="space-y-2">
                         {capability.features.map((feature) => (
                           <div key={feature} className="flex items-center text-sm">
-                            <div className="w-2 h-2 bg-cyan-600 rounded-full mr-2" />
+                            <div className="w-2 h-2 bg-blue-600 rounded-full mr-2" />
                             <span>{feature}</span>
                           </div>
                         ))}
                       </div>
-                      <Button className="mt-4 w-full group-hover:bg-cyan-600 transition-colors">
+                      <Button className="mt-4 w-full group-hover:bg-blue-600 transition-colors">
                         Explore This Capability
                       </Button>
                     </div>
@@ -231,7 +231,7 @@ export default function DemoPage() {
 
           <div className="relative">
             {/* Connection Line */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-600 to-blue-500 -translate-y-1/2" />
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-500 -translate-y-1/2" />
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
               {processSteps.map((step, index) => (
@@ -244,7 +244,7 @@ export default function DemoPage() {
                   className="relative"
                 >
                   <Card className="p-6 text-center bg-white hover:shadow-lg transition-all duration-300">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
                       {step.step}
                     </div>
                     <h3 className="font-bold text-lg mb-2">{step.title}</h3>
@@ -287,7 +287,7 @@ export default function DemoPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-cyan-600 to-blue-600">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-600">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -301,7 +301,7 @@ export default function DemoPage() {
               Experience the precision manufacturing difference with a personalized consultation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-cyan-600 hover:bg-slate-100">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-slate-100">
                 Schedule Live Demo
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

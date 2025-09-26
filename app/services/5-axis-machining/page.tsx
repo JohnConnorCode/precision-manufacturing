@@ -133,7 +133,7 @@ export default function FiveAxisMachiningPage() {
         }}
         title={
           <>
-            <span className="text-white">5-Axis</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Machining</span>
+            <span className="text-white">5-Axis</span> <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Machining</span>
           </>
         }
         subtitle="Precision Manufacturing Excellence"
@@ -238,7 +238,7 @@ export default function FiveAxisMachiningPage() {
                       <div className="grid grid-cols-1 gap-2">
                         {service.features.map((feature) => (
                           <div key={feature} className={cn("flex items-center", theme.typography.small)}>
-                            <CheckCircle className="w-4 h-4 text-cyan-600 mr-2 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0" />
                             {feature}
                           </div>
                         ))}
@@ -250,7 +250,7 @@ export default function FiveAxisMachiningPage() {
                       <div className="space-y-1">
                         {service.capabilities.map((capability) => (
                           <div key={capability} className={cn("flex items-center", theme.typography.small)}>
-                            <div className="w-1.5 h-1.5 bg-cyan-600 rounded-full mr-2" />
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
                             {capability}
                           </div>
                         ))}
@@ -352,7 +352,7 @@ export default function FiveAxisMachiningPage() {
                     <div className="space-y-1">
                       {process.features.map((feature) => (
                         <div key={feature} className="flex items-center text-xs text-slate-600">
-                          <CheckCircle className="w-3 h-3 text-cyan-600 mr-2 flex-shrink-0" />
+                          <CheckCircle className="w-3 h-3 text-blue-600 mr-2 flex-shrink-0" />
                           {feature}
                         </div>
                       ))}

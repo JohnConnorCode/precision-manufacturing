@@ -69,7 +69,7 @@ export default function ParallaxSlider({
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/30 to-slate-950/70" />
 
         {/* Accent gradient - Blue/Cyan tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-transparent to-cyan-950/20 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-transparent to-blue-950/20 mix-blend-multiply" />
 
         {/* Top fade for navigation */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950/90 to-transparent" />
@@ -119,7 +119,7 @@ export default function ParallaxSlider({
             onClick={() => setCurrentIndex(index)}
             className={`h-1 transition-all duration-300 ${
               index === currentIndex
-                ? 'w-8 bg-cyan-600'
+                ? 'w-8 bg-blue-600'
                 : 'w-4 bg-white/30 hover:bg-white/50'
             }`}
             aria-label={`Go to slide ${index + 1}`}

@@ -20,7 +20,7 @@ export default function SupplierRequirementsPage() {
       title: 'SCOPE',
       icon: Shield,
       content: 'This Standard Operating Procedure applies to the process of supplier quality requirements.',
-      color: 'from-cyan-600/10 to-blue-600/5'
+      color: 'from-blue-600/10 to-blue-600/5'
     }
   ];
 

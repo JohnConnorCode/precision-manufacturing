@@ -120,7 +120,7 @@ export default function PredictiveAnalyticsPage() {
         }}
         title={
           <>
-            <span className="text-white">Predictive</span> <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Analytics</span>
+            <span className="text-white">Predictive</span> <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Analytics</span>
           </>
         }
         subtitle="Smart Manufacturing Intelligence"
@@ -195,8 +195,8 @@ export default function PredictiveAnalyticsPage() {
               >
                 <div className={index % 2 === 1 ? "md:order-2" : ""}>
                   <div className="flex items-center gap-4 mb-6">
-                    <service.icon className="w-8 h-8 text-cyan-600" />
-                    <h3 className={cn(theme.typography.h3, "text-cyan-600")}>
+                    <service.icon className="w-8 h-8 text-blue-600" />
+                    <h3 className={cn(theme.typography.h3, "text-blue-600")}>
                       {service.title}
                     </h3>
                   </div>
@@ -212,7 +212,7 @@ export default function PredictiveAnalyticsPage() {
                     <div className="grid sm:grid-cols-2 gap-3">
                       {service.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                           <span className={cn(theme.typography.small, "text-slate-300")}>{feature}</span>
                         </div>
                       ))}
@@ -272,8 +272,8 @@ export default function PredictiveAnalyticsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-600/20 to-blue-500/20 border border-cyan-600/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-cyan-600">{step.step}</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600/20 to-blue-500/20 border border-blue-600/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">{step.step}</span>
                 </div>
                 <h3 className={cn(theme.typography.h5, "mb-2 text-white")}>{step.title}</h3>
                 <p className={cn(theme.typography.small, "text-slate-400")}>{step.description}</p>
@@ -300,7 +300,7 @@ export default function PredictiveAnalyticsPage() {
 
           <div className={styles.grid3Col}>
             <Card className={cn(theme.components.card.dark, "p-6")}>
-              <BarChart3 className="w-8 h-8 text-cyan-600 mb-4" />
+              <BarChart3 className="w-8 h-8 text-blue-600 mb-4" />
               <h3 className={cn(theme.typography.h4, "mb-3 text-white")}>Reduce Costs</h3>
               <p className={cn(theme.typography.body, "text-slate-400")}>
                 Minimize expensive emergency repairs and reduce inventory costs through accurate demand forecasting.
@@ -308,7 +308,7 @@ export default function PredictiveAnalyticsPage() {
             </Card>
 
             <Card className={cn(theme.components.card.dark, "p-6")}>
-              <TrendingUp className="w-8 h-8 text-cyan-600 mb-4" />
+              <TrendingUp className="w-8 h-8 text-blue-600 mb-4" />
               <h3 className={cn(theme.typography.h4, "mb-3 text-white")}>Increase Uptime</h3>
               <p className={cn(theme.typography.body, "text-slate-400")}>
                 Predict and prevent equipment failures before they occur, maximizing production availability.
@@ -316,7 +316,7 @@ export default function PredictiveAnalyticsPage() {
             </Card>
 
             <Card className={cn(theme.components.card.dark, "p-6")}>
-              <Shield className="w-8 h-8 text-cyan-600 mb-4" />
+              <Shield className="w-8 h-8 text-blue-600 mb-4" />
               <h3 className={cn(theme.typography.h4, "mb-3 text-white")}>Improve Quality</h3>
               <p className={cn(theme.typography.body, "text-slate-400")}>
                 Identify quality issues early in the production process and adjust parameters in real-time.

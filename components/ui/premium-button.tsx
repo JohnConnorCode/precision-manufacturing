@@ -6,16 +6,16 @@ import { cn } from "@/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 
 const premiumButtonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600/50 disabled:pointer-events-none disabled:opacity-50 overflow-hidden group",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/50 disabled:pointer-events-none disabled:opacity-50 overflow-hidden group",
   {
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-xl shadow-cyan-600/25 hover:shadow-2xl hover:shadow-cyan-600/40",
+          "bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-xl shadow-blue-600/25 hover:shadow-2xl hover:shadow-blue-600/40",
         secondary:
           "bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:border-white/30",
         ghost:
-          "text-cyan-600 hover:text-cyan-300 hover:bg-cyan-600/10",
+          "text-blue-600 hover:text-blue-300 hover:bg-blue-600/10",
         destructive:
           "bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-xl shadow-red-500/25 hover:shadow-2xl hover:shadow-red-500/40",
       },

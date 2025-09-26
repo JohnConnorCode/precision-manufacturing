@@ -107,7 +107,7 @@ export default function AnimatedLogoPage() {
               >
                 <div className="text-center">
                   <motion.div
-                    className="text-6xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+                    className="text-6xl font-black bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1, duration: 0.6 }}
@@ -115,7 +115,7 @@ export default function AnimatedLogoPage() {
                     IIS
                   </motion.div>
                   <motion.div
-                    className="text-xs uppercase tracking-widest text-cyan-400 mt-2"
+                    className="text-xs uppercase tracking-widest text-blue-400 mt-2"
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
@@ -123,7 +123,7 @@ export default function AnimatedLogoPage() {
                     Integrated
                   </motion.div>
                   <motion.div
-                    className="text-xs uppercase tracking-widest text-cyan-400"
+                    className="text-xs uppercase tracking-widest text-blue-400"
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.3, duration: 0.6 }}
@@ -131,7 +131,7 @@ export default function AnimatedLogoPage() {
                     Inspection
                   </motion.div>
                   <motion.div
-                    className="text-xs uppercase tracking-widest text-cyan-400"
+                    className="text-xs uppercase tracking-widest text-blue-400"
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.4, duration: 0.6 }}
@@ -166,7 +166,7 @@ export default function AnimatedLogoPage() {
                   repeatDelay: 2,
                 }}
               >
-                <div className="w-full h-full bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50" />
+                <div className="w-full h-full bg-blue-400 rounded-full shadow-lg shadow-blue-400/50" />
               </motion.div>
             );
           })}
@@ -178,7 +178,7 @@ export default function AnimatedLogoPage() {
             animate={{ opacity: isAnimating ? 1 : 0 }}
           >
             <motion.div
-              className="absolute w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+              className="absolute w-full h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent"
               animate={{
                 y: isAnimating ? ["0%", "400%"] : "0%",
               }}
@@ -198,7 +198,7 @@ export default function AnimatedLogoPage() {
           animate={{ opacity: 0.3 }}
           transition={{ delay: 1, duration: 2 }}
         >
-          <div className="w-full h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" />
+          <div className="w-full h-full bg-gradient-to-r from-blue-500 to-blue-500 rounded-full" />
         </motion.div>
 
         {/* Bottom Text */}
@@ -211,7 +211,7 @@ export default function AnimatedLogoPage() {
           <h1 className="text-2xl font-light text-white mb-2">
             Precision Manufacturing Excellence
           </h1>
-          <p className="text-sm text-cyan-400">
+          <p className="text-sm text-blue-400">
             Advanced Metrology &amp; Inspection Solutions
           </p>
         </motion.div>
@@ -225,7 +225,7 @@ export default function AnimatedLogoPage() {
         >
           <button
             onClick={() => setIsAnimating(!isAnimating)}
-            className="px-6 py-2 bg-cyan-600/20 border border-cyan-600/50 rounded-lg text-cyan-400 hover:bg-cyan-600/30 transition-colors"
+            className="px-6 py-2 bg-blue-600/20 border border-blue-600/50 rounded-lg text-blue-400 hover:bg-blue-600/30 transition-colors"
           >
             {isAnimating ? 'Pause Animation' : 'Resume Animation'}
           </button>

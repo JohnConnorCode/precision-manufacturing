@@ -478,7 +478,7 @@ export const EnhancedLogoShowcase = () => {
           <p className="text-xl text-slate-600">Enhanced Precision Target Logo</p>
           <button
             onClick={restartAnimation}
-            className="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors"
+            className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
             Replay Animation
           </button>
@@ -514,7 +514,7 @@ export const EnhancedLogoShowcase = () => {
             <p className="text-center text-sm text-white mt-4">Monochrome</p>
           </div>
 
-          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-lg shadow-lg">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-50 p-8 rounded-lg shadow-lg">
             <div className="flex items-center justify-center h-32">
               <LogoPrecisionTargetEnhanced variant="gradient" size="lg" animated={true} />
             </div>
@@ -553,7 +553,7 @@ export const EnhancedLogoShowcase = () => {
           <div className="bg-white border-2 border-slate-200 p-6 rounded-lg flex items-center justify-center">
             <IISLogo variant="primary" size="md" />
           </div>
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-500 p-6 rounded-lg flex items-center justify-center">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-6 rounded-lg flex items-center justify-center">
             <IISLogo variant="mono" size="md" className="brightness-0 invert" />
           </div>
         </div>
