@@ -1,0 +1,444 @@
+{
+  "_type": "resource",
+  "title": "First Article Inspection (FAI) Complete Guide: AS9102 Compliance for Aerospace Manufacturing",
+  "slug": {
+    "_type": "slug",
+    "current": "first-article-inspection-fai-complete-guide"
+  },
+  "excerpt": "Comprehensive guide to First Article Inspection (FAI) requirements, AS9102 compliance, documentation procedures, and quality control processes for aerospace and defense manufacturing applications.",
+  "category": "first-article",
+  "contentType": "process-doc",
+  "difficulty": "Advanced",
+  "readTime": "18 min read",
+  "targetAudience": ["Quality Engineers", "Manufacturing Engineers", "Project Managers", "Regulatory Compliance"],
+  "industries": ["Aerospace", "Defense", "Government"],
+  "author": {
+    "name": "IIS Quality Assurance Team",
+    "title": "AS9100 Certified Quality Engineers",
+    "bio": "IIS quality experts with extensive experience in aerospace manufacturing, AS9100 implementation, and regulatory compliance for government and commercial aviation programs.",
+    "image": null
+  },
+  "publishDate": "2024-01-22T08:00:00.000Z",
+  "lastUpdated": "2024-01-22T08:00:00.000Z",
+  "featured": true,
+  "tags": ["First Article Inspection", "FAI", "AS9102", "AS9100", "Aerospace Quality", "Compliance", "Documentation"],
+  "prerequisites": [
+    "Understanding of AS9100 quality management system",
+    "Knowledge of geometric dimensioning and tolerancing (GD&T)",
+    "Familiarity with aerospace manufacturing processes",
+    "Experience with quality documentation requirements"
+  ],
+  "learningObjectives": [
+    "Understand FAI requirements and triggers per AS9102",
+    "Master AS9102 Form completion and documentation",
+    "Implement compliant measurement and inspection procedures",
+    "Establish effective FAI workflow and approval processes",
+    "Navigate customer-specific FAI requirements and variations"
+  ],
+  "content": [
+    {
+      "_type": "block",
+      "_key": "intro",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "First Article Inspection (FAI) is a mandatory quality process in aerospace manufacturing that verifies the initial production run meets all specified requirements before full-scale production begins. This critical quality gate prevents costly downstream issues and ensures regulatory compliance throughout the product lifecycle."
+        }
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "compliance-alert",
+      "type": "warning",
+      "title": "Regulatory Requirement",
+      "content": "FAI is mandatory for aerospace suppliers per AS9102 standard. Non-compliance can result in supply chain suspension, contract termination, and significant financial penalties."
+    },
+    {
+      "_type": "block",
+      "_key": "section1",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "1. Understanding FAI Requirements and Triggers"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "fai-definition",
+      "style": "h3",
+      "children": [
+        {
+          "_type": "span",
+          "text": "When FAI is Required"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "fai-triggers",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Per AS9102 Rev C, FAI must be performed for:"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "trigger-list1",
+      "style": "normal",
+      "listItem": "bullet",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Initial production runs of new parts or assemblies"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "trigger-list2",
+      "style": "normal",
+      "listItem": "bullet",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Engineering changes affecting form, fit, or function"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "trigger-list3",
+      "style": "normal",
+      "listItem": "bullet",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Manufacturing process changes or relocations"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "trigger-list4",
+      "style": "normal",
+      "listItem": "bullet",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Tooling changes that could affect part characteristics"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "trigger-list5",
+      "style": "normal",
+      "listItem": "bullet",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Extended production breaks (typically >2 years)"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "fai-timeline",
+      "title": "FAI Timeline Requirements",
+      "description": "Critical milestones and timelines for compliant FAI execution",
+      "headers": ["Phase", "Timeline", "Key Activities", "Deliverables"],
+      "rows": [
+        ["Pre-production", "Before first article", "Review requirements, plan inspection", "FAI plan, measurement procedures"],
+        ["Inspection", "1-3 days", "Dimensional inspection, testing", "AS9102 Forms 1-3, raw data"],
+        ["Documentation", "2-5 days", "Complete forms, collect evidence", "Complete FAI package"],
+        ["Review & Approval", "5-10 days", "Internal review, customer approval", "Approved FAI, production authorization"],
+        ["Production", "After approval", "Full-scale manufacturing", "Ongoing quality monitoring"]
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "section2",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "2. AS9102 Form Structure and Completion"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "forms-intro",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "AS9102 defines three forms that comprise the complete FAI documentation package. Each form serves a specific purpose in demonstrating compliance and traceability."
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "as9102-forms",
+      "title": "AS9102 Form Breakdown",
+      "description": "Understanding the purpose and content of each AS9102 form",
+      "headers": ["Form", "Purpose", "Key Content", "Completion Level"],
+      "rows": [
+        ["Form 1", "Part accountability", "Part identification, engineering data", "Per part number"],
+        ["Form 2", "Characteristic accountability", "All measurable characteristics", "Per characteristic"],
+        ["Form 3", "Characteristic verification", "Actual measurement results", "Per measurement"],
+        ["FAIR Summary", "Overall assessment", "Compliance summary, discrepancies", "Per FAI package"]
+      ]
+    },
+    {
+      "_type": "processFlow",
+      "_key": "form-completion",
+      "title": "Form Completion Workflow",
+      "description": "Systematic approach to completing AS9102 documentation",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Form 1 Preparation",
+          "description": "Complete part identification and accountability information",
+          "duration": "30 minutes",
+          "tools": ["Engineering drawings", "Part specifications", "Change orders"],
+          "qualityCheck": "Verify all drawing revisions and change incorporations"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Form 2 Development",
+          "description": "Extract and list all measurable characteristics from drawings",
+          "duration": "2-4 hours",
+          "tools": ["CAD files", "Drawing analysis software", "GD&T interpretation"],
+          "qualityCheck": "100% characteristic extraction, no omissions"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Measurement Planning",
+          "description": "Define measurement methods and acceptance criteria",
+          "duration": "1-2 hours",
+          "tools": ["Measurement procedures", "Gage R&R studies", "Uncertainty budgets"],
+          "qualityCheck": "Measurement capability adequate for tolerance verification"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Form 3 Execution",
+          "description": "Perform measurements and record actual results",
+          "duration": "4-8 hours",
+          "tools": ["CMM", "Precision gages", "Calibrated equipment"],
+          "qualityCheck": "All measurements within specification limits"
+        }
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "form2-tip",
+      "type": "tip",
+      "title": "Form 2 Best Practice",
+      "content": "Use automated tools to extract characteristics from CAD models when possible. This reduces human error and ensures no characteristics are missed during the extraction process."
+    },
+    {
+      "_type": "block",
+      "_key": "section3",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "3. Measurement and Inspection Procedures"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "measurement-intro",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Accurate measurement is the foundation of successful FAI. Establish robust procedures that ensure repeatability, traceability, and compliance with customer requirements."
+        }
+      ]
+    },
+    {
+      "_type": "equipmentSpec",
+      "_key": "fai-equipment",
+      "equipmentName": "FAI Measurement System",
+      "manufacturer": "Various",
+      "model": "Integrated Solution",
+      "image": null,
+      "specifications": [
+        {
+          "parameter": "Measurement Uncertainty",
+          "value": "≤10% of tolerance",
+          "unit": "ratio",
+          "tolerance": "Required"
+        },
+        {
+          "parameter": "Calibration Interval",
+          "value": "12",
+          "unit": "months maximum",
+          "tolerance": "±30 days"
+        },
+        {
+          "parameter": "Environmental Control",
+          "value": "68±2",
+          "unit": "°F",
+          "tolerance": "±1°F"
+        },
+        {
+          "parameter": "Traceability",
+          "value": "NIST",
+          "unit": "standard",
+          "tolerance": "Required"
+        }
+      ],
+      "applications": "All dimensional measurements for AS9102 compliance require calibrated equipment with documented traceability to national standards.",
+      "advantages": "Ensures measurement reliability and regulatory compliance while providing defensible documentation for customer audits."
+    },
+    {
+      "_type": "block",
+      "_key": "section4",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "4. Common FAI Challenges and Solutions"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "fai-challenges",
+      "title": "FAI Implementation Challenges",
+      "description": "Common obstacles and proven solutions for successful FAI execution",
+      "headers": ["Challenge", "Impact", "Root Cause", "Solution"],
+      "rows": [
+        ["Incomplete characteristic extraction", "Failed audits", "Manual process errors", "Automated CAD-based extraction tools"],
+        ["Measurement capability inadequate", "Invalid results", "Insufficient equipment", "Gage R&R studies, equipment upgrade"],
+        ["Documentation errors", "Customer rejection", "Manual data entry", "Digital data collection systems"],
+        ["Timeline delays", "Production impact", "Inadequate planning", "Parallel processing, resource allocation"],
+        ["Customer-specific requirements", "Compliance gaps", "Requirement interpretation", "Customer liaison, clear specifications"]
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "timeline-warning",
+      "type": "warning",
+      "title": "Production Planning Impact",
+      "content": "FAI approval is required before full production begins. Plan for 2-3 week lead times including inspection, documentation, and customer approval cycles."
+    },
+    {
+      "_type": "block",
+      "_key": "section5",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "5. Digital FAI and Process Automation"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "digital-intro",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Modern FAI processes leverage digital tools and automation to improve accuracy, reduce cycle time, and enhance traceability. Integration with manufacturing systems creates seamless quality workflows."
+        }
+      ]
+    },
+    {
+      "_type": "standardReference",
+      "_key": "as9102-standard",
+      "standardNumber": "AS9102C",
+      "title": "Aerospace First Article Inspection Requirement",
+      "organization": "SAE International",
+      "scope": "Defines requirements for first article inspection in aerospace manufacturing, including documentation formats, acceptance criteria, and approval processes.",
+      "keyRequirements": [
+        "Complete dimensional verification of all characteristics",
+        "Documented measurement procedures and results",
+        "Traceability to drawing requirements and specifications",
+        "Customer approval before production release",
+        "Retention requirements for FAI documentation"
+      ],
+      "iisCompliance": "IIS maintains full AS9102C compliance with certified quality engineers, calibrated measurement systems, and integrated digital documentation processes."
+    },
+    {
+      "_type": "block",
+      "_key": "section6",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "6. Customer-Specific Requirements and Variations"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "customer-intro",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "While AS9102 provides the foundation, many aerospace customers have additional requirements or variations that must be incorporated into your FAI process."
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "customer-requirements",
+      "title": "Common Customer FAI Variations",
+      "description": "Typical customer-specific requirements beyond standard AS9102",
+      "headers": ["Customer Type", "Additional Requirements", "Documentation", "Approval Process"],
+      "rows": [
+        ["Prime contractors", "Supplier assessments, process audits", "Extended documentation packages", "Multi-level approval"],
+        ["Government agencies", "Security clearances, DFARS compliance", "Controlled distribution", "Government approval required"],
+        ["Commercial aviation", "Nadcap requirements, special processes", "Accredited lab reports", "Customer witness inspections"],
+        ["Space/satellite", "Outgassing data, radiation testing", "Material certifications", "NASA/ESA compliance verification"]
+      ]
+    },
+    {
+      "_type": "ctaButton",
+      "_key": "fai-consultation",
+      "text": "Get FAI Process Assessment",
+      "href": "/contact",
+      "variant": "primary",
+      "trackingEvent": "fai-process-consultation"
+    }
+  ],
+  "relatedContent": {
+    "relatedServices": [],
+    "relatedCaseStudies": [],
+    "relatedGlossary": []
+  },
+  "seo": {
+    "metaTitle": "First Article Inspection (FAI) Guide | AS9102 Compliance | Aerospace",
+    "metaDescription": "Complete guide to First Article Inspection (FAI) per AS9102 standard. Master aerospace manufacturing compliance, documentation, and approval processes for quality control.",
+    "focusKeywords": ["first article inspection", "FAI", "AS9102", "aerospace manufacturing", "quality compliance"],
+    "secondaryKeywords": ["first article inspection requirements", "AS9102 forms", "aerospace quality", "manufacturing compliance", "FAI documentation"],
+    "canonicalUrl": null,
+    "ogImage": null,
+    "structuredData": {
+      "articleType": "TechnicalArticle",
+      "wordCount": 3200,
+      "expertise": "Expert"
+    }
+  },
+  "performance": {
+    "views": 0,
+    "engagement": 0,
+    "downloads": 0,
+    "shares": 0,
+    "feedbackScore": 0
+  },
+  "contentStatus": "published"
+}

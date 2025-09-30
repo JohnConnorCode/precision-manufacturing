@@ -71,7 +71,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white border-t border-blue-600/10">
       <div className="container py-12 md:py-16">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
@@ -123,6 +123,32 @@ const Footer = () => {
               <li>
                 <Link href="/services" className="text-slate-400 hover:text-blue-600 transition-colors">
                   Metbase®
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h4 className="font-semibold mb-3 text-blue-600">Resources</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/resources/series" className="text-slate-400 hover:text-blue-600 transition-colors">
+                  Technical Article Series
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="text-slate-400 hover:text-blue-600 transition-colors">
+                  All Resources
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/manufacturing-processes" className="text-slate-400 hover:text-blue-600 transition-colors">
+                  Manufacturing Processes
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/quality-compliance" className="text-slate-400 hover:text-blue-600 transition-colors">
+                  Quality & Compliance
                 </Link>
               </li>
             </ul>

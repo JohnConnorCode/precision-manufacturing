@@ -34,7 +34,11 @@ const stats = [
   { icon: Target, value: '±0.0001"', label: 'Tolerance', color: 'text-blue-600' }
 ];
 
-export default function ImageShowcase() {
+interface ImageShowcaseProps {
+  data?: any;
+}
+
+export default function ImageShowcase({ data }: ImageShowcaseProps) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,

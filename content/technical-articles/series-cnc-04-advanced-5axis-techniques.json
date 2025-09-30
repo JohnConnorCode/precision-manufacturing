@@ -1,0 +1,937 @@
+{
+  "_type": "resource",
+  "title": "Advanced CNC Techniques: 5-Axis and Multi-Setup Strategies for Complex Geometry Machining",
+  "slug": {
+    "_type": "slug",
+    "current": "5-axis-machining-multi-axis-cnc-complex-geometry"
+  },
+  "excerpt": "Master advanced CNC techniques including 5-axis machining, multi-setup strategies, and complex geometry programming. Learn optimization approaches for challenging aerospace and medical device applications.",
+  "category": "cnc-manufacturing",
+  "contentType": "advanced-techniques",
+  "difficulty": "Expert",
+  "readTime": "10 min read",
+  "targetAudience": [
+    "CNC Programmers",
+    "Manufacturing Engineers",
+    "Advanced Machinists",
+    "Process Engineers"
+  ],
+  "industries": [
+    "Aerospace",
+    "Medical Device",
+    "Manufacturing",
+    "All Industries"
+  ],
+  "author": {
+    "name": "Integrated Inspection Systems CNC Manufacturing Team",
+    "title": "Senior CNC Programming Specialists",
+    "bio": "Integrated Inspection Systems manufacturing experts specializing in advanced CNC techniques for complex aerospace and medical device components requiring 5-axis and multi-setup strategies.",
+    "image": null
+  },
+  "publishDate": "2024-03-05T08:00:00.000Z",
+  "lastUpdated": "2024-03-05T08:00:00.000Z",
+  "featured": false,
+  "tags": [
+    "5-Axis Machining",
+    "Multi-Axis CNC",
+    "Complex Geometry Machining",
+    "Advanced CNC Programming",
+    "CNC Optimization"
+  ],
+  "prerequisites": [
+    "Mastery of CNC tolerance capabilities (Part 1)",
+    "Understanding of surface finish optimization (Part 2)",
+    "Knowledge of material-specific strategies (Part 3)"
+  ],
+  "learningObjectives": [
+    "Master 5-axis machining principles and applications",
+    "Develop multi-setup strategies for complex parts",
+    "Learn advanced CAM programming techniques",
+    "Optimize complex geometry machining processes"
+  ],
+  "content": [
+    {
+      "_type": "block",
+      "_key": "intro",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Advanced CNC techniques enable the production of complex geometries that would be impossible or prohibitively expensive with conventional 3-axis methods. 5-axis machining and sophisticated multi-setup strategies unlock new possibilities in aerospace, medical, and precision manufacturing applications."
+        }
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "advanced-cnc-benefits",
+      "type": "success",
+      "title": "Advanced CNC Capabilities",
+      "content": "5-axis and advanced techniques can reduce setup times by 75%, improve surface finish quality by 50%, and enable manufacturing of previously impossible geometries."
+    },
+    {
+      "_type": "block",
+      "_key": "section1",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "5-Axis Machining Fundamentals and Configurations"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "5axis-configurations",
+      "title": "5-Axis Machine Configurations and Applications",
+      "description": "Different 5-axis machine configurations and their optimal applications",
+      "headers": [
+        "Configuration Type",
+        "Axis Configuration",
+        "Typical Applications",
+        "Advantages",
+        "Limitations"
+      ],
+      "rows": [
+        [
+          "Trunnion table",
+          "X-Y-Z + A-C table rotation",
+          "Large parts, heavy components",
+          "High rigidity, excellent accuracy",
+          "Size limitations, table weight capacity"
+        ],
+        [
+          "Swivel head",
+          "X-Y-Z + B-C head rotation",
+          "Complex sculpted surfaces",
+          "Unlimited part size, versatile",
+          "Reduced rigidity, thermal issues"
+        ],
+        [
+          "Hybrid configuration",
+          "X-Y-Z + A table + B head",
+          "Balanced applications",
+          "Combines advantages",
+          "Complex programming, higher cost"
+        ],
+        [
+          "Horizontal 5-axis",
+          "X-Y-Z + B-C horizontal",
+          "Production applications",
+          "Good chip evacuation",
+          "Access limitations"
+        ],
+        [
+          "Vertical 5-axis",
+          "X-Y-Z + A-C vertical",
+          "General applications",
+          "Easy setup and operation",
+          "Chip evacuation challenges"
+        ],
+        [
+          "Multi-tasking centers",
+          "Turn-mill with 5-axis",
+          "Complete part machining",
+          "Single setup completion",
+          "Programming complexity"
+        ]
+      ]
+    },
+    {
+      "_type": "technicalSpecs",
+      "_key": "5axis-capabilities",
+      "specs": [
+        {
+          "label": "Angular Resolution",
+          "value": "0.001° typical",
+          "unit": "rotary axis accuracy"
+        },
+        {
+          "label": "Simultaneous 5-Axis",
+          "value": "All axes moving",
+          "unit": "true 5-axis capability"
+        },
+        {
+          "label": "Positioning Accuracy",
+          "value": "±0.0002\" - ±0.001\"",
+          "unit": "depending on machine"
+        },
+        {
+          "label": "Surface Finish Improvement",
+          "value": "30-70% better",
+          "unit": "vs 3-axis approach"
+        },
+        {
+          "label": "Setup Reduction",
+          "value": "50-90% fewer setups",
+          "unit": "complex geometry parts"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "section2",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "5-Axis Programming Strategies"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "5axis-programming-strategies",
+      "title": "5-Axis Programming Approaches and Applications",
+      "description": "Different programming strategies for 5-axis machining operations",
+      "headers": [
+        "Programming Strategy",
+        "Description",
+        "Best Applications",
+        "Complexity Level",
+        "Quality Benefits"
+      ],
+      "rows": [
+        [
+          "3+2 Positioning",
+          "3-axis cuts with 5-axis positioning",
+          "Prismatic parts with angled features",
+          "Low",
+          "Improved access, reduced setups"
+        ],
+        [
+          "Continuous 5-axis",
+          "All 5 axes moving simultaneously",
+          "Sculptured surfaces, impellers",
+          "High",
+          "Superior surface finish, no witness lines"
+        ],
+        [
+          "Multi-surface machining",
+          "Automatic surface transitions",
+          "Complex organic shapes",
+          "Very High",
+          "Seamless surface transitions"
+        ],
+        [
+          "Tool axis optimization",
+          "Optimized tool orientation",
+          "Deep cavities, undercuts",
+          "Medium",
+          "Reduced tool deflection"
+        ],
+        [
+          "Collision avoidance",
+          "Automatic collision detection",
+          "Complex fixturing scenarios",
+          "Medium-High",
+          "Safe operation, minimal manual intervention"
+        ],
+        [
+          "Adaptive roughing",
+          "Variable tool axis for efficiency",
+          "Material removal optimization",
+          "High",
+          "Faster material removal, better tool life"
+        ]
+      ]
+    },
+    {
+      "_type": "processFlow",
+      "_key": "5axis-programming-process",
+      "title": "5-Axis Programming Development Process",
+      "description": "Systematic approach to developing 5-axis machining programs",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Geometry Analysis",
+          "description": "Analyze part geometry and identify 5-axis requirements",
+          "duration": "1-3 hours",
+          "tools": [
+            "CAD analysis",
+            "Feature identification",
+            "Access analysis"
+          ],
+          "qualityCheck": "All complex features identified and 5-axis benefits confirmed"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Setup Strategy Development",
+          "description": "Develop optimal setup and fixturing strategy",
+          "duration": "2-4 hours",
+          "tools": [
+            "Fixture design",
+            "Workholding analysis",
+            "Setup optimization"
+          ],
+          "qualityCheck": "Setup provides adequate access and maintains accuracy"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Toolpath Generation",
+          "description": "Generate optimized 5-axis toolpaths",
+          "duration": "4-8 hours",
+          "tools": [
+            "Advanced CAM software",
+            "Post-processing",
+            "Simulation"
+          ],
+          "qualityCheck": "Toolpaths optimized for surface finish and efficiency"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Verification and Optimization",
+          "description": "Verify programs and optimize for production",
+          "duration": "2-6 hours",
+          "tools": [
+            "Machine simulation",
+            "First article machining",
+            "Process optimization"
+          ],
+          "qualityCheck": "Program verified safe and optimized for quality and efficiency"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "section3",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Complex Geometry Machining Applications"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "complex-geometry-applications",
+      "title": "Complex Geometry 5-Axis Applications",
+      "description": "Specific applications where 5-axis machining provides critical advantages",
+      "headers": [
+        "Application Type",
+        "Geometry Challenges",
+        "5-Axis Solution",
+        "Quality Improvements",
+        "Typical Industries"
+      ],
+      "rows": [
+        [
+          "Impellers and turbine blades",
+          "Twisted surfaces, undercuts",
+          "Continuous 5-axis with optimal tool orientation",
+          "Superior surface finish, no witness lines",
+          "Aerospace, power generation"
+        ],
+        [
+          "Medical implants",
+          "Organic shapes, precise contours",
+          "Multi-axis contouring with collision avoidance",
+          "Biocompatible surface finish",
+          "Medical device"
+        ],
+        [
+          "Aerospace structural components",
+          "Complex pockets, angled holes",
+          "3+2 and continuous 5-axis combination",
+          "Reduced assembly operations",
+          "Aerospace, defense"
+        ],
+        [
+          "Automotive transmission parts",
+          "Angled gear teeth, complex bores",
+          "Coordinated 5-axis movements",
+          "Improved gear contact patterns",
+          "Automotive"
+        ],
+        [
+          "Tool and die cavities",
+          "Deep cavities, draft angles",
+          "Tool axis tilting for access",
+          "Better surface finish, reduced polishing",
+          "Tool and die"
+        ],
+        [
+          "Architectural components",
+          "Artistic surfaces, complex curves",
+          "Sculptured surface machining",
+          "Aesthetic surface quality",
+          "Architecture, art"
+        ]
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "5axis-design-optimization",
+      "type": "tip",
+      "title": "Design for 5-Axis Manufacturing",
+      "content": "Design parts with 5-axis capabilities in mind. Eliminate sharp internal corners, provide tool access, and consider combined operations to maximize 5-axis benefits."
+    },
+    {
+      "_type": "block",
+      "_key": "section4",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Multi-Setup Strategy Development"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "multi-setup-strategies",
+      "title": "Multi-Setup Strategy Optimization",
+      "description": "Approaches for optimizing complex parts requiring multiple setups",
+      "headers": [
+        "Strategy Type",
+        "Application",
+        "Setup Sequence",
+        "Accuracy Considerations",
+        "Efficiency Gains"
+      ],
+      "rows": [
+        [
+          "Minimal setup approach",
+          "Simple complex parts",
+          "Maximize each setup",
+          "Reference datum preservation",
+          "Reduced handling, faster completion"
+        ],
+        [
+          "Feature-based grouping",
+          "Parts with similar features",
+          "Group similar operations",
+          "Feature-specific fixturing",
+          "Tooling optimization, consistency"
+        ],
+        [
+          "Accuracy-driven sequence",
+          "Precision requirements",
+          "Critical features first",
+          "Datum progression",
+          "Maintain accuracy through sequence"
+        ],
+        [
+          "Tooling optimization",
+          "Tool-change intensive",
+          "Group by tool requirements",
+          "Tool-specific setups",
+          "Reduced tool changes, better tool life"
+        ],
+        [
+          "Material removal sequence",
+          "Heavy stock removal",
+          "Rough before finish",
+          "Stress relief considerations",
+          "Prevent distortion, improve finish"
+        ],
+        [
+          "Access-based planning",
+          "Complex geometry parts",
+          "Best access orientation",
+          "Fixture design optimization",
+          "Complete machining, reduced manual work"
+        ]
+      ]
+    },
+    {
+      "_type": "processFlow",
+      "_key": "multi-setup-planning",
+      "title": "Multi-Setup Planning Process",
+      "description": "Systematic approach to planning optimal multi-setup sequences",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "title": "Feature Analysis",
+          "description": "Analyze all part features and access requirements",
+          "duration": "1-2 hours",
+          "tools": [
+            "CAD analysis",
+            "Feature extraction",
+            "Access study"
+          ],
+          "qualityCheck": "All features cataloged with access and tolerance requirements"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Setup Sequence Optimization",
+          "description": "Develop optimal sequence for all required setups",
+          "duration": "2-4 hours",
+          "tools": [
+            "Setup planning software",
+            "Fixture design",
+            "Sequence optimization"
+          ],
+          "qualityCheck": "Sequence minimizes setups while maintaining accuracy"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Datum Strategy Development",
+          "description": "Establish datum strategy across all setups",
+          "duration": "1-3 hours",
+          "tools": [
+            "Datum analysis",
+            "Reference planning",
+            "Tolerance stack-up"
+          ],
+          "qualityCheck": "Datum strategy maintains accuracy across all setups"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Fixture and Workholding Design",
+          "description": "Design fixtures for each required setup",
+          "duration": "4-12 hours",
+          "tools": [
+            "Fixture design CAD",
+            "Workholding analysis",
+            "Accessibility verification"
+          ],
+          "qualityCheck": "Fixtures provide adequate support and access for all operations"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "section5",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Advanced CAM Programming Techniques"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "advanced-cam-techniques",
+      "title": "Advanced CAM Programming Techniques",
+      "description": "Sophisticated CAM techniques for complex geometry machining",
+      "headers": [
+        "Technique",
+        "Description",
+        "Applications",
+        "Programming Complexity",
+        "Quality Benefits"
+      ],
+      "rows": [
+        [
+          "Adaptive clearing",
+          "Variable toolpath density",
+          "Rough machining optimization",
+          "Medium",
+          "Consistent tool loading, better tool life"
+        ],
+        [
+          "Trochoidal milling",
+          "Circular interpolation paths",
+          "Hard material roughing",
+          "Medium",
+          "Reduced tool stress, deeper cuts"
+        ],
+        [
+          "Morphed spiral",
+          "Spiral toolpaths following part geometry",
+          "Complex pocket machining",
+          "High",
+          "Smooth tool motion, excellent finish"
+        ],
+        [
+          "Flow line machining",
+          "Toolpaths follow part flow lines",
+          "Turbomachinery components",
+          "Very High",
+          "Optimal surface finish, reduced machining time"
+        ],
+        [
+          "Barrel tool machining",
+          "Specialized barrel-shaped tools",
+          "Large radius surfaces",
+          "High",
+          "Single-pass large surfaces"
+        ],
+        [
+          "Rest machining",
+          "Machine only remaining material",
+          "Multi-tool strategies",
+          "Medium",
+          "Optimized tool utilization"
+        ],
+        [
+          "Pattern-based machining",
+          "Recognize and optimize patterns",
+          "Repetitive feature machining",
+          "Medium-High",
+          "Consistent quality, reduced programming"
+        ],
+        [
+          "Knowledge-based machining",
+          "AI-assisted parameter selection",
+          "Automated optimization",
+          "Low (user) / Very High (system)",
+          "Optimized parameters, reduced trial-and-error"
+        ]
+      ]
+    },
+    {
+      "_type": "technicalSpecs",
+      "_key": "advanced-cam-specs",
+      "specs": [
+        {
+          "label": "Surface Tolerance",
+          "value": "0.0001\" - 0.001\"",
+          "unit": "CAM surface accuracy"
+        },
+        {
+          "label": "Toolpath Smoothness",
+          "value": "G2 continuity",
+          "unit": "smooth acceleration"
+        },
+        {
+          "label": "Collision Detection",
+          "value": "Real-time verification",
+          "unit": "tool, holder, machine"
+        },
+        {
+          "label": "Multi-axis Coordination",
+          "value": "Synchronized motion",
+          "unit": "all 5 axes"
+        },
+        {
+          "label": "Post-processing Accuracy",
+          "value": "Machine-specific optimization",
+          "unit": "custom post-processors"
+        }
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "section6",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Quality Control for Advanced CNC Operations"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "advanced-quality-control",
+      "title": "Quality Control Strategies for Advanced CNC Operations",
+      "description": "Specialized quality control approaches for complex CNC operations",
+      "headers": [
+        "Quality Aspect",
+        "Measurement Approach",
+        "Critical Parameters",
+        "Inspection Frequency",
+        "Acceptance Criteria"
+      ],
+      "rows": [
+        [
+          "Surface finish on complex surfaces",
+          "Non-contact measurement",
+          "Ra, Rz across all surfaces",
+          "First article + sampling",
+          "Specification compliance across all areas"
+        ],
+        [
+          "Multi-setup dimensional accuracy",
+          "CMM with coordinate system management",
+          "Inter-setup accuracy",
+          "Between each setup",
+          "Datum reference maintenance"
+        ],
+        [
+          "5-axis interpolation accuracy",
+          "Ball bar testing, artifact measurement",
+          "Circular interpolation accuracy",
+          "Machine qualification",
+          "Machine specification compliance"
+        ],
+        [
+          "Complex geometry conformance",
+          "3D scanning comparison",
+          "Profile deviation",
+          "First article validation",
+          "CAD model conformance"
+        ],
+        [
+          "Tool condition monitoring",
+          "In-process monitoring systems",
+          "Tool wear progression",
+          "Continuous monitoring",
+          "Tool life optimization"
+        ],
+        [
+          "Thermal stability",
+          "Environmental monitoring",
+          "Temperature effects",
+          "Continuous during production",
+          "Thermal compensation effectiveness"
+        ],
+        [
+          "Machine calibration",
+          "Laser interferometry",
+          "Volumetric accuracy",
+          "Periodic calibration",
+          "Machine accuracy specification"
+        ],
+        [
+          "Fixture repeatability",
+          "Statistical process control",
+          "Setup variation",
+          "Each setup occurrence",
+          "Repeatable within limits"
+        ]
+      ]
+    },
+    {
+      "_type": "block",
+      "_key": "section7",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Troubleshooting Advanced CNC Operations"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "advanced-troubleshooting",
+      "title": "Advanced CNC Troubleshooting Guide",
+      "description": "Common issues in advanced CNC operations and their solutions",
+      "headers": [
+        "Issue Category",
+        "Symptoms",
+        "Likely Causes",
+        "Diagnostic Steps",
+        "Solutions"
+      ],
+      "rows": [
+        [
+          "5-axis interpolation errors",
+          "Poor surface finish, dimensional errors",
+          "Machine calibration, programming",
+          "Ball bar test, program simulation",
+          "Machine calibration, program optimization"
+        ],
+        [
+          "Multi-setup accuracy loss",
+          "Accumulating dimensional errors",
+          "Datum reference loss",
+          "Setup repeatability study",
+          "Improved fixture design, datum strategy"
+        ],
+        [
+          "Complex surface quality issues",
+          "Inconsistent finish, witness lines",
+          "Tool orientation, programming",
+          "Surface analysis, toolpath review",
+          "Programming optimization, tool selection"
+        ],
+        [
+          "Excessive cycle times",
+          "Poor productivity",
+          "Non-optimized programming",
+          "Cycle time analysis",
+          "Advanced CAM techniques, parameter optimization"
+        ],
+        [
+          "Tool life issues in 5-axis",
+          "Premature tool failure",
+          "Dynamic loading, programming",
+          "Tool condition monitoring",
+          "Tool selection, programming optimization"
+        ],
+        [
+          "Thermal issues",
+          "Dimensional drift",
+          "Heat generation, environmental",
+          "Thermal monitoring",
+          "Cooling optimization, environmental control"
+        ],
+        [
+          "Vibration in multi-axis",
+          "Chatter, poor finish",
+          "Dynamic effects",
+          "Vibration analysis",
+          "Speed optimization, damping"
+        ],
+        [
+          "Collision detection false alarms",
+          "Program interruptions",
+          "Simulation inaccuracy",
+          "Simulation verification",
+          "Model accuracy, collision zone refinement"
+        ]
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "advanced-troubleshooting-approach",
+      "type": "warning",
+      "title": "Systematic Troubleshooting",
+      "content": "Advanced CNC issues require systematic analysis. Use data-driven approaches, machine monitoring, and simulation tools to identify root causes before implementing solutions."
+    },
+    {
+      "_type": "block",
+      "_key": "section8",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "ROI and Implementation Considerations"
+        }
+      ]
+    },
+    {
+      "_type": "toleranceTable",
+      "_key": "advanced-cnc-roi",
+      "title": "Advanced CNC Implementation ROI Analysis",
+      "description": "Return on investment considerations for advanced CNC techniques",
+      "headers": [
+        "Investment Area",
+        "Typical Cost",
+        "Benefits",
+        "Payback Period",
+        "Risk Factors"
+      ],
+      "rows": [
+        [
+          "5-axis machine acquisition",
+          "$500K - $2M+",
+          "Reduced setups, improved quality",
+          "2-5 years",
+          "Utilization rate, programming expertise"
+        ],
+        [
+          "Advanced CAM software",
+          "$20K - $100K",
+          "Programming efficiency, optimization",
+          "6 months - 2 years",
+          "Learning curve, software complexity"
+        ],
+        [
+          "Operator training",
+          "$10K - $50K per person",
+          "Improved productivity, quality",
+          "6 months - 1 year",
+          "Retention, skill development"
+        ],
+        [
+          "Fixture and tooling systems",
+          "$50K - $200K",
+          "Setup reduction, accuracy",
+          "1-3 years",
+          "Part mix, volume requirements"
+        ],
+        [
+          "Quality measurement systems",
+          "$100K - $500K",
+          "Quality assurance, reduced scrap",
+          "1-2 years",
+          "Complexity, integration"
+        ],
+        [
+          "Environmental controls",
+          "$25K - $100K",
+          "Thermal stability, accuracy",
+          "1-3 years",
+          "Environmental requirements"
+        ],
+        [
+          "Maintenance and calibration",
+          "$20K - $75K annually",
+          "Maintained accuracy, uptime",
+          "Ongoing",
+          "Maintenance quality, scheduling"
+        ]
+      ]
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "implementation-success-factors",
+      "type": "success",
+      "title": "Implementation Success Factors",
+      "content": "Success requires comprehensive planning: adequate training, proper part selection, realistic expectations, and phased implementation to manage risk and ensure positive ROI."
+    },
+    {
+      "_type": "calloutBox",
+      "_key": "series-complete-cnc",
+      "type": "success",
+      "title": "CNC Series Complete",
+      "content": "You've completed the CNC Precision Manufacturing Series! This comprehensive guide covers tolerance capabilities, surface finish, materials, and advanced techniques for successful precision CNC manufacturing."
+    },
+    {
+      "_type": "ctaButton",
+      "_key": "advanced-cnc-consultation",
+      "text": "Get Advanced CNC Implementation Support",
+      "href": "/contact",
+      "variant": "primary",
+      "trackingEvent": "advanced-cnc-consultation"
+    }
+  ],
+  "relatedContent": {
+    "relatedServices": [],
+    "relatedCaseStudies": [],
+    "relatedGlossary": [],
+    "relatedArticles": [
+      {
+        "title": "CNC Materials and Machining Considerations: Aluminum, Stainless Steel, and Advanced Materials",
+        "slug": "cnc-materials-machining-aluminum-stainless-steel",
+        "excerpt": "Master material-specific CNC machining strategies, tool selection, and parameter optimization.",
+        "category": "cnc-manufacturing",
+        "readTime": "9 min read"
+      },
+      {
+        "title": "MetBase Advanced Automation and Custom Solutions",
+        "slug": "metbase-automation-custom-solutions-advanced-features",
+        "excerpt": "Master advanced MetBase automation capabilities and custom development for complex quality management requirements.",
+        "category": "metbase-integration",
+        "readTime": "7 min read"
+      },
+      {
+        "title": "AS9100 Risk Management and Configuration Control for Aerospace Manufacturing",
+        "slug": "as9100-risk-management-configuration-control-aerospace",
+        "excerpt": "Master AS9100 risk management principles, configuration control processes, and change management.",
+        "category": "as9100-compliance",
+        "readTime": "9 min read"
+      }
+    ]
+  },
+  "seo": {
+    "metaTitle": "5-Axis Machining Guide | Multi-Axis CNC | Complex Geometry Manufacturing",
+    "metaDescription": "Master advanced CNC techniques including 5-axis machining and multi-setup strategies. Learn complex geometry programming and optimization for aerospace applications.",
+    "focusKeywords": [
+      "5-axis machining",
+      "multi-axis CNC",
+      "complex geometry machining",
+      "advanced CNC techniques"
+    ],
+    "secondaryKeywords": [
+      "5-axis programming",
+      "CNC multi-setup",
+      "complex CNC manufacturing",
+      "advanced CAM programming"
+    ],
+    "canonicalUrl": null,
+    "ogImage": null,
+    "structuredData": {
+      "articleType": "TechnicalArticle",
+      "wordCount": 1600,
+      "expertise": "Expert"
+    }
+  },
+  "performance": {
+    "views": 0,
+    "engagement": 0,
+    "downloads": 0,
+    "shares": 0,
+    "feedbackScore": 0
+  },
+  "contentStatus": "published",
+  "series": "CNC Manufacturing Precision",
+  "seriesSlug": "cnc-manufacturing-precision",
+  "seriesOrder": 4
+}

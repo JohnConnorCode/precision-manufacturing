@@ -45,7 +45,11 @@ const services = [
   },
 ];
 
-export default function Services() {
+interface ServicesProps {
+  data?: any;
+}
+
+export default function Services({ data }: ServicesProps) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,

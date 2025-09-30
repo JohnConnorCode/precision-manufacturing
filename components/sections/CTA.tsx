@@ -5,7 +5,28 @@ import { PremiumButton } from '@/components/ui/premium-button';
 import { ArrowRight, FileText, Shield, Award, Activity } from 'lucide-react';
 import Link from 'next/link';
 
-export default function CTA() {
+interface CTAData {
+  title?: string;
+  subtitle?: string;
+  buttons?: Array<{
+    text: string;
+    href: string;
+    variant: 'default' | 'secondary';
+  }>;
+}
+
+interface CTAProps {
+  data?: CTAData;
+}
+
+export default function CTA({ data }: CTAProps) {
+  const title = data?.title || 'Ready to Start Your Project?';
+  const subtitle = data?.subtitle || 'Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.';
+  const buttons = data?.buttons || [
+    { text: 'Request Engineering Quote', href: '/contact', variant: 'default' as const },
+    { text: 'Technical Specifications', href: '/compliance/supplier-requirements', variant: 'secondary' as const }
+  ];
+
   return (
     <section className="relative py-24 overflow-hidden bg-slate-950">
       {/* Aerospace-inspired animated background */}
@@ -92,28 +113,24 @@ export default function CTA() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Ready to Start Your Project?
+            {title}
           </h2>
 
           <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-            Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components
-            with tolerances to ±0.0001&quot; for aerospace, defense, and medical applications.
+            {subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/contact">
-              <PremiumButton size="lg">
-                Request Engineering Quote
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </PremiumButton>
-            </Link>
-
-            <Link href="/compliance/supplier-requirements">
-              <PremiumButton size="lg" variant="secondary">
-                <FileText className="mr-2 h-5 w-5" />
-                Technical Specifications
-              </PremiumButton>
-            </Link>
+            {buttons.map((button, index) => (
+              <Link key={index} href={button.href}>
+                <PremiumButton size="lg" variant={button.variant}>
+                  {index === 0 && <ArrowRight className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />}
+                  {index === 1 && <FileText className="mr-2 h-5 w-5" />}
+                  {button.text}
+                  {index === 0 && <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />}
+                </PremiumButton>
+              </Link>
+            ))}
           </div>
 
           {/* Certification badges with subtle animation */}

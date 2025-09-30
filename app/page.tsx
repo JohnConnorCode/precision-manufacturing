@@ -5,35 +5,157 @@ import Industries from '@/components/sections/Industries';
 import ImageShowcase from '@/components/sections/ImageShowcase';
 import Stats from '@/components/sections/Stats';
 import CTA from '@/components/sections/CTA';
-import { client } from '@/sanity/lib/sanity';
-import { homePageQuery } from '@/sanity/lib/queries';
-
-async function getHomePageData() {
-  try {
-    const data = await client.fetch(homePageQuery, {}, {
-      next: { revalidate: 60 }, // Revalidate every minute
-    });
-    return data;
-  } catch (_error) {
-    console.error('No CMS content available, using defaults');
-    return null;
-  }
-}
+import { getHomePage } from '@/lib/sanity-pages';
+import StructuredData from '@/components/seo/StructuredData';
+import {
+  generateOrganizationSchema,
+  generateLocalBusinessSchema,
+  generateWebsiteSchema,
+  generateProductCatalogSchema,
+  generateFAQSchema
+} from '@/lib/structured-data';
 
 export default async function Home() {
-  const _cmsData = await getHomePageData();
+  const homeData = await getHomePage();
 
-  // CMS data is fetched and ready for when content is added
-  // Components will be updated to use CMS data when available
+  // Organization data for structured markup
+  const organizationData = {
+    name: "Integrated Inspection Systems (IIS)",
+    alternateName: "IIS",
+    url: "https://iismet.com",
+    logo: "https://iismet.com/logo.png",
+    description: "Engineering, Metrology, Machining & Database Services since 1995. AS9100 & ISO 9001 certified precision machining and CMM inspection services. Proprietary MetBase® software for closed-loop data integration. ITAR registered. First article inspection, dimensional measurement, and process verification for aerospace, defense & manufacturing.",
+    foundingDate: "1995",
+    address: {
+      streetAddress: "14310 SE Industrial Way",
+      addressLocality: "Clackamas",
+      addressRegion: "Oregon",
+      postalCode: "97015",
+      addressCountry: "US"
+    },
+    contactPoint: {
+      telephone: "+1-503-231-9093",
+      email: "officemgr@iismet.com",
+      contactType: "customer service"
+    },
+    sameAs: [
+      "https://www.linkedin.com/company/integrated-inspection-systems",
+      "https://twitter.com/iismet"
+    ]
+  };
+
+  // Generate all structured data schemas
+  const organizationSchema = generateOrganizationSchema(organizationData);
+  const localBusinessSchema = generateLocalBusinessSchema(organizationData);
+  const websiteSchema = generateWebsiteSchema(organizationData.url);
+  const productCatalogSchema = generateProductCatalogSchema();
+  const faqSchema = generateFAQSchema();
+
   return (
     <>
-      <Hero />
-      <TechnicalSpecs />
-      <Services />
-      <Industries />
-      <ImageShowcase />
-      <Stats />
-      <CTA />
+      {/* Comprehensive Structured Data for World-Class SEO */}
+      <StructuredData data={[
+        organizationSchema,
+        localBusinessSchema,
+        websiteSchema,
+        productCatalogSchema,
+        faqSchema
+      ]} />
+
+      <Hero data={homeData?.hero} />
+      <TechnicalSpecs data={homeData?.technicalSpecs} />
+      <Services data={homeData?.services} />
+      <Industries data={homeData?.industries} />
+      <ImageShowcase data={homeData?.imageShowcase} />
+      <Stats data={homeData?.stats} />
+      <CTA data={homeData?.cta} />
     </>
   );
-}// Force rebuild Wed Sep 24 13:01:21 WITA 2025
+}
+
+// Generate metadata for SEO
+export async function generateMetadata() {
+  const homeData = await getHomePage();
+  const baseUrl = 'https://iismet.com';
+
+  const defaultMetadata = {
+    title: 'IIS - Integrated Inspection Systems | Engineering, Metrology, Machining & Database Services',
+    description: 'Integrated Inspection Systems (IIS): Engineering, Metrology, Machining & Database Services since 1995. Proprietary MetBase® software links CMM, CNC & vision systems. AS9100, ISO 9001 certified, ITAR registered. Serving aerospace, manufacturing & government.',
+    keywords: 'IIS, Integrated Inspection Systems, engineering services, metrology, machining, database services, MetBase software, CMM inspection, CNC machining, AS9100, ISO 9001, ITAR, aerospace, precision manufacturing, Oregon',
+    ogImage: `${baseUrl}/og-image-home.jpg`
+  };
+
+  const metadata = homeData?.seo ? {
+    title: homeData.seo.metaTitle || defaultMetadata.title,
+    description: homeData.seo.metaDescription || defaultMetadata.description,
+    keywords: homeData.seo.keywords?.join(', ') || defaultMetadata.keywords,
+    ogImage: homeData.seo.ogImage || defaultMetadata.ogImage
+  } : defaultMetadata;
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    keywords: metadata.keywords,
+    authors: [{ name: 'IIS Precision Manufacturing', url: baseUrl }],
+    creator: 'IIS Precision Manufacturing',
+    publisher: 'IIS Precision Manufacturing',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    alternates: {
+      canonical: baseUrl,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: baseUrl,
+      siteName: 'IIS Precision Manufacturing',
+      title: metadata.title,
+      description: metadata.description,
+      images: [
+        {
+          url: metadata.ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'IIS Precision Manufacturing - Advanced CNC Machining Services',
+          type: 'image/jpeg',
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@iisprecision',
+      creator: '@iisprecision',
+      title: metadata.title,
+      description: metadata.description,
+      images: [metadata.ogImage],
+    },
+    verification: {
+      google: 'google-verification-code', // Add actual verification code
+      yandex: 'yandex-verification-code',
+      yahoo: 'yahoo-verification-code',
+      other: {
+        'msvalidate.01': 'bing-verification-code',
+      },
+    },
+    category: 'Business',
+    classification: 'Manufacturing',
+    other: {
+      'business:contact_data:street_address': '123 Manufacturing Drive',
+      'business:contact_data:locality': 'Precision City',
+      'business:contact_data:region': 'Oregon',
+      'business:contact_data:postal_code': '97201',
+      'business:contact_data:country_name': 'United States',
+      'business:contact_data:phone_number': '+1-503-231-9093',
+      'business:contact_data:website': baseUrl,
+    },
+  };
+}

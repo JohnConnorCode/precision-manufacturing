@@ -4,8 +4,22 @@ import { motion } from 'framer-motion';
 import { Gauge, Cpu, Shield, Target, Award, Clock, Activity, Zap } from 'lucide-react';
 import AnimatedSection from '@/components/ui/animated-section';
 
-export default function TechnicalSpecs() {
-  const metrics = [
+interface TechnicalSpecsData {
+  title?: string;
+  subtitle?: string;
+  specs?: Array<{
+    label: string;
+    value: string;
+    unit?: string;
+  }>;
+}
+
+interface TechnicalSpecsProps {
+  data?: TechnicalSpecsData;
+}
+
+export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
+  const defaultMetrics = [
     {
       icon: Gauge,
       value: "±0.0001\"",
@@ -64,6 +78,18 @@ export default function TechnicalSpecs() {
     }
   ];
 
+  // Convert CMS data to metrics format if available
+  const metrics = data?.specs ? data.specs.map((spec, index) => ({
+    icon: defaultMetrics[index % defaultMetrics.length].icon,
+    value: spec.value + (spec.unit || ''),
+    label: spec.label.toUpperCase(),
+    description: `${spec.label} specification`,
+    gradient: defaultMetrics[index % defaultMetrics.length].gradient
+  })) : defaultMetrics;
+
+  const title = data?.title || 'Precision By The Numbers';
+  const subtitle = data?.subtitle || 'Industry-leading capabilities backed by decades of aerospace and defense manufacturing expertise';
+
   return (
     <section className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       {/* Premium Background Pattern */}
@@ -76,10 +102,16 @@ export default function TechnicalSpecs() {
         <AnimatedSection className="text-center mb-16 max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Precision By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">Numbers</span>
+            {title.includes('Numbers') ? (
+              <>
+                Precision By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">Numbers</span>
+              </>
+            ) : (
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">{title}</span>
+            )}
           </h2>
           <p className="text-lg md:text-xl text-slate-400">
-            Industry-leading capabilities backed by decades of aerospace and defense manufacturing expertise
+            {subtitle}
           </p>
         </AnimatedSection>
 

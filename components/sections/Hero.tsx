@@ -7,14 +7,37 @@ import Link from 'next/link';
 import HeroSliderFixed from '@/components/ui/hero-slider-fixed';
 import { usePrefersReducedMotion, getMotionVariants } from '@/lib/motion';
 
-export default function Hero() {
+interface HeroData {
+  mainTitle?: string;
+  subTitle?: string;
+  tagline?: string;
+  badges?: string[];
+  ctaPrimary?: { text: string; href: string };
+  ctaSecondary?: { text: string; href: string };
+  backgroundSlides?: Array<{
+    image: string;
+    alt: string;
+    focal: 'center' | 'top' | 'bottom';
+  }>;
+}
+
+interface HeroProps {
+  data?: HeroData;
+}
+
+export default function Hero({ data }: HeroProps) {
   const { scrollY } = useScroll();
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const textY = useTransform(scrollY, [0, 500], prefersReducedMotion ? [0, 0] : [0, 50]);
   const textOpacity = useTransform(scrollY, [0, 300], prefersReducedMotion ? [1, 1] : [1, 0]);
 
-  const heroSlides = [
+  // Use CMS data or fallback to defaults
+  const heroSlides = data?.backgroundSlides?.map(slide => ({
+    src: slide.image,
+    alt: slide.alt,
+    focal: slide.focal
+  })) || [
     {
       src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=95',
       alt: 'Advanced 5-axis CNC machining center',
@@ -41,6 +64,19 @@ export default function Hero() {
       focal: 'center' as const
     }
   ];
+
+  const mainTitle = data?.mainTitle || 'PRECISION';
+  const subTitle = data?.subTitle || 'MANUFACTURING';
+  const tagline = data?.tagline || 'Innovative Machining Since 1995';
+  const badges = data?.badges || [
+    'Advanced CNC Machining',
+    'Precision Metrology',
+    'Engineering Excellence',
+    'AS9100D Certified',
+    'ITAR Registered'
+  ];
+  const ctaPrimary = data?.ctaPrimary || { text: 'Start Your Project', href: '/contact' };
+  const ctaSecondary = data?.ctaSecondary || { text: 'View Capabilities', href: '/services' };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -72,7 +108,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.5, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
-                PRECISION
+                {mainTitle}
               </motion.span>
               <motion.span
                 className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
@@ -80,7 +116,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
-                MANUFACTURING
+                {subTitle}
               </motion.span>
             </h1>
           </motion.div>
@@ -92,7 +128,7 @@ export default function Hero() {
             transition={{ delay: prefersReducedMotion ? 0 : 0.9, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto"
           >
-            <span className="font-medium">Innovative Machining Since 1995</span>
+            <span className="font-medium">{tagline}</span>
           </motion.p>
 
           {/* Certification Badges */}
@@ -102,13 +138,7 @@ export default function Hero() {
             transition={{ delay: prefersReducedMotion ? 0 : 1.1, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
             className="flex flex-wrap justify-center gap-3 mb-10 md:mb-12 max-w-4xl mx-auto"
           >
-            {[
-              'Advanced CNC Machining',
-              'Precision Metrology',
-              'Engineering Excellence',
-              'AS9100D Certified',
-              'ITAR Registered'
-            ].map((badge, index) => (
+            {badges.map((badge, index) => (
               <motion.span
                 key={badge}
                 initial={{ opacity: 0 }}
@@ -133,8 +163,8 @@ export default function Hero() {
               className="group w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-2xl shadow-blue-600/20 hover:shadow-blue-700/30 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
               asChild
             >
-              <Link href="/contact">
-                Start Your Project
+              <Link href={ctaPrimary.href}>
+                {ctaPrimary.text}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -145,8 +175,8 @@ export default function Hero() {
               className="w-full sm:w-auto border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
               asChild
             >
-              <Link href="/services">
-                View Capabilities
+              <Link href={ctaSecondary.href}>
+                {ctaSecondary.text}
               </Link>
             </Button>
           </motion.div>

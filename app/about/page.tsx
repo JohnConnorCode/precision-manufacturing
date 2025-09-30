@@ -8,8 +8,10 @@ import { ArrowRight, Users, Factory, Award, CheckCircle, Target, Zap } from 'luc
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
 import { theme, styles } from '@/lib/theme';
+import { getAboutPage } from '@/lib/sanity-pages';
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutData = await getAboutPage();
   const companyStats = [
     { label: 'Years in Business', value: '30+', description: 'Decades of experience' },
     { label: 'Team Members', value: '150+', description: 'Skilled professionals' },
@@ -497,3 +499,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

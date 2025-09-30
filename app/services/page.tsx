@@ -8,8 +8,10 @@ import { theme, styles, cn } from '@/lib/theme';
 import { ArrowRight, Cog, Cpu, Target, Wrench, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
+import { getServicesPage } from '@/lib/sanity-pages';
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const servicesData = await getServicesPage();
   const services = [
     {
       title: '5-Axis CNC Machining',
@@ -275,3 +277,4 @@ export default function ServicesPage() {
     </div>
   );
 }
+

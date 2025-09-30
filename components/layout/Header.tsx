@@ -40,6 +40,18 @@ const navigation = [
     ],
   },
   {
+    name: 'Resources',
+    href: '/resources',
+    children: [
+      { name: 'Technical Article Series', href: '/resources/series', description: 'Comprehensive multi-part technical guides' },
+      { name: 'Manufacturing Processes', href: '/resources/manufacturing-processes', description: 'CNC machining guides and techniques' },
+      { name: 'Material Science', href: '/resources/material-science', description: 'Aerospace alloys and properties' },
+      { name: 'Quality & Compliance', href: '/resources/quality-compliance', description: 'AS9100D and ITAR guidance' },
+      { name: 'Industry Applications', href: '/resources/industry-applications', description: 'Real-world case studies' },
+      { name: 'Calculators & Tools', href: '/resources/calculators-tools', description: 'Interactive calculators' },
+    ],
+  },
+  {
     name: 'About',
     href: '/about',
   },

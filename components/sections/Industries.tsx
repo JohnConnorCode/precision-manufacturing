@@ -33,7 +33,11 @@ const industries = [
   },
 ];
 
-export default function Industries() {
+interface IndustriesProps {
+  data?: any;
+}
+
+export default function Industries({ data }: IndustriesProps) {
   return (
     <section className="py-24 bg-background">
       <div className="container">
