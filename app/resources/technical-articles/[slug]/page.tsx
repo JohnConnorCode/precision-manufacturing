@@ -119,7 +119,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       {/* Article Header */}
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection disabled={true}>
+          <AnimatedSection>
             {/* Meta Information */}
             <div className="flex flex-wrap gap-3 mb-6">
               {article.metadata.series && (
@@ -169,7 +169,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {/* Learning Objectives */}
-            <AnimatedSection disabled={true} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.1} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Target className="w-5 h-5 text-blue-400" />
                 <h2 className="text-xl font-bold text-white">Learning Objectives</h2>
@@ -185,7 +185,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
             </AnimatedSection>
 
             {/* Target Audience & Prerequisites */}
-            <AnimatedSection disabled={true} delay={0.1} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.2} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Users className="w-5 h-5 text-blue-400" />
                 <h2 className="text-xl font-bold text-white">Target Audience</h2>
@@ -216,7 +216,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
           </div>
 
           {/* Overview */}
-          <AnimatedSection disabled={true} delay={0.2} className="bg-gradient-to-r from-blue-600/5 to-indigo-600/5 border border-blue-600/10 rounded-xl p-8 mb-12">
+          <AnimatedSection delay={0.3} className="bg-gradient-to-r from-blue-600/5 to-indigo-600/5 border border-blue-600/10 rounded-xl p-8 mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
             <div className="text-slate-300 leading-relaxed prose prose-invert max-w-none">
               {article.introduction.overview.split('\n\n').map((paragraph, index) => (
@@ -230,7 +230,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       {/* Main Content */}
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection disabled={true}>
+          <AnimatedSection delay={0.4}>
             <article className="prose prose-invert prose-lg max-w-none">
               <div className="text-slate-300 leading-relaxed space-y-8">
                 {article.content.map((section: any, index: number) => (
@@ -286,7 +286,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       {/* Tags */}
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection disabled={true}>
+          <AnimatedSection delay={0.5}>
             <div className="flex items-center gap-3 mb-4">
               <Tag className="w-5 h-5 text-slate-400" />
               <h2 className="text-lg font-bold text-white">Tags</h2>
@@ -306,7 +306,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       {seriesArticles.length > 1 && (
         <section className="py-12 px-4 bg-slate-900/30 border-y border-slate-800">
           <div className="max-w-4xl mx-auto">
-            <AnimatedSection disabled={true}>
+            <AnimatedSection delay={0.6}>
               <h2 className="text-2xl font-bold text-white mb-6">Series Navigation</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {previousArticle && (

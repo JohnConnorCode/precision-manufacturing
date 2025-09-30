@@ -65,7 +65,7 @@ export default function Stats({ data }: StatsProps) {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <p className="text-sm font-bold text-blue-600 uppercase tracking-[0.2em] mb-2">
+          <p className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 uppercase tracking-[0.2em] mb-2">
             {subtitle}
           </p>
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
@@ -84,7 +84,7 @@ export default function Stats({ data }: StatsProps) {
               className="text-center group"
             >
               <div className="inline-block p-6">
-                <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 mb-2">
+                <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
                   <AnimatedCounter
                     value={stat.value}
                     prefix={stat.prefix}

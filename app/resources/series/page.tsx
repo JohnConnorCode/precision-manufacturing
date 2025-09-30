@@ -34,7 +34,7 @@ export default function SeriesIndexPage() {
       {/* Header */}
       <section className="py-16 px-4 border-b border-slate-800">
         <div className="max-w-6xl mx-auto">
-          <AnimatedSection disabled={true}>
+          <AnimatedSection>
             <div className="mb-6">
               <Link href="/resources" className="text-blue-400 hover:text-blue-300 transition-colors">
                 ← Back to Resources
@@ -64,7 +64,7 @@ export default function SeriesIndexPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {allSeries.map((series, index) => (
-              <AnimatedSection disabled={true} key={series.slug} delay={index * 0.1}>
+              <AnimatedSection key={series.slug} delay={index * 0.1}>
                 <Link href={`/resources/series/${series.slug}`}>
                   <article
                     className="group h-full bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]"
@@ -134,45 +134,38 @@ export default function SeriesIndexPage() {
       {/* Series Benefits Section */}
       <section className="py-16 px-4 bg-slate-900/30">
         <div className="max-w-6xl mx-auto">
-          <AnimatedSection disabled={true}>
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">Why Follow Our Technical Series?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                <div className="w-12 h-12 rounded-lg bg-blue-600/10 flex items-center justify-center mb-4">
-                  <BookOpen className="w-6 h-6 text-blue-400" />
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Why Follow Our Technical Series?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: <BookOpen className="w-6 h-6 text-blue-400" />,
+                title: 'Structured Learning',
+                description: 'Each series follows a logical progression from fundamentals to advanced topics, ensuring comprehensive understanding.'
+              },
+              {
+                icon: <Target className="w-6 h-6 text-green-400" />,
+                title: 'Practical Application',
+                description: 'Real-world examples, case studies, and implementation strategies you can apply directly to your manufacturing operations.'
+              },
+              {
+                icon: <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+                title: 'Industry Standards',
+                description: 'Content aligned with AS9100, ISO standards, and industry best practices for aerospace and precision manufacturing.'
+              }
+            ].map((benefit, index) => (
+              <AnimatedSection key={benefit.title} delay={index * 0.1}>
+                <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                  <div className="w-12 h-12 rounded-lg bg-blue-600/10 flex items-center justify-center mb-4">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
+                  <p className="text-slate-400">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Structured Learning</h3>
-                <p className="text-slate-400">
-                  Each series follows a logical progression from fundamentals to advanced topics, ensuring comprehensive
-                  understanding.
-                </p>
-              </div>
-
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                <div className="w-12 h-12 rounded-lg bg-green-600/10 flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Practical Application</h3>
-                <p className="text-slate-400">
-                  Real-world examples, case studies, and implementation strategies you can apply directly to your
-                  manufacturing operations.
-                </p>
-              </div>
-
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                <div className="w-12 h-12 rounded-lg bg-purple-600/10 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Industry Standards</h3>
-                <p className="text-slate-400">
-                  Content aligned with AS9100, ISO standards, and industry best practices for aerospace and precision
-                  manufacturing.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
     </div>

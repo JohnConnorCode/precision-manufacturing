@@ -95,6 +95,54 @@ export interface TechnicalArticle {
 
 const articlesDirectory = path.join(process.cwd(), 'content/technical-articles');
 
+// Transform Sanity portable text blocks to simple content structure
+function transformContent(rawContent: any[]): any[] {
+  if (!rawContent) return [];
+
+  return rawContent.map((block: any) => {
+    // Handle Sanity blocks
+    if (block._type === 'block') {
+      const textContent = block.children?.map((child: any) => child.text).join('') || '';
+
+      if (block.style === 'h2') {
+        return { type: 'heading', content: textContent };
+      } else if (block.style === 'h3') {
+        return { type: 'subheading', content: textContent };
+      } else if (block.style === 'normal') {
+        return { type: 'paragraph', content: textContent };
+      }
+    }
+
+    // Handle list items
+    if (block._type === 'list') {
+      return {
+        type: 'list',
+        items: block.items || []
+      };
+    }
+
+    // Handle callout boxes
+    if (block._type === 'calloutBox') {
+      return {
+        type: 'callout',
+        style: block.type || 'info',
+        content: block.content || ''
+      };
+    }
+
+    // Handle code blocks
+    if (block._type === 'code') {
+      return {
+        type: 'code',
+        content: block.code || ''
+      };
+    }
+
+    // Pass through or return null for unsupported types
+    return block;
+  }).filter(Boolean);
+}
+
 // Transform raw JSON to our interface
 function transformArticle(raw: RawTechnicalArticle): TechnicalArticle {
   // Extract overview from content (first paragraph block)
@@ -128,7 +176,7 @@ function transformArticle(raw: RawTechnicalArticle): TechnicalArticle {
       learningObjectives: raw.learningObjectives || [],
       prerequisites: raw.prerequisites || [],
     },
-    content: raw.content || [],
+    content: transformContent(raw.content || []),
     relatedContent: {
       relatedServices: raw.relatedContent?.relatedServices || [],
       relatedCaseStudies: raw.relatedContent?.relatedCaseStudies || [],

@@ -106,10 +106,10 @@ export default function CTA({ data }: CTAProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-blue-600/20 bg-blue-600/5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-blue-600/20 bg-gradient-to-r from-blue-600/5 to-indigo-600/5 backdrop-blur-sm"
           >
-            <Activity className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium text-blue-500">30 Years of Aerospace Excellence</span>
+            <Activity className="w-4 h-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500" />
+            <span className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">30 Years of Aerospace Excellence</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -160,7 +160,7 @@ export default function CTA({ data }: CTAProps) {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-colors"
             >
-              <Shield className="w-4 h-4 text-blue-500" />
+              <Shield className="w-4 h-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500" />
               <span className="text-sm font-medium text-slate-300">ITAR Registered</span>
             </motion.div>
 
@@ -171,7 +171,7 @@ export default function CTA({ data }: CTAProps) {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="group flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-colors"
             >
-              <Award className="w-4 h-4 text-blue-500" />
+              <Award className="w-4 h-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500" />
               <span className="text-sm font-medium text-slate-300">AS9100D</span>
             </motion.div>
           </div>
@@ -186,7 +186,7 @@ export default function CTA({ data }: CTAProps) {
           >
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <span>Trusted by leading</span>
-              <span className="font-semibold text-blue-500">aerospace & defense</span>
+              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">aerospace & defense</span>
               <span>contractors worldwide</span>
             </div>
           </motion.div>

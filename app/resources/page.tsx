@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Clock, BookOpen, Eye } from 'lucide-react';
 import { PremiumButton } from '@/components/ui/premium-button';
@@ -67,9 +64,8 @@ export default async function ResourcesPage() {
                 {featuredResources.slice(0, 3).map((resource, index) => (
                   <AnimatedSection key={resource._id} delay={index * 0.1}>
                     <Link href={`/resources/${resource.category}/${resource.slug.current}`}>
-                      <motion.article
-                        className="group h-full bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300"
-                        whileHover={{ y: -4, scale: 1.02 }}
+                      <article
+                        className="group h-full bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                       >
                         <div className="flex items-center justify-between mb-4">
                           <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -98,7 +94,7 @@ export default async function ResourcesPage() {
                             <Eye className="w-4 h-4 ml-1" />
                           </div>
                         </div>
-                      </motion.article>
+                      </article>
                     </Link>
                   </AnimatedSection>
                 ))}
@@ -121,9 +117,8 @@ export default async function ResourcesPage() {
                 return (
                   <AnimatedSection key={slug} delay={index * 0.1}>
                     <Link href={`/resources/${slug}`}>
-                      <motion.div
-                        className="group bg-slate-900/50 border border-slate-800 rounded-xl p-8 hover:border-blue-600/50 transition-all duration-300 h-full"
-                        whileHover={{ y: -4 }}
+                      <div
+                        className="group bg-slate-900/50 border border-slate-800 rounded-xl p-8 hover:border-blue-600/50 transition-all duration-300 h-full hover:-translate-y-1"
                       >
                         <div className="flex items-start justify-between mb-4">
                           <BookOpen className="w-8 h-8 text-blue-600" />
@@ -153,7 +148,7 @@ export default async function ResourcesPage() {
                           Browse Category
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </div>
-                      </motion.div>
+                      </div>
                     </Link>
                   </AnimatedSection>
                 );
@@ -172,9 +167,8 @@ export default async function ResourcesPage() {
               {allResources.slice(0, 9).map((resource, index) => (
                 <AnimatedSection key={resource._id} delay={index * 0.05}>
                   <Link href={`/resources/${resource.category}/${resource.slug.current}`}>
-                    <motion.article
-                      className="group h-full bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300"
-                      whileHover={{ y: -2 }}
+                    <article
+                      className="group h-full bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300 hover:-translate-y-1"
                     >
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-blue-400 text-xs uppercase tracking-wide">
@@ -202,7 +196,7 @@ export default async function ResourcesPage() {
                           {resource.readTime}
                         </div>
                       </div>
-                    </motion.article>
+                    </article>
                   </Link>
                 </AnimatedSection>
               ))}

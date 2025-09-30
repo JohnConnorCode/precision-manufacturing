@@ -3,6 +3,7 @@ import TechnicalSpecs from '@/components/sections/TechnicalSpecs';
 import Services from '@/components/sections/Services';
 import Industries from '@/components/sections/Industries';
 import ImageShowcase from '@/components/sections/ImageShowcase';
+import Resources from '@/components/sections/Resources';
 import Stats from '@/components/sections/Stats';
 import CTA from '@/components/sections/CTA';
 import { getHomePage } from '@/lib/sanity-pages';
@@ -67,6 +68,7 @@ export default async function Home() {
       <Services data={homeData?.services} />
       <Industries data={homeData?.industries} />
       <ImageShowcase data={homeData?.imageShowcase} />
+      <Resources />
       <Stats data={homeData?.stats} />
       <CTA data={homeData?.cta} />
     </>
