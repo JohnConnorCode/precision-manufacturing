@@ -73,59 +73,69 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(59, 130, 246) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
       {/* Breadcrumb and Back Navigation */}
-      <section className="py-8 px-4 border-b border-slate-800">
+      <section className="relative py-8 px-4 border-b border-blue-600/10">
         <div className="max-w-4xl mx-auto">
-          {article.metadata.series ? (
-            <>
-              <Link
-                href={`/resources/series/${article.metadata.series.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')}`}
-                className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-4"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to {article.metadata.series}
-              </Link>
-              <nav className="text-sm text-slate-500">
-                <Link href="/resources" className="hover:text-blue-400 transition-colors">Resources</Link>
-                <span className="mx-2">/</span>
-                <Link href="/resources/series" className="hover:text-blue-400 transition-colors">Series</Link>
-                <span className="mx-2">/</span>
+          <AnimatedSection delay={0}>
+            {article.metadata.series && article.metadata.seriesSlug ? (
+              <>
                 <Link
-                  href={`/resources/series/${article.metadata.series.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')}`}
-                  className="hover:text-blue-400 transition-colors"
+                  href={`/resources/series/${article.metadata.seriesSlug}`}
+                  className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-4"
                 >
-                  {article.metadata.series}
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to {article.metadata.series}
                 </Link>
-                <span className="mx-2">/</span>
-                <span className="text-slate-300">Article {article.metadata.seriesOrder}</span>
-              </nav>
-            </>
-          ) : (
-            <>
-              <Link href="/resources" className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Resources
-              </Link>
-              <nav className="text-sm text-slate-500">
-                <Link href="/resources" className="hover:text-blue-400 transition-colors">Resources</Link>
-                <span className="mx-2">/</span>
-                <span className="text-slate-300">{article.metadata.category}</span>
-              </nav>
-            </>
-          )}
+                <nav className="text-sm text-slate-500">
+                  <Link href="/resources" className="hover:text-blue-400 transition-colors">Resources</Link>
+                  <span className="mx-2">/</span>
+                  <Link href="/resources/series" className="hover:text-blue-400 transition-colors">Series</Link>
+                  <span className="mx-2">/</span>
+                  <Link
+                    href={`/resources/series/${article.metadata.seriesSlug}`}
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    {article.metadata.series}
+                  </Link>
+                  <span className="mx-2">/</span>
+                  <span className="text-slate-300">Article {article.metadata.seriesOrder}</span>
+                </nav>
+              </>
+            ) : (
+              <>
+                <Link href="/resources" className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-4">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Resources
+                </Link>
+                <nav className="text-sm text-slate-500">
+                  <Link href="/resources" className="hover:text-blue-400 transition-colors">Resources</Link>
+                  <span className="mx-2">/</span>
+                  <span className="text-slate-300">{article.metadata.category}</span>
+                </nav>
+              </>
+            )}
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Article Header */}
-      <section className="py-12 px-4">
+      <section className="relative py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
+          <AnimatedSection delay={0.1}>
             {/* Meta Information */}
             <div className="flex flex-wrap gap-3 mb-6">
-              {article.metadata.series && (
+              {article.metadata.series && article.metadata.seriesSlug && (
                 <Link
-                  href={`/resources/series/${article.metadata.series.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')}`}
-                  className="bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-600/20 hover:bg-blue-600/20 transition-colors"
+                  href={`/resources/series/${article.metadata.seriesSlug}`}
+                  className="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-600/20 hover:border-blue-600/40 transition-colors"
                 >
                   {article.metadata.series} • Part {article.metadata.seriesOrder}
                 </Link>
@@ -134,12 +144,16 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                 {article.metadata.difficulty}
               </span>
             </div>
+          </AnimatedSection>
 
+          <AnimatedSection delay={0.2}>
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-500 leading-tight">
               {article.metadata.title}
             </h1>
+          </AnimatedSection>
 
+          <AnimatedSection delay={0.3}>
             {/* Excerpt */}
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               {article.metadata.excerpt}
@@ -165,14 +179,16 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       </section>
 
       {/* Introduction Section */}
-      <section className="py-8 px-4">
+      <section className="relative py-8 px-4 bg-slate-900/30">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {/* Learning Objectives */}
-            <AnimatedSection delay={0.1} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.5} className="bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Target className="w-5 h-5 text-blue-400" />
-                <h2 className="text-xl font-bold text-white">Learning Objectives</h2>
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <Target className="w-5 h-5 text-blue-400" />
+                </div>
+                <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Learning Objectives</h2>
               </div>
               <ul className="space-y-3">
                 {article.introduction.learningObjectives.map((objective, index) => (
@@ -185,10 +201,12 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
             </AnimatedSection>
 
             {/* Target Audience & Prerequisites */}
-            <AnimatedSection delay={0.2} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.6} className="bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Users className="w-5 h-5 text-blue-400" />
-                <h2 className="text-xl font-bold text-white">Target Audience</h2>
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-blue-400" />
+                </div>
+                <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Target Audience</h2>
               </div>
               <ul className="space-y-2 mb-6">
                 {article.metadata.targetAudience.map((audience, index) => (
@@ -216,8 +234,8 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
           </div>
 
           {/* Overview */}
-          <AnimatedSection delay={0.3} className="bg-gradient-to-r from-blue-600/5 to-indigo-600/5 border border-blue-600/10 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
+          <AnimatedSection delay={0.7} className="bg-gradient-to-r from-blue-600/5 to-indigo-600/5 border border-blue-600/10 rounded-xl p-8 mb-12">
+            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">Overview</h2>
             <div className="text-slate-300 leading-relaxed prose prose-invert max-w-none">
               {article.introduction.overview.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-4 last:mb-0">{paragraph}</p>
@@ -228,9 +246,9 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       </section>
 
       {/* Main Content */}
-      <section className="py-8 px-4">
+      <section className="relative py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection delay={0.4}>
+          <AnimatedSection delay={0.8}>
             <article className="prose prose-invert prose-lg max-w-none">
               <div className="text-slate-300 leading-relaxed space-y-8">
                 {article.content.map((section: any, index: number) => (
@@ -284,9 +302,9 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
       </section>
 
       {/* Tags */}
-      <section className="py-8 px-4">
+      <section className="relative py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection delay={0.5}>
+          <AnimatedSection delay={0.9}>
             <div className="flex items-center gap-3 mb-4">
               <Tag className="w-5 h-5 text-slate-400" />
               <h2 className="text-lg font-bold text-white">Tags</h2>
@@ -304,15 +322,15 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
 
       {/* Series Navigation */}
       {seriesArticles.length > 1 && (
-        <section className="py-12 px-4 bg-slate-900/30 border-y border-slate-800">
+        <section className="relative py-12 px-4 bg-slate-900/30 border-y border-blue-600/10">
           <div className="max-w-4xl mx-auto">
-            <AnimatedSection delay={0.6}>
-              <h2 className="text-2xl font-bold text-white mb-6">Series Navigation</h2>
+            <AnimatedSection delay={1.0}>
+              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-6">Series Navigation</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {previousArticle && (
                   <Link href={`/resources/technical-articles/${previousArticle.metadata.slug}`}>
                     <div
-                      className="group bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300 hover:-translate-x-1"
+                      className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-300 hover:-translate-x-1"
                     >
                       <div className="text-slate-400 text-sm mb-2">← Previous</div>
                       <h3 className="text-white font-bold mb-1 group-hover:text-blue-400 transition-colors">
@@ -328,7 +346,7 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                 {nextArticle && (
                   <Link href={`/resources/technical-articles/${nextArticle.metadata.slug}`}>
                     <div
-                      className="group bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300 md:col-start-2 hover:translate-x-1"
+                      className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-300 md:col-start-2 hover:translate-x-1"
                     >
                       <div className="text-slate-400 text-sm mb-2 text-right">Next →</div>
                       <h3 className="text-white font-bold mb-1 text-right group-hover:text-blue-400 transition-colors">
@@ -348,15 +366,17 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
 
       {/* Related Articles */}
       {article.relatedContent.relatedArticles && article.relatedContent.relatedArticles.length > 0 && (
-        <section className="py-12 px-4">
+        <section className="relative py-12 px-4">
           <div className="max-w-4xl mx-auto">
-            <AnimatedSection disabled={true}>
-              <h2 className="text-2xl font-bold text-white mb-6">Related Articles</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {article.relatedContent.relatedArticles.map((related, index) => (
-                  <Link key={related.slug} href={`/resources/technical-articles/${related.slug}`}>
+            <AnimatedSection delay={1.1}>
+              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-6">Related Articles</h2>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {article.relatedContent.relatedArticles.map((related, index) => (
+                <AnimatedSection key={related.slug} delay={1.2 + index * 0.1}>
+                  <Link href={`/resources/technical-articles/${related.slug}`}>
                     <div
-                      className="group bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300 h-full hover:-translate-y-1"
+                      className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-300 h-full hover:-translate-y-1"
                     >
                       <h3 className="text-white font-bold mb-2 group-hover:text-blue-400 transition-colors line-clamp-2">
                         {related.title}
@@ -370,22 +390,22 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                       </div>
                     </div>
                   </Link>
-                ))}
-              </div>
-            </AnimatedSection>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-slate-900/30">
+      <section className="relative py-16 px-4 bg-slate-900/30">
         <div className="max-w-4xl mx-auto text-center">
-          <AnimatedSection disabled={true}>
+          <AnimatedSection delay={1.5}>
             <div className="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 rounded-2xl p-12">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
                 Need Help Implementing These Strategies?
               </h2>
-              <p className="text-xl text-slate-400 mb-8">
+              <p className="text-xl text-slate-300 mb-8">
                 Our technical experts are ready to provide personalized guidance for your precision
                 manufacturing and quality control challenges.
               </p>
@@ -395,8 +415,8 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                     Get Technical Support
                   </PremiumButton>
                 </Link>
-                {article.metadata.series && (
-                  <Link href={`/resources/series/${article.metadata.series.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')}`}>
+                {article.metadata.series && article.metadata.seriesSlug && (
+                  <Link href={`/resources/series/${article.metadata.seriesSlug}`}>
                     <PremiumButton size="lg" variant="secondary">
                       View Full Series
                     </PremiumButton>

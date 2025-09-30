@@ -74,53 +74,78 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(59, 130, 246) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
       {/* Breadcrumb and Back Navigation */}
-      <section className="py-8 px-4 border-b border-slate-800">
+      <section className="relative py-8 px-4 border-b border-blue-600/10">
         <div className="max-w-6xl mx-auto">
-          <Link href="/resources" className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-4">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Resources
-          </Link>
-          <nav className="text-sm text-slate-500">
-            <Link href="/resources" className="hover:text-blue-400 transition-colors">Resources</Link>
-            <span className="mx-2">/</span>
-            <Link href="/resources#series" className="hover:text-blue-400 transition-colors">Series</Link>
-            <span className="mx-2">/</span>
-            <span className="text-slate-300">{series.title}</span>
-          </nav>
+          <AnimatedSection delay={0}>
+            <Link href="/resources" className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-4">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Resources
+            </Link>
+            <nav className="text-sm text-slate-500">
+              <Link href="/resources" className="hover:text-blue-400 transition-colors">Resources</Link>
+              <span className="mx-2">/</span>
+              <Link href="/resources/series" className="hover:text-blue-400 transition-colors">Series</Link>
+              <span className="mx-2">/</span>
+              <span className="text-slate-300">{series.title}</span>
+            </nav>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Series Header */}
-      <section className="py-16 px-4">
+      <section className="relative py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <AnimatedSection disabled={true}>
+          <AnimatedSection delay={0.1}>
             <div className="mb-6">
-              <span className="inline-block bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-600/20">
-                {series.articleCount}-Part Series
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-600/20">
+                <BookOpen className="w-4 h-4 text-blue-400" />
+                {series.articleCount}-Part Technical Series
               </span>
             </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
             <h1 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-500">
                 {series.title}
               </span>
             </h1>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
             <p className="text-xl text-slate-300 max-w-4xl mb-8 leading-relaxed">
               {series.description}
             </p>
+          </AnimatedSection>
 
+          <AnimatedSection delay={0.4}>
             {/* Series Stats */}
             <div className="flex flex-wrap gap-6 text-slate-400">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-blue-400" />
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <BookOpen className="w-4 h-4 text-blue-400" />
+                </div>
                 <span>{series.articleCount} articles</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-blue-400" />
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-blue-400" />
+                </div>
                 <span>~{series.totalReadTime} min total</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                </div>
                 <span>Professional certification-aligned</span>
               </div>
             </div>
@@ -129,14 +154,16 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
       </section>
 
       {/* Series Overview Grid */}
-      <section className="py-12 px-4">
+      <section className="relative py-12 px-4 bg-slate-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Learning Objectives */}
-            <AnimatedSection disabled={true} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.5} className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Target className="w-6 h-6 text-blue-400" />
-                <h3 className="text-lg font-bold text-white">What You'll Learn</h3>
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <Target className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">What You'll Learn</h3>
               </div>
               <ul className="space-y-2">
                 {allLearningObjectives.map((objective, index) => (
@@ -149,10 +176,12 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
             </AnimatedSection>
 
             {/* Target Audience */}
-            <AnimatedSection disabled={true} delay={0.1} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.6} className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Users className="w-6 h-6 text-blue-400" />
-                <h3 className="text-lg font-bold text-white">Target Audience</h3>
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Target Audience</h3>
               </div>
               <ul className="space-y-2">
                 {targetAudiences.map((audience, index) => (
@@ -165,10 +194,12 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
             </AnimatedSection>
 
             {/* Industries */}
-            <AnimatedSection disabled={true} delay={0.2} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <AnimatedSection delay={0.7} className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-6 hover:border-blue-600/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Briefcase className="w-6 h-6 text-blue-400" />
-                <h3 className="text-lg font-bold text-white">Industries</h3>
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Industries</h3>
               </div>
               <ul className="space-y-2">
                 {industries.map((industry, index) => (
@@ -184,17 +215,20 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
       </section>
 
       {/* Series Articles */}
-      <section className="py-12 px-4">
+      <section className="relative py-12 px-4">
         <div className="max-w-6xl mx-auto">
-          <AnimatedSection disabled={true}>
-            <h2 className="text-3xl font-bold text-white mb-8">Series Articles</h2>
-            <div className="space-y-6">
-              {series.articles.map((article, index) => (
-                <AnimatedSection disabled={true} key={article.metadata.slug} delay={index * 0.1}>
-                  <Link href={`/resources/technical-articles/${article.metadata.slug}`}>
-                    <article
-                      className="group bg-slate-900/50 border border-slate-800 rounded-xl p-8 hover:border-blue-600/50 transition-all duration-300 hover:translate-x-2 hover:scale-[1.01]"
-                    >
+          <AnimatedSection delay={0.8}>
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-8">
+              Series Articles
+            </h2>
+          </AnimatedSection>
+          <div className="space-y-6">
+            {series.articles.map((article, index) => (
+              <AnimatedSection key={article.metadata.slug} delay={0.9 + index * 0.1}>
+                <Link href={`/resources/technical-articles/${article.metadata.slug}`}>
+                  <article
+                    className="group bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-blue-600/10 rounded-xl p-8 hover:border-blue-600/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-300 hover:translate-x-2 hover:scale-[1.01]"
+                  >
                       <div className="flex items-start gap-6">
                         {/* Article Number */}
                         <div className="flex-shrink-0">
@@ -263,7 +297,6 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
                 </AnimatedSection>
               ))}
             </div>
-          </AnimatedSection>
         </div>
       </section>
 
