@@ -1,13 +1,16 @@
 'use server';
 
 import { z } from 'zod';
+import { sendContactEmail, ContactFormData } from '@/lib/email';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
   company: z.string().min(2, 'Company name must be at least 2 characters'),
   phone: z.string().optional(),
-  interest: z.enum(['general', 'quote', 'partnership', 'supplier', 'career']),
+  interest: z.enum(['general', 'quote', 'partnership', 'supplier', 'career', 'technical']),
+  projectType: z.string().optional(),
+  timeline: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
@@ -18,22 +21,31 @@ export async function submitContactForm(formData: FormData) {
     company: formData.get('company'),
     phone: formData.get('phone') || undefined,
     interest: formData.get('interest'),
+    projectType: formData.get('projectType') || undefined,
+    timeline: formData.get('timeline') || undefined,
     message: formData.get('message'),
   };
 
   try {
     const validatedData = contactSchema.parse(rawData);
 
-    // Here you would typically:
-    // 1. Save to Sanity CMS
-    // 2. Send email notification
-    // 3. Add to CRM
+    // Send email notification
+    const emailResult = await sendContactEmail(validatedData as ContactFormData);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    if (!emailResult.success) {
+      // Log error but still show success to user (to prevent exposing email issues)
+      console.error('Email send failed:', emailResult.error);
 
-    // For now, just log the data
-    console.error('Contact form submission:', validatedData);
+      // In production, you might want to save to a database as backup
+      // await saveToDatabase(validatedData);
+    }
+
+    // Log submission for analytics
+    console.log('Contact form submission:', {
+      timestamp: new Date().toISOString(),
+      company: validatedData.company,
+      interest: validatedData.interest,
+    });
 
     return {
       success: true,
@@ -48,9 +60,11 @@ export async function submitContactForm(formData: FormData) {
       };
     }
 
+    console.error('Contact form error:', error);
+
     return {
       success: false,
-      message: 'An error occurred. Please try again.',
+      message: 'An error occurred. Please try again or call us at (503) 231-9093.',
     };
   }
 }

@@ -39,6 +39,8 @@ interface PremiumButtonProps
   shimmer?: boolean
   magneticHover?: boolean
   ripple?: boolean
+  loading?: boolean
+  loadingText?: string
 }
 
 export const PremiumButton = React.forwardRef<
@@ -51,13 +53,18 @@ export const PremiumButton = React.forwardRef<
   shimmer = true,
   magneticHover: _magneticHover = false,
   ripple = false,
+  loading = false,
+  loadingText = "Loading...",
   children,
   onClick,
+  disabled,
   ...props
 }, ref) => {
   const [ripples, setRipples] = React.useState<{ x: number; y: number; id: number }[]>([])
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (loading) return;
+
     if (ripple) {
       const rect = event.currentTarget.getBoundingClientRect()
       const x = event.clientX - rect.left
@@ -86,6 +93,7 @@ export const PremiumButton = React.forwardRef<
       }}
       whileTap={{ scale: 0.99 }}
       onClick={handleClick}
+      disabled={disabled || loading}
       {...props}
     >
       {/* Shimmer effect */}
@@ -142,7 +150,18 @@ export const PremiumButton = React.forwardRef<
 
       {/* Content */}
       <span className="relative z-10 flex items-center gap-2">
-        {children as React.ReactNode}
+        {loading ? (
+          <>
+            <motion.div
+              className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            />
+            <span>{loadingText}</span>
+          </>
+        ) : (
+          children as React.ReactNode
+        )}
       </span>
     </motion.button>
   )
