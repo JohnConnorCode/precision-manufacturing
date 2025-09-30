@@ -1,15 +1,22 @@
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Clock, ArrowLeft, Eye, BookOpen } from 'lucide-react';
 import { PremiumButton } from '@/components/ui/premium-button';
 import AnimatedSection from '@/components/ui/animated-section';
 import { notFound } from 'next/navigation';
-import { getArticlesByCategory, getCategoryInfo } from '@/lib/content';
+import { getArticlesByCategory, getCategoryInfo, getAllCategories } from '@/lib/content';
 
 interface CategoryPageProps {
   params: Promise<{
     category: string;
   }>;
+}
+
+// Generate static paths for all categories
+export async function generateStaticParams() {
+  const categories = getAllCategories();
+  return categories.map((category) => ({
+    category: category.slug,
+  }));
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
@@ -77,9 +84,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <AnimatedSection>
               <h2 className="text-2xl font-bold text-white mb-8">Featured Article</h2>
               <Link href={`/resources/${resolvedParams.category}/${featuredArticle.slug}`}>
-                <motion.div
+                <div
                   className="group bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 rounded-2xl p-8 hover:border-blue-600/50 transition-all duration-300"
-                  whileHover={{ y: -4 }}
+                  
                 >
                   <div className="flex items-start justify-between mb-4">
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -117,7 +124,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       <BookOpen className="w-4 h-4 ml-2" />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </Link>
             </AnimatedSection>
           </div>
@@ -133,9 +140,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               {articles.map((article, index) => (
                 <AnimatedSection key={article.slug} delay={index * 0.1}>
                   <Link href={`/resources/${resolvedParams.category}/${article.slug}`}>
-                    <motion.article
+                    <article
                       className="group h-full bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-600/50 transition-all duration-300"
-                      whileHover={{ y: -4, scale: 1.02 }}
+                      
                     >
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2 text-slate-400 text-sm">
@@ -172,7 +179,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                           <Eye className="w-4 h-4 ml-1" />
                         </div>
                       </div>
-                    </motion.article>
+                    </article>
                   </Link>
                 </AnimatedSection>
               ))}

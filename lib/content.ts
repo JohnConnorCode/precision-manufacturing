@@ -142,3 +142,6 @@ export const categoryInfo = {
 export function getCategoryInfo(slug: string) {
   return categoryInfo[slug as keyof typeof categoryInfo] || null;
 }
+export function getAllCategories() {
+  return Object.values(categoryInfo);
+}

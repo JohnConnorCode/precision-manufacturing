@@ -285,13 +285,85 @@ export default async function TechnicalArticlePage({ params }: TechnicalArticleP
                         section.style === 'info' ? 'bg-blue-600/10 border-blue-600/20' :
                         'bg-slate-800/50 border-slate-700'
                       }`}>
+                        {section.title && <h4 className="text-lg font-bold text-white mb-2">{section.title}</h4>}
                         <p className="text-slate-200 font-medium">{section.content}</p>
                       </div>
                     )}
                     {section.type === 'code' && (
-                      <pre className="bg-slate-950 border border-slate-800 rounded-xl p-6 overflow-x-auto">
+                      <pre className="bg-slate-950 border border-slate-800 rounded-xl p-6 overflow-x-auto my-6">
                         <code className="text-slate-300 text-sm">{section.content}</code>
                       </pre>
+                    )}
+                    {section.type === 'table' && (
+                      <div className="my-8">
+                        {section.title && <h4 className="text-xl font-bold text-white mb-2">{section.title}</h4>}
+                        {section.description && <p className="text-slate-400 mb-4">{section.description}</p>}
+                        <div className="overflow-x-auto">
+                          <table className="w-full border-collapse border border-slate-700 rounded-lg">
+                            <thead>
+                              <tr className="bg-slate-800">
+                                {section.headers.map((header: string, idx: number) => (
+                                  <th key={idx} className="border border-slate-700 px-4 py-3 text-left text-sm font-semibold text-blue-400">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.rows.map((row: string[], rowIdx: number) => (
+                                <tr key={rowIdx} className="hover:bg-slate-800/50 transition-colors">
+                                  {row.map((cell: string, cellIdx: number) => (
+                                    <td key={cellIdx} className="border border-slate-700 px-4 py-3 text-sm text-slate-300">
+                                      {cell}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+                    {section.type === 'specs' && (
+                      <div className="my-8 bg-slate-900/50 border border-blue-600/20 rounded-xl p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {section.specs.map((spec: any, idx: number) => (
+                            <div key={idx} className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                              <span className="text-slate-400 text-sm">{spec.label}</span>
+                              <span className="text-white font-semibold">
+                                {spec.value} <span className="text-slate-500 text-sm">{spec.unit}</span>
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {section.type === 'process' && (
+                      <div className="my-8">
+                        {section.title && <h4 className="text-xl font-bold text-white mb-4">{section.title}</h4>}
+                        <div className="space-y-4">
+                          {section.steps.map((step: any, idx: number) => (
+                            <div key={idx} className="flex gap-4 items-start bg-slate-900/50 border border-blue-600/10 rounded-xl p-6">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">
+                                {idx + 1}
+                              </div>
+                              <div className="flex-1">
+                                <h5 className="text-lg font-bold text-white mb-2">{step.title || `Step ${idx + 1}`}</h5>
+                                <p className="text-slate-300">{step.description || step.content}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {section.type === 'cta' && (
+                      <div className="my-8 text-center">
+                        <Link href={section.href}>
+                          <PremiumButton size="lg">
+                            {section.text}
+                          </PremiumButton>
+                        </Link>
+                      </div>
                     )}
                   </div>
                 ))}

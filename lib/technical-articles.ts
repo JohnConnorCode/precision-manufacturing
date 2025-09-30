@@ -100,7 +100,7 @@ function transformContent(rawContent: any[]): any[] {
   if (!rawContent) return [];
 
   return rawContent.map((block: any) => {
-    // Handle Sanity blocks
+    // Handle Sanity blocks (paragraphs, headings)
     if (block._type === 'block') {
       const textContent = block.children?.map((child: any) => child.text).join('') || '';
 
@@ -108,7 +108,7 @@ function transformContent(rawContent: any[]): any[] {
         return { type: 'heading', content: textContent };
       } else if (block.style === 'h3') {
         return { type: 'subheading', content: textContent };
-      } else if (block.style === 'normal') {
+      } else if (block.style === 'normal' && textContent.trim()) {
         return { type: 'paragraph', content: textContent };
       }
     }
@@ -126,6 +126,7 @@ function transformContent(rawContent: any[]): any[] {
       return {
         type: 'callout',
         style: block.type || 'info',
+        title: block.title || '',
         content: block.content || ''
       };
     }
@@ -134,12 +135,51 @@ function transformContent(rawContent: any[]): any[] {
     if (block._type === 'code') {
       return {
         type: 'code',
+        language: block.language || 'text',
         content: block.code || ''
       };
     }
 
-    // Pass through or return null for unsupported types
-    return block;
+    // Handle tolerance tables
+    if (block._type === 'toleranceTable') {
+      return {
+        type: 'table',
+        title: block.title || '',
+        description: block.description || '',
+        headers: block.headers || [],
+        rows: block.rows || []
+      };
+    }
+
+    // Handle technical specs
+    if (block._type === 'technicalSpecs') {
+      return {
+        type: 'specs',
+        specs: block.specs || []
+      };
+    }
+
+    // Handle process flows
+    if (block._type === 'processFlow') {
+      return {
+        type: 'process',
+        title: block.title || '',
+        steps: block.steps || []
+      };
+    }
+
+    // Handle CTA buttons
+    if (block._type === 'ctaButton') {
+      return {
+        type: 'cta',
+        text: block.text || '',
+        href: block.href || '#',
+        style: block.style || 'primary'
+      };
+    }
+
+    // Return null for empty or unsupported blocks
+    return null;
   }).filter(Boolean);
 }
 
