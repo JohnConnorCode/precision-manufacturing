@@ -111,7 +111,7 @@ export default function Hero({ data }: HeroProps) {
                 {mainTitle}
               </motion.span>
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
@@ -160,7 +160,7 @@ export default function Hero({ data }: HeroProps) {
           >
             <Button
               size="lg"
-              className="group w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-2xl shadow-blue-600/20 hover:shadow-blue-700/30 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
+              className="group w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:via-blue-400 hover:to-indigo-500 text-white font-semibold shadow-2xl shadow-blue-600/20 hover:shadow-blue-600/40 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
               asChild
             >
               <Link href={ctaPrimary.href}>

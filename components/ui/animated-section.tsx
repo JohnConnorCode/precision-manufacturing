@@ -34,7 +34,6 @@ export default function AnimatedSection({
 
   const animationVariants = {
     ...fadeInUp,
-    initial: { opacity: 1, y: 0 }, // Start visible for progressive enhancement
     animate: {
       ...(typeof fadeInUp.animate === 'object' && fadeInUp.animate !== null ? fadeInUp.animate : {}),
       transition: {
@@ -57,7 +56,6 @@ export default function AnimatedSection({
       className={cn(className)}
       {...animationProps}
       {...motionProps}
-      style={{ opacity: 1 }} // Ensure visible by default
     >
       {children}
     </motion.div>

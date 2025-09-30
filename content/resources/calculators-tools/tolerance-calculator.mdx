@@ -22,9 +22,16 @@ Understanding and calculating precise tolerances is crucial for aerospace and pr
 
 Use this calculator to determine tolerances for your precision manufacturing projects:
 
-<InteractiveDemo title="ISO 286 Tolerance Calculator">
-<ToleranceCalculator />
-</InteractiveDemo>
+**ISO 286 Tolerance Calculator**
+
+*Note: This is a reference guide. For precision calculations, contact our engineering team for assistance.*
+
+| Input Parameter | Description | Example |
+|----------------|-------------|---------|
+| Nominal Size | Base dimension in mm | 50.000 mm |
+| IT Grade | Tolerance class (IT01-IT18) | IT7 |
+| Fit Type | Deviation letter (e, f, g, h, j, k, m, n, p) | h6 |
+| Temperature | Operating temperature range | 20°C ±2°C |
 
 ## Understanding ISO 286 Tolerances
 
@@ -41,12 +48,13 @@ Tolerances define the permissible variation in dimensions during manufacturing. 
 
 The International Tolerance (IT) grade system defines precision levels:
 
-<TechnicalSpecs specs={[
-  { label: "IT01", value: "±0.0005", unit: "mm - Ultra precision" },
-  { label: "IT1-IT3", value: "±0.0008-0.003", unit: "mm - Gauge making" },
-  { label: "IT4-IT6", value: "±0.005-0.012", unit: "mm - High precision" },
-  { label: "IT7-IT8", value: "±0.019-0.030", unit: "mm - Standard precision" }
-]} />
+| IT Grade | Tolerance Range | Typical Applications |
+|----------|----------------|---------------------|
+| IT01 | ±0.0005 mm | Ultra precision gauges, master standards |
+| IT1-IT3 | ±0.0008-0.003 mm | Gauge blocks, precision measuring tools |
+| IT4-IT6 | ±0.005-0.012 mm | High precision bearings, aerospace components |
+| IT7-IT8 | ±0.019-0.030 mm | Standard precision machining, automotive parts |
+| IT9-IT11 | ±0.047-0.120 mm | General machining, commercial components |
 
 ### Fundamental Deviations
 
@@ -64,13 +72,14 @@ Fundamental deviations determine the position of the tolerance zone:
 - **m, n, p**: Provide interference for permanent assembly
 - **Applications**: Press fits, permanent assemblies
 
-<CalloutBox type="tip" title="Aerospace Applications">
-For aerospace components, consider these additional factors:
-- Operating temperature ranges affecting thermal expansion
-- Material properties and their tolerance capabilities
-- AS9100 quality requirements and traceability
-- Critical vs. non-critical feature classifications
-</CalloutBox>
+**Aerospace Application Considerations**
+
+When specifying tolerances for aerospace components, account for these critical factors:
+
+- **Thermal Expansion**: Aluminum expands 23.1 µm/m/°C, titanium 8.6 µm/m/°C, steel 11.1 µm/m/°C
+- **Material Capabilities**: Aluminum alloys (7075-T6) can hold ±0.0005" with proper machining
+- **AS9100D Requirements**: Full material traceability and first article inspection per AS9102
+- **Critical Features**: Safety-critical dimensions require Cpk >1.67, non-critical features >1.33
 
 ## Practical Applications
 
@@ -91,12 +100,17 @@ For aerospace components, consider these additional factors:
 
 ## Manufacturing Considerations
 
-<CalloutBox type="warning" title="Cost vs. Precision">
-Tighter tolerances significantly increase manufacturing costs:
-- IT7 vs IT5: ~2-3x cost increase
-- IT5 vs IT3: ~5-10x cost increase
-- Consider functional requirements vs. cost impact
-</CalloutBox>
+**Cost vs. Precision Trade-offs**
+
+Tighter tolerances significantly increase manufacturing costs and lead times:
+
+| Tolerance Change | Cost Multiplier | Process Requirements | Lead Time Impact |
+|-----------------|-----------------|---------------------|------------------|
+| IT7 vs IT5 | 2-3x | Add grinding operation | +3-5 days |
+| IT5 vs IT3 | 5-10x | Precision grinding + temp control | +7-10 days |
+| IT3 vs IT1 | 15-25x | Specialized metrology + climate control | +14-21 days |
+
+**Recommendation**: Specify the loosest tolerance that meets functional requirements to optimize cost and delivery.
 
 ### Machining Capabilities
 Different processes achieve different tolerance levels:
@@ -119,12 +133,12 @@ Material properties affect achievable tolerances:
 ### Measurement Requirements
 Tolerance verification requires appropriate measurement methods:
 
-<TechnicalSpecs specs={[
-  { label: "IT7-IT8", value: "Micrometers", unit: "±0.001mm accuracy" },
-  { label: "IT5-IT6", value: "CMM/Height Gauges", unit: "±0.0005mm accuracy" },
-  { label: "IT3-IT4", value: "Precision CMM", unit: "±0.0002mm accuracy" },
-  { label: "IT1-IT2", value: "Specialized Metrology", unit: "±0.0001mm accuracy" }
-]} />
+| Tolerance Grade | Measurement Equipment | Required Accuracy | IIS Capability |
+|----------------|----------------------|-------------------|----------------|
+| IT7-IT8 | Digital micrometers, calipers | ±0.001 mm (±0.00004") | Mitutoyo digital tools |
+| IT5-IT6 | CMM, height gauges | ±0.0005 mm (±0.00002") | Zeiss Contura G2 CMM |
+| IT3-IT4 | Precision CMM, optical | ±0.0002 mm (±0.000008") | Climate-controlled lab |
+| IT1-IT2 | Laser interferometer, specialized | ±0.0001 mm (±0.000004") | NIST-traceable standards |
 
 ### Statistical Process Control
 Monitor manufacturing processes to ensure consistent quality:
@@ -148,9 +162,16 @@ Monitor manufacturing processes to ensure consistent quality:
 3. **Tool management**: Proper cutting tool selection and maintenance
 4. **Process validation**: Capability studies for critical processes
 
-<CalloutBox type="success" title="IIS Advantage">
-At IIS, we maintain temperature-controlled facilities and calibrated equipment to achieve tolerances down to ±0.0001" (±0.0025mm). Our AS9100D certification ensures consistent quality for aerospace applications.
-</CalloutBox>
+**IIS Tolerance Manufacturing Capabilities**
+
+Our precision machining facilities deliver exceptional tolerance control:
+
+- **Temperature Control**: 68°F ±2°F (20°C ±1°C) in all machining and inspection areas
+- **Achievable Tolerances**: Down to ±0.0001" (±0.0025 mm) on critical features
+- **Equipment**: Swiss-type lathes, 5-axis mills, precision grinders, all climate-controlled
+- **Inspection**: 5 CMMs including Zeiss and Mitutoyo with ±0.0001" accuracy
+- **Certifications**: AS9100D, ISO 9001:2015, ITAR registered
+- **Process Capability**: Cpk >1.67 on all aerospace critical dimensions
 
 ## Conclusion
 
@@ -163,13 +184,7 @@ Proper tolerance specification and calculation are fundamental to successful pre
 
 Ready to discuss your precision tolerance requirements? Our engineering team can help optimize your designs for manufacturability while meeting performance requirements.
 
-<CTAButton href="/contact?interest=technical">
-Consult with Our Engineers
-</CTAButton>
-
-<CTAButton href="/contact?interest=quote" variant="secondary">
-Request Precision Machining Quote
-</CTAButton>
+**Ready to get started?** [Consult with our engineers](/contact?interest=technical) or [request a precision machining quote](/contact?interest=quote).
 
 ---
 

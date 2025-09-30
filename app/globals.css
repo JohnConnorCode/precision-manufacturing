@@ -13,6 +13,14 @@
     --brand-accent: #22D3EE;
     --brand-accent-electric: #00D4FF;
 
+    /* Gradient Blues - Centralized System */
+    --gradient-blue-start: #2563eb;
+    --gradient-blue-mid: #3b82f6;
+    --gradient-blue-end: #4f46e5;
+    --gradient-blue: linear-gradient(135deg, var(--gradient-blue-start) 0%, var(--gradient-blue-mid) 50%, var(--gradient-blue-end) 100%);
+    --gradient-blue-to-indigo: linear-gradient(to right, #2563eb, #4f46e5);
+    --gradient-blue-radial: radial-gradient(circle at top, #3b82f6, #1e40af);
+
     /* Semantic Colors */
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
@@ -321,15 +329,41 @@
 
   /* Text Gradients */
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-600;
+    @apply text-transparent bg-clip-text;
+    background-image: var(--gradient-blue-to-indigo);
   }
 
   .gradient-text-primary {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-600;
+    @apply text-transparent bg-clip-text;
+    background-image: var(--gradient-blue-to-indigo);
   }
 
   .gradient-text-light {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-300;
+  }
+
+  /* Background Gradients */
+  .bg-gradient-blue {
+    background: var(--gradient-blue);
+  }
+
+  .bg-gradient-blue-to-indigo {
+    background: var(--gradient-blue-to-indigo);
+  }
+
+  .bg-gradient-blue-radial {
+    background: var(--gradient-blue-radial);
+  }
+
+  /* Button Gradients */
+  .btn-gradient-blue {
+    background: var(--gradient-blue-to-indigo);
+    @apply text-white transition-all duration-300;
+  }
+
+  .btn-gradient-blue:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
   }
 
   /* Hover Effects */

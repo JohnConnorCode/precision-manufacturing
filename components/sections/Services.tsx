@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Cog, Cpu, Gauge, Users, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
@@ -50,16 +49,8 @@ interface ServicesProps {
 }
 
 export default function Services({ data }: ServicesProps) {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
   return (
-    <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div
@@ -71,10 +62,7 @@ export default function Services({ data }: ServicesProps) {
         />
       </div>
 
-      <motion.div
-        style={{ opacity }}
-        className="container relative z-10"
-      >
+      <div className="container relative z-10">
         <AnimatedSection className="text-center mb-16 md:mb-20">
           {/* Section Context */}
           <p className="text-sm font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">
@@ -130,19 +118,11 @@ export default function Services({ data }: ServicesProps) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                       {/* Floating Icon with Premium Effect */}
-                      <motion.div
-                        className="absolute bottom-4 left-4"
-                        whileHover={{ scale: 1.05, rotate: 2 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 20
-                        }}
-                      >
-                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-600/50 transition-shadow duration-300">
+                      <div className="absolute bottom-4 left-4">
+                        <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-600/50 group-hover:scale-105 group-hover:rotate-2 transition-all duration-300">
                           <Icon className="h-6 w-6 text-blue-600" />
                         </div>
-                      </motion.div>
+                      </div>
 
                       {service.highlight && (
                         <div className="absolute top-4 right-4">
@@ -173,14 +153,9 @@ export default function Services({ data }: ServicesProps) {
 
                       <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:text-indigo-600 transition-colors duration-300">
                         <span>Learn More</span>
-                        <motion.div
-                          className="ml-1"
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 4 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                        >
+                        <div className="ml-1 group-hover:translate-x-1 transition-transform duration-300">
                           <ArrowRight className="w-4 h-4" />
-                        </motion.div>
+                        </div>
                       </div>
                     </div>
                   </Card>
@@ -203,7 +178,7 @@ export default function Services({ data }: ServicesProps) {
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </AnimatedSection>
-      </motion.div>
+      </div>
     </section>
   );
 }
