@@ -20,8 +20,8 @@ const premiumButtonVariants = cva(
           "bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-xl shadow-red-500/25 hover:shadow-2xl hover:shadow-red-500/40",
       },
       size: {
-        sm: "h-9 px-4 text-sm",
-        default: "h-11 px-6 text-base",
+        sm: "h-12 px-4 text-sm",
+        default: "h-12 px-6 text-base",
         lg: "h-14 px-10 text-lg",
         xl: "h-16 px-12 text-xl",
       },

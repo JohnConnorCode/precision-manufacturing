@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { submitContactForm } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -29,8 +29,23 @@ import {
   CheckCircle,
   Shield,
   Award,
-  Activity
+  Activity,
+  Upload,
+  X,
+  FileText,
+  Check
 } from 'lucide-react';
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const ACCEPTED_FILE_TYPES = [
+  'application/pdf',
+  'image/jpeg',
+  'image/png',
+  'application/step',
+  'application/sla',
+  'application/vnd.ms-excel',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+];
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -41,6 +56,7 @@ const contactSchema = z.object({
   projectType: z.enum(['aerospace', 'defense', 'medical', 'energy', 'other']).optional(),
   timeline: z.enum(['immediate', '1-3months', '3-6months', '6months+']).optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  files: z.any().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -51,11 +67,13 @@ export default function ContactPage() {
     success: boolean;
     message: string;
   } | null>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
     reset,
     setValue,
     watch,
@@ -64,6 +82,73 @@ export default function ContactPage() {
   });
 
   const interest = watch('interest');
+  const formValues = watch();
+
+  // Auto-save to localStorage
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (Object.keys(dirtyFields).length > 0) {
+        localStorage.setItem('contact-form-draft', JSON.stringify(formValues));
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [formValues, dirtyFields]);
+
+  // Load saved draft on mount
+  useEffect(() => {
+    const savedDraft = localStorage.getItem('contact-form-draft');
+    if (savedDraft) {
+      try {
+        const draft = JSON.parse(savedDraft);
+        Object.entries(draft).forEach(([key, value]) => {
+          if (value) setValue(key as any, value);
+        });
+      } catch (e) {
+        console.error('Failed to load draft', e);
+      }
+    }
+  }, [setValue]);
+
+  // File upload handlers
+  const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    const validFiles = files.filter(file => {
+      if (file.size > MAX_FILE_SIZE) {
+        alert(`${file.name} is too large. Maximum size is 10MB.`);
+        return false;
+      }
+      return true;
+    });
+    setUploadedFiles(prev => [...prev, ...validFiles].slice(0, 3)); // Max 3 files
+  }, []);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  }, []);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const files = Array.from(e.dataTransfer.files);
+    const validFiles = files.filter(file => {
+      if (file.size > MAX_FILE_SIZE) {
+        alert(`${file.name} is too large. Maximum size is 10MB.`);
+        return false;
+      }
+      return true;
+    });
+    setUploadedFiles(prev => [...prev, ...validFiles].slice(0, 3));
+  }, []);
+
+  const removeFile = useCallback((index: number) => {
+    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
+  }, []);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -74,12 +159,19 @@ export default function ContactPage() {
       }
     });
 
+    // Add files to form data
+    uploadedFiles.forEach((file, index) => {
+      formData.append(`file_${index}`, file);
+    });
+
     const result = await submitContactForm(formData);
     setSubmitResult(result);
     setIsSubmitting(false);
 
     if (result.success) {
       reset();
+      setUploadedFiles([]);
+      localStorage.removeItem('contact-form-draft');
     }
   };
 
@@ -214,28 +306,58 @@ export default function ContactPage() {
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
+                    <div className="relative">
                       <Label htmlFor="name" className={styles.form.label}>Full Name *</Label>
-                      <Input
-                        id="name"
-                        {...register('name')}
-                        placeholder="John Doe"
-                        className={cn(styles.form.input, "mt-1")}
-                      />
+                      <div className="relative">
+                        <Input
+                          id="name"
+                          {...register('name')}
+                          placeholder="John Doe"
+                          className={cn(
+                            styles.form.input,
+                            "mt-1 pr-10",
+                            !errors.name && watch('name')?.length >= 2 && "border-green-500/50"
+                          )}
+                        />
+                        {!errors.name && watch('name')?.length >= 2 && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 mt-0.5"
+                          >
+                            <Check className="w-4 h-4 text-green-500" />
+                          </motion.div>
+                        )}
+                      </div>
                       {errors.name && (
                         <p className="text-sm text-red-400 mt-1">{errors.name.message}</p>
                       )}
                     </div>
 
-                    <div>
+                    <div className="relative">
                       <Label htmlFor="email" className={styles.form.label}>Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        {...register('email')}
-                        placeholder="john@company.com"
-                        className={cn(styles.form.input, "mt-1")}
-                      />
+                      <div className="relative">
+                        <Input
+                          id="email"
+                          type="email"
+                          {...register('email')}
+                          placeholder="john@company.com"
+                          className={cn(
+                            styles.form.input,
+                            "mt-1 pr-10",
+                            !errors.email && watch('email')?.includes('@') && "border-green-500/50"
+                          )}
+                        />
+                        {!errors.email && watch('email')?.includes('@') && watch('email')?.includes('.') && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 mt-0.5"
+                          >
+                            <Check className="w-4 h-4 text-green-500" />
+                          </motion.div>
+                        )}
+                      </div>
                       {errors.email && (
                         <p className="text-sm text-red-400 mt-1">{errors.email.message}</p>
                       )}
@@ -243,14 +365,29 @@ export default function ContactPage() {
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
+                    <div className="relative">
                       <Label htmlFor="company" className={styles.form.label}>Company *</Label>
-                      <Input
-                        id="company"
-                        {...register('company')}
-                        placeholder="Acme Aerospace"
-                        className={cn(styles.form.input, "mt-1")}
-                      />
+                      <div className="relative">
+                        <Input
+                          id="company"
+                          {...register('company')}
+                          placeholder="Acme Aerospace"
+                          className={cn(
+                            styles.form.input,
+                            "mt-1 pr-10",
+                            !errors.company && watch('company')?.length >= 2 && "border-green-500/50"
+                          )}
+                        />
+                        {!errors.company && watch('company')?.length >= 2 && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 mt-0.5"
+                          >
+                            <Check className="w-4 h-4 text-green-500" />
+                          </motion.div>
+                        )}
+                      </div>
                       {errors.company && (
                         <p className="text-sm text-red-400 mt-1">{errors.company.message}</p>
                       )}
@@ -323,6 +460,89 @@ export default function ContactPage() {
                     </div>
                   )}
 
+                  {/* File Upload */}
+                  <div>
+                    <Label className={styles.form.label}>
+                      Attach Files <span className="text-slate-500 text-xs">(Optional - CAD files, drawings, specs)</span>
+                    </Label>
+                    <div
+                      onDragOver={handleDragOver}
+                      onDragLeave={handleDragLeave}
+                      onDrop={handleDrop}
+                      className={cn(
+                        "mt-2 border-2 border-dashed rounded-lg p-6 transition-all duration-300",
+                        isDragging
+                          ? "border-blue-500 bg-blue-500/10"
+                          : "border-slate-700 bg-slate-800/30 hover:border-slate-600"
+                      )}
+                    >
+                      <input
+                        type="file"
+                        id="file-upload"
+                        multiple
+                        accept=".pdf,.jpg,.jpeg,.png,.step,.stp,.sla,.stl,.xls,.xlsx"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="file-upload"
+                        className="cursor-pointer flex flex-col items-center gap-3"
+                      >
+                        <div className="w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center">
+                          <Upload className="w-6 h-6 text-blue-400" />
+                        </div>
+                        <div className="text-center">
+                          <p className="text-sm text-white font-medium mb-1">
+                            Drop files here or click to browse
+                          </p>
+                          <p className="text-xs text-slate-400">
+                            PDF, JPG, PNG, STEP, STL, Excel (max 10MB, up to 3 files)
+                          </p>
+                        </div>
+                      </label>
+                    </div>
+
+                    {/* Uploaded Files List */}
+                    <AnimatePresence>
+                      {uploadedFiles.length > 0 && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="mt-3 space-y-2"
+                        >
+                          {uploadedFiles.map((file, index) => (
+                            <motion.div
+                              key={`${file.name}-${index}`}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: 20 }}
+                              className="flex items-center justify-between bg-slate-800/50 rounded-lg p-3 border border-slate-700"
+                            >
+                              <div className="flex items-center gap-3">
+                                <FileText className="w-4 h-4 text-blue-400" />
+                                <div>
+                                  <p className="text-sm text-white">{file.name}</p>
+                                  <p className="text-xs text-slate-400">
+                                    {(file.size / 1024).toFixed(1)} KB
+                                  </p>
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => removeFile(index)}
+                                className="p-1 hover:bg-slate-700 rounded transition-colors"
+                                aria-label="Remove file"
+                              >
+                                <X className="w-4 h-4 text-slate-400" />
+                              </button>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
                   <div>
                     <Label htmlFor="message" className={styles.form.label}>Message *</Label>
                     <Textarea
@@ -344,13 +564,16 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className={cn(styles.ctaPrimary, "group")}
+                      className={cn(styles.ctaPrimary, "group h-12 px-8")}
                     >
                       {isSubmitting ? (
                         'Sending...'
                       ) : (
                         <>
-                          Send Message
+                          {interest === 'quote' ? 'Get Quote in 24 Hours' :
+                           interest === 'technical' ? 'Schedule Consultation' :
+                           interest === 'partnership' ? 'Discuss Partnership' :
+                           'Send Message'}
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </>
                       )}
@@ -391,18 +614,22 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-20 text-center"
           >
-            <div className="inline-flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+            <div className="inline-flex flex-wrap justify-center gap-8 text-sm font-medium">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span>Response within 2 hours</span>
+                <span className="text-white">Quote Response in 24 Hours</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-blue-600" />
-                <span>30+ years of excellence</span>
+                <Award className="w-4 h-4 text-blue-400" />
+                <span className="text-white">30+ Years | 1000+ Projects</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-blue-600" />
-                <span>ITAR compliant</span>
+                <Shield className="w-4 h-4 text-blue-400" />
+                <span className="text-white">99.8% First-Pass Yield</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-blue-400" />
+                <span className="text-white">AS9100D | ITAR Certified</span>
               </div>
             </div>
           </motion.div>

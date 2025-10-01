@@ -91,21 +91,26 @@ export default function Services({ data }: ServicesProps) {
               <AnimatedSection
                 key={service.title}
                 delay={index * 0.1}
-                className="group"
-                whileHover={{
-                  scale: 1.01,
-                  y: -8,
-                  transition: {
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 25
-                  }
-                }}
+                className="group perspective-1000"
               >
                 <Link href={service.href} className="block h-full">
-                  <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/20 border-slate-200 bg-white relative ${
-                    service.highlight ? 'ring-2 ring-blue-600/20' : ''
-                  }`}>
+                  <motion.div
+                    whileHover={{
+                      y: -8,
+                      rotateX: 5,
+                      rotateY: 5,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25
+                      }
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 border-slate-200 bg-white relative ${
+                      service.highlight ? 'ring-2 ring-blue-600/20' : ''
+                    }`}>
                     {/* Image Header */}
                     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50">
                       <Image
@@ -159,6 +164,7 @@ export default function Services({ data }: ServicesProps) {
                       </div>
                     </div>
                   </Card>
+                  </motion.div>
                 </Link>
               </AnimatedSection>
             );
@@ -167,14 +173,17 @@ export default function Services({ data }: ServicesProps) {
 
         {/* Call to Action */}
         <AnimatedSection delay={0.4} className="text-center mt-16 md:mt-20">
-          <p className="text-lg text-slate-700 mb-6">
-            Need custom manufacturing solutions?
+          <p className="text-lg text-slate-700 mb-2 font-medium">
+            Ready to start your precision manufacturing project?
+          </p>
+          <p className="text-sm text-slate-600 mb-6">
+            Get a detailed quote within 24 hours • Free DFM analysis included
           </p>
           <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
+            href="/contact?interest=quote"
+            className="inline-flex items-center h-12 px-8 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
-            Discuss Your Project
+            Get Quote in 24 Hours
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </AnimatedSection>
