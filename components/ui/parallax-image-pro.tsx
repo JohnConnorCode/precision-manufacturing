@@ -94,15 +94,15 @@ export default function ParallaxImagePro({
           {blur && (
             <Image
               src={src}
-              alt={alt}
+              alt={`${alt} (background)`}
               fill={fill}
               className={cn(
                 'absolute inset-0 scale-110 blur-xl opacity-50',
                 objectFit === 'cover' ? 'object-cover' : `object-${objectFit}`
               )}
-              priority={false}
+              priority={priority}
               quality={30}
-              onLoadingComplete={() => {}}
+              loading={priority ? 'eager' : 'lazy'}
             />
           )}
 
@@ -117,7 +117,7 @@ export default function ParallaxImagePro({
             priority={priority}
             quality={90}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-            onLoadingComplete={() => {}}
+            loading={priority ? 'eager' : 'lazy'}
           />
         </div>
       </motion.div>

@@ -33,7 +33,7 @@ export default function MedicalPage() {
     {
       category: 'Surgical Instruments',
       description: 'High-precision surgical tools and endoscopic equipment',
-      image: 'https://images.unsplash.com/photo-1583912267550-91e767df5865?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80',
       parts: [
         'Laparoscopic instruments',
         'Endoscopic tools',
@@ -79,7 +79,7 @@ export default function MedicalPage() {
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center">
         <ParallaxImagePro
-          src="https://images.unsplash.com/photo-1581595220975-9c8e49937d49?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&q=80"
           alt="Medical device manufacturing"
         />
 
