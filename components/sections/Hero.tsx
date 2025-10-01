@@ -67,7 +67,7 @@ export default function Hero({ data }: HeroProps) {
 
   const mainTitle = data?.mainTitle || 'PRECISION';
   const subTitle = data?.subTitle || 'MANUFACTURING';
-  const tagline = data?.tagline || 'Precision Machining Since 1995';
+  const tagline = data?.tagline || 'Innovative Precision Machining & Manufacturing Excellence Since 1995';
   const badges = data?.badges || [
     'Advanced CNC Machining',
     'Precision Metrology',
@@ -110,7 +110,7 @@ export default function Hero({ data }: HeroProps) {
                 {mainTitle}
               </motion.span>
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[2.42rem] sm:text-[3.18rem] md:text-[3.98rem] lg:text-[5rem] mt-2 uppercase font-black tracking-[0.04em]"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[2.423rem] sm:text-[3.185rem] md:text-[3.981rem] lg:text-[5.019rem] mt-2 uppercase font-black tracking-[0.04em]"
                 style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ export default function Hero({ data }: HeroProps) {
             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.9, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-4xl mx-auto"
           >
             <span className="font-medium">{tagline}</span>
           </motion.p>
