@@ -67,13 +67,11 @@ export default function Hero({ data }: HeroProps) {
 
   const mainTitle = data?.mainTitle || 'PRECISION';
   const subTitle = data?.subTitle || 'MANUFACTURING';
-  const tagline = data?.tagline || 'Innovative Precision Machining & Manufacturing Excellence Since 1995';
+  const tagline = data?.tagline || 'Precision Machining Since 1995';
   const badges = data?.badges || [
     'Advanced CNC Machining',
     'Precision Metrology',
-    'Engineering Excellence',
-    'AS9100D Certified',
-    'ITAR Registered'
+    'Engineering Excellence'
   ];
   const ctaPrimary = data?.ctaPrimary || { text: 'Get Quote in 24 Hours', href: '/contact?interest=quote' };
   const ctaSecondary = data?.ctaSecondary || { text: 'View Capabilities', href: '/services' };
@@ -112,7 +110,7 @@ export default function Hero({ data }: HeroProps) {
                 {mainTitle}
               </motion.span>
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[3.5rem] sm:text-[4.6rem] md:text-[5.75rem] lg:text-[7.25rem] mt-2 uppercase font-black tracking-[0.04em]"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[2.42rem] sm:text-[3.18rem] md:text-[3.98rem] lg:text-[5rem] mt-2 uppercase font-black tracking-[0.04em]"
                 style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
