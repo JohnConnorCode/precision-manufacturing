@@ -26,279 +26,415 @@
               - generic [ref=e104] [cursor=pointer]: I
               - generic [ref=e105] [cursor=pointer]: I
               - generic [ref=e106] [cursor=pointer]: S
-            - generic [ref=e110] [cursor=pointer]: "-3σ"
-            - generic [ref=e113] [cursor=pointer]: "-2σ"
-            - generic [ref=e116] [cursor=pointer]: "-1σ"
-            - generic [ref=e119] [cursor=pointer]: μ
-            - generic [ref=e122] [cursor=pointer]: +1σ
-            - generic [ref=e125] [cursor=pointer]: +2σ
-            - generic [ref=e128] [cursor=pointer]: +3σ
-          - generic [ref=e129] [cursor=pointer]:
-            - generic [ref=e130] [cursor=pointer]: INTEGRATED
-            - generic [ref=e131] [cursor=pointer]: INSPECTION
-            - generic [ref=e132] [cursor=pointer]: SYSTEMS
-      - navigation "Main" [ref=e133]:
-        - list [ref=e135]:
-          - listitem [ref=e136]:
-            - button "Services menu" [ref=e137] [cursor=pointer]:
+            - generic [ref=e111] [cursor=pointer]: "-3σ"
+            - generic [ref=e114] [cursor=pointer]: "-2σ"
+            - generic [ref=e117] [cursor=pointer]: "-1σ"
+            - generic [ref=e120] [cursor=pointer]: μ
+            - generic [ref=e123] [cursor=pointer]: +1σ
+            - generic [ref=e126] [cursor=pointer]: +2σ
+            - generic [ref=e129] [cursor=pointer]: +3σ
+          - generic [ref=e130] [cursor=pointer]:
+            - generic [ref=e131] [cursor=pointer]: INTEGRATED
+            - generic [ref=e132] [cursor=pointer]: INSPECTION
+            - generic [ref=e133] [cursor=pointer]: SYSTEMS
+      - navigation "Main" [ref=e134]:
+        - list [ref=e136]:
+          - listitem [ref=e137]:
+            - button "Services menu" [ref=e138] [cursor=pointer]:
               - text: Services
-              - img [ref=e138] [cursor=pointer]
-          - listitem [ref=e140]:
-            - button "Industries menu" [ref=e141] [cursor=pointer]:
+              - img [ref=e139] [cursor=pointer]
+          - listitem [ref=e141]:
+            - button "Industries menu" [ref=e142] [cursor=pointer]:
               - text: Industries
-              - img [ref=e142] [cursor=pointer]
-          - listitem [ref=e144]:
-            - button "Resources menu" [ref=e145] [cursor=pointer]:
+              - img [ref=e143] [cursor=pointer]
+          - listitem [ref=e145]:
+            - button "Resources menu" [ref=e146] [cursor=pointer]:
               - text: Resources
-              - img [ref=e146] [cursor=pointer]
-          - listitem [ref=e148]:
-            - link "About" [ref=e149] [cursor=pointer]:
+              - img [ref=e147] [cursor=pointer]
+          - listitem [ref=e149]:
+            - link "About" [ref=e150] [cursor=pointer]:
               - /url: /about
-          - listitem [ref=e150]:
-            - button "Compliance menu" [ref=e151] [cursor=pointer]:
+          - listitem [ref=e151]:
+            - button "Compliance menu" [ref=e152] [cursor=pointer]:
               - text: Compliance
-              - img [ref=e152] [cursor=pointer]
-          - listitem [ref=e154]:
-            - link "Contact" [ref=e155] [cursor=pointer]:
+              - img [ref=e153] [cursor=pointer]
+          - listitem [ref=e155]:
+            - link "Contact" [ref=e156] [cursor=pointer]:
               - /url: /contact
-      - link "REQUEST QUOTE" [ref=e157] [cursor=pointer]:
+      - link "REQUEST QUOTE" [ref=e158] [cursor=pointer]:
         - /url: /contact
-        - button "REQUEST QUOTE" [ref=e158] [cursor=pointer]:
-          - generic [ref=e162] [cursor=pointer]:
+        - button "REQUEST QUOTE" [ref=e159] [cursor=pointer]:
+          - generic [ref=e163] [cursor=pointer]:
             - text: REQUEST QUOTE
-            - img [ref=e163] [cursor=pointer]
-  - main [ref=e166]:
-    - generic [ref=e167]:
-      - generic [ref=e168]:
-        - img "Contact our precision manufacturing team" [ref=e170]
-        - generic [ref=e174]:
-          - generic [ref=e176]:
-            - img [ref=e177]
-            - text: GET STARTED
-          - heading "Contact Our Team" [level=1] [ref=e179]:
-            - generic [ref=e180]:
-              - text: Contact
-              - generic [ref=e181]: Our Team
-          - paragraph [ref=e182]: Connect with Integrated Inspection Systems for precision manufacturing solutions, technical consultations, and project quotes.
-          - generic [ref=e183]:
-            - link "Start Your Project" [ref=e184] [cursor=pointer]:
-              - /url: "#contact-form"
-              - text: Start Your Project
+            - img [ref=e164] [cursor=pointer]
+  - main [ref=e167]:
+    - generic [ref=e168]:
+      - generic [ref=e169]:
+        - img "Industrial manufacturing - precision components for critical industries" [ref=e171]
+        - generic [ref=e175]:
+          - generic [ref=e177]:
+            - img [ref=e178]
+            - text: CRITICAL INDUSTRY SOLUTIONS
+          - heading "Industries We Serve" [level=1] [ref=e183]:
+            - generic [ref=e184]:
+              - text: Industries
+              - generic [ref=e185]: We Serve
+          - paragraph [ref=e186]: Trusted partner for aerospace, defense, and energy sectors, delivering mission-critical components with uncompromising quality and precision.
+          - generic [ref=e187]:
+            - link "Explore Industries" [ref=e188] [cursor=pointer]:
+              - /url: "#industries"
+              - text: Explore Industries
               - img
-            - link "Call Us Today" [ref=e185] [cursor=pointer]:
-              - /url: tel:+15032319093
-              - text: Call Us Today
+            - link "Industry Consultation" [ref=e189] [cursor=pointer]:
+              - /url: /contact
+              - text: Industry Consultation
               - img
-      - generic [ref=e187]:
-        - generic [ref=e188]:
-          - generic [ref=e189]:
-            - generic [ref=e190]:
-              - heading "Get in Touch" [level=2] [ref=e191]
-              - paragraph [ref=e192]: Our engineering team is ready to discuss your precision manufacturing needs.
-            - generic [ref=e194]:
-              - generic [ref=e195]:
-                - img [ref=e197]
-                - generic [ref=e200]:
-                  - heading "Headquarters" [level=3] [ref=e201]
-                  - paragraph [ref=e202]:
-                    - text: Integrated Inspection Systems, Inc.
-                    - text: 12345 Precision Way
-                    - text: Torrance, CA 90501
-              - generic [ref=e203]:
-                - img [ref=e205]
-                - generic [ref=e207]:
-                  - heading "Phone" [level=3] [ref=e208]
-                  - link "(503) 231-9093" [ref=e209] [cursor=pointer]:
-                    - /url: tel:+15032319093
-              - generic [ref=e210]:
-                - img [ref=e212]
-                - generic [ref=e215]:
-                  - heading "Email" [level=3] [ref=e216]
-                  - link "officemgr@iismet.com" [ref=e217] [cursor=pointer]:
-                    - /url: mailto:officemgr@iismet.com
-              - generic [ref=e218]:
-                - img [ref=e220]
-                - generic [ref=e223]:
-                  - heading "Business Hours" [level=3] [ref=e224]
-                  - paragraph [ref=e225]:
-                    - text: "Monday - Friday: 7:00 AM - 5:00 PM PST"
-                    - text: 24/7 Production Facility
-            - generic [ref=e226]:
-              - heading "Certifications" [level=3] [ref=e227]
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - generic [ref=e194]: 30+
+          - generic [ref=e195]: Industry Experience
+          - generic [ref=e196]: Years serving critical industries
+        - generic [ref=e197]:
+          - generic [ref=e198]: 200+
+          - generic [ref=e199]: Active Programs
+          - generic [ref=e200]: Ongoing manufacturing programs
+        - generic [ref=e201]:
+          - generic [ref=e202]: 99.8%
+          - generic [ref=e203]: Quality Rating
+          - generic [ref=e204]: On-time delivery performance
+        - generic [ref=e205]:
+          - generic [ref=e206]: 12+
+          - generic [ref=e207]: Certifications
+          - generic [ref=e208]: Industry-specific certifications
+      - generic [ref=e210]:
+        - generic [ref=e211]:
+          - heading "Core Industries" [level=2] [ref=e212]
+          - paragraph [ref=e213]: Specialized manufacturing solutions for the most demanding industries, backed by decades of experience and industry-leading certifications.
+        - generic [ref=e214]:
+          - generic [ref=e217]:
+            - generic [ref=e218]:
+              - img "Aerospace" [ref=e221]
+              - img [ref=e224]
+            - generic [ref=e227]:
               - generic [ref=e228]:
-                - generic [ref=e229]:
-                  - img [ref=e230]
-                  - generic [ref=e232]: AS9100D
-                - generic [ref=e233]:
-                  - img [ref=e234]
-                  - generic [ref=e236]: ISO 9001:2015
-                - generic [ref=e237]:
-                  - img [ref=e238]
-                  - generic [ref=e240]: ITAR Registered
-                - generic [ref=e241]:
-                  - img [ref=e242]
-                  - generic [ref=e244]: NADCAP
-          - generic [ref=e246]:
-            - heading "Send a Message" [level=2] [ref=e247]
-            - generic [ref=e248]:
-              - generic [ref=e249]:
-                - generic [ref=e250]:
-                  - generic [ref=e251]: Full Name *
-                  - textbox "Full Name *" [ref=e253]
-                - generic [ref=e254]:
-                  - generic [ref=e255]: Email Address *
-                  - textbox "Email Address *" [ref=e257]
-              - generic [ref=e258]:
-                - generic [ref=e259]:
-                  - generic [ref=e260]: Company *
-                  - textbox "Company *" [ref=e262]
-                - generic [ref=e263]:
-                  - generic [ref=e264]: Phone
-                  - textbox "Phone" [ref=e265]
-              - generic [ref=e266]:
-                - generic [ref=e267]: Inquiry Type *
-                - combobox "Inquiry Type" [ref=e268] [cursor=pointer]:
-                  - generic: Select inquiry type
-                  - img [ref=e269] [cursor=pointer]
-                - combobox [ref=e271]
-              - generic [ref=e272]:
-                - generic [ref=e273]:
-                  - text: Attach Files
-                  - generic [ref=e274]: (Optional - CAD files, drawings, specs)
-                - generic [ref=e276] [cursor=pointer]:
-                  - img [ref=e278] [cursor=pointer]
-                  - generic [ref=e282] [cursor=pointer]:
-                    - paragraph [ref=e283] [cursor=pointer]: Drop files here or click to browse
-                    - paragraph [ref=e284] [cursor=pointer]: PDF, JPG, PNG, STEP, STL, Excel (max 10MB, up to 3 files)
-              - generic [ref=e285]:
-                - generic [ref=e286]: Message *
-                - textbox "Message *" [ref=e287]
-              - generic [ref=e288]:
-                - paragraph [ref=e289]: "* Required fields"
-                - button "Send Message" [ref=e290] [cursor=pointer]:
-                  - text: Send Message
-                  - img
-        - generic [ref=e292]:
-          - generic [ref=e295]: Quote Response in 24 Hours
-          - generic [ref=e296]:
-            - img [ref=e297]
-            - generic [ref=e300]: 30+ Years | 1000+ Projects
-          - generic [ref=e301]:
-            - img [ref=e302]
-            - generic [ref=e304]: 99.8% First-Pass Yield
-          - generic [ref=e305]:
-            - img [ref=e306]
-            - generic [ref=e309]: AS9100D | ITAR Certified
-  - contentinfo [ref=e310]:
-    - generic [ref=e311]:
-      - generic [ref=e312]:
-        - generic [ref=e313]:
-          - generic [ref=e315]:
-            - img [ref=e316]:
-              - generic [ref=e397]:
-                - generic [ref=e398]: I
-                - generic [ref=e399]: I
-                - generic [ref=e400]: S
-              - generic [ref=e404]: "-3σ"
-              - generic [ref=e407]: "-2σ"
-              - generic [ref=e410]: "-1σ"
-              - generic [ref=e413]: μ
-              - generic [ref=e416]: +1σ
-              - generic [ref=e419]: +2σ
-              - generic [ref=e422]: +3σ
-            - generic [ref=e423]:
-              - generic [ref=e424]: INTEGRATED
-              - generic [ref=e425]: INSPECTION
-              - generic [ref=e426]: SYSTEMS
-          - paragraph [ref=e427]: Precision manufacturing and metrology solutions for aerospace, defense, and advanced industries.
-          - generic [ref=e428]:
-            - link "LinkedIn" [ref=e429] [cursor=pointer]:
+                - heading "Aerospace" [level=3] [ref=e229]
+                - paragraph [ref=e230]: Critical flight components and systems requiring the highest precision and reliability standards.
+                - generic [ref=e231]:
+                  - generic [ref=e232]:
+                    - heading "Applications" [level=4] [ref=e233]
+                    - generic [ref=e234]:
+                      - generic [ref=e235]: Engine components
+                      - generic [ref=e237]: Landing gear
+                      - generic [ref=e239]: Structural parts
+                      - generic [ref=e241]: Avionics housings
+                  - generic [ref=e243]:
+                    - heading "Certifications" [level=4] [ref=e244]
+                    - generic [ref=e245]:
+                      - generic [ref=e246]:
+                        - img [ref=e247]
+                        - text: AS9100D
+                      - generic [ref=e250]:
+                        - img [ref=e251]
+                        - text: NADCAP
+                      - generic [ref=e254]:
+                        - img [ref=e255]
+                        - text: ITAR
+                  - generic [ref=e258]:
+                    - heading "Experience" [level=4] [ref=e259]
+                    - generic [ref=e260]:
+                      - generic [ref=e261]:
+                        - generic [ref=e262]: 85%
+                        - text: of production
+                      - generic [ref=e263]:
+                        - generic [ref=e264]: 50+
+                        - text: active clients
+                      - generic [ref=e265]:
+                        - generic [ref=e266]: 30+ years
+                        - text: experience
+              - link "Learn More About Aerospace" [ref=e268] [cursor=pointer]:
+                - /url: /industries/aerospace
+                - text: Learn More About Aerospace
+                - img
+          - generic [ref=e271]:
+            - generic [ref=e272]:
+              - img "Defense" [ref=e275]
+              - img [ref=e278]
+            - generic [ref=e281]:
+              - generic [ref=e282]:
+                - heading "Defense" [level=3] [ref=e283]
+                - paragraph [ref=e284]: Mission-critical components for defense systems with stringent security and quality requirements.
+                - generic [ref=e285]:
+                  - generic [ref=e286]:
+                    - heading "Applications" [level=4] [ref=e287]
+                    - generic [ref=e288]:
+                      - generic [ref=e289]: Weapon systems
+                      - generic [ref=e291]: Radar components
+                      - generic [ref=e293]: Vehicle parts
+                      - generic [ref=e295]: Electronics
+                  - generic [ref=e297]:
+                    - heading "Certifications" [level=4] [ref=e298]
+                    - generic [ref=e299]:
+                      - generic [ref=e300]:
+                        - img [ref=e301]
+                        - text: ITAR
+                      - generic [ref=e304]:
+                        - img [ref=e305]
+                        - text: DFARS
+                      - generic [ref=e308]:
+                        - img [ref=e309]
+                        - text: Security clearance
+                  - generic [ref=e312]:
+                    - heading "Experience" [level=4] [ref=e313]
+                    - generic [ref=e314]:
+                      - generic [ref=e315]:
+                        - generic [ref=e316]: 15%
+                        - text: of production
+                      - generic [ref=e317]:
+                        - generic [ref=e318]: 25+
+                        - text: active clients
+                      - generic [ref=e319]:
+                        - generic [ref=e320]: 25+ years
+                        - text: experience
+              - link "Learn More About Defense" [ref=e322] [cursor=pointer]:
+                - /url: /industries/defense
+                - text: Learn More About Defense
+                - img
+          - generic [ref=e325]:
+            - generic [ref=e326]:
+              - img "Energy" [ref=e329]
+              - img [ref=e332]
+            - generic [ref=e335]:
+              - generic [ref=e336]:
+                - heading "Energy" [level=3] [ref=e337]
+                - paragraph [ref=e338]: Precision components for power generation, oil & gas, and renewable energy systems.
+                - generic [ref=e339]:
+                  - generic [ref=e340]:
+                    - heading "Applications" [level=4] [ref=e341]
+                    - generic [ref=e342]:
+                      - generic [ref=e343]: Turbine parts
+                      - generic [ref=e345]: Valve components
+                      - generic [ref=e347]: Pump housings
+                      - generic [ref=e349]: Generator parts
+                  - generic [ref=e351]:
+                    - heading "Certifications" [level=4] [ref=e352]
+                    - generic [ref=e353]:
+                      - generic [ref=e354]:
+                        - img [ref=e355]
+                        - text: API
+                      - generic [ref=e358]:
+                        - img [ref=e359]
+                        - text: ASME
+                      - generic [ref=e362]:
+                        - img [ref=e363]
+                        - text: ISO 9001
+                  - generic [ref=e366]:
+                    - heading "Experience" [level=4] [ref=e367]
+                    - generic [ref=e368]:
+                      - generic [ref=e369]:
+                        - generic [ref=e370]: 25%
+                        - text: of production
+                      - generic [ref=e371]:
+                        - generic [ref=e372]: 15+
+                        - text: active clients
+                      - generic [ref=e373]:
+                        - generic [ref=e374]: 20+ years
+                        - text: experience
+              - link "Learn More About Energy" [ref=e376] [cursor=pointer]:
+                - /url: /industries/energy
+                - text: Learn More About Energy
+                - img
+      - generic [ref=e378]:
+        - generic [ref=e379]:
+          - heading "Why Industry Leaders Choose Us" [level=2] [ref=e380]
+          - paragraph [ref=e381]: Proven capabilities and unwavering commitment to quality make us the preferred manufacturing partner for critical applications.
+        - generic [ref=e382]:
+          - generic [ref=e384]:
+            - generic [ref=e385]:
+              - img [ref=e387]
+              - heading "Regulatory Compliance" [level=3] [ref=e390]
+            - paragraph [ref=e391]: Full compliance with industry-specific regulations and quality standards
+            - generic [ref=e392]:
+              - generic [ref=e393]: AS9100D aerospace quality system
+              - generic [ref=e395]: ITAR registration and compliance
+              - generic [ref=e397]: NADCAP accredited processes
+              - generic [ref=e399]: ISO 9001:2015 certification
+          - generic [ref=e402]:
+            - generic [ref=e403]:
+              - img [ref=e405]
+              - heading "Security & Traceability" [level=3] [ref=e407]
+            - paragraph [ref=e408]: Comprehensive security protocols and complete material traceability
+            - generic [ref=e409]:
+              - generic [ref=e410]: Secure facility access controls
+              - generic [ref=e412]: Material traceability systems
+              - generic [ref=e414]: Document control procedures
+              - generic [ref=e416]: Supply chain verification
+          - generic [ref=e419]:
+            - generic [ref=e420]:
+              - img [ref=e422]
+              - heading "Technical Expertise" [level=3] [ref=e427]
+            - paragraph [ref=e428]: Deep industry knowledge and advanced manufacturing capabilities
+            - generic [ref=e429]:
+              - generic [ref=e430]: Specialized material processing
+              - generic [ref=e432]: Complex geometry machining
+              - generic [ref=e434]: Precision measurement systems
+              - generic [ref=e436]: Advanced quality control
+          - generic [ref=e439]:
+            - generic [ref=e440]:
+              - img [ref=e442]
+              - heading "Program Management" [level=3] [ref=e447]
+            - paragraph [ref=e448]: Dedicated support for long-term manufacturing programs
+            - generic [ref=e449]:
+              - generic [ref=e450]: Dedicated program managers
+              - generic [ref=e452]: Capacity planning
+              - generic [ref=e454]: Inventory management
+              - generic [ref=e456]: Continuous improvement
+      - generic [ref=e459]:
+        - generic [ref=e460]:
+          - heading "Proven Results" [level=2] [ref=e461]
+          - paragraph [ref=e462]: Measurable performance metrics that demonstrate our commitment to excellence and continuous improvement.
+        - generic [ref=e463]:
+          - generic [ref=e465]:
+            - img [ref=e466]
+            - generic [ref=e469]: 99.8%
+            - generic [ref=e470]: First-Pass Yield
+            - generic [ref=e471]: Parts meeting specifications without rework
+          - generic [ref=e473]:
+            - img [ref=e474]
+            - generic [ref=e477]: 99.5%
+            - generic [ref=e478]: On-Time Delivery
+            - generic [ref=e479]: Deliveries meeting committed schedules
+          - generic [ref=e481]:
+            - img [ref=e482]
+            - generic [ref=e485]: 15-30%
+            - generic [ref=e486]: Cost Reduction
+            - generic [ref=e487]: Average cost savings through optimization
+          - generic [ref=e489]:
+            - img [ref=e490]
+            - generic [ref=e493]: 40%
+            - generic [ref=e494]: Lead Time Reduction
+            - generic [ref=e495]: Typical improvement in manufacturing cycle time
+      - generic [ref=e498]:
+        - heading "Partner with Industry Experts" [level=2] [ref=e499]
+        - paragraph [ref=e500]: Join the industry leaders who trust us with their most critical manufacturing requirements. Let's discuss your specific needs.
+        - generic [ref=e501]:
+          - button "Schedule Consultation" [ref=e502] [cursor=pointer]:
+            - text: Schedule Consultation
+            - img
+          - link "View Our Services" [ref=e503] [cursor=pointer]:
+            - /url: /services
+  - contentinfo [ref=e504]:
+    - generic [ref=e505]:
+      - generic [ref=e506]:
+        - generic [ref=e507]:
+          - generic [ref=e509]:
+            - img [ref=e510]:
+              - generic [ref=e591]:
+                - generic [ref=e592]: I
+                - generic [ref=e593]: I
+                - generic [ref=e594]: S
+              - generic [ref=e599]: "-3σ"
+              - generic [ref=e602]: "-2σ"
+              - generic [ref=e605]: "-1σ"
+              - generic [ref=e608]: μ
+              - generic [ref=e611]: +1σ
+              - generic [ref=e614]: +2σ
+              - generic [ref=e617]: +3σ
+            - generic [ref=e618]:
+              - generic [ref=e619]: INTEGRATED
+              - generic [ref=e620]: INSPECTION
+              - generic [ref=e621]: SYSTEMS
+          - paragraph [ref=e622]: Precision manufacturing and metrology solutions for aerospace, defense, and advanced industries.
+          - generic [ref=e623]:
+            - link "LinkedIn" [ref=e624] [cursor=pointer]:
               - /url: "#"
-              - img [ref=e430] [cursor=pointer]
-            - link "Twitter" [ref=e434] [cursor=pointer]:
+              - img [ref=e625] [cursor=pointer]
+            - link "Twitter" [ref=e629] [cursor=pointer]:
               - /url: "#"
-              - img [ref=e435] [cursor=pointer]
-            - link "Facebook" [ref=e437] [cursor=pointer]:
+              - img [ref=e630] [cursor=pointer]
+            - link "Facebook" [ref=e632] [cursor=pointer]:
               - /url: "#"
-              - img [ref=e438] [cursor=pointer]
-        - generic [ref=e440]:
-          - heading "Services" [level=4] [ref=e441]
-          - list [ref=e442]:
-            - listitem [ref=e443]:
-              - link "Machining" [ref=e444] [cursor=pointer]:
+              - img [ref=e633] [cursor=pointer]
+        - generic [ref=e635]:
+          - heading "Services" [level=4] [ref=e636]
+          - list [ref=e637]:
+            - listitem [ref=e638]:
+              - link "Machining" [ref=e639] [cursor=pointer]:
                 - /url: /services
-            - listitem [ref=e445]:
-              - link "Inspection" [ref=e446] [cursor=pointer]:
+            - listitem [ref=e640]:
+              - link "Inspection" [ref=e641] [cursor=pointer]:
                 - /url: /services
-            - listitem [ref=e447]:
-              - link "Fixture Design" [ref=e448] [cursor=pointer]:
+            - listitem [ref=e642]:
+              - link "Fixture Design" [ref=e643] [cursor=pointer]:
                 - /url: /services
-            - listitem [ref=e449]:
-              - link "Metrology" [ref=e450] [cursor=pointer]:
+            - listitem [ref=e644]:
+              - link "Metrology" [ref=e645] [cursor=pointer]:
                 - /url: /services
-            - listitem [ref=e451]:
-              - link "Metbase®" [ref=e452] [cursor=pointer]:
+            - listitem [ref=e646]:
+              - link "Metbase®" [ref=e647] [cursor=pointer]:
                 - /url: /services
-        - generic [ref=e453]:
-          - heading "Resources" [level=4] [ref=e454]
-          - list [ref=e455]:
-            - listitem [ref=e456]:
-              - link "All Resources" [ref=e457] [cursor=pointer]:
+        - generic [ref=e648]:
+          - heading "Resources" [level=4] [ref=e649]
+          - list [ref=e650]:
+            - listitem [ref=e651]:
+              - link "All Resources" [ref=e652] [cursor=pointer]:
                 - /url: /resources
-            - listitem [ref=e458]:
-              - link "Manufacturing Processes" [ref=e459] [cursor=pointer]:
+            - listitem [ref=e653]:
+              - link "Manufacturing Processes" [ref=e654] [cursor=pointer]:
                 - /url: /resources/manufacturing-processes
-            - listitem [ref=e460]:
-              - link "Quality & Compliance" [ref=e461] [cursor=pointer]:
+            - listitem [ref=e655]:
+              - link "Quality & Compliance" [ref=e656] [cursor=pointer]:
                 - /url: /resources/quality-compliance
-            - listitem [ref=e462]:
-              - link "Material Science" [ref=e463] [cursor=pointer]:
+            - listitem [ref=e657]:
+              - link "Material Science" [ref=e658] [cursor=pointer]:
                 - /url: /resources/material-science
-        - generic [ref=e464]:
-          - heading "Quick Links" [level=4] [ref=e465]
-          - list [ref=e466]:
-            - listitem [ref=e467]:
-              - link "About Us" [ref=e468] [cursor=pointer]:
+        - generic [ref=e659]:
+          - heading "Quick Links" [level=4] [ref=e660]
+          - list [ref=e661]:
+            - listitem [ref=e662]:
+              - link "About Us" [ref=e663] [cursor=pointer]:
                 - /url: /about
-            - listitem [ref=e469]:
-              - link "Industries" [ref=e470] [cursor=pointer]:
+            - listitem [ref=e664]:
+              - link "Industries" [ref=e665] [cursor=pointer]:
                 - /url: /industries
-            - listitem [ref=e471]:
-              - link "Terms & Conditions" [ref=e472] [cursor=pointer]:
+            - listitem [ref=e666]:
+              - link "Terms & Conditions" [ref=e667] [cursor=pointer]:
                 - /url: /compliance/terms
-            - listitem [ref=e473]:
-              - link "Supplier Requirements" [ref=e474] [cursor=pointer]:
+            - listitem [ref=e668]:
+              - link "Supplier Requirements" [ref=e669] [cursor=pointer]:
                 - /url: /compliance/supplier-requirements
-            - listitem [ref=e475]:
-              - link "Contact" [ref=e476] [cursor=pointer]:
+            - listitem [ref=e670]:
+              - link "Contact" [ref=e671] [cursor=pointer]:
                 - /url: /contact
-        - generic [ref=e477]:
-          - heading "Contact" [level=4] [ref=e478]
-          - list [ref=e479]:
-            - listitem [ref=e480]:
-              - img [ref=e481]
-              - link "officemgr@iismet.com" [ref=e484] [cursor=pointer]:
+        - generic [ref=e672]:
+          - heading "Contact" [level=4] [ref=e673]
+          - list [ref=e674]:
+            - listitem [ref=e675]:
+              - img [ref=e676]
+              - link "officemgr@iismet.com" [ref=e679] [cursor=pointer]:
                 - /url: mailto:officemgr@iismet.com
-            - listitem [ref=e485]:
-              - img [ref=e486]
-              - link "+1 (503) 231-9093" [ref=e488] [cursor=pointer]:
+            - listitem [ref=e680]:
+              - img [ref=e681]
+              - link "+1 (503) 231-9093" [ref=e683] [cursor=pointer]:
                 - /url: tel:+15032319093
-            - listitem [ref=e489]:
-              - img [ref=e490]
-              - generic [ref=e493]:
+            - listitem [ref=e684]:
+              - img [ref=e685]
+              - generic [ref=e688]:
                 - text: 14310 SE Industrial Way
                 - text: Clackamas, OR 97015
                 - text: United States
-      - generic [ref=e495]:
-        - paragraph [ref=e496]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
-        - generic [ref=e497]:
-          - img [ref=e498]
-          - generic [ref=e500]:
-            - generic [ref=e501]: Founded 1995
-            - generic [ref=e502]: •
-            - generic [ref=e503]: ISO 9001:2015
-            - generic [ref=e504]: •
-            - generic [ref=e505]: AS9100D
-            - generic [ref=e506]: •
-            - generic [ref=e507]: ITAR Registered
+      - generic [ref=e690]:
+        - paragraph [ref=e691]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
+        - generic [ref=e692]:
+          - img [ref=e693]
+          - generic [ref=e695]:
+            - generic [ref=e696]: Founded 1995
+            - generic [ref=e697]: •
+            - generic [ref=e698]: ISO 9001:2015
+            - generic [ref=e699]: •
+            - generic [ref=e700]: AS9100D
+            - generic [ref=e701]: •
+            - generic [ref=e702]: ITAR Registered
+  - button "Open Next.js Dev Tools" [ref=e708] [cursor=pointer]:
+    - img [ref=e709] [cursor=pointer]
+  - alert [ref=e713]
 ```

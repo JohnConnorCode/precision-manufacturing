@@ -5,7 +5,16 @@ test.describe('Critical Path Testing - Manual Verification', () => {
     const errors: string[] = [];
     page.on('console', msg => {
       if (msg.type() === 'error') {
-        errors.push(msg.text());
+        const text = msg.text();
+        // Filter out external API errors we can't control
+        const isExternalError =
+          text.includes('Access-Control-Allow-Origin') ||
+          text.includes('Failed to load resource') ||
+          text.includes('net::ERR_');
+
+        if (!isExternalError) {
+          errors.push(text);
+        }
       }
     });
 
