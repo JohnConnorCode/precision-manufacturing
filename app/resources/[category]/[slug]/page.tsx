@@ -77,7 +77,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Article Header */}
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
+          <AnimatedSection delay={0.1}>
             <div className="flex flex-wrap items-center gap-4 mb-6">
               <span className={`px-3 py-1 rounded-full text-sm border ${getDifficultyColor(resource.difficulty)}`}>
                 {resource.difficulty}
@@ -143,7 +143,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Article Content */}
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
+          <AnimatedSection delay={0.2}>
             <div className="bg-slate-900/30 border border-slate-800 rounded-2xl p-8 md:p-12">
               <PortableTextContent value={resource.content} />
             </div>
@@ -155,7 +155,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {relatedResources.length > 0 && (
         <section className="py-16 px-4 bg-slate-900/30">
           <div className="max-w-6xl mx-auto">
-            <AnimatedSection>
+            <AnimatedSection delay={0.3}>
               <h2 className="text-3xl font-bold text-white mb-8">Related Articles</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedResources.map((related, index) => (
@@ -191,7 +191,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* CTA Section */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <AnimatedSection>
+          <AnimatedSection delay={0.4}>
             <div className="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 rounded-2xl p-12">
               <h2 className="text-3xl font-bold text-white mb-4">
                 Ready to Get Started?
