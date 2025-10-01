@@ -67,7 +67,7 @@ export default function Hero({ data }: HeroProps) {
 
   const mainTitle = data?.mainTitle || 'PRECISION';
   const subTitle = data?.subTitle || 'MANUFACTURING';
-  const tagline = data?.tagline || 'Innovative Machining Since 1995';
+  const tagline = data?.tagline || 'Innovative Precision Machining & Manufacturing Excellence Since 1995';
   const badges = data?.badges || [
     'Advanced CNC Machining',
     'Precision Metrology',
@@ -112,7 +112,7 @@ export default function Hero({ data }: HeroProps) {
                 {mainTitle}
               </motion.span>
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black tracking-tight"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[3.5rem] sm:text-[4.6rem] md:text-[5.75rem] lg:text-[7.25rem] mt-2 uppercase font-black tracking-[0.04em]"
                 style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
