@@ -36,8 +36,8 @@ test.describe('Navigation Functionality', () => {
       await servicesButton.hover();
       await waitForAnimations(page, 300);
 
-      // Click a service link
-      const fiveAxisLink = page.locator('a[href="/services/5-axis-machining"]');
+      // Click a service link - use first() to handle multiple matching links
+      const fiveAxisLink = page.locator('a[href="/services/5-axis-machining"]').first();
       await expect(fiveAxisLink).toBeVisible();
       await fiveAxisLink.click();
 
@@ -52,8 +52,8 @@ test.describe('Navigation Functionality', () => {
       await industriesButton.hover();
       await waitForAnimations(page, 300);
 
-      // Click aerospace link
-      const aerospaceLink = page.locator('a[href="/industries/aerospace"]');
+      // Click aerospace link - use first() to handle multiple matching links
+      const aerospaceLink = page.locator('a[href="/industries/aerospace"]').first();
       await expect(aerospaceLink).toBeVisible();
       await aerospaceLink.click();
 
@@ -68,12 +68,12 @@ test.describe('Navigation Functionality', () => {
       await resourcesButton.hover();
       await waitForAnimations(page, 300);
 
-      // Click any resource link
-      const resourceLink = page.locator('a[href^="/resources/"]').first();
-      await expect(resourceLink).toBeVisible();
-      await resourceLink.click();
+      // Click manufacturing processes link - use first() to handle multiple matching links
+      const manufacturingLink = page.locator('a[href="/resources/manufacturing-processes"]').first();
+      await expect(manufacturingLink).toBeVisible();
+      await manufacturingLink.click();
 
-      expect(page.url()).toMatch(/\/resources\/.+/);
+      await expect(page).toHaveURL('/resources/manufacturing-processes');
     });
   });
 
@@ -128,8 +128,8 @@ test.describe('Navigation Functionality', () => {
       const mobileNav = page.locator('[role="dialog"]');
       await expect(mobileNav).toBeVisible();
 
-      // Close menu
-      const closeButton = page.locator('button[aria-label="Close menu"]');
+      // Close menu - use getByRole for the X button with "Close" text
+      const closeButton = page.getByRole('button', { name: 'Close' });
       await closeButton.click();
       await waitForAnimations(page, 500);
 
