@@ -68,11 +68,9 @@ export default function Resources() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600">
-              Master Precision Manufacturing
-            </span>
+            Master Precision Manufacturing
           </motion.h2>
 
           <motion.p
@@ -97,11 +95,11 @@ export default function Resources() {
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="group h-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/10 hover:scale-[1.02]"
                 >
-                  {/* Series Header with Gradient */}
-                  <div className={`bg-gradient-to-r ${series.gradient} p-6`}>
+                  {/* Series Header */}
+                  <div className="p-6 border-b border-slate-800">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-4xl">{series.icon}</span>
-                      <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-blue-600/10 backdrop-blur-sm text-blue-400 border border-blue-600/20 px-3 py-1 rounded-full text-sm font-medium">
                         {series.articleCount} Articles
                       </span>
                     </div>
