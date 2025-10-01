@@ -43,7 +43,6 @@ const navigation = [
     name: 'Resources',
     href: '/resources',
     children: [
-      { name: 'Technical Article Series', href: '/resources/series', description: 'Comprehensive multi-part technical guides' },
       { name: 'Manufacturing Processes', href: '/resources/manufacturing-processes', description: 'CNC machining guides and techniques' },
       { name: 'Material Science', href: '/resources/material-science', description: 'Aerospace alloys and properties' },
       { name: 'Quality & Compliance', href: '/resources/quality-compliance', description: 'AS9100D and ITAR guidance' },
@@ -116,7 +115,7 @@ export default function Header() {
       >
         <nav className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2" aria-label="IIS - Integrated Inspection Systems Home">
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

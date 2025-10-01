@@ -80,7 +80,7 @@ export default function DemoPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=95"
+        backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=2400&q=95"
         imageAlt="Precision manufacturing demo showcase"
         badge={{
           text: 'INTERACTIVE DEMO',

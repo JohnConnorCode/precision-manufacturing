@@ -267,7 +267,7 @@ export default function AerospacePage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=95"
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=95"
         imageAlt="Aerospace precision manufacturing"
         badge={{
           text: 'AS9100D CERTIFIED',

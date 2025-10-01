@@ -159,7 +159,8 @@ export const allCompliancePagesQuery = `
 export async function getHomePage() {
   try {
     const data = await client.fetch(homePageQuery, {}, {
-      next: { revalidate: 60 },
+      next: { revalidate: 3600 }, // Cache for 1 hour - content rarely changes
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {
@@ -171,7 +172,8 @@ export async function getHomePage() {
 export async function getAboutPage() {
   try {
     const data = await client.fetch(aboutPageQuery, {}, {
-      next: { revalidate: 60 },
+      next: { revalidate: 3600 }, // Cache for 1 hour
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {
@@ -183,7 +185,8 @@ export async function getAboutPage() {
 export async function getServicesPage() {
   try {
     const data = await client.fetch(servicesPageQuery, {}, {
-      next: { revalidate: 60 },
+      next: { revalidate: 3600 }, // Cache for 1 hour
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {
@@ -195,7 +198,8 @@ export async function getServicesPage() {
 export async function getIndustriesPage() {
   try {
     const data = await client.fetch(industriesPageQuery, {}, {
-      next: { revalidate: 60 },
+      next: { revalidate: 3600 }, // Cache for 1 hour
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {
@@ -207,7 +211,8 @@ export async function getIndustriesPage() {
 export async function getContactPage() {
   try {
     const data = await client.fetch(contactPageQuery, {}, {
-      next: { revalidate: 60 },
+      next: { revalidate: 3600 }, // Cache for 1 hour
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {
@@ -219,7 +224,8 @@ export async function getContactPage() {
 export async function getCompliancePage(slug: string) {
   try {
     const data = await client.fetch(compliancePageQuery, { slug }, {
-      next: { revalidate: 60 },
+      next: { revalidate: 86400 }, // Cache for 24 hours - compliance docs change rarely
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {
@@ -231,7 +237,8 @@ export async function getCompliancePage(slug: string) {
 export async function getAllCompliancePages() {
   try {
     const data = await client.fetch(allCompliancePagesQuery, {}, {
-      next: { revalidate: 60 },
+      next: { revalidate: 86400 }, // Cache for 24 hours
+      cache: 'force-cache',
     });
     return data;
   } catch (error) {

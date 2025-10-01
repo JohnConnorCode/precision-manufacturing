@@ -15,7 +15,7 @@ export default function IndustriesPage() {
       description: 'Critical flight components and systems requiring the highest precision and reliability standards.',
       icon: Plane,
       href: '/industries/aerospace',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
       applications: ['Engine components', 'Landing gear', 'Structural parts', 'Avionics housings'],
       certifications: ['AS9100D', 'NADCAP', 'ITAR'],
       stats: { volume: '85%', clients: '50+', experience: '30+ years' }
@@ -122,7 +122,7 @@ export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2400&q=90"
         imageAlt="Industrial manufacturing - precision components for critical industries"
         badge={{
           text: "CRITICAL INDUSTRY SOLUTIONS",

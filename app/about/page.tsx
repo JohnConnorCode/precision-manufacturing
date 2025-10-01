@@ -8,10 +8,8 @@ import { ArrowRight, Users, Factory, Award, CheckCircle, Target, Zap } from 'luc
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
 import { theme, styles } from '@/lib/theme';
-import { getAboutPage } from '@/lib/sanity-pages';
 
-export default async function AboutPage() {
-  const aboutData = await getAboutPage();
+export default function AboutPage() {
   const companyStats = [
     { label: 'Years in Business', value: '30+', description: 'Decades of experience' },
     { label: 'Team Members', value: '150+', description: 'Skilled professionals' },
@@ -161,7 +159,7 @@ export default async function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
         imageAlt="Precision manufacturing facility - 30 years of excellence"
         badge={{
           text: "PRECISION MANUFACTURING SINCE 1993",

@@ -15,7 +15,7 @@ const services = [
     icon: Cog,
     href: '/services/5-axis-machining',
     specs: ['±0.0001" tolerance', 'Titanium & exotic alloys', 'Up to 60" parts'],
-    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=90',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=90',
     highlight: true
   },
   {
@@ -24,7 +24,7 @@ const services = [
     icon: Cpu,
     href: '/services/adaptive-machining',
     specs: ['In-process verification', 'Automated compensation', 'Zero defect goal'],
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=90'
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=90'
   },
   {
     title: 'Metrology & Inspection',

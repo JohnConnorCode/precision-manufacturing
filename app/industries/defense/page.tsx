@@ -21,7 +21,7 @@ export default function DefensePage() {
     {
       category: 'Weapons Systems',
       description: 'Critical components for advanced weapons platforms requiring extreme precision and reliability',
-      image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940',
+      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
       parts: [
         'Missile guidance components',
         'Fire control systems',
@@ -160,7 +160,7 @@ export default function DefensePage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
         imageAlt="Defense manufacturing - secure precision components for national security"
         badge={{
           text: "DEFENSE MANUFACTURING EXCELLENCE",

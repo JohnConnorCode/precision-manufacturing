@@ -21,10 +21,10 @@ interface AnalyticsProps {
 }
 
 export function Analytics({
-  googleAnalyticsId = 'G-XXXXXXXXXX', // Replace with actual GA4 ID
-  facebookPixelId = 'XXXXXXXXXXXXXXX', // Replace with actual Facebook Pixel ID
-  linkedInPartnerId = 'XXXXXXX', // Replace with actual LinkedIn Partner ID
-  hotjarId = 'XXXXXXX' // Replace with actual Hotjar ID
+  googleAnalyticsId,
+  facebookPixelId,
+  linkedInPartnerId,
+  hotjarId
 }: AnalyticsProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();

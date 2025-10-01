@@ -1,0 +1,459 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - complementary "Contact information" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - 'link "Phone: 503-231-9093" [ref=e5] [cursor=pointer]':
+          - /url: tel:+15032319093
+          - img [ref=e6] [cursor=pointer]
+          - generic [ref=e8] [cursor=pointer]: 503-231-9093
+        - 'link "Email: officemgr@iismet.com" [ref=e9] [cursor=pointer]':
+          - /url: mailto:officemgr@iismet.com
+          - img [ref=e10] [cursor=pointer]
+          - generic [ref=e13] [cursor=pointer]: officemgr@iismet.com
+      - generic [ref=e14]:
+        - img [ref=e15]
+        - generic [ref=e17]: ISO 9001 • AS9100D • ITAR REGISTERED
+  - banner [ref=e18]:
+    - navigation [ref=e19]:
+      - link "IIS - Integrated Inspection Systems Home" [ref=e20] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e21] [cursor=pointer]:
+          - img [ref=e22] [cursor=pointer]:
+            - generic [ref=e26] [cursor=pointer]:
+              - generic [ref=e27] [cursor=pointer]: I
+              - generic [ref=e28] [cursor=pointer]: I
+              - generic [ref=e29] [cursor=pointer]: S
+            - generic [ref=e31] [cursor=pointer]: "-3σ"
+            - generic [ref=e33] [cursor=pointer]: "-2σ"
+            - generic [ref=e35] [cursor=pointer]: "-1σ"
+            - generic [ref=e37] [cursor=pointer]: μ
+            - generic [ref=e39] [cursor=pointer]: +1σ
+            - generic [ref=e41] [cursor=pointer]: +2σ
+            - generic [ref=e43] [cursor=pointer]: +3σ
+          - generic [ref=e44] [cursor=pointer]:
+            - generic [ref=e45] [cursor=pointer]: INTEGRATED
+            - generic [ref=e46] [cursor=pointer]: INSPECTION
+            - generic [ref=e47] [cursor=pointer]: SYSTEMS
+      - navigation "Main" [ref=e48]:
+        - list [ref=e50]:
+          - listitem [ref=e51]:
+            - button "Services menu" [ref=e52] [cursor=pointer]:
+              - text: Services
+              - img [ref=e53] [cursor=pointer]
+          - listitem [ref=e55]:
+            - button "Industries menu" [ref=e56] [cursor=pointer]:
+              - text: Industries
+              - img [ref=e57] [cursor=pointer]
+          - listitem [ref=e59]:
+            - button "Resources menu" [ref=e60] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e61] [cursor=pointer]
+          - listitem [ref=e63]:
+            - link "About" [ref=e64] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e65]:
+            - button "Compliance menu" [ref=e66] [cursor=pointer]:
+              - text: Compliance
+              - img [ref=e67] [cursor=pointer]
+          - listitem [ref=e69]:
+            - link "Contact" [ref=e70] [cursor=pointer]:
+              - /url: /contact
+      - link "REQUEST QUOTE" [ref=e72] [cursor=pointer]:
+        - /url: /contact
+        - button "REQUEST QUOTE" [ref=e73] [cursor=pointer]:
+          - generic [ref=e77] [cursor=pointer]:
+            - text: REQUEST QUOTE
+            - img [ref=e78] [cursor=pointer]
+  - main [ref=e80]:
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - img "Precision metrology and CMM inspection equipment" [ref=e84]
+        - generic [ref=e88]:
+          - generic [ref=e90]:
+            - img [ref=e91]
+            - text: PRECISION MEASUREMENT SERVICES
+          - heading "Precision Metrology" [level=1] [ref=e97]:
+            - generic [ref=e98]: Precision
+            - generic [ref=e99]: Metrology
+          - generic [ref=e100]: Quality Assurance Excellence
+          - paragraph [ref=e101]: Advanced measurement and inspection services ensuring dimensional accuracy and quality compliance for aerospace and defense manufacturing.
+          - generic [ref=e102]:
+            - link "Get Quote" [ref=e103] [cursor=pointer]:
+              - /url: /contact
+              - text: Get Quote
+              - img
+            - link "View Services" [ref=e104] [cursor=pointer]:
+              - /url: /services
+              - text: View Services
+              - img
+        - img [ref=e107] [cursor=pointer]
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]: ±0.00005"
+          - generic [ref=e114]: Measurement Accuracy
+          - generic [ref=e115]: CMM precision
+        - generic [ref=e116]:
+          - generic [ref=e117]: 0.001"
+          - generic [ref=e118]: Scanning Resolution
+          - generic [ref=e119]: Laser scanning
+        - generic [ref=e120]:
+          - generic [ref=e121]: 68°F ±1°F
+          - generic [ref=e122]: Temperature Control
+          - generic [ref=e123]: Climate controlled
+        - generic [ref=e124]:
+          - generic [ref=e125]: ISO 17025
+          - generic [ref=e126]: Certification Level
+          - generic [ref=e127]: Accredited lab
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - heading "Metrology Services" [level=2] [ref=e131]
+          - paragraph [ref=e132]: Comprehensive measurement and inspection capabilities supporting all phases of manufacturing from first article to final inspection.
+        - generic [ref=e133]:
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - generic [ref=e139]:
+                - img "Coordinate Measuring Machine (CMM)" [ref=e140]
+                - img "Coordinate Measuring Machine (CMM)" [ref=e141]
+              - img [ref=e144]
+            - generic [ref=e148]:
+              - heading "Coordinate Measuring Machine (CMM)" [level=3] [ref=e149]
+              - paragraph [ref=e150]: High-precision dimensional inspection using state-of-the-art CMM systems for complex geometries.
+              - generic [ref=e151]:
+                - heading "Key Features" [level=4] [ref=e152]
+                - generic [ref=e153]:
+                  - generic [ref=e154]:
+                    - img [ref=e155]
+                    - text: 3D coordinate measurement
+                  - generic [ref=e158]:
+                    - img [ref=e159]
+                    - text: GD&T inspection
+                  - generic [ref=e162]:
+                    - img [ref=e163]
+                    - text: Statistical analysis
+                  - generic [ref=e166]:
+                    - img [ref=e167]
+                    - text: Automated reporting
+              - generic [ref=e170]:
+                - heading "Equipment Capabilities" [level=4] [ref=e171]
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Zeiss CONTURA G2 RDS CMM
+                  - generic [ref=e175]: "Working volume: 700x1000x600mm"
+                  - generic [ref=e177]: "Accuracy: ±(0.9+L/350)μm"
+                  - generic [ref=e179]: VAST XXT scanning probe
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - generic [ref=e186]:
+                - img "Laser Scanning & Reverse Engineering" [ref=e187]
+                - img "Laser Scanning & Reverse Engineering" [ref=e188]
+              - img [ref=e191]
+            - generic [ref=e194]:
+              - heading "Laser Scanning & Reverse Engineering" [level=3] [ref=e195]
+              - paragraph [ref=e196]: Advanced 3D laser scanning for rapid inspection, reverse engineering, and digital documentation.
+              - generic [ref=e197]:
+                - heading "Key Features" [level=4] [ref=e198]
+                - generic [ref=e199]:
+                  - generic [ref=e200]:
+                    - img [ref=e201]
+                    - text: Point cloud generation
+                  - generic [ref=e204]:
+                    - img [ref=e205]
+                    - text: CAD comparison
+                  - generic [ref=e208]:
+                    - img [ref=e209]
+                    - text: Surface analysis
+                  - generic [ref=e212]:
+                    - img [ref=e213]
+                    - text: Digital archiving
+              - generic [ref=e216]:
+                - heading "Equipment Capabilities" [level=4] [ref=e217]
+                - generic [ref=e218]:
+                  - generic [ref=e219]: ATOS Triple Scan system
+                  - generic [ref=e221]: 5 megapixel resolution
+                  - generic [ref=e223]: 0.01mm accuracy
+                  - generic [ref=e225]: Blue light technology
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - generic [ref=e232]:
+                - img "Optical Measurement Systems" [ref=e233]
+                - img "Optical Measurement Systems" [ref=e234]
+              - img [ref=e237]
+            - generic [ref=e240]:
+              - heading "Optical Measurement Systems" [level=3] [ref=e241]
+              - paragraph [ref=e242]: Non-contact optical measurement for delicate parts and surface characteristics analysis.
+              - generic [ref=e243]:
+                - heading "Key Features" [level=4] [ref=e244]
+                - generic [ref=e245]:
+                  - generic [ref=e246]:
+                    - img [ref=e247]
+                    - text: Surface roughness
+                  - generic [ref=e250]:
+                    - img [ref=e251]
+                    - text: Profile measurement
+                  - generic [ref=e254]:
+                    - img [ref=e255]
+                    - text: Edge detection
+                  - generic [ref=e258]:
+                    - img [ref=e259]
+                    - text: Multi-sensor integration
+              - generic [ref=e262]:
+                - heading "Equipment Capabilities" [level=4] [ref=e263]
+                - generic [ref=e264]:
+                  - generic [ref=e265]: Keyence IM Series
+                  - generic [ref=e267]: Sub-micron accuracy
+                  - generic [ref=e269]: Multi-wavelength scanning
+                  - generic [ref=e271]: Real-time analysis
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - generic [ref=e278]:
+                - img "Gauge & Tool Calibration" [ref=e279]
+                - img "Gauge & Tool Calibration" [ref=e280]
+              - img [ref=e283]
+            - generic [ref=e286]:
+              - heading "Gauge & Tool Calibration" [level=3] [ref=e287]
+              - paragraph [ref=e288]: Comprehensive calibration services for measuring instruments and production tooling.
+              - generic [ref=e289]:
+                - heading "Key Features" [level=4] [ref=e290]
+                - generic [ref=e291]:
+                  - generic [ref=e292]:
+                    - img [ref=e293]
+                    - text: NIST traceable
+                  - generic [ref=e296]:
+                    - img [ref=e297]
+                    - text: Calibration certificates
+                  - generic [ref=e300]:
+                    - img [ref=e301]
+                    - text: Tool verification
+                  - generic [ref=e304]:
+                    - img [ref=e305]
+                    - text: Gage R&R studies
+              - generic [ref=e308]:
+                - heading "Equipment Capabilities" [level=4] [ref=e309]
+                - generic [ref=e310]:
+                  - generic [ref=e311]: NIST traceable standards
+                  - generic [ref=e313]: Environmental controls
+                  - generic [ref=e315]: Automated calibration
+                  - generic [ref=e317]: Digital certificates
+      - generic [ref=e320]:
+        - generic [ref=e321]:
+          - heading "Inspection Services" [level=2] [ref=e322]
+          - paragraph [ref=e323]: Comprehensive inspection protocols tailored to aerospace and defense quality requirements.
+        - generic [ref=e324]:
+          - generic [ref=e326]:
+            - heading "First Article Inspection (FAI)" [level=3] [ref=e327]
+            - paragraph [ref=e328]: Complete dimensional verification per AS9102 requirements
+            - generic [ref=e329]:
+              - heading "Deliverables" [level=4] [ref=e330]
+              - generic [ref=e331]:
+                - generic [ref=e332]: AS9102 Forms 1-3
+                - generic [ref=e334]: Dimensional report
+                - generic [ref=e336]: Material certificates
+                - generic [ref=e338]: Process documentation
+          - generic [ref=e341]:
+            - heading "In-Process Inspection" [level=3] [ref=e342]
+            - paragraph [ref=e343]: Real-time quality monitoring during manufacturing
+            - generic [ref=e344]:
+              - heading "Deliverables" [level=4] [ref=e345]
+              - generic [ref=e346]:
+                - generic [ref=e347]: Statistical control charts
+                - generic [ref=e349]: Trend analysis
+                - generic [ref=e351]: Process capability studies
+                - generic [ref=e353]: Corrective actions
+          - generic [ref=e356]:
+            - heading "Final Inspection" [level=3] [ref=e357]
+            - paragraph [ref=e358]: Comprehensive verification before shipment
+            - generic [ref=e359]:
+              - heading "Deliverables" [level=4] [ref=e360]
+              - generic [ref=e361]:
+                - generic [ref=e362]: Certificate of conformance
+                - generic [ref=e364]: Inspection report
+                - generic [ref=e366]: Dimensional data
+                - generic [ref=e368]: Test results
+          - generic [ref=e371]:
+            - heading "Incoming Inspection" [level=3] [ref=e372]
+            - paragraph [ref=e373]: Vendor part verification and material validation
+            - generic [ref=e374]:
+              - heading "Deliverables" [level=4] [ref=e375]
+              - generic [ref=e376]:
+                - generic [ref=e377]: Supplier scorecards
+                - generic [ref=e379]: Non-conformance reports
+                - generic [ref=e381]: Material verification
+                - generic [ref=e383]: Dimensional check
+      - generic [ref=e387]:
+        - generic [ref=e388]:
+          - heading "Quality Standards & Certifications" [level=2] [ref=e389]
+          - paragraph [ref=e390]: Our metrology lab maintains the highest standards of accuracy and traceability, with certifications that meet aerospace and defense requirements.
+          - generic [ref=e391]:
+            - generic [ref=e392]:
+              - img [ref=e393]
+              - generic [ref=e395]: AS9100D Quality Management
+            - generic [ref=e396]:
+              - img [ref=e397]
+              - generic [ref=e399]: ISO 9001:2015 Certified
+            - generic [ref=e400]:
+              - img [ref=e401]
+              - generic [ref=e403]: ISO 17025 Measurement Lab
+            - generic [ref=e404]:
+              - img [ref=e405]
+              - generic [ref=e407]: NADCAP Accredited Processes
+            - generic [ref=e408]:
+              - img [ref=e409]
+              - generic [ref=e411]: ITAR Registered Facility
+            - generic [ref=e412]:
+              - img [ref=e413]
+              - generic [ref=e415]: Statistical Process Control
+        - generic [ref=e418]:
+          - img "Quality control laboratory" [ref=e419]
+          - img "Quality control laboratory" [ref=e420]
+      - generic [ref=e422]:
+        - generic [ref=e423]:
+          - heading "Metrology Process" [level=2] [ref=e424]
+          - paragraph [ref=e425]: Our systematic approach ensures accurate measurements and comprehensive documentation for every inspection.
+        - generic [ref=e426]:
+          - generic [ref=e427]:
+            - generic [ref=e429]: "01"
+            - heading "Planning" [level=3] [ref=e430]
+            - paragraph [ref=e431]: Review drawings and specifications
+          - generic [ref=e432]:
+            - generic [ref=e434]: "02"
+            - heading "Setup" [level=3] [ref=e435]
+            - paragraph [ref=e436]: Equipment calibration and preparation
+          - generic [ref=e437]:
+            - generic [ref=e439]: "03"
+            - heading "Measurement" [level=3] [ref=e440]
+            - paragraph [ref=e441]: Precision data collection
+          - generic [ref=e442]:
+            - generic [ref=e444]: "04"
+            - heading "Analysis" [level=3] [ref=e445]
+            - paragraph [ref=e446]: Statistical evaluation and comparison
+          - generic [ref=e447]:
+            - generic [ref=e448]: "05"
+            - heading "Reporting" [level=3] [ref=e449]
+            - paragraph [ref=e450]: Documentation and certification
+      - generic [ref=e453]:
+        - heading "Precision You Can Trust" [level=2] [ref=e454]
+        - paragraph [ref=e455]: Partner with our certified metrology lab for accurate measurements and comprehensive quality documentation.
+        - generic [ref=e456]:
+          - button "Request Inspection" [ref=e457] [cursor=pointer]:
+            - text: Request Inspection
+            - img
+          - link "View All Services" [ref=e458] [cursor=pointer]:
+            - /url: /services
+  - contentinfo [ref=e459]:
+    - generic [ref=e460]:
+      - generic [ref=e461]:
+        - generic [ref=e462]:
+          - generic [ref=e464]:
+            - img [ref=e465]:
+              - generic [ref=e469]:
+                - generic [ref=e470]: I
+                - generic [ref=e471]: I
+                - generic [ref=e472]: S
+              - generic [ref=e474]: "-3σ"
+              - generic [ref=e476]: "-2σ"
+              - generic [ref=e478]: "-1σ"
+              - generic [ref=e480]: μ
+              - generic [ref=e482]: +1σ
+              - generic [ref=e484]: +2σ
+              - generic [ref=e486]: +3σ
+            - generic [ref=e487]:
+              - generic [ref=e488]: INTEGRATED
+              - generic [ref=e489]: INSPECTION
+              - generic [ref=e490]: SYSTEMS
+          - paragraph [ref=e491]: Precision manufacturing and metrology solutions for aerospace, defense, and advanced industries.
+          - generic [ref=e492]:
+            - link "LinkedIn" [ref=e493] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e494] [cursor=pointer]
+            - link "Twitter" [ref=e498] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e499] [cursor=pointer]
+            - link "Facebook" [ref=e501] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e502] [cursor=pointer]
+        - generic [ref=e504]:
+          - heading "Services" [level=4] [ref=e505]
+          - list [ref=e506]:
+            - listitem [ref=e507]:
+              - link "Machining" [ref=e508] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e509]:
+              - link "Inspection" [ref=e510] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e511]:
+              - link "Fixture Design" [ref=e512] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e513]:
+              - link "Metrology" [ref=e514] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e515]:
+              - link "Metbase®" [ref=e516] [cursor=pointer]:
+                - /url: /services
+        - generic [ref=e517]:
+          - heading "Resources" [level=4] [ref=e518]
+          - list [ref=e519]:
+            - listitem [ref=e520]:
+              - link "All Resources" [ref=e521] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e522]:
+              - link "Manufacturing Processes" [ref=e523] [cursor=pointer]:
+                - /url: /resources/manufacturing-processes
+            - listitem [ref=e524]:
+              - link "Quality & Compliance" [ref=e525] [cursor=pointer]:
+                - /url: /resources/quality-compliance
+            - listitem [ref=e526]:
+              - link "Material Science" [ref=e527] [cursor=pointer]:
+                - /url: /resources/material-science
+        - generic [ref=e528]:
+          - heading "Quick Links" [level=4] [ref=e529]
+          - list [ref=e530]:
+            - listitem [ref=e531]:
+              - link "About Us" [ref=e532] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e533]:
+              - link "Industries" [ref=e534] [cursor=pointer]:
+                - /url: /industries
+            - listitem [ref=e535]:
+              - link "Terms & Conditions" [ref=e536] [cursor=pointer]:
+                - /url: /compliance/terms
+            - listitem [ref=e537]:
+              - link "Supplier Requirements" [ref=e538] [cursor=pointer]:
+                - /url: /compliance/supplier-requirements
+            - listitem [ref=e539]:
+              - link "Contact" [ref=e540] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e541]:
+          - heading "Contact" [level=4] [ref=e542]
+          - list [ref=e543]:
+            - listitem [ref=e544]:
+              - img [ref=e545]
+              - link "officemgr@iismet.com" [ref=e548] [cursor=pointer]:
+                - /url: mailto:officemgr@iismet.com
+            - listitem [ref=e549]:
+              - img [ref=e550]
+              - link "+1 (503) 231-9093" [ref=e552] [cursor=pointer]:
+                - /url: tel:+15032319093
+            - listitem [ref=e553]:
+              - img [ref=e554]
+              - generic [ref=e557]:
+                - text: 14310 SE Industrial Way
+                - text: Clackamas, OR 97015
+                - text: United States
+      - generic [ref=e559]:
+        - paragraph [ref=e560]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
+        - generic [ref=e561]:
+          - img [ref=e562]
+          - generic [ref=e564]:
+            - generic [ref=e565]: Founded 1995
+            - generic [ref=e566]: •
+            - generic [ref=e567]: ISO 9001:2015
+            - generic [ref=e568]: •
+            - generic [ref=e569]: AS9100D
+            - generic [ref=e570]: •
+            - generic [ref=e571]: ITAR Registered
+  - button "Open Next.js Dev Tools" [ref=e577] [cursor=pointer]:
+    - img [ref=e578] [cursor=pointer]
+  - alert [ref=e581]
+```

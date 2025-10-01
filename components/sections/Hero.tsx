@@ -39,7 +39,7 @@ export default function Hero({ data }: HeroProps) {
     focal: slide.focal
   })) || [
     {
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=95',
+      src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=95',
       alt: 'Advanced 5-axis CNC machining center',
       focal: 'center' as const
     },
@@ -101,9 +101,10 @@ export default function Hero({ data }: HeroProps) {
             animate={{ opacity: 1 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0 : 1.2, ease: [0.33, 1, 0.68, 1] }}
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95]">
+            <h1 className="font-black mb-6 md:mb-8 leading-[0.95]">
               <motion.span
-                className="block text-white drop-shadow-2xl uppercase"
+                className="block text-white uppercase text-[3.5rem] sm:text-[4.6rem] md:text-[5.75rem] lg:text-[7.25rem] tracking-[0.04em]"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.4))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.5, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
@@ -111,7 +112,8 @@ export default function Hero({ data }: HeroProps) {
                 {mainTitle}
               </motion.span>
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 drop-shadow-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 uppercase font-black tracking-tight"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}

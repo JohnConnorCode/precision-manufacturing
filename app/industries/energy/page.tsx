@@ -54,7 +54,7 @@ export default function EnergyPage() {
       title: 'Renewable Energy',
       description: 'Components for wind, solar, and hydroelectric power generation systems',
       icon: Wind,
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
       applications: [
         'Wind turbine components',
         'Solar tracking systems',

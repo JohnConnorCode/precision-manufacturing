@@ -70,13 +70,23 @@ test.describe('Forms & User Interactions', () => {
     test('Homepage CTA buttons work', async ({ page }) => {
       await page.goto('/');
 
-      // Find "Get Quote" button
-      const quoteButton = page.locator('a').filter({ hasText: /get quote|quote/i }).first();
-      if (await quoteButton.count() > 0) {
-        await quoteButton.click();
-        // Should navigate to contact or quote page
-        expect(page.url()).toMatch(/\/(contact|quote)/);
-      }
+      // Find "Get Quote" button that's actually visible
+      const quoteButton = page.locator('a').filter({ hasText: /get.*quote/i }).first();
+
+      // Scroll into view if needed
+      await quoteButton.scrollIntoViewIfNeeded();
+
+      // Wait for button to be visible and clickable
+      await quoteButton.waitFor({ state: 'visible', timeout: 10000 });
+
+      // Click and wait for navigation
+      await Promise.all([
+        page.waitForURL(/\/(contact|quote)/),
+        quoteButton.click()
+      ]);
+
+      // Verify we're on the right page
+      expect(page.url()).toMatch(/\/(contact|quote)/);
     });
 
     test('Service pages have contact CTAs', async ({ page }) => {

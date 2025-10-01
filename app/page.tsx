@@ -16,6 +16,9 @@ import {
   generateFAQSchema
 } from '@/lib/structured-data';
 
+// Force static generation with long revalidation
+export const revalidate = 3600;
+
 export default async function Home() {
   const homeData = await getHomePage();
 

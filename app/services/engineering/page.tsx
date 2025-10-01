@@ -23,7 +23,7 @@ export default function EngineeringPage() {
       description: 'Optimize part designs for efficient manufacturing while maintaining performance requirements.',
       icon: Settings,
       features: ['Cost optimization', 'Tolerance analysis', 'Material selection', 'Process optimization'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90',
+      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=90',
       benefits: [
         'Reduced manufacturing costs',
         'Improved producibility',

@@ -122,7 +122,7 @@ export default function FiveAxisMachiningPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced 5-axis CNC machining center in operation"
         height="large"
         alignment="center"

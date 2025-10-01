@@ -1,0 +1,113 @@
+import { test, expect } from '@playwright/test';
+
+test.describe('Comprehensive Route Coverage', () => {
+  // Static routes
+  const staticRoutes = [
+    '/',
+    '/about',
+    '/contact',
+    '/demo',
+
+    // Services
+    '/services',
+    '/services/5-axis-machining',
+    '/services/adaptive-machining',
+    '/services/metrology',
+    '/services/engineering',
+    '/services/predictive-analytics',
+
+    // Industries
+    '/industries',
+    '/industries/aerospace',
+    '/industries/defense',
+    '/industries/energy',
+    '/industries/medical',
+
+    // Resources
+    '/resources',
+    '/resources/series',
+
+    // Compliance
+    '/compliance/terms',
+    '/compliance/supplier-requirements',
+    '/supplier-requirements',
+
+    // Logo pages (dev/internal)
+    '/logos',
+    '/logo-animated',
+    '/logo-enhanced',
+    '/logo-statistical',
+    '/logo-statistical-v2',
+  ];
+
+  // Resource categories
+  const resourceCategories = [
+    'manufacturing-processes',
+    'material-science',
+    'quality-compliance',
+    'industry-applications',
+    'calculators-tools',
+  ];
+
+  // Sample articles from each category (test subset) - verified routes
+  const sampleArticles = [
+    { category: 'manufacturing-processes', slug: '5-axis-cnc-machining-aerospace-guide' },
+    // Note: Only manufacturing-processes is tested as others use dynamic routing from content
+    { category: 'quality-compliance', slug: 'as9100d-compliance-checklist' },
+    { category: 'calculators-tools', slug: 'tolerance-calculator' },
+  ];
+
+  // Test all static routes
+  for (const route of staticRoutes) {
+    test(`Static route ${route} loads successfully`, async ({ page }) => {
+      const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
+      expect(response?.status()).toBeLessThan(400);
+
+      const content = await page.textContent('body');
+      expect(content).toBeTruthy();
+      expect(content!.length).toBeGreaterThan(100);
+    });
+  }
+
+  // Test resource category pages
+  for (const category of resourceCategories) {
+    test(`Resource category /resources/${category} loads successfully`, async ({ page }) => {
+      const response = await page.goto(`/resources/${category}`, { waitUntil: 'domcontentloaded' });
+      expect(response?.status()).toBeLessThan(400);
+
+      const content = await page.textContent('body');
+      expect(content).toBeTruthy();
+    });
+  }
+
+  // Test sample articles from each category
+  for (const article of sampleArticles) {
+    test(`Article /resources/${article.category}/${article.slug} loads successfully`, async ({ page }) => {
+      const response = await page.goto(`/resources/${article.category}/${article.slug}`, { waitUntil: 'domcontentloaded' });
+      expect(response?.status()).toBeLessThan(400);
+
+      const content = await page.textContent('body');
+      expect(content).toBeTruthy();
+      expect(content!.length).toBeGreaterThan(500);
+    });
+  }
+
+  // Test that 404 works
+  test('404 page works for invalid routes', async ({ page }) => {
+    const response = await page.goto('/this-route-does-not-exist-12345');
+    expect(response?.status()).toBe(404);
+  });
+
+  // Performance check
+  test('All main routes load within 5 seconds', async ({ page }) => {
+    const mainRoutes = ['/', '/about', '/services', '/industries', '/resources', '/contact'];
+
+    for (const route of mainRoutes) {
+      const start = Date.now();
+      await page.goto(route, { waitUntil: 'domcontentloaded' });
+      const loadTime = Date.now() - start;
+
+      expect(loadTime).toBeLessThan(5000);
+    }
+  });
+});

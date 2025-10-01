@@ -1,0 +1,304 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - complementary "Contact information" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - 'link "Phone: 503-231-9093" [ref=e5] [cursor=pointer]':
+          - /url: tel:+15032319093
+          - img [ref=e6] [cursor=pointer]
+          - generic [ref=e8] [cursor=pointer]: 503-231-9093
+        - 'link "Email: officemgr@iismet.com" [ref=e9] [cursor=pointer]':
+          - /url: mailto:officemgr@iismet.com
+          - img [ref=e10] [cursor=pointer]
+          - generic [ref=e13] [cursor=pointer]: officemgr@iismet.com
+      - generic [ref=e14]:
+        - img [ref=e15]
+        - generic [ref=e17]: ISO 9001 • AS9100D • ITAR REGISTERED
+  - banner [ref=e18]:
+    - navigation [ref=e19]:
+      - link "IIS - Integrated Inspection Systems Home" [ref=e20] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e21] [cursor=pointer]:
+          - img [ref=e22] [cursor=pointer]:
+            - generic [ref=e103] [cursor=pointer]:
+              - generic [ref=e104] [cursor=pointer]: I
+              - generic [ref=e105] [cursor=pointer]: I
+              - generic [ref=e106] [cursor=pointer]: S
+            - generic [ref=e110] [cursor=pointer]: "-3σ"
+            - generic [ref=e113] [cursor=pointer]: "-2σ"
+            - generic [ref=e116] [cursor=pointer]: "-1σ"
+            - generic [ref=e119] [cursor=pointer]: μ
+            - generic [ref=e122] [cursor=pointer]: +1σ
+            - generic [ref=e125] [cursor=pointer]: +2σ
+            - generic [ref=e128] [cursor=pointer]: +3σ
+          - generic [ref=e129] [cursor=pointer]:
+            - generic [ref=e130] [cursor=pointer]: INTEGRATED
+            - generic [ref=e131] [cursor=pointer]: INSPECTION
+            - generic [ref=e132] [cursor=pointer]: SYSTEMS
+      - navigation "Main" [ref=e133]:
+        - list [ref=e135]:
+          - listitem [ref=e136]:
+            - button "Services menu" [ref=e137] [cursor=pointer]:
+              - text: Services
+              - img [ref=e138] [cursor=pointer]
+          - listitem [ref=e140]:
+            - button "Industries menu" [ref=e141] [cursor=pointer]:
+              - text: Industries
+              - img [ref=e142] [cursor=pointer]
+          - listitem [ref=e144]:
+            - button "Resources menu" [ref=e145] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e146] [cursor=pointer]
+          - listitem [ref=e148]:
+            - link "About" [ref=e149] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e150]:
+            - button "Compliance menu" [ref=e151] [cursor=pointer]:
+              - text: Compliance
+              - img [ref=e152] [cursor=pointer]
+          - listitem [ref=e154]:
+            - link "Contact" [ref=e155] [cursor=pointer]:
+              - /url: /contact
+      - link "REQUEST QUOTE" [ref=e157] [cursor=pointer]:
+        - /url: /contact
+        - button "REQUEST QUOTE" [ref=e158] [cursor=pointer]:
+          - generic [ref=e162] [cursor=pointer]:
+            - text: REQUEST QUOTE
+            - img [ref=e163] [cursor=pointer]
+  - main [ref=e166]:
+    - generic [ref=e167]:
+      - generic [ref=e168]:
+        - img "Contact our precision manufacturing team" [ref=e170]
+        - generic [ref=e174]:
+          - generic [ref=e176]:
+            - img [ref=e177]
+            - text: GET STARTED
+          - heading "Contact Our Team" [level=1] [ref=e179]:
+            - generic [ref=e180]:
+              - text: Contact
+              - generic [ref=e181]: Our Team
+          - paragraph [ref=e182]: Connect with Integrated Inspection Systems for precision manufacturing solutions, technical consultations, and project quotes.
+          - generic [ref=e183]:
+            - link "Start Your Project" [ref=e184] [cursor=pointer]:
+              - /url: "#contact-form"
+              - text: Start Your Project
+              - img
+            - link "Call Us Today" [ref=e185] [cursor=pointer]:
+              - /url: tel:+15032319093
+              - text: Call Us Today
+              - img
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - heading "Get in Touch" [level=2] [ref=e191]
+              - paragraph [ref=e192]: Our engineering team is ready to discuss your precision manufacturing needs.
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - img [ref=e197]
+                - generic [ref=e200]:
+                  - heading "Headquarters" [level=3] [ref=e201]
+                  - paragraph [ref=e202]:
+                    - text: Integrated Inspection Systems, Inc.
+                    - text: 12345 Precision Way
+                    - text: Torrance, CA 90501
+              - generic [ref=e203]:
+                - img [ref=e205]
+                - generic [ref=e207]:
+                  - heading "Phone" [level=3] [ref=e208]
+                  - link "(503) 231-9093" [ref=e209] [cursor=pointer]:
+                    - /url: tel:+15032319093
+              - generic [ref=e210]:
+                - img [ref=e212]
+                - generic [ref=e215]:
+                  - heading "Email" [level=3] [ref=e216]
+                  - link "officemgr@iismet.com" [ref=e217] [cursor=pointer]:
+                    - /url: mailto:officemgr@iismet.com
+              - generic [ref=e218]:
+                - img [ref=e220]
+                - generic [ref=e223]:
+                  - heading "Business Hours" [level=3] [ref=e224]
+                  - paragraph [ref=e225]:
+                    - text: "Monday - Friday: 7:00 AM - 5:00 PM PST"
+                    - text: 24/7 Production Facility
+            - generic [ref=e226]:
+              - heading "Certifications" [level=3] [ref=e227]
+              - generic [ref=e228]:
+                - generic [ref=e229]:
+                  - img [ref=e230]
+                  - generic [ref=e232]: AS9100D
+                - generic [ref=e233]:
+                  - img [ref=e234]
+                  - generic [ref=e236]: ISO 9001:2015
+                - generic [ref=e237]:
+                  - img [ref=e238]
+                  - generic [ref=e240]: ITAR Registered
+                - generic [ref=e241]:
+                  - img [ref=e242]
+                  - generic [ref=e244]: NADCAP
+          - generic [ref=e246]:
+            - heading "Send a Message" [level=2] [ref=e247]
+            - generic [ref=e248]:
+              - generic [ref=e249]:
+                - generic [ref=e250]:
+                  - generic [ref=e251]: Full Name *
+                  - textbox "Full Name *" [ref=e253]
+                - generic [ref=e254]:
+                  - generic [ref=e255]: Email Address *
+                  - textbox "Email Address *" [ref=e257]
+              - generic [ref=e258]:
+                - generic [ref=e259]:
+                  - generic [ref=e260]: Company *
+                  - textbox "Company *" [ref=e262]
+                - generic [ref=e263]:
+                  - generic [ref=e264]: Phone
+                  - textbox "Phone" [ref=e265]
+              - generic [ref=e266]:
+                - generic [ref=e267]: Inquiry Type *
+                - combobox "Inquiry Type" [ref=e268] [cursor=pointer]:
+                  - generic: Select inquiry type
+                  - img [ref=e269] [cursor=pointer]
+                - combobox [ref=e271]
+              - generic [ref=e272]:
+                - generic [ref=e273]:
+                  - text: Attach Files
+                  - generic [ref=e274]: (Optional - CAD files, drawings, specs)
+                - generic [ref=e276] [cursor=pointer]:
+                  - img [ref=e278] [cursor=pointer]
+                  - generic [ref=e282] [cursor=pointer]:
+                    - paragraph [ref=e283] [cursor=pointer]: Drop files here or click to browse
+                    - paragraph [ref=e284] [cursor=pointer]: PDF, JPG, PNG, STEP, STL, Excel (max 10MB, up to 3 files)
+              - generic [ref=e285]:
+                - generic [ref=e286]: Message *
+                - textbox "Message *" [ref=e287]
+              - generic [ref=e288]:
+                - paragraph [ref=e289]: "* Required fields"
+                - button "Send Message" [ref=e290] [cursor=pointer]:
+                  - text: Send Message
+                  - img
+        - generic [ref=e292]:
+          - generic [ref=e295]: Quote Response in 24 Hours
+          - generic [ref=e296]:
+            - img [ref=e297]
+            - generic [ref=e300]: 30+ Years | 1000+ Projects
+          - generic [ref=e301]:
+            - img [ref=e302]
+            - generic [ref=e304]: 99.8% First-Pass Yield
+          - generic [ref=e305]:
+            - img [ref=e306]
+            - generic [ref=e309]: AS9100D | ITAR Certified
+  - contentinfo [ref=e310]:
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - generic [ref=e315]:
+            - img [ref=e316]:
+              - generic [ref=e397]:
+                - generic [ref=e398]: I
+                - generic [ref=e399]: I
+                - generic [ref=e400]: S
+              - generic [ref=e404]: "-3σ"
+              - generic [ref=e407]: "-2σ"
+              - generic [ref=e410]: "-1σ"
+              - generic [ref=e413]: μ
+              - generic [ref=e416]: +1σ
+              - generic [ref=e419]: +2σ
+              - generic [ref=e422]: +3σ
+            - generic [ref=e423]:
+              - generic [ref=e424]: INTEGRATED
+              - generic [ref=e425]: INSPECTION
+              - generic [ref=e426]: SYSTEMS
+          - paragraph [ref=e427]: Precision manufacturing and metrology solutions for aerospace, defense, and advanced industries.
+          - generic [ref=e428]:
+            - link "LinkedIn" [ref=e429] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e430] [cursor=pointer]
+            - link "Twitter" [ref=e434] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e435] [cursor=pointer]
+            - link "Facebook" [ref=e437] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e438] [cursor=pointer]
+        - generic [ref=e440]:
+          - heading "Services" [level=4] [ref=e441]
+          - list [ref=e442]:
+            - listitem [ref=e443]:
+              - link "Machining" [ref=e444] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e445]:
+              - link "Inspection" [ref=e446] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e447]:
+              - link "Fixture Design" [ref=e448] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e449]:
+              - link "Metrology" [ref=e450] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e451]:
+              - link "Metbase®" [ref=e452] [cursor=pointer]:
+                - /url: /services
+        - generic [ref=e453]:
+          - heading "Resources" [level=4] [ref=e454]
+          - list [ref=e455]:
+            - listitem [ref=e456]:
+              - link "All Resources" [ref=e457] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e458]:
+              - link "Manufacturing Processes" [ref=e459] [cursor=pointer]:
+                - /url: /resources/manufacturing-processes
+            - listitem [ref=e460]:
+              - link "Quality & Compliance" [ref=e461] [cursor=pointer]:
+                - /url: /resources/quality-compliance
+            - listitem [ref=e462]:
+              - link "Material Science" [ref=e463] [cursor=pointer]:
+                - /url: /resources/material-science
+        - generic [ref=e464]:
+          - heading "Quick Links" [level=4] [ref=e465]
+          - list [ref=e466]:
+            - listitem [ref=e467]:
+              - link "About Us" [ref=e468] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e469]:
+              - link "Industries" [ref=e470] [cursor=pointer]:
+                - /url: /industries
+            - listitem [ref=e471]:
+              - link "Terms & Conditions" [ref=e472] [cursor=pointer]:
+                - /url: /compliance/terms
+            - listitem [ref=e473]:
+              - link "Supplier Requirements" [ref=e474] [cursor=pointer]:
+                - /url: /compliance/supplier-requirements
+            - listitem [ref=e475]:
+              - link "Contact" [ref=e476] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e477]:
+          - heading "Contact" [level=4] [ref=e478]
+          - list [ref=e479]:
+            - listitem [ref=e480]:
+              - img [ref=e481]
+              - link "officemgr@iismet.com" [ref=e484] [cursor=pointer]:
+                - /url: mailto:officemgr@iismet.com
+            - listitem [ref=e485]:
+              - img [ref=e486]
+              - link "+1 (503) 231-9093" [ref=e488] [cursor=pointer]:
+                - /url: tel:+15032319093
+            - listitem [ref=e489]:
+              - img [ref=e490]
+              - generic [ref=e493]:
+                - text: 14310 SE Industrial Way
+                - text: Clackamas, OR 97015
+                - text: United States
+      - generic [ref=e495]:
+        - paragraph [ref=e496]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
+        - generic [ref=e497]:
+          - img [ref=e498]
+          - generic [ref=e500]:
+            - generic [ref=e501]: Founded 1995
+            - generic [ref=e502]: •
+            - generic [ref=e503]: ISO 9001:2015
+            - generic [ref=e504]: •
+            - generic [ref=e505]: AS9100D
+            - generic [ref=e506]: •
+            - generic [ref=e507]: ITAR Registered
+```

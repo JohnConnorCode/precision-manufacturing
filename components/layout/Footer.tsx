@@ -78,11 +78,10 @@ const Footer = () => {
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <motion.div variants={logoVariants}>
-              <Logo variant="light" className="h-10 w-auto" />
+              <Logo variant="light" showText={true} size="md" />
             </motion.div>
-            <h3 className="text-lg font-semibold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">INTEGRATED INSPECTION SYSTEMS</h3>
-            <p className={cn(theme.typography.small, 'text-slate-400')}>
-              Quality is not inspected into a product but is inherently designed and built into every process.
+            <p className={cn(theme.typography.small, 'text-slate-400 max-w-xs')}>
+              Precision manufacturing and metrology solutions for aerospace, defense, and advanced industries.
             </p>
             <div className="flex space-x-4">
               <Link href="#" aria-label="LinkedIn">
@@ -132,11 +131,6 @@ const Footer = () => {
             <h4 className="font-semibold mb-3 text-blue-600">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/resources/series" className="text-slate-400 hover:text-blue-600 transition-colors">
-                  Technical Article Series
-                </Link>
-              </li>
-              <li>
                 <Link href="/resources" className="text-slate-400 hover:text-blue-600 transition-colors">
                   All Resources
                 </Link>
@@ -149,6 +143,11 @@ const Footer = () => {
               <li>
                 <Link href="/resources/quality-compliance" className="text-slate-400 hover:text-blue-600 transition-colors">
                   Quality & Compliance
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/material-science" className="text-slate-400 hover:text-blue-600 transition-colors">
+                  Material Science
                 </Link>
               </li>
             </ul>

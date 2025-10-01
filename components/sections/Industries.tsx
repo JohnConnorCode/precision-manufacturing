@@ -11,7 +11,7 @@ const industries = [
     title: 'Defense & Government',
     description: 'ITAR-compliant manufacturing for defense contractors and government agencies. Secure, certified production.',
     icon: Shield,
-    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
     href: '/industries/defense',
     features: ['ITAR registered', 'Secure facility', 'Rapid prototyping'],
   },
@@ -27,7 +27,7 @@ const industries = [
     title: 'Aerospace & Aviation',
     description: 'Precision components for commercial and military aircraft. AS9100D certified production.',
     icon: Plane,
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1',
     href: '/industries/aerospace',
     features: ['AS9100D certified', 'NADCAP accredited', 'Zero defect delivery'],
   },
@@ -79,38 +79,46 @@ export default function Industries({ data }: IndustriesProps) {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Link href={industry.href}>
-                  <Card className="overflow-hidden hover:shadow-hover transition-all duration-300 group">
-                    <div className="relative h-48 overflow-hidden">
+                <Link href={industry.href} className="block">
+                  <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 group border-slate-200 hover:border-blue-600/50">
+                    <div className="relative h-56 overflow-hidden">
                       <ParallaxImage
                         src={industry.image}
                         alt={industry.title}
-                        className="w-full h-full group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full group-hover:scale-110 transition-transform duration-700"
                         speed={0.2}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                      <div className="absolute bottom-4 left-4">
-                        <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-slate-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/50 to-transparent" />
+
+                      {/* Icon and title overlay on image */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <div className="flex items-start gap-3 mb-3">
+                          <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 transition-colors">
+                            <Icon className="h-6 w-6 text-white" />
+                          </div>
+                          <h3 className="text-xl font-bold text-white leading-tight pt-2">
+                            {industry.title}
+                          </h3>
+                        </div>
+
+                        {/* Feature badges on image */}
+                        <div className="flex flex-wrap gap-2">
+                          {industry.features.map((feature) => (
+                            <span
+                              key={feature}
+                              className="text-[10px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded uppercase tracking-wider"
+                            >
+                              {feature}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 flex items-center">
-                        <Icon className="h-5 w-5 mr-2 text-accent-cyan" />
-                        {industry.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-4">
+
+                    <div className="p-6 bg-white">
+                      <p className="text-sm text-slate-600 leading-relaxed">
                         {industry.description}
                       </p>
-                      <ul className="space-y-1">
-                        {industry.features.map((feature) => (
-                          <li key={feature} className="text-xs text-muted-foreground flex items-center">
-                            <span className="w-1 h-1 bg-accent-cyan rounded-full mr-2" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </Card>
                 </Link>

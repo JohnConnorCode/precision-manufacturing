@@ -181,8 +181,6 @@ export const LogoPrecisionTargetEnhanced = ({
           stroke={color}
           strokeWidth="2"
           variants={squareVariants}
-          pathLength={0}
-          style={{ pathLength: 0 }}
         />
 
         {/* Animated corner accents */}

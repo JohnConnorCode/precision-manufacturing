@@ -21,7 +21,7 @@ export default function AerospacePage() {
     {
       category: 'Engine Components',
       description: 'Critical turbine and engine parts requiring extreme precision and material expertise',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
       parts: [
         'Turbine blades and vanes',
         'Combustor liners',
@@ -36,7 +36,7 @@ export default function AerospacePage() {
     {
       category: 'Structural Components',
       description: 'Airframe and structural parts demanding exceptional strength and weight optimization',
-      image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80',
       parts: [
         'Wing brackets and fittings',
         'Landing gear components',

@@ -20,7 +20,7 @@ const showcaseImages = [
     href: '/services/adaptive-machining'
   },
   {
-    src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=90',
+    src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=90',
     title: 'Precision Metrology',
     category: 'Quality Control',
     href: '/services/metrology'
@@ -102,7 +102,7 @@ export default function ImageShowcase({ data }: ImageShowcaseProps) {
                     />
 
                     {/* Clean gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
                     {/* Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">

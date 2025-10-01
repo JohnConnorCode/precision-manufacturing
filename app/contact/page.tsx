@@ -178,7 +178,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=2400&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=2400&q=80"
         imageAlt="Contact our precision manufacturing team"
         badge={{
           text: "GET STARTED",

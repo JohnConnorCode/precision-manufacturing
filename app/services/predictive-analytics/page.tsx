@@ -23,7 +23,7 @@ export default function PredictiveAnalyticsPage() {
       description: 'Advanced AI algorithms predict equipment failures before they occur.',
       icon: Brain,
       features: ['Failure prediction', 'Pattern recognition', 'Anomaly detection', 'Performance forecasting'],
-      image: 'https://images.unsplash.com/photo-1563770660941-906983ff0c26?auto=format&fit=crop&w=1600&q=90',
+      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'TensorFlow & PyTorch models',
         'Neural network architectures',

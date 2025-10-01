@@ -23,7 +23,7 @@ export default function MetrologyPage() {
       description: 'High-precision dimensional inspection using state-of-the-art CMM systems for complex geometries.',
       icon: Target,
       features: ['3D coordinate measurement', 'GD&T inspection', 'Statistical analysis', 'Automated reporting'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90',
+      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=90',
       capabilities: [
         'Zeiss CONTURA G2 RDS CMM',
         'Working volume: 700x1000x600mm',
@@ -108,7 +108,7 @@ export default function MetrologyPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Precision metrology and CMM inspection equipment"
         height="large"
         alignment="center"

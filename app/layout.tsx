@@ -210,10 +210,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <AnalyticsProvider
-          googleAnalyticsId="G-XXXXXXXXXX"
-          facebookPixelId="XXXXXXXXXXXXXXX"
-          linkedInPartnerId="XXXXXXX"
-          hotjarId="XXXXXXX"
           enablePerformanceMonitoring={true}
         >
           <Header />

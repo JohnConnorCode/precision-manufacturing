@@ -8,10 +8,9 @@ import { theme, styles, cn } from '@/lib/theme';
 import { ArrowRight, Cog, Cpu, Target, Wrench, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
-import { getServicesPage } from '@/lib/sanity-pages';
 
-export default async function ServicesPage() {
-  const servicesData = await getServicesPage();
+export default function ServicesPage() {
+  const servicesData = null; // TODO: Fetch client-side or split components
   const services = [
     {
       title: '5-Axis CNC Machining',
@@ -19,7 +18,7 @@ export default async function ServicesPage() {
       icon: Cog,
       href: '/services/5-axis-machining',
       features: ['±0.0001" Precision', 'Complex Geometries', 'Titanium & Inconel', 'Aerospace Grade'],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90'
+      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=90'
     },
     {
       title: 'Adaptive Machining',
@@ -57,7 +56,7 @@ export default async function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection
-        backgroundImage="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=2400&q=90"
+        backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced manufacturing services - precision CNC machining and quality control"
         badge={{
           text: "PRECISION MANUFACTURING SERVICES",
@@ -238,7 +237,7 @@ export default async function ServicesPage() {
               className="relative"
             >
               <ParallaxImagePro
-                src="https://images.unsplash.com/photo-1563770660941-906983ff0c26?auto=format&fit=crop&w=1600&q=90"
+                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=90"
                 alt="Quality assurance"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}

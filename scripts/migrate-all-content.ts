@@ -24,7 +24,7 @@ const homePageData = {
     },
     backgroundSlides: [
       {
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=95',
+        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=95',
         alt: 'Advanced 5-axis CNC machining center',
         focal: 'center'
       },
@@ -89,7 +89,7 @@ const aboutPageData = {
     title: 'About Our Company',
     subtitle: 'Three decades of precision manufacturing excellence, serving aerospace, defense, and energy industries with unwavering commitment to quality and innovation.',
     badgeText: 'PRECISION MANUFACTURING SINCE 1993',
-    backgroundImage: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80',
     imageAlt: 'Precision manufacturing facility - 30 years of excellence',
     buttons: [
       { label: 'Our Capabilities', href: '#capabilities', variant: 'primary' },
@@ -183,7 +183,7 @@ const servicesPageData = {
     title: 'Our Services',
     subtitle: 'Advanced manufacturing capabilities delivering precision components for aerospace, defense, and energy sectors with industry-leading quality standards.',
     badgeText: 'PRECISION MANUFACTURING SERVICES',
-    backgroundImage: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=2400&q=90',
+    backgroundImage: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2400&q=90',
     imageAlt: 'Advanced manufacturing services - precision CNC machining and quality control',
     buttons: [
       { label: 'Request Quote', href: '/contact', variant: 'primary' },
@@ -206,7 +206,7 @@ const servicesPageData = {
         icon: 'Cog',
         href: '/services/5-axis-machining',
         features: ['±0.0001" Precision', 'Complex Geometries', 'Titanium & Inconel', 'Aerospace Grade'],
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=90'
+        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=90'
       },
       {
         title: 'Adaptive Machining',
@@ -261,7 +261,7 @@ const contactPageData = {
     title: 'Contact Us',
     subtitle: 'Ready to discuss your precision manufacturing needs? Our team of experts is here to help you achieve your project goals.',
     badgeText: 'GET IN TOUCH',
-    backgroundImage: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=2400&q=90',
+    backgroundImage: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2400&q=90',
     imageAlt: 'Contact our precision manufacturing experts'
   },
   contactInfo: {
