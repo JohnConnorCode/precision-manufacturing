@@ -11,6 +11,37 @@ interface StatisticalLogoProps {
   onMouseLeave?: () => void;
 }
 
+// Generate bell curve once at module level to avoid hydration mismatches
+const generateBellCurve = () => {
+  const points: string[] = [];
+  const centerX = 320;
+  const baseY = 340;
+  const peakY = 80;
+  const sigma = 75;
+  const numPoints = 300;
+
+  for (let i = 0; i <= numPoints; i++) {
+    const x = 80 + (i / numPoints) * 480;
+    const normalizedX = (x - centerX) / sigma;
+    const gaussian = Math.exp(-0.5 * normalizedX * normalizedX);
+    const y = baseY - (gaussian * (baseY - peakY));
+
+    if (i === 0) {
+      points.push(`M ${x},${y}`);
+    } else {
+      points.push(`L ${x},${y}`);
+    }
+  }
+
+  points.push(`L 560,${baseY}`);
+  points.push(`L 80,${baseY}`);
+  points.push('Z');
+
+  return points.join(' ');
+};
+
+const bellCurvePath = generateBellCurve();
+
 export function StatisticalLogo({
   size = 'md',
   animated = false,
@@ -19,36 +50,6 @@ export function StatisticalLogo({
   onMouseEnter,
   onMouseLeave
 }: StatisticalLogoProps) {
-  // Generate bell curve
-  const generateBellCurve = () => {
-    const points: string[] = [];
-    const centerX = 320;
-    const baseY = 340;
-    const peakY = 80;
-    const sigma = 75;
-    const numPoints = 300;
-
-    for (let i = 0; i <= numPoints; i++) {
-      const x = 80 + (i / numPoints) * 480;
-      const normalizedX = (x - centerX) / sigma;
-      const gaussian = Math.exp(-0.5 * normalizedX * normalizedX);
-      const y = baseY - (gaussian * (baseY - peakY));
-
-      if (i === 0) {
-        points.push(`M ${x},${y}`);
-      } else {
-        points.push(`L ${x},${y}`);
-      }
-    }
-
-    points.push(`L 560,${baseY}`);
-    points.push(`L 80,${baseY}`);
-    points.push('Z');
-
-    return points.join(' ');
-  };
-
-  const bellCurvePath = generateBellCurve();
 
   return (
     <svg
@@ -86,7 +87,7 @@ export function StatisticalLogo({
 
           {/* Clip path for grid */}
           <clipPath id="bellCurveClip">
-            <path d={bellCurvePath} />
+            <path d={bellCurvePath} suppressHydrationWarning />
           </clipPath>
         </defs>
 
@@ -103,6 +104,7 @@ export function StatisticalLogo({
             delay: 0.05
           }}
           style={{ transformOrigin: "center" }}
+          suppressHydrationWarning
         />
 
         {/* White grid overlay */}

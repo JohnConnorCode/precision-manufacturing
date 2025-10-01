@@ -41,7 +41,7 @@ export function ArticleContent({ resource, category, categoryInfo, relatedResour
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       {/* Breadcrumb Navigation */}
-      <section className="py-6 px-4 border-b border-slate-800">
+      <nav className="py-6 px-4 border-b border-slate-800">
         <div className="max-w-4xl mx-auto">
           <Link href={`/resources/${category}`} className="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors mb-2">
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -55,10 +55,11 @@ export function ArticleContent({ resource, category, categoryInfo, relatedResour
             <span className="text-slate-300">{resource.title}</span>
           </nav>
         </div>
-      </section>
+      </nav>
 
+      <article>
       {/* Article Header */}
-      <motion.section
+      <motion.header
         className="py-12 px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -130,7 +131,7 @@ export function ArticleContent({ resource, category, categoryInfo, relatedResour
             </div>
           </motion.div>
         </div>
-      </motion.section>
+      </motion.header>
 
       {/* Article Content */}
       <motion.section
@@ -151,6 +152,7 @@ export function ArticleContent({ resource, category, categoryInfo, relatedResour
           </motion.div>
         </div>
       </motion.section>
+      </article>
 
       {/* Related Articles */}
       {relatedResources.length > 0 && (
