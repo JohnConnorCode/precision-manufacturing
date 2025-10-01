@@ -67,8 +67,8 @@ export default async function Home() {
       ]} />
 
       <Hero data={homeData?.hero} />
-      <TechnicalSpecs data={homeData?.technicalSpecs} />
       <Services data={homeData?.services} />
+      <TechnicalSpecs data={homeData?.technicalSpecs} />
       <Industries data={homeData?.industries} />
       <ImageShowcase data={homeData?.imageShowcase} />
       <Resources />
