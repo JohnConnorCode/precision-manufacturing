@@ -71,7 +71,8 @@ export default function Hero({ data }: HeroProps) {
   const badges = data?.badges || [
     'Advanced CNC Machining',
     'Precision Metrology',
-    'Engineering Excellence'
+    'Engineering Excellence',
+    '3 Sigma Machining'
   ];
   const ctaPrimary = data?.ctaPrimary || { text: 'Get Quote in 24 Hours', href: '/contact?interest=quote' };
   const ctaSecondary = data?.ctaSecondary || { text: 'View Capabilities', href: '/services' };
