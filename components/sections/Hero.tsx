@@ -75,7 +75,7 @@ export default function Hero({ data }: HeroProps) {
     'AS9100D Certified',
     'ITAR Registered'
   ];
-  const ctaPrimary = data?.ctaPrimary || { text: 'Start Your Project', href: '/contact' };
+  const ctaPrimary = data?.ctaPrimary || { text: 'Get Quote in 24 Hours', href: '/contact?interest=quote' };
   const ctaSecondary = data?.ctaSecondary || { text: 'View Capabilities', href: '/services' };
 
   return (

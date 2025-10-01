@@ -46,15 +46,20 @@ export default function AnimatedSection({
     },
   };
 
-  const animationProps = scrollAnimation(
-    animationVariants,
-    { once: animateOnce, amount }
-  );
-
   return (
     <motion.div
       className={cn(className)}
-      {...animationProps}
+      initial={{ opacity: 1, y: 0 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.4,
+          ease: [0.25, 0.1, 0.25, 1],
+          delay,
+        },
+      }}
+      viewport={{ once: animateOnce, amount }}
       {...motionProps}
     >
       {children}

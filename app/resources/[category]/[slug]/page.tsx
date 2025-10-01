@@ -194,21 +194,21 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <AnimatedSection delay={0.4}>
             <div className="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 rounded-2xl p-12">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Ready to Get Started?
+                Ready to Start Your Project?
               </h2>
               <p className="text-xl text-slate-400 mb-8">
-                Apply these insights to your next precision manufacturing project.
-                Our team is ready to help you implement these best practices.
+                Apply these insights to your precision manufacturing project.
+                Get a detailed quote within 24 hours • Free DFM analysis included
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
+                <Link href="/contact?interest=quote">
                   <PremiumButton size="lg">
-                    Request Technical Consultation
+                    Get Quote in 24 Hours
                   </PremiumButton>
                 </Link>
-                <Link href="/contact?interest=quote">
+                <Link href="/contact?interest=technical">
                   <PremiumButton size="lg" variant="secondary">
-                    Get Quote
+                    Schedule Consultation
                   </PremiumButton>
                 </Link>
               </div>
