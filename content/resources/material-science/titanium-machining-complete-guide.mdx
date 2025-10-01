@@ -1,0 +1,838 @@
+---
+title: "Titanium Machining Complete Guide for Manufacturing"
+excerpt: "Complete guide to machining titanium alloys: Ti-6Al-4V, commercially pure grades, beta alloys. Learn cutting parameters, tool life, coolant requirements, and fire safety protocols."
+publishDate: "2024-01-28"
+author: "IIS Materials Engineering Team"
+difficulty: "Advanced"
+readTime: "19 min read"
+tags: ["Titanium", "Machining", "Ti-6Al-4V", "Aerospace", "Medical Devices", "Tool Life"]
+category: "Material Science"
+featured: true
+seoTitle: "Titanium Machining Guide | Ti-6Al-4V Speeds, Feeds & Safety Protocols"
+seoDescription: "Expert titanium machining guide. Learn Ti-6Al-4V parameters, tool selection, coolant strategies, fire prevention, and cost optimization for aerospace and medical applications."
+---
+
+# Titanium Machining Complete Guide for Manufacturing
+
+## Introduction
+
+Titanium is the ultimate aerospace and medical manufacturing material, offering an exceptional strength-to-weight ratio, corrosion resistance, and biocompatibility that no other metal can match. However, titanium's superior properties come with extraordinary machining challenges: rapid tool wear, low thermal conductivity, chemical reactivity, and fire risk make titanium one of the most difficult and expensive materials to machine.
+
+**Why Titanium is Essential in Manufacturing:**
+
+- **Strength-to-Weight Ratio:** 40% lighter than steel with equivalent strength (specific strength 25% higher)
+- **Corrosion Resistance:** Immune to seawater, chlorides, most acids (passive titanium oxide layer)
+- **Biocompatibility:** FDA-approved for surgical implants (osseointegration with bone)
+- **Temperature Capability:** Maintains strength to 800-1000°F (Ti-6Al-4V service to 800°F)
+- **Low Density:** 0.160 lb/in³ vs. 0.283 lb/in³ for steel (56% the weight)
+- **Non-Magnetic:** Critical for MRI-compatible medical devices, magnetic sensors
+- **Fatigue Resistance:** Excellent high-cycle fatigue performance for aerospace applications
+
+**Titanium Machining Challenges:**
+
+- **Extreme Tool Wear:** Carbide tool life 1/10th to 1/20th that of steel machining
+- **Low Thermal Conductivity:** 1/7th that of steel, heat concentrates at tool edge (1200-1800°F)
+- **Chemical Reactivity:** Titanium welds to tool materials (galling), causing catastrophic tool failure
+- **Work Hardening:** Strain hardens rapidly if tools are dull or parameters incorrect
+- **Chip Segmentation:** Serrated chips create cyclic loading, accelerate tool failure
+- **Fire Hazard:** Titanium fines and chips ignite at 800-1200°F (Class D fire, water reacts violently)
+- **High Cost:** Material $15-35/lb, machining cost 3-8× higher than steel
+
+**Applications Driving Titanium Demand:**
+
+- **Aerospace:** Turbine blades, compressor discs, landing gear, structural components, fasteners
+- **Medical:** Orthopedic implants (hip, knee, spinal), dental implants, surgical instruments
+- **Chemical Processing:** Tanks, valves, heat exchangers (corrosion resistance)
+- **Marine:** Submarine components, propeller shafts (seawater corrosion immunity)
+- **Motorsports:** Connecting rods, valves, springs (high strength, low weight)
+
+At IIS, we machine thousands of titanium components annually for aerospace and medical applications. This guide shares our expertise in titanium alloy selection, cutting parameters, tool strategies, and safety protocols that enable successful, cost-effective titanium machining.
+
+## Titanium Alloy Classification
+
+### Titanium Alloy Families
+
+Titanium alloys are classified by their metallurgical structure, determined by alloying elements:
+
+| Alloy Family | Structure | Key Elements | Strength | Formability | Machinability | Heat Treatable |
+|--------------|-----------|--------------|----------|-------------|---------------|----------------|
+| **Commercially Pure (CP)** | Alpha | O, N, Fe (impurities) | 35,000-80,000 PSI | Excellent | Best (100 baseline) | No |
+| **Alpha Alloys** | Alpha | Al, Sn | 90,000-130,000 PSI | Good | Good (80-90) | No |
+| **Alpha-Beta Alloys** | Mixed α + β | Al, V, Mo, Cr | 130,000-180,000 PSI | Moderate | Moderate (50-70) | Yes |
+| **Beta Alloys** | Beta | V, Mo, Cr, Fe | 150,000-200,000+ PSI | Excellent (solution treated) | Poor (40-60) | Yes |
+
+**Structure Definitions:**
+
+- **Alpha (α):** Hexagonal close-packed (HCP) crystal structure, stable to melting point
+- **Beta (β):** Body-centered cubic (BCC), stable above beta transus temperature (1650-1830°F)
+- **Alpha-Beta:** Mixed structure, combination of properties, heat treatable
+
+### Commercially Pure (CP) Titanium
+
+**Grades and Properties:**
+
+| Grade | O₂ + N₂ + Fe (%) | Tensile Strength (PSI) | Yield Strength (PSI) | Elongation (%) | Applications |
+|-------|------------------|----------------------|---------------------|----------------|--------------|
+| **Grade 1** | 0.18% max | 35,000 | 25,000 | 24% | Maximum formability, corrosion resistance |
+| **Grade 2** | 0.25% max | 50,000 | 40,000 | 20% | General purpose, most common CP grade |
+| **Grade 3** | 0.35% max | 65,000 | 55,000 | 18% | Higher strength, moderate formability |
+| **Grade 4** | 0.40% max | 80,000 | 70,000 | 15% | Maximum strength CP, reduced formability |
+
+**CP Titanium Characteristics:**
+
+- **Excellent Corrosion Resistance:** Best of all titanium grades (pure, no alloying)
+- **Best Machinability:** Softer than alloys, lower tool wear (but still difficult vs. steel)
+- **Excellent Formability:** Deep drawing, bending, spinning (Grade 1-2)
+- **Moderate Strength:** Adequate for corrosion-critical, non-structural applications
+- **Weldability:** Excellent, no heat treatment required
+
+**Applications:**
+
+- Chemical processing equipment (tanks, pipes, heat exchangers)
+- Marine applications (fasteners, valves, piping)
+- Medical devices (surgical instruments, implant cases)
+- Architectural (cladding, roofing in corrosive environments)
+
+**Cost:** $15-22/lb for sheet/plate
+
+**Machinability:** Baseline 100 (best titanium, but still 1/5th of steel machinability)
+
+### Ti-6Al-4V (Grade 5) - The Workhorse Alloy
+
+**Composition:** 6% Aluminum, 4% Vanadium, balance Titanium
+
+**Properties:**
+
+| Property | Annealed | Solution Treated + Aged (STA) |
+|----------|----------|-------------------------------|
+| **Tensile Strength** | 130,000-140,000 PSI | 160,000-170,000 PSI |
+| **Yield Strength** | 120,000-130,000 PSI | 150,000-160,000 PSI |
+| **Elongation** | 10-15% | 6-10% |
+| **Hardness** | 30-35 HRC | 36-40 HRC |
+| **Density** | 0.160 lb/in³ | 0.160 lb/in³ |
+| **Thermal Conductivity** | 4.0 BTU/(hr·ft·°F) | 4.0 BTU/(hr·ft·°F) |
+| **Beta Transus** | 1830°F | 1830°F |
+
+**Why Ti-6Al-4V Dominates (50%+ of all titanium usage):**
+
+- **Optimal Balance:** Strength, ductility, fatigue resistance, corrosion resistance, weldability
+- **Heat Treatable:** Solution treat + age to increase strength 20-30%
+- **Aerospace Qualified:** Decades of service history, extensive material data (AMS 4928, 4930, 4965, 4967)
+- **Forgeability:** Excellent for complex shapes (turbine blades, structural fittings)
+- **Weldability:** Good with proper procedures (inert gas shielding)
+- **Temperature Service:** -320°F (cryogenic) to +800°F continuous
+
+**Applications:**
+
+- **Aerospace:** Turbine engine components (compressor blades, discs), landing gear, structural airframe
+- **Medical:** Orthopedic implants (hip stems, knee components), spinal cages, dental implants
+- **Motorsports:** Connecting rods, valves, fasteners, suspension components
+- **Industrial:** Pressure vessels, pumps, valves (corrosive chemical service)
+
+**Material Forms:**
+
+- **Bar/Rod:** $18-28/lb (depends on diameter, mill source)
+- **Sheet/Plate:** $22-35/lb (depends on thickness, quantity)
+- **Forgings:** $25-45/lb (depends on complexity, volume)
+- **Near-Net Forgings:** $35-65/lb (reduce machining, save total cost)
+
+**Machinability Rating:** 50 (vs. CP Ti = 100, B1112 steel = 100 as universal baseline)
+
+### Ti-6Al-4V ELI (Extra Low Interstitial)
+
+**Composition:** 6% Al, 4% V, balance Ti with controlled low O, N, C, Fe
+
+**Key Differences from Standard Ti-6Al-4V:**
+
+| Property | Standard Ti-6Al-4V | Ti-6Al-4V ELI |
+|----------|-------------------|---------------|
+| **Oxygen Content** | 0.20% max | 0.13% max |
+| **Tensile Strength** | 130,000 PSI (annealed) | 120,000 PSI (slightly lower) |
+| **Ductility** | 10% elongation | 15% elongation (50% better) |
+| **Fracture Toughness** | 55 KSI√in | 75-90 KSI√in (40% better) |
+| **Fatigue Strength** | Good | Excellent (15-25% improvement) |
+
+**Applications:**
+
+- **Medical Implants:** Primary grade for surgical implants (biocompatibility, fracture toughness)
+- **Cryogenic:** LNG tanks, rocket propellant tanks (low-temperature toughness)
+- **Aerospace Critical:** Fracture-critical components, high-cycle fatigue applications
+
+**Cost:** $25-40/lb (25-40% premium vs. standard Ti-6Al-4V)
+
+**Machinability:** Same as standard Ti-6Al-4V (50)
+
+**Specification:** AMS 4930 (bar), AMS 4907 (sheet)
+
+### Ti-6Al-2Sn-4Zr-2Mo (Ti-6-2-4-2)
+
+**Composition:** 6% Al, 2% Sn, 4% Zr, 2% Mo, balance Ti
+
+**Properties:**
+
+| Property | Value |
+|----------|-------|
+| **Tensile Strength** | 130,000-145,000 PSI (annealed) |
+| **Service Temperature** | To 1000°F (superior to Ti-6Al-4V) |
+| **Creep Resistance** | Excellent (Sn, Zr additions) |
+| **Weldability** | Good |
+
+**Applications:**
+
+- **Aerospace High-Temperature:** Turbine engine components, exhaust systems
+- **Blisks and IBRs:** Integrally bladed rotors requiring elevated temperature strength
+- **Hot Section Components:** Parts experiencing 800-1000°F operating temperatures
+
+**Cost:** $30-50/lb (premium for specialized alloy)
+
+**Machinability:** 45-55 (similar to Ti-6Al-4V, slightly more difficult)
+
+### Beta Titanium Alloys
+
+**Ti-10V-2Fe-3Al (Ti-10-2-3):**
+
+**Properties:**
+
+| Property | Solution Treated | Aged |
+|----------|-----------------|------|
+| **Tensile Strength** | 130,000 PSI | 170,000-180,000 PSI |
+| **Yield Strength** | 120,000 PSI | 160,000-170,000 PSI |
+| **Formability** | Excellent (beta structure) | Good |
+| **Hardenability** | Deep hardening (thick sections) | Via aging |
+
+**Advantages:**
+
+- **Deep Hardenability:** Can heat treat thick sections (6-8"+) uniformly
+- **Cold Formability:** Beta structure allows room-temperature forming (solution treated)
+- **High Strength-to-Weight:** Aged condition achieves 170,000+ PSI
+
+**Applications:**
+
+- **Aerospace:** Landing gear components, springs, high-strength fasteners
+- **Forged Components:** Deep-section forgings requiring through-hardening
+
+**Cost:** $35-60/lb
+
+**Machinability:** 40-50 (more difficult than alpha-beta, gummy in solution treated condition)
+
+### Titanium Aluminides (TiAl)
+
+**Composition:** 48% Al, balance Ti (intermetallic compound)
+
+**Properties:**
+
+- **Density:** 0.136 lb/in³ (15% lighter than Ti-6Al-4V)
+- **Service Temperature:** To 1400°F (superior high-temperature strength, creep resistance)
+- **Oxidation Resistance:** Excellent (aluminum oxide protection)
+
+**Challenges:**
+
+- **Brittleness:** Low room-temperature ductility (1-3% elongation)
+- **Machinability:** Extremely difficult (harder than carbide in some forms)
+- **Cost:** $100-200/lb (specialized processing)
+
+**Applications:**
+
+- **Aerospace:** Turbine engine blades, valves (Gen 4+ engines)
+- **Automotive Racing:** Turbocharger wheels, exhaust valves
+
+**Machining:** Grinding primary method, conventional machining extremely limited
+
+## Titanium Machinability Challenges
+
+### Challenge 1: Low Thermal Conductivity
+
+**The Problem:**
+
+Titanium's thermal conductivity is 7× lower than steel:
+
+| Material | Thermal Conductivity (BTU/hr·ft·°F) | Heat Concentration |
+|----------|-------------------------------------|-------------------|
+| **Aluminum 6061** | 96 | Heat dissipates quickly, cool cutting |
+| **Carbon Steel 1018** | 29 | Moderate heat dissipation |
+| **Stainless 304** | 9.4 | Poor heat dissipation, hot cutting |
+| **Titanium Ti-6Al-4V** | 4.0 | Extreme heat concentration at tool edge |
+| **Inconel 718** | 6.6 | Severe heat concentration |
+
+**Consequences:**
+
+- **Cutting Edge Temperatures:** 1200-1800°F at tool-chip interface (vs. 600-900°F for steel)
+- **Rapid Tool Wear:** Carbide begins to break down at 1600°F+, coating failure
+- **Thermal Softening:** Tool edge loses hardness, accelerates wear
+- **Built-Up Edge (BUE):** Hot titanium welds to tool, degrades finish, causes chipping
+
+**Solutions:**
+
+| Strategy | Implementation | Result |
+|----------|----------------|--------|
+| **High-Pressure Coolant** | 800-1500 PSI through-tool coolant | 40-60% longer tool life, lower temperatures |
+| **Flood Coolant** | 40+ GPM, directed at cutting edge | Heat extraction, chip evacuation |
+| **Lower Cutting Speeds** | 50-150 SFM (vs. 300-800 for steel) | Reduce heat generation |
+| **Sharp Tools** | Hone to 0.0005" edge radius, frequent changes | Less friction, less heat |
+| **Interrupted Cuts** | Peck drilling, stepover milling | Allow cooling between cuts |
+
+### Challenge 2: Chemical Reactivity (Galling)
+
+**The Problem:**
+
+Titanium's affinity for other metals causes it to chemically bond (cold weld) to tool materials under pressure and heat:
+
+- **Galling:** Titanium atoms diffuse into carbide or HSS tool, welding together
+- **Built-Up Edge:** Titanium adheres to cutting edge, grows, breaks off (taking tool material)
+- **Catastrophic Failure:** Welded chip tears out chunks of tool edge
+
+**Severity by Tool Material:**
+
+| Tool Material | Galling Resistance | Recommended Use |
+|---------------|-------------------|-----------------|
+| **High-Speed Steel (HSS)** | Poor (severe galling) | Avoid (drilling/tapping only at low speed) |
+| **Uncoated Carbide** | Poor | Avoid |
+| **TiN-Coated Carbide** | Poor (Ti-to-Ti affinity) | Avoid |
+| **TiAlN-Coated Carbide** | Good | Preferred for general machining |
+| **AlTiN-Coated Carbide** | Excellent | Best for Ti-6Al-4V (high Al content) |
+| **Diamond (PCD)** | Excellent | Best tool life, but expensive ($200-800/insert) |
+
+**Solutions:**
+
+| Strategy | Implementation | Result |
+|----------|----------------|--------|
+| **AlTiN Coating** | Aluminum-rich coating resists Ti bonding | 2-4× tool life vs. uncoated |
+| **Sharp Geometry** | Positive rake (5-10°), keen edge | Reduce pressure, less welding |
+| **Constant Feed** | No dwelling, rubbing, or hesitation | Prevent welding from stationary contact |
+| **High-Pressure Coolant** | Flush chips immediately | Remove welded material before it grows |
+
+### Challenge 3: Rapid Work Hardening
+
+**The Problem:**
+
+Titanium strain-hardens rapidly when subjected to high stress or dull tools:
+
+| Condition | Hardness |
+|-----------|----------|
+| **Annealed Ti-6Al-4V** | 30-35 HRC (machineable) |
+| **Work-Hardened Surface (Dull Tool)** | 42-48 HRC (destroys tools) |
+| **Severe Work Hardening** | 50+ HRC (requires grinding) |
+
+**Consequences:**
+
+- **Accelerated Tool Wear:** Hardened layer acts like grinding abrasive
+- **Surface Damage:** Tearing, smearing instead of clean cutting
+- **Dimensional Errors:** Hard layer resists cutting, causes deflection
+- **Subsurface Damage:** Micro-cracking, reduced fatigue life (critical for aerospace)
+
+**Solutions:**
+
+| Strategy | Implementation | Result |
+|----------|----------------|--------|
+| **Sharp Tools** | Change tools at first sign of wear | Prevent hardening from initiating |
+| **Sufficient Depth of Cut** | Minimum 0.050" roughing, 0.010" finishing | Cut below any hardened layer |
+| **Positive Rake Angles** | +5° to +10° | Reduce cutting forces |
+| **Constant Feed** | No dwelling (spindle running with no feed) | Prevent burnishing |
+| **Proper Speeds/Feeds** | Per recommendations in this guide | Avoid excessive heat and stress |
+
+### Challenge 4: Fire Hazard
+
+**The Problem:**
+
+Titanium is flammable:
+
+- **Ignition Temperature:** 800-1200°F (fine chips, powder)
+- **Combustion:** Reacts with oxygen, nitrogen, carbon dioxide, water (Class D fire)
+- **Heat Generation:** Machining generates 1200-1800°F temperatures at tool edge
+- **Chip Accumulation:** Dry chips in enclosed area can ignite from friction, static, or cutting heat
+
+**Consequences:**
+
+- **Machine Fire:** Catastrophic damage, total loss of $100,000-1,000,000+ machine
+- **Facility Fire:** Spread to surroundings if not contained
+- **Injury/Death:** Titanium fires burn at 3000°F+, extremely difficult to extinguish
+- **Water Reaction:** Water on burning titanium creates hydrogen gas (explosion risk) and intensifies fire
+
+**Fire Prevention Strategies:**
+
+| Strategy | Implementation | Effectiveness |
+|----------|----------------|---------------|
+| **Copious Coolant** | 40+ GPM flood coolant, keep chips wet | 99%+ (wet chips will not ignite) |
+| **Chip Evacuation** | Vacuum or flush chips from machine continuously | Excellent (prevent accumulation) |
+| **No Dry Machining** | NEVER machine titanium dry | Critical (dry machining = fire risk) |
+| **Sharp Tools** | Change at recommended life, avoid excessive heat | High (reduce heat generation) |
+| **Conservative Parameters** | Don't push speeds/feeds for maximum MRR | Good (lower heat, safer) |
+| **Clean Work Area** | Daily removal of chips, no accumulation | Good (eliminate fuel source) |
+| **Fire Suppression** | Class D extinguisher (dry powder), never water | Last resort (prevention is key) |
+
+**Class D Fire Extinguisher Requirements:**
+
+- **Type:** Dry powder (sodium chloride, graphite-based)
+- **Location:** Within 20 feet of titanium machining operations
+- **Signage:** "TITANIUM FIRE - USE CLASS D EXTINGUISHER ONLY - NO WATER"
+- **Training:** All operators trained on titanium fire risk, extinguisher use
+
+**NEVER Use on Titanium Fire:**
+- Water (reacts violently, creates hydrogen, intensifies fire)
+- CO₂ extinguisher (titanium burns in CO₂)
+- Foam (water-based, same problems)
+- ABC extinguisher (insufficient for metal fires)
+
+## Cutting Tool Selection for Titanium
+
+### Tool Material Recommendations
+
+**Turning and Boring:**
+
+| Tool Material | Coating | Grade | Tool Life Index | Cost/Edge | Best Application |
+|---------------|---------|-------|----------------|-----------|------------------|
+| **Carbide C2** | AlTiN | Tough, sharp edge | 100 (baseline) | $15-25 | General purpose Ti-6Al-4V |
+| **Carbide C2** | AlCrN | Medium wear resistance | 120-140 | $18-30 | Ti-6Al-4V, improved life |
+| **Carbide C5-C6** | Multi-layer (AlTiN/TiN) | Tougher, interrupted | 80-100 | $20-35 | Interrupted cuts, rough forgings |
+| **PCD (Diamond)** | None (solid diamond) | Excellent wear resistance | 400-600 | $200-500 | Long runs, near-net forgings |
+| **CBN** | None | Hardened Ti only | 200-300 | $150-350 | Work-hardened surfaces, hard turning |
+
+**Milling:**
+
+| Tool Type | Material/Coating | Geometry | Application | Tool Life | Cost |
+|-----------|-----------------|----------|-------------|-----------|------|
+| **Solid Carbide End Mill** | Fine-grain carbide, AlTiN | Variable helix, polished flutes | Slotting, profiling | 20-80 parts | $60-200 |
+| **Indexable Face Mill** | C2 carbide, AlTiN inserts | 45° lead angle, sharp edge | Face milling, large surfaces | 30-120 parts/edge | $25-40/insert |
+| **High-Feed Mill** | C2-C5 carbide, AlTiN | Round insert, light DOC | High MRR, shallow passes | 50-150 parts/edge | $30-50/insert |
+| **Ball Nose (Finishing)** | Fine carbide, AlTiN or AlCrN | 4-6 flute, polished | 3D contours, mold work | 10-40 parts | $80-250 |
+
+**Drilling:**
+
+| Drill Type | Material/Coating | Application | Peck Cycle | Tool Life | Cost |
+|------------|-----------------|-------------|------------|-----------|------|
+| **Solid Carbide Twist** | Fine carbide, AlTiN, 135° point | Holes 0.125-0.500" | 2-3× diameter peck | 50-200 holes | $30-100 |
+| **Carbide Spade/Insert** | C2 carbide insert, TiAlN | Holes 0.500-2.000" | 1-2× diameter peck | 100-400 holes/edge | $40-80 |
+| **Gun Drill** | Carbide-tipped, coolant hole | Deep holes (L/D > 5:1) | Continuous with coolant | 30-100 holes | $150-400 |
+| **HSS Cobalt (M42)** | 8% Co, 135° split point | Emergency, <0.250" | 1-2× diameter peck | 10-30 holes | $10-30 |
+
+### Tool Geometry for Titanium
+
+**Turning Insert Geometry:**
+
+| Feature | Roughing | Finishing | Reasoning |
+|---------|----------|-----------|-----------|
+| **Rake Angle** | +5° to +8° | +8° to +12° | Reduce cutting forces, heat |
+| **Clearance Angle** | 7-10° | 7-10° | Prevent rubbing, work hardening |
+| **Nose Radius** | 0.015-0.031" | 0.008-0.015" | Larger = stronger, smaller = better finish |
+| **Edge Prep** | Honed 0.001-0.002" | Honed 0.0005-0.001" | Prevent chipping, longer life |
+| **Chip Breaker** | Medium-depth | Light or none | Break stringy chips |
+
+**Milling Cutter Geometry:**
+
+| Feature | Roughing | Finishing | Reasoning |
+|---------|----------|-----------|-----------|
+| **Helix Angle** | 38-45° (variable helix preferred) | 40-45° | Reduce chatter, smooth cutting |
+| **Rake Angle** | +8° to +12° | +10° to +15° | Sharp cutting edge, low forces |
+| **Flute Count** | 3-4 (more chip space) | 4-6 (better finish) | Prevent chip packing |
+| **Corner Radius** | 0.015-0.030" | 0.008-0.015" | Stronger edge, distribute load |
+| **Coating** | AlTiN, AlCrN | AlTiN preferred | Prevent galling, extend life |
+
+## Titanium Machining Parameters
+
+### Turning Ti-6Al-4V
+
+**Roughing Parameters:**
+
+| Operation | Speed (SFM) | Feed (IPR) | Depth of Cut (inch) | Tool | Coolant |
+|-----------|-------------|-----------|---------------------|------|---------|
+| **OD Turning - Roughing** | 80-120 | 0.008-0.015 | 0.080-0.150 | C2 carbide, AlTiN, CNMG432 | Flood 40+ GPM or HPC 1000 PSI |
+| **OD Turning - Finishing** | 120-180 | 0.004-0.008 | 0.015-0.040 | C2 carbide, AlTiN, CNMG432 or WNMG | Flood 30+ GPM |
+| **Boring - Roughing** | 70-100 | 0.006-0.012 | 0.060-0.120 | Carbide, AlTiN, minimize overhang | HPC through-bar 1000+ PSI |
+| **Boring - Finishing** | 100-150 | 0.003-0.006 | 0.015-0.030 | Carbide, AlTiN, sharp edge | Flood or HPC |
+| **Grooving/Parting** | 50-80 | 0.002-0.005 | Full width | Carbide, TiAlN, 0.125" wide max | Flood, retract frequently |
+
+**Comparative Speeds (Ti-6Al-4V vs. Other Materials):**
+
+| Material | Roughing Speed (SFM) | Finishing Speed (SFM) | Relative to Ti-6Al-4V |
+|----------|---------------------|----------------------|---------------------|
+| **Ti-6Al-4V** | 80-120 | 120-180 | Baseline (1.0×) |
+| **CP Titanium (Grade 2)** | 120-180 | 180-250 | 1.5-1.8× faster |
+| **Stainless 304** | 180-280 | 300-450 | 2.5-3.0× faster |
+| **4140 Steel (28 HRC)** | 300-500 | 500-800 | 4-6× faster |
+| **Aluminum 6061** | 800-1500 | 1500-3000 | 12-20× faster |
+
+**Key Success Factors:**
+
+**1. Constant Chip Load:**
+- Calculate and maintain proper chip load per revolution
+- Never allow tool to rub without cutting (dwell with spindle on = work hardening)
+- Use power feedhold, not manual jogging
+
+**2. Sufficient Depth of Cut:**
+- Minimum 0.050" roughing (cut below any work-hardened or scaled surface)
+- Minimum 0.010" finishing (same reason)
+- Multiple light passes cause progressive work hardening
+
+**3. Sharp Tools:**
+- Change inserts at first sign of flank wear (0.010-0.015")
+- Do not push to catastrophic failure (edge breakdown creates hardened surface)
+- Visual inspection every 10-20 minutes
+
+### Milling Ti-6Al-4V
+
+**Face Milling:**
+
+| Operation | Speed (SFM) | Feed/Tooth (IPT) | Axial DOC | Radial DOC | Coolant |
+|-----------|-------------|------------------|-----------|-----------|---------|
+| **Roughing** | 100-150 | 0.006-0.010 | 0.100-0.200" | 70-80% cutter | Flood 50+ GPM |
+| **Finishing** | 150-220 | 0.003-0.006 | 0.020-0.050" | 100% cutter | Flood 40+ GPM |
+
+**Slot Milling (Full-Width):**
+
+| Cutter Diameter | Speed (SFM) | Feed/Tooth (IPT) | Axial DOC | Coolant Strategy |
+|-----------------|-------------|------------------|-----------|------------------|
+| **0.250"** | 100-150 | 0.002-0.004 | 0.5× diameter | Through-tool 800+ PSI |
+| **0.500"** | 120-180 | 0.003-0.006 | 0.5× diameter | Through-tool 800+ PSI |
+| **1.000"** | 150-200 | 0.004-0.008 | 0.5× diameter | Flood 60+ GPM or through-tool |
+
+**CRITICAL for Slotting:**
+- **Through-Tool Coolant:** Essential for chip evacuation (chips pack in slot, break tool)
+- **Pecking:** Retract 0.100" every 0.5-1.0× diameter depth for chip clearing
+- **Climb Milling:** Use climb (conventional causes work hardening)
+- **Rigidity:** Minimize tool overhang (3× diameter maximum)
+
+**High-Efficiency Milling (HEM) / Adaptive Clearing:**
+
+| Parameter | Traditional Slotting | HEM Strategy | Advantage |
+|-----------|---------------------|--------------|-----------|
+| **Radial Engagement** | 100% (full slot) | 5-15% (shallow stepover) | Lower forces, vibration |
+| **Axial Depth** | 0.5× diameter | 1-3× diameter | Higher MRR |
+| **Feed/Tooth** | 0.003-0.006 IPT | 0.008-0.015 IPT | Faster material removal |
+| **Tool Life** | 10-30 min | 60-180 min | 4-8× longer life |
+| **Chip Thinning Effect** | N/A | Allows higher feeds | Better chip evacuation |
+
+**HEM Benefits for Titanium:**
+- Lower cutting forces (less work hardening)
+- Higher speeds possible (less tool engagement)
+- Better chip evacuation (thinner, easier to clear)
+- Dramatically longer tool life (4-8×)
+- Higher material removal rates (despite lower cutter engagement)
+
+### Drilling Ti-6Al-4V
+
+**Solid Carbide Drill Parameters:**
+
+| Drill Diameter | Speed (SFM) | Feed (IPR) | Peck Depth | Coolant Pressure |
+|----------------|-------------|-----------|-----------|------------------|
+| **0.125-0.250"** | 60-100 | 0.001-0.003 | 0.25-0.50" | 800-1200 PSI through-tool |
+| **0.250-0.500"** | 80-120 | 0.002-0.005 | 0.50-1.00" | 800-1200 PSI through-tool |
+| **0.500-1.000"** | 100-150 | 0.003-0.007 | 1.00-2.00" | 1000-1500 PSI through-tool |
+| **1.000-2.000"** | 120-180 | 0.005-0.010 | 1.50-3.00" | 1000-1500 PSI through-tool |
+
+**Drilling Best Practices:**
+
+**1. Through-Tool Coolant (Essential):**
+- **Why:** Chips do not evacuate from deep holes without high-pressure coolant
+- **Pressure:** 800-1500 PSI minimum
+- **Flow:** Sufficient to blast chips out of hole
+- **Result:** 3-5× longer tool life, prevents chip packing and breakage
+
+**2. Pecking Cycle:**
+- **Full Retract:** Retract drill completely out of hole every 2-3× diameter
+- **Chip Clearing:** Allow coolant to flush chips from hole
+- **Prevent Packing:** Titanium chips pack tightly, breaking drill
+- **Cycle:** Drill 0.5-2.0" → full retract → repeat
+
+**3. Pilot Holes for Large Diameters:**
+
+| Final Hole Size | Pilot Drill | Final Drill/Reamer | Benefit |
+|-----------------|-------------|-------------------|---------|
+| **0.500-0.750"** | 0.250-0.375" | Final size | Reduce cutting forces 60-70% |
+| **0.750-1.000"** | 0.375-0.500" | Final size | Easier chip evacuation |
+| **1.000-2.000"** | 0.500-0.750" | Final size | Dramatically extended tool life |
+
+**4. Drill Point Geometry:**
+
+| Feature | Specification | Reason |
+|---------|--------------|--------|
+| **Point Angle** | 135-140° with split point | Reduce thrust, self-centering |
+| **Chisel Edge** | Split point (thin chisel) | Minimize thrust force (Ti work hardens under pressure) |
+| **Web Thickness** | Thick web (high rigidity) | Prevent drill deflection, breakage |
+| **Margin Width** | Narrow margin | Reduce friction, heat |
+
+### Tapping Titanium
+
+**Tapping Challenges:**
+
+- **High Torque:** Titanium's strength requires 2-3× torque vs. steel
+- **Galling:** Thread-to-tap contact causes welding
+- **Chip Packing:** Long, stringy chips pack in flutes
+- **Work Hardening:** Excessive torque hardens threads
+
+**Tapping Parameters:**
+
+| Thread Size | Tap Style | Speed (SFM) | Feed (IPR) | Tap Drill | Coolant |
+|-------------|-----------|-------------|-----------|-----------|---------|
+| **#4-40 to #10-32** | Spiral point or flute | 15-25 | Per thread pitch | 75% thread (deeper than steel) | Tapping fluid or sulfur oil |
+| **1/4-20 to 1/2-13** | Spiral point (through) | 12-20 | Per thread pitch | 75% thread | Tapping fluid, flood if possible |
+| **1/2-13 to 1"-8** | Spiral flute (blind) | 10-18 | Per thread pitch | 75% thread | Sulfurized tapping fluid |
+
+**Tapping Best Practices:**
+
+| Strategy | Implementation | Benefit |
+|----------|----------------|---------|
+| **Larger Tap Drill** | 75% thread vs. 65-70% for steel | Lower torque, reduce galling risk |
+| **Spiral Point Tap** | For through holes | Pushes chips ahead, prevents packing |
+| **Spiral Flute Tap** | For blind holes | Extracts chips upward |
+| **Sulfurized Cutting Oil** | Heavy-duty tapping fluid | Extreme pressure (EP) lubrication, prevent galling |
+| **Slow Speed** | 10-25 SFM maximum | Reduce heat, galling tendency |
+| **Peck Tapping** | Reverse 1/4 turn every 2-3 threads | Break chips, prevent packing |
+| **Oversize Tap** | H3 or H4 limit (larger than standard) | Reduce torque, easier cutting |
+
+**Tap Material Selection:**
+
+| Tap Material | Coating | Thread Size | Tool Life vs. HSS | Cost Premium |
+|--------------|---------|-------------|------------------|--------------|
+| **HSS (M2)** | None | Small (#0-80 to #10-32) | Baseline | 1.0× |
+| **HSS-Cobalt (M42)** | TiN optional | All sizes | 2-3× | 1.5-2.0× |
+| **Powder Metal HSS** | TiAlN or AlTiN | All sizes | 3-5× | 2.0-3.0× |
+| **Solid Carbide** | TiAlN or AlCrN | Large (1/2" and up), high volume | 5-10× | 4-8× |
+
+### Reaming Titanium
+
+**Reaming Parameters:**
+
+| Hole Diameter | Speed (SFM) | Feed (IPR) | Undersize Before Reaming | Coolant |
+|---------------|-------------|-----------|-------------------------|---------|
+| **0.125-0.500"** | 40-70 | 0.003-0.006 | 0.005-0.010" | Flood or through-tool |
+| **0.500-1.000"** | 50-90 | 0.005-0.010 | 0.010-0.015" | Flood, high volume |
+| **1.000-2.000"** | 60-100 | 0.008-0.015 | 0.015-0.020" | Flood, high volume |
+
+**Reaming Best Practices:**
+
+- **Leave Proper Stock:** 0.005-0.020" for reaming (too little = rubbing, too much = chatter)
+- **Use Carbide Reamers:** 3-5× longer life than HSS, better finish
+- **Coolant-Fed Reamer:** Through-tool coolant for chip evacuation, cooling
+- **Slow Speeds:** 50-100 SFM maximum (faster = work hardening, poor finish)
+- **Sharp Tools:** Dull reamer burnishes instead of cuts (work hardens, poor size control)
+
+## Coolant Strategies for Titanium
+
+### Coolant Requirements
+
+**Why Coolant is Critical for Titanium:**
+
+- **Heat Extraction:** Remove 1200-1800°F heat from cutting zone
+- **Chip Evacuation:** Flush chips before they weld to tool or work
+- **Lubrication:** Reduce friction, galling, built-up edge
+- **Fire Prevention:** Keep chips wet (wet titanium chips will not ignite)
+- **Surface Quality:** Prevent work hardening, achieve better finish
+
+### Coolant Types for Titanium
+
+| Coolant Type | Concentration | Lubricity | Cooling | Best Application | Cost |
+|--------------|--------------|-----------|---------|------------------|------|
+| **Soluble Oil (Emulsion)** | 5-10% | Excellent | Good | Turning, drilling, general machining | $15-30/gal (concentrate) |
+| **Semi-Synthetic** | 5-8% | Very Good | Excellent | High-speed milling, balanced performance | $25-50/gal |
+| **Synthetic** | 4-6% | Good | Excellent | High-speed operations, cleanliness | $30-60/gal |
+| **Straight Cutting Oil** | 100% | Excellent | Poor | Tapping, threading, low-speed | $10-25/gal |
+
+**Recommended for Titanium:**
+- **General Purpose:** Soluble oil (8-10% concentration) or semi-synthetic (6-8%)
+- **High-Speed Milling:** Synthetic or semi-synthetic (better cooling)
+- **Tapping/Threading:** Sulfurized cutting oil (extreme pressure lubrication)
+
+### Coolant Delivery Methods
+
+**Flood Cooling:**
+
+| Application | Flow Rate | Pressure | Nozzle Placement | Effectiveness |
+|-------------|-----------|----------|------------------|---------------|
+| **Turning** | 40-80 GPM | 50-100 PSI | Aimed at tool-chip interface, both sides | Good (standard method) |
+| **Milling** | 50-100 GPM | 50-150 PSI | Multiple nozzles, lead cutting edge | Good for large cutters |
+| **Drilling (shallow)** | 30-50 GPM | 50-100 PSI | Flood into hole | Adequate for L/D < 3:1 |
+
+**High-Pressure Coolant (HPC):**
+
+| Application | Pressure | Flow Rate | Delivery | Tool Life Improvement |
+|-------------|----------|-----------|----------|----------------------|
+| **Turning** | 800-1500 PSI | 5-15 GPM | Through insert or tool holder | 40-80% longer life |
+| **Drilling** | 800-1500 PSI | 3-10 GPM | Through drill (required) | 200-400% longer life |
+| **Milling** | 800-1200 PSI | 5-20 GPM | Through end mill or face mill | 50-100% longer life |
+
+**HPC Advantages:**
+- **Penetrates Steam Barrier:** High pressure breaks through vapor barrier at cutting zone
+- **Chip Evacuation:** Blasts chips away before they can weld or recut
+- **Cooling Efficiency:** 3-5× better heat extraction than flood coolant
+- **Fire Prevention:** Ensures all chips are wet, evacuated from machine
+
+**Through-Tool Coolant (Essential for Drilling):**
+
+| Hole Depth/Diameter | Minimum Pressure | Why Required | Failure Without HPC |
+|---------------------|-----------------|--------------|---------------------|
+| **L/D > 3:1** | 800 PSI | Chips pack in deep holes, break drill | 80-95% drill breakage rate |
+| **L/D > 5:1** | 1000 PSI | Flood coolant cannot reach cutting edge | Nearly 100% failure |
+| **L/D > 8:1** | 1200-1500 PSI | Extreme chip packing, heat buildup | Impossible without through-tool |
+
+**Minimum Quantity Lubrication (MQL):**
+
+**NOT RECOMMENDED FOR TITANIUM:**
+- Fire risk (chips not wet, can accumulate and ignite)
+- Insufficient cooling (titanium generates extreme heat)
+- Poor chip evacuation (chips build up, weld, break tool)
+
+**Exception:** Aerospace research applications with extreme precautions (NEVER production)
+
+## Cost Optimization Strategies
+
+### Material Cost Reduction
+
+**1. Near-Net Forgings:**
+
+| Approach | Material Utilization | Machining Time | Total Cost (Example Part) | Lead Time |
+|----------|---------------------|---------------|--------------------------|-----------|
+| **Solid Billet** | 15-30% (70-85% waste) | 8.0 hours | $1,200 | 2-4 weeks |
+| **Standard Forging** | 50-70% (30-50% waste) | 4.5 hours | $780 | 6-10 weeks |
+| **Near-Net Forging** | 75-90% (10-25% waste) | 2.5 hours | $520 | 8-14 weeks |
+
+**When to Use Near-Net:**
+- Production quantities >50-100 parts (amortize forging die cost)
+- Complex external geometry (forgings follow contours)
+- Material cost >30% of total part cost
+- Acceptable lead time (forging die: 6-12 weeks, $10,000-50,000)
+
+**2. Buy to Size:**
+
+Instead of buying oversize bar and facing/turning to size, specify:
+- **Bar Diameter:** Within +0.000"/-0.010" of finished OD
+- **Length:** Cut to length ±0.030" (minimize facing)
+- **Savings:** 10-25% material cost, 15-35% machining time
+
+**3. Titanium Alloy Substitution:**
+
+| Application | Typical Spec | Cost-Optimized Alternative | Savings | Trade-Off |
+|-------------|--------------|---------------------------|---------|-----------|
+| **Corrosion-Critical, Low Stress** | Ti-6Al-4V | CP Grade 2 titanium | 30-40% material | Lower strength (adequate if designed for) |
+| **Moderate Strength, Standard Aerospace** | Ti-6Al-4V ELI | Ti-6Al-4V (standard) | 25-35% material | Slightly lower toughness (often acceptable) |
+| **Very High Strength Required** | Ti-10-2-3 beta alloy | Ti-6Al-4V STA (heat treated) | 40-60% material | Adequate if strength requirement <165 KSI |
+
+### Machining Cost Reduction
+
+**1. Optimize Cutting Parameters:**
+
+| Strategy | Implementation | Cost Reduction | Risk |
+|----------|----------------|----------------|------|
+| **Increase Speed 20%** | 100 SFM → 120 SFM | 15% faster cycle time | 20-40% shorter tool life (verify economics) |
+| **Increase Feed 30%** | 0.008 IPR → 0.010 IPR | 20-30% faster | Minimal tool life reduction if within range |
+| **Use HPC** | Install high-pressure coolant | 40-80% longer tool life = 25-40% lower tool cost | Equipment investment $8,000-25,000 |
+| **Adaptive/HEM Milling** | CAM programming for HEM toolpath | 4-8× longer tool life, 2-3× faster MRR | CAM software, programming time |
+
+**2. Tool Strategy:**
+
+| Approach | When to Use | Cost Impact | Tool Life |
+|----------|------------|-------------|-----------|
+| **Coated Carbide** | General purpose, most applications | Baseline | Baseline (100) |
+| **PCD (Diamond)** | Production runs >100 parts, near-net forgings | 10-20× tool cost, 4-6× longer life = 40-60% savings | 400-600× |
+| **Reconditioned Tools** | End mills, drills (reground) | 40-60% of new tool cost | 70-90% of new tool life |
+
+**3. Batch Processing:**
+
+| Setup Type | Setup Time | Runtime (100 parts) | Total Time | Cost/Part |
+|------------|-----------|---------------------|-----------|-----------|
+| **Individual Setup** | 1.5 hr × 100 | 0.5 hr × 100 | 200 hours | $100 (example) |
+| **Fixture Batch (25 at a time)** | 2.0 hr × 4 | 0.5 hr × 100 | 58 hours | $35 |
+
+**Savings:** 65-75% reduction in setup burden for production quantities
+
+### Total Cost Example: Ti-6Al-4V Aerospace Component
+
+**Part Specs:** 4.0" dia × 8.0" long, complex external geometry, ±0.002" tolerance, 63 Ra finish
+
+**Cost Breakdown (100 parts):**
+
+| Cost Element | Solid Billet (Conservative) | Near-Net Forging (Optimized) | Savings |
+|--------------|---------------------------|----------------------------|---------|
+| **Material** | $85/part ($28/lb × 3.0 lb purchased) | $42/part ($28/lb × 1.5 lb forging) | 51% |
+| **Tooling** | $45/part (frequent changes, standard carbide) | $18/part (PCD tools, longer life) | 60% |
+| **Machining Time** | 6.5 hours × $95/hr = $618 | 3.2 hours × $95/hr = $304 | 51% |
+| **Setup** | $150/part (individual) | $40/part (batch fixture) | 73% |
+| **Total Cost/Part** | $898 | $404 | 55% |
+| **Total (100 parts)** | $89,800 | $40,400 | $49,400 saved |
+
+**Investment Required:**
+- Near-net forging die: $28,000 (one-time)
+- Batch fixture: $8,000
+- PCD tooling: $2,400 (initial)
+- **Total:** $38,400
+
+**Breakeven:** ~90 parts (savings pay for all investments)
+
+## IIS Titanium Machining Expertise
+
+At IIS, we specialize in precision titanium machining for aerospace and medical applications, delivering tight-tolerance components with optimized processes and full traceability.
+
+**Our Titanium Machining Capabilities:**
+
+| Service | Specifications | Typical Applications |
+|---------|---------------|---------------------|
+| **CNC Milling (3/4/5-axis)** | 40" × 20" × 20" envelope, ±0.001" tolerance | Aerospace structural fittings, medical surgical instruments |
+| **CNC Turning** | 12" dia × 40" length, ±0.0005" tolerance | Shafts, pins, aerospace fasteners, implant components |
+| **Swiss CNC** | 0.125-1.250" dia, complex features | Medical implant components, precision aerospace pins |
+| **Wire EDM** | ±0.0001" tolerance, no work hardening | Complex profiles, thin walls, hardened titanium |
+| **Grinding** | ±0.00005" tolerance, 4-8 Ra finish | Precision ground titanium shafts, bearing surfaces |
+
+**Titanium Alloys We Machine:**
+
+- **Commercially Pure:** Grade 2, Grade 4 (corrosion-critical applications)
+- **Ti-6Al-4V:** Standard and ELI grades (most common, 70% of our titanium work)
+- **Ti-6Al-2Sn-4Zr-2Mo:** High-temperature aerospace components
+- **Ti-10V-2Fe-3Al:** Landing gear components, high-strength applications
+
+**Equipment and Technology:**
+
+- **High-Pressure Coolant Systems:** 1500 PSI through-tool coolant on all drilling operations
+- **PCD and CBN Tooling:** Diamond and cubic boron nitride tools for long production runs
+- **Adaptive/HEM CAM:** Advanced toolpath strategies for 4-8× longer tool life
+- **Fire Suppression:** Class D extinguishers, wet chip handling, continuous chip evacuation
+- **Climate Control:** 68°F ±2° temperature control for precision work
+
+**Quality Control:**
+
+- **CMM Inspection:** Zeiss CMM with ±0.00005" accuracy, laser scanning
+- **Material Traceability:** Full material certifications (mill certs, chemistry, mechanical properties)
+- **AS9100D Compliance:** Aerospace quality system, first article inspection per AS9102
+- **Surface Finish Verification:** Profilometer (Ra, Rz measurement)
+- **Hardness Testing:** Verify no work hardening, heat treat condition
+
+**Specialized Titanium Services:**
+
+- **Near-Net Forgings:** Source and machine near-net forgings (40-60% cost savings)
+- **Thin-Wall Machining:** Walls to 0.030" thickness (fixturing expertise, wire EDM)
+- **Medical Implants:** Ti-6Al-4V ELI per ASTM F136, full biocompatibility documentation
+- **Aerospace Critical:** Full traceability, NDT inspection coordination, AS9100D documentation
+
+## Related Resources
+
+**Material Science:**
+- [Aerospace Alloy Selection Guide](/resources/material-science/aerospace-alloy-selection-guide)
+- [Heat Treatment for Aerospace Metals](/resources/material-science/heat-treatment-aerospace-metals)
+- [Stainless Steel Selection and Machining](/resources/material-science/stainless-steel-selection-machining-guide)
+
+**Manufacturing Processes:**
+- [5-Axis CNC Machining for Aerospace](/resources/manufacturing-processes/5-axis-cnc-machining-aerospace-guide)
+- [Swiss CNC Turning Precision Guide](/resources/manufacturing-processes/swiss-cnc-turning-precision-guide)
+- [Wire EDM Precision Machining](/resources/manufacturing-processes/wire-edm-precision-machining)
+- [Grinding and Precision Finishing](/resources/manufacturing-processes/grinding-precision-finishing-guide)
+- [Welding and Joining for Precision Fabrication](/resources/manufacturing-processes/welding-joining-precision-fabrication)
+
+**Industry Applications:**
+- [Medical Device Precision Manufacturing](/resources/industry-applications/medical-device-precision-manufacturing)
+- [Defense and ITAR Manufacturing](/resources/industry-applications/defense-itar-manufacturing-guide)
+
+**Design Resources:**
+- [Design for Manufacturability Guide](/resources/calculators-tools/design-for-manufacturability-guide)
+- [Manufacturing Cost Optimization](/resources/calculators-tools/manufacturing-cost-optimization-guide)
+
+## Conclusion
+
+Titanium machining represents one of the most challenging and rewarding disciplines in precision manufacturing. While titanium's low thermal conductivity, chemical reactivity, and fire hazard create extraordinary difficulties, the resulting components deliver strength-to-weight ratios, corrosion resistance, and biocompatibility that enable aerospace and medical innovations impossible with other materials.
+
+Success in titanium machining requires understanding alloy selection (CP grades vs. Ti-6Al-4V vs. beta alloys), proper cutting parameters (conservative speeds, positive geometry, sharp tools), aggressive coolant strategies (high-pressure through-tool), and rigorous safety protocols (fire prevention, wet chip handling). With proper techniques, titanium machining achieves acceptable tool life, dimensional accuracy, and cost-effectiveness.
+
+At IIS, our decades of titanium machining experience for aerospace and medical customers, combined with high-pressure coolant systems, PCD tooling, and AS9100D quality compliance, ensure we deliver precision titanium components meeting your most demanding requirements while optimizing cost and lead time.
+
+**Need precision titanium machining services or titanium material selection guidance?** [Discuss your titanium requirements with our materials engineers](/contact?interest=materials) or [request a quote for precision titanium machining](/contact?interest=quote).
+
+---
+
+*This guide represents current titanium machining technology and best practices as of 2024. IIS provides precision titanium machining services for aerospace, medical, defense, and industrial customers with optimized processes, high-pressure coolant systems, PCD/CBN tooling, and AS9100D quality compliance. We deliver tight-tolerance titanium components with full material traceability and comprehensive documentation.*
