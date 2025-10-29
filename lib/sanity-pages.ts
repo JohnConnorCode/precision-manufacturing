@@ -1,4 +1,4 @@
-import { client } from '@/sanity/lib/sanity';
+import { client, draftClient } from '@/sanity/lib/sanity';
 
 // Home Page Query
 export const homePageQuery = `
@@ -243,6 +243,171 @@ export async function getAllCompliancePages() {
     return data;
   } catch (error) {
     console.error('Error fetching compliance pages:', error);
+    return [];
+  }
+}
+
+// ============================================
+// SERVICE PAGE QUERIES
+// ============================================
+
+const serviceQuery = `
+  *[_type == "service" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    serviceCategory,
+    hero {
+      title,
+      subtitle,
+      backgroundImage,
+      icon,
+      badge,
+      certifications
+    },
+    overview {
+      description,
+      highlights,
+      valueProposition,
+      keyBenefits
+    },
+    technicalSpecs,
+    capabilities,
+    features,
+    process,
+    qualityAssurance,
+    technologies,
+    equipment,
+    industries[]-> {
+      _id,
+      title,
+      slug
+    },
+    relatedCaseStudies[]-> {
+      _id,
+      title,
+      slug
+    },
+    pricing,
+    faqs[]-> {
+      _id,
+      question,
+      answer
+    },
+    relatedResources,
+    cta,
+    seo,
+    lastUpdated,
+    contentStatus
+  }
+`;
+
+const allServicesQuery = `
+  *[_type == "service"] {
+    _id,
+    title,
+    slug,
+    serviceCategory,
+    overview {
+      description,
+      highlights
+    },
+    hero {
+      backgroundImage,
+      icon,
+      badge
+    },
+    contentStatus
+  } | order(title asc)
+`;
+
+// Fetch a single service by slug
+export async function getService(slug: string, isDraft = false) {
+  try {
+    const queryClient = isDraft ? draftClient : client;
+    const data = await queryClient.fetch(serviceQuery, { slug }, {
+      next: { revalidate: isDraft ? 0 : 60 }, // Don't cache draft, cache published for 1 minute
+    });
+    return data;
+  } catch (error) {
+    console.error(`Error fetching service ${slug}:`, error);
+    return null;
+  }
+}
+
+// Fetch all service slugs (for static path generation)
+export async function getAllServiceSlugs() {
+  try {
+    const data = await client.fetch(
+      `*[_type == "service"] { slug }`,
+      {},
+      {
+        next: { revalidate: 3600 }, // Cache for 1 hour
+      }
+    );
+    return data.map((doc: any) => doc.slug.current);
+  } catch (error) {
+    console.error('Error fetching service slugs:', error);
+    return [];
+  }
+}
+
+// Fetch all services (for listing page)
+export async function getAllServices() {
+  try {
+    const data = await client.fetch(allServicesQuery, {}, {
+      next: { revalidate: 3600 }, // Cache for 1 hour
+    });
+    return data;
+  } catch (error) {
+    console.error('Error fetching all services:', error);
+    return [];
+  }
+}
+
+// Fetch services by category
+export async function getServicesByCategory(category: string) {
+  try {
+    const data = await client.fetch(
+      `*[_type == "service" && serviceCategory == $category] {
+        _id,
+        title,
+        slug,
+        serviceCategory,
+        overview { description },
+        hero { icon, badge }
+      } | order(title asc)`,
+      { category },
+      {
+        next: { revalidate: 3600 },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error(`Error fetching services for category ${category}:`, error);
+    return [];
+  }
+}
+
+// Fetch related services (exclude current service)
+export async function getRelatedServices(currentSlug: string, limit = 3) {
+  try {
+    const data = await client.fetch(
+      `*[_type == "service" && slug.current != $slug] {
+        _id,
+        title,
+        slug,
+        overview { description },
+        hero { backgroundImage, icon }
+      } | order(_createdAt desc)[0..${limit - 1}]`,
+      { slug: currentSlug },
+      {
+        next: { revalidate: 3600 },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error('Error fetching related services:', error);
     return [];
   }
 }
