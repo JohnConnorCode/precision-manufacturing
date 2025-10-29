@@ -91,7 +91,7 @@ export default function AboutPage() {
       principles: [
         'Skilled workforce development',
         'Safety-first culture',
-        'Continuous training',
+        'Continual training',
         'Team collaboration'
       ]
     }
@@ -459,7 +459,7 @@ export default function AboutPage() {
               <div className="mt-8 p-6 bg-white rounded-lg border border-slate-200">
                 <h3 className="text-xl font-bold mb-4">Commitment to Excellence</h3>
                 <p className="text-slate-600">
-                  Our certifications represent more than compliance—they reflect our unwavering commitment to quality, safety, and continuous improvement in everything we do.
+                  Our certifications represent more than compliance—they reflect our unwavering commitment to quality, safety, and continual improvement in everything we do.
                 </p>
               </div>
             </motion.div>
