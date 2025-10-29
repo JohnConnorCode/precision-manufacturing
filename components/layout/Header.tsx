@@ -55,6 +55,10 @@ const navigation = [
     href: '/about',
   },
   {
+    name: 'Careers',
+    href: '/careers',
+  },
+  {
     name: 'Compliance',
     href: '#',
     children: [

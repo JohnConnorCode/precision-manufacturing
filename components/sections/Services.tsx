@@ -14,7 +14,7 @@ const services = [
     description: 'Complex geometries with unmatched precision for aerospace components',
     icon: Cog,
     href: '/services/5-axis-machining',
-    specs: ['±0.0001" tolerance', 'Titanium & exotic alloys', 'Up to 60" parts'],
+    specs: ['±0.0001" tolerance', 'Titanium & super alloys', 'Up to 60" parts'],
     image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=90',
     highlight: true
   },
@@ -173,17 +173,11 @@ export default function Services({ data }: ServicesProps) {
 
         {/* Call to Action */}
         <AnimatedSection delay={0.4} className="text-center mt-16 md:mt-20">
-          <p className="text-lg text-slate-700 mb-2 font-medium">
-            Ready to start your precision manufacturing project?
-          </p>
-          <p className="text-sm text-slate-600 mb-6">
-            Get a detailed quote within 24 hours • Free DFM analysis included
-          </p>
           <Link
-            href="/contact?interest=quote"
+            href="/contact"
             className="inline-flex items-center h-12 px-8 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
-            Get Quote in 24 Hours
+            Get Quote
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </AnimatedSection>

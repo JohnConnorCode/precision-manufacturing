@@ -213,8 +213,15 @@ export default defineType({
               type: 'array',
               of: [
                 {
-                  type: 'array',
-                  of: [{type: 'string'}],
+                  type: 'object',
+                  fields: [
+                    {
+                      name: 'cells',
+                      title: 'Row Cells',
+                      type: 'array',
+                      of: [{type: 'string'}],
+                    },
+                  ],
                 },
               ],
             },

@@ -1,7 +1,7 @@
 'use client';
 
-import { StatisticalLogo } from '@/components/logos/iis-statistical-logo';
-import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface LogoProps {
@@ -18,19 +18,16 @@ export default function Logo({
   size = 'md'
 }: LogoProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    // Trigger initial animation on mount
-    const timer = setTimeout(() => setHasAnimated(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   const textColorClass = variant === 'light'
     ? 'text-white'
     : variant === 'dark'
     ? 'text-slate-900'
     : 'text-slate-800';
+
+  // Scale image size based on size prop
+  const imageWidth = size === 'sm' ? 36 : size === 'lg' ? 56 : 48;
+  const imageHeight = size === 'sm' ? 36 : size === 'lg' ? 56 : 48;
 
   // Scale text size with logo size
   const textSizeClass = size === 'sm'
@@ -48,19 +45,29 @@ export default function Logo({
 
   return (
     <div
-      className="flex items-center -space-x-3"
+      className="flex items-center gap-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <StatisticalLogo
-        size={size}
-        animated={true}
-        showGrid={true}
-        className={className}
-      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className={`flex-shrink-0 ${className}`}
+      >
+        <Image
+          src="/Gaussian-Distribution-with-_IIS_.png"
+          alt="IIS - Integrated Inspection Systems"
+          width={imageWidth}
+          height={imageHeight}
+          priority
+          quality={90}
+          className="object-contain transition-transform duration-300 hover:scale-105"
+        />
+      </motion.div>
 
       {showText && (
-        <div className={`flex flex-col justify-center ${gapClass} -mt-2`}>
+        <div className={`flex flex-col justify-center ${gapClass}`}>
           {['INTEGRATED', 'INSPECTION', 'SYSTEMS'].map((word, i) => (
             <motion.div
               key={word}
@@ -68,7 +75,7 @@ export default function Logo({
               animate={{ opacity: 1, x: 0 }}
               transition={{
                 duration: 0.5,
-                delay: 1.3 + i * 0.1,
+                delay: 0.3 + i * 0.1,
                 ease: [0.16, 1, 0.3, 1]
               }}
               className={

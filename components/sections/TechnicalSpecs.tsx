@@ -43,7 +43,7 @@ export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
     },
     {
       icon: Activity,
-      value: "99.97%",
+      value: "99.73%",
       label: "FIRST PASS YIELD",
       description: "Quality rate",
       gradient: "from-indigo-600 to-purple-600"
@@ -64,9 +64,9 @@ export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
     },
     {
       icon: Zap,
-      value: "12,000",
-      label: "RPM",
-      description: "Spindle speed",
+      value: "30",
+      label: "YEARS",
+      description: "Manufacturing excellence",
       gradient: "from-indigo-600 to-purple-600"
     },
     {
@@ -159,16 +159,6 @@ export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
           })}
         </div>
 
-        {/* Bottom CTA - More Elegant */}
-        <AnimatedSection
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-center mt-16"
-        >
-          <p className="text-slate-400 mb-2">Ready to experience precision manufacturing excellence?</p>
-          <p className="text-2xl font-bold text-white">
-            Call <a href="tel:+15032319093" className="text-blue-500 hover:text-blue-400 transition-colors underline decoration-blue-500/30 underline-offset-4 hover:decoration-blue-400">503-231-9093</a>
-          </p>
-        </AnimatedSection>
       </div>
     </section>
   );

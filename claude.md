@@ -1,5 +1,30 @@
 # Claude Code Guidelines for This Project
 
+## CRITICAL: Testing Requirements - NEVER Test Status Codes Alone
+
+**NEVER test by only checking HTTP status codes.** A 200 status does NOT mean the page works.
+
+❌ **WRONG:**
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/resources
+# Returns 200 - but page might show "0 articles" or errors!
+```
+
+✅ **CORRECT:**
+```bash
+# Check actual content to verify it works
+curl -s http://localhost:3000/resources | grep -o "article\|resource" | wc -l
+# Verify data is actually displaying, not just that the route exists
+```
+
+**Before claiming something works, you MUST:**
+1. Check the actual page content (article count, titles, data)
+2. Verify no errors showing in browser or console
+3. Confirm data is loading from the source (Sanity/API/database/etc)
+4. Test the user-facing functionality, not just that the route returns 200
+
+**Status code 200 only means the route exists - NOT that it works!**
+
 ## Testing Setup and Port Management
 
 ### Critical: Always Verify Dev Server Before Testing

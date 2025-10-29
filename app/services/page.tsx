@@ -33,7 +33,7 @@ export default function ServicesPage() {
       description: 'Advanced measurement and inspection services ensuring component accuracy.',
       icon: Target,
       href: '/services/metrology',
-      features: ['CMM Inspection', 'Laser Scanning', 'Dimensional Analysis', 'First Article'],
+      features: ['CMM Inspection', 'Dimensional Analysis', 'First Article Inspection', 'Quality Verification'],
       image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=90'
     },
     {
@@ -41,7 +41,7 @@ export default function ServicesPage() {
       description: 'Complete design, prototyping, and manufacturing engineering support.',
       icon: Wrench,
       href: '/services/engineering',
-      features: ['Design Optimization', 'Rapid Prototyping', 'DFM Analysis', 'Process Development'],
+      features: ['First Article Inspection', 'Process Planning', 'Manufacturing Support', 'Process Development'],
       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90'
     }
   ];
@@ -75,7 +75,7 @@ export default function ServicesPage() {
             variant: "primary"
           },
           {
-            label: "View Capabilities",
+            label: "View Core Competencies",
             href: "#capabilities",
             variant: "secondary"
           }
@@ -128,7 +128,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Capabilities</h2>
+            <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Core Competencies</h2>
             <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Comprehensive precision manufacturing services backed by advanced technology and industry certifications.
             </p>
@@ -212,7 +212,7 @@ export default function ServicesPage() {
                   'AS9100D aerospace quality management',
                   'ISO 9001:2015 certified processes',
                   'ITAR registered for defense contracts',
-                  'NADCAP accredited special processes'
+                  'CMMC compliant for cybersecurity'
                 ].map((item, index) => (
                   <motion.div
                     key={item}

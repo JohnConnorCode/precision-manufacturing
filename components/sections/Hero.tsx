@@ -65,16 +65,16 @@ export default function Hero({ data }: HeroProps) {
     }
   ];
 
-  const mainTitle = data?.mainTitle || 'PRECISION';
-  const subTitle = data?.subTitle || 'MANUFACTURING';
+  const mainTitle = data?.mainTitle || 'PRECISION MANUFACTURING';
+  const subTitle = data?.subTitle || 'SERVICES';
   const tagline = data?.tagline || 'Innovative Precision Machining & Manufacturing Excellence Since 1995';
   const badges = data?.badges || [
     'Advanced CNC Machining',
     'Precision Metrology',
     'Engineering Excellence',
-    '3 Sigma Machining'
+    '3 Sigma Yield'
   ];
-  const ctaPrimary = data?.ctaPrimary || { text: 'Get Quote in 24 Hours', href: '/contact?interest=quote' };
+  const ctaPrimary = data?.ctaPrimary || { text: 'Get Quote', href: '/contact?interest=quote' };
   const ctaSecondary = data?.ctaSecondary || { text: 'View Capabilities', href: '/services' };
 
   return (

@@ -417,7 +417,7 @@ export const LogoShowcase = () => {
     { component: LogoGearTech, name: 'Gear & Circuit Tech', description: 'Modern technical design combining gear mechanics with circuit technology' },
     { component: LogoPrecisionMark, name: 'Precision Crosshair', description: 'Minimalist design emphasizing accuracy and precision targeting' },
     { component: LogoHexIndustrial, name: 'Industrial Hexagon', description: 'Strong geometric design representing stability and engineering excellence' },
-    { component: LogoWaveTech, name: 'Wave Technology', description: 'Flowing design symbolizing adaptive manufacturing and continuous improvement' },
+    { component: LogoWaveTech, name: 'Wave Technology', description: 'Flowing design symbolizing adaptive manufacturing and continual improvement' },
     { component: LogoCNCTool, name: 'CNC Tool Icon', description: 'Direct representation of manufacturing tools and capabilities' },
     { component: LogoTechGrid, name: 'Tech Grid Pattern', description: 'Modern grid system representing systematic precision and organization' }
   ];

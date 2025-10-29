@@ -221,7 +221,7 @@ export default function RootLayout({
           enablePerformanceMonitoring={true}
         >
           <Header />
-          <main id="main-content" className="min-h-screen lg:pt-32 pt-20">
+          <main id="main-content" className="min-h-screen lg:pt-[120px] pt-20">
             {children}
           </main>
           <Footer />

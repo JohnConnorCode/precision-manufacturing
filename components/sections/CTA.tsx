@@ -20,10 +20,10 @@ interface CTAProps {
 }
 
 export default function CTA({ data }: CTAProps) {
-  const title = data?.title || 'Ready to Start Your Project?';
-  const subtitle = data?.subtitle || 'Get a quote within 24 hours. From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.';
+  const title = data?.title || 'Start Your Precision Manufacturing Project';
+  const subtitle = data?.subtitle || 'From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.';
   const buttons = data?.buttons || [
-    { text: 'Request Engineering Quote', href: '/contact', variant: 'default' as const },
+    { text: 'Get Quote', href: '/contact', variant: 'default' as const },
     { text: 'Technical Specifications', href: '/compliance/supplier-requirements', variant: 'secondary' as const }
   ];
 

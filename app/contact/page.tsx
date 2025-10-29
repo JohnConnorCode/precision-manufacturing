@@ -195,11 +195,6 @@ export default function ContactPage() {
             label: "Start Your Project",
             href: "#contact-form",
             variant: "primary"
-          },
-          {
-            label: "Call Us Today",
-            href: "tel:+15032319093",
-            variant: "secondary"
           }
         ]}
         height="large"
@@ -284,7 +279,7 @@ export default function ContactPage() {
               <Card className={cn(theme.components.card.form, "p-6")}>
                 <h3 className={cn(theme.typography.label, "text-white mb-4")}>Certifications</h3>
                 <div className="space-y-3">
-                  {['AS9100D', 'ISO 9001:2015', 'ITAR Registered', 'NADCAP'].map((cert) => (
+                  {['AS9100D', 'ISO 9001:2015', 'ITAR Registered', 'CMMC Compliant'].map((cert) => (
                     <div key={cert} className="flex items-center gap-3">
                       <Shield className="w-4 h-4 text-blue-600" />
                       <span className={theme.typography.small}>{cert}</span>

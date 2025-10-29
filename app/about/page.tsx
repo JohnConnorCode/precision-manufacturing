@@ -57,7 +57,7 @@ export default function AboutPage() {
       icon: Award,
       principles: [
         'Zero-defect manufacturing mindset',
-        'Continuous improvement culture',
+        'Continual improvement culture',
         'Customer satisfaction focus',
         'Industry-leading standards'
       ]
@@ -132,8 +132,7 @@ export default function AboutPage() {
     'AS9100D Aerospace Quality Management',
     'ISO 9001:2015 Quality Management',
     'ITAR International Traffic in Arms',
-    'NADCAP National Aerospace Defense',
-    'ISO 14001 Environmental Management',
+    'CMMC Cybersecurity Maturity Model Certification',
     'OSHA Safety Management System'
   ];
 
@@ -144,7 +143,7 @@ export default function AboutPage() {
     },
     {
       category: 'Engineering',
-      items: ['Design for manufacturing', 'Rapid prototyping', 'CAD/CAM programming', 'Process development']
+      items: ['First article inspection', 'Process planning', 'CAD/CAM programming', 'Process development']
     },
     {
       category: 'Quality',
@@ -152,7 +151,7 @@ export default function AboutPage() {
     },
     {
       category: 'Industries',
-      items: ['Aerospace systems', 'Defense platforms', 'Energy infrastructure', 'Industrial equipment']
+      items: ['Aerospace systems', 'Defense platforms', 'Energy infrastructure', 'Medical devices']
     }
   ];
 
