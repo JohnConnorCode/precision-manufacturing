@@ -555,7 +555,7 @@ export default defineConfig({
   },
   search: {
     tina: {
-      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      indexerToken: 'c174d0a3a4a23d8e17cdfbfba3bbb22bd417b6fa',
     },
   },
 });
