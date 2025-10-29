@@ -94,30 +94,42 @@ export default function Hero({ data }: HeroProps) {
           className="text-center max-w-5xl mx-auto"
         >
 
-          {/* Main Title - Proportionate and Professional */}
+          {/* Main Title - Three stacked words, uniform size */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0 : 1.2, ease: [0.33, 1, 0.68, 1] }}
           >
-            <h1 className="font-black mb-4 md:mb-6 leading-[1.1]">
+            <h1 className="font-black mb-4 md:mb-6 leading-[1.15]">
+              {/* PRECISION */}
               <motion.span
-                className="block text-white uppercase text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] tracking-[0.02em]"
-                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3))' }}
-                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
+                className="block text-white uppercase text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] tracking-[0.02em]"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.25))' }}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: prefersReducedMotion ? 0 : 0.5, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
+                transition={{ delay: prefersReducedMotion ? 0 : 0.4, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
               >
-                {mainTitle}
+                PRECISION
               </motion.span>
+              {/* MANUFACTURING */}
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[1.25rem] sm:text-[1.625rem] md:text-[2.125rem] lg:text-[2.625rem] mt-1 md:mt-2 uppercase font-black tracking-[0.02em]"
-                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3))' }}
-                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
+                className="block text-white uppercase text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] tracking-[0.02em]"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.25))' }}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
+                transition={{ delay: prefersReducedMotion ? 0 : 0.55, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
               >
-                {subTitle}
+                MANUFACTURING
+              </motion.span>
+              {/* SERVICES - with gradient */}
+              <motion.span
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 uppercase text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] tracking-[0.02em]"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3))' }}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
+              >
+                SERVICES
               </motion.span>
             </h1>
           </motion.div>
