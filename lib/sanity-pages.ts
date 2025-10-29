@@ -411,3 +411,142 @@ export async function getRelatedServices(currentSlug: string, limit = 3) {
     return [];
   }
 }
+
+// ============================================
+// INDUSTRY PAGE QUERIES
+// ============================================
+
+const industryQuery = `
+  *[_type == "industry" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    industryCode,
+    hero {
+      title,
+      subtitle,
+      backgroundImage,
+      icon,
+      badge,
+      keyStats
+    },
+    overview {
+      description,
+      marketSize,
+      keyDrivers,
+      challenges
+    },
+    regulatoryEnvironment {
+      overview,
+      requiredCertifications,
+      complianceRequirements
+    },
+    capabilities,
+    applications,
+    certifications,
+    standards,
+    relatedCaseStudies[]-> {
+      _id,
+      title,
+      slug
+    },
+    partners,
+    equipment,
+    relatedServices[]-> {
+      _id,
+      title,
+      slug
+    },
+    relatedResources,
+    cta,
+    seo,
+    lastUpdated,
+    contentStatus
+  }
+`;
+
+const allIndustriesQuery = `
+  *[_type == "industry"] {
+    _id,
+    title,
+    slug,
+    industryCode,
+    overview {
+      description,
+      marketSize
+    },
+    hero {
+      backgroundImage,
+      icon,
+      badge
+    },
+    contentStatus
+  } | order(title asc)
+`;
+
+// Fetch a single industry by slug
+export async function getIndustry(slug: string, isDraft = false) {
+  try {
+    const queryClient = isDraft ? draftClient : client;
+    const data = await queryClient.fetch(industryQuery, { slug }, {
+      next: { revalidate: isDraft ? 0 : 60 },
+    });
+    return data;
+  } catch (error) {
+    console.error(`Error fetching industry ${slug}:`, error);
+    return null;
+  }
+}
+
+// Fetch all industry slugs (for static path generation)
+export async function getAllIndustrySlugs() {
+  try {
+    const data = await client.fetch(
+      `*[_type == "industry"] { slug }`,
+      {},
+      {
+        next: { revalidate: 3600 },
+      }
+    );
+    return data.map((doc: any) => doc.slug.current);
+  } catch (error) {
+    console.error('Error fetching industry slugs:', error);
+    return [];
+  }
+}
+
+// Fetch all industries (for listing page)
+export async function getAllIndustries() {
+  try {
+    const data = await client.fetch(allIndustriesQuery, {}, {
+      next: { revalidate: 3600 },
+    });
+    return data;
+  } catch (error) {
+    console.error('Error fetching all industries:', error);
+    return [];
+  }
+}
+
+// Fetch related industries (exclude current industry)
+export async function getRelatedIndustries(currentSlug: string, limit = 3) {
+  try {
+    const data = await client.fetch(
+      `*[_type == "industry" && slug.current != $slug] {
+        _id,
+        title,
+        slug,
+        overview { description },
+        hero { backgroundImage, icon }
+      } | order(_createdAt desc)[0..${limit - 1}]`,
+      { slug: currentSlug },
+      {
+        next: { revalidate: 3600 },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error('Error fetching related industries:', error);
+    return [];
+  }
+}
