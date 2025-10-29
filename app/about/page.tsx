@@ -19,34 +19,34 @@ export default function AboutPage() {
 
   const timeline = [
     {
-      year: '1993',
-      title: 'Company Founded',
-      description: 'Started as a small precision machining shop focusing on aerospace components'
+      year: '1995',
+      title: 'IIS Founded',
+      description: 'Started in a residential basement with founders from Precision Castparts Inc. Initial focus on small business networking and quality manual development.'
     },
     {
       year: '1998',
-      title: 'AS9100 Certification',
-      description: 'Achieved aerospace quality certification and expanded defense contracts'
+      title: 'First CMM Purchased',
+      description: 'Purchased our own Zeiss CMM and established facility in Beaverton, Oregon. Began high-volume metrology for Hewlett Packard and plastics industry.'
     },
     {
-      year: '2005',
-      title: 'Facility Expansion',
-      description: 'Doubled facility size and added 5-axis CNC machining capabilities'
+      year: '1999-2001',
+      title: 'MetBase Software Development',
+      description: 'Developed proprietary MetBase software to integrate CMM data, CNC machines, and vision systems. Established 3-sigma closed-loop manufacturing system.'
     },
     {
-      year: '2012',
-      title: 'ITAR Registration',
-      description: 'Secured ITAR registration for defense manufacturing programs'
+      year: '2001',
+      title: 'Aerospace Transition',
+      description: 'Pivoted to aerospace inspection and machining after dot-com bubble. Relocated to SE Portland 5,000 sq ft facility. Added second Sheffield CMM.'
     },
     {
-      year: '2018',
-      title: 'Technology Innovation',
-      description: 'Implemented adaptive machining and Industry 4.0 technologies'
+      year: '2001-2008',
+      title: '4-Sigma System Development',
+      description: 'Invented 4-sigma targeting system using MetBase on GE, Siemens, and Alstom IGT castings. Expanded to current 20,000 sq ft facility in Clackamas, Oregon.'
     },
     {
-      year: '2023',
-      title: 'Sustainability Initiative',
-      description: 'Launched comprehensive environmental sustainability program'
+      year: 'Present',
+      title: 'Industry Leader',
+      description: 'ISO 9001 and AS9100 certified, ITAR registered provider of engineering, metrology, machining, and database services for aerospace and defense.'
     }
   ];
 
@@ -161,7 +161,7 @@ export default function AboutPage() {
         backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
         imageAlt="Precision manufacturing facility - 30 years of excellence"
         badge={{
-          text: "PRECISION MANUFACTURING SINCE 1993",
+          text: "PRECISION MANUFACTURING SINCE 1995",
           icon: Factory
         }}
         title={
@@ -169,7 +169,7 @@ export default function AboutPage() {
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Our Company</span>
           </span>
         }
-        description="Three decades of precision manufacturing excellence, serving aerospace, defense, and energy industries with unwavering commitment to quality and innovation."
+        description="From basement startup to industry leader. Three decades of precision manufacturing excellence serving aerospace, defense, and advanced industries with ISO 9001, AS9100, and ITAR certification."
         buttons={[
           {
             label: "Our Capabilities",
@@ -233,13 +233,13 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-lg text-slate-600">
                 <p>
-                  Founded in 1993, we began as a small precision machining shop with a vision to become the most trusted manufacturer of critical aerospace components. What started with a handful of employees and basic CNC equipment has grown into a state-of-the-art facility serving the most demanding industries.
+                  Integrated Inspection Systems was founded in 1995, starting in a residential basement with a desk, computer, and a pair of calipers. Our founders came from Precision Castparts Inc, bringing aerospace expertise and a commitment to quality. From 1995-1996, we established cash flow through small business networking while developing a comprehensive quality manual. We then leased our first Zeiss CMM from Hanard Machine in Salem, Oregon, and began serving the plastics industry with a focus on precision metrology.
                 </p>
                 <p>
-                  Our journey has been marked by continuous investment in technology, people, and processes. We&apos;ve built our reputation on delivering zero-defect components while maintaining the personal service and attention to detail that our customers value.
+                  Our breakthrough came when we applied aerospace GD&amp;T principles to high-volume metrology, a capability few suppliers could match. This led us to purchase our own Zeiss CMM in late 1998 and move to Beaverton, Oregon. We developed proprietary software, MetBase, which revolutionized our ability to integrate CMM data, CNC machines, and vision systems into a closed-loop manufacturing system. By 2001, we had developed a 3-sigma machining system and relocated to our current 20,000 square foot facility in Clackamas, Oregon.
                 </p>
                 <p>
-                  Today, we&apos;re proud to be a certified AS9100D manufacturer, ITAR-registered facility, and trusted partner to Fortune 500 companies worldwide. Our commitment to excellence drives everything we do.
+                  Today, we&apos;re an ISO 9001 and AS9100 certified, ITAR-registered provider of engineering, metrology, machining, and database services. Our 3-sigma manufacturing system and proprietary MetBase software enable us to deliver industry-leading precision components for aerospace, defense, and advanced industries.
                 </p>
               </div>
             </motion.div>
@@ -252,8 +252,8 @@ export default function AboutPage() {
               className="relative"
             >
               <ParallaxImage
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
-                alt="Manufacturing facility"
+                src="/about IIS.jpg"
+                alt="IIS manufacturing facility in Clackamas, Oregon - 20,000 square feet with advanced machining and metrology equipment"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}
               />
