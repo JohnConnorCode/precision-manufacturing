@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx';
-import { withPayload } from '@payloadcms/next/withPayload';
 
 const nextConfig: NextConfig = {
   /* MDX Support */
@@ -105,4 +104,4 @@ const withMDX = createMDX({
   },
 });
 
-export default withPayload(withMDX(nextConfig));
+export default withMDX(nextConfig);
