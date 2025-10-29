@@ -18,7 +18,9 @@
     "vercel:deploy": "vercel --prod --yes",
     "deploy": "vercel --prod --yes && ./scripts/vercel-monitor.sh",
     "deploy:monitor": "vercel --prod --yes && ./scripts/vercel-api-monitor.js",
-    "migrate:content": "tsx scripts/migrate-content-to-sanity.ts"
+    "migrate:content": "tsx scripts/migrate-content-to-sanity.ts",
+    "sanity:verify": "node scripts/verify-token-permissions.mjs",
+    "populate:local": "bash scripts/populate-local.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -40,6 +42,8 @@
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.10.0",
     "@sanity/visual-editing": "^3.0.5",
+    "@tinacms/cli": "^1.11.0",
+    "@tinacms/graphql": "^1.6.1",
     "@types/mdx": "^2.0.13",
     "@types/nodemailer": "^7.0.2",
     "@types/react-syntax-highlighter": "^15.5.13",
@@ -47,6 +51,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.18",
     "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
     "lucide-react": "^0.544.0",
     "next": "15.5.3",
     "next-mdx-remote": "^5.0.0",
@@ -57,9 +62,11 @@
     "react-hook-form": "^7.63.0",
     "react-intersection-observer": "^9.16.0",
     "react-syntax-highlighter": "^15.6.6",
+    "sharp": "^0.34.4",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.180.0",
+    "tinacms": "^2.9.0",
     "zod": "^4.1.11"
   },
   "devDependencies": {

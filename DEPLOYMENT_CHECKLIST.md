@@ -197,7 +197,17 @@ SENTRY_DSN=https://xxxxx@o xxxxx.ingest.sentry.io/xxxxx
 # Required
 NEXT_PUBLIC_SANITY_PROJECT_ID=ept6x5im
 NEXT_PUBLIC_SANITY_DATASET=production
-SANITY_API_TOKEN=[from sanity.io]
+SANITY_API_VERSION=2025-01-01
+
+# Sanity tokens
+# If you only have one token, set it to both variables
+SANITY_READ_TOKEN=[Sanity token with read scope]
+SANITY_WRITE_TOKEN=[Sanity token with create/read/update/delete scopes]
+
+# Preview mode secret (any long random string)
+SANITY_PREVIEW_SECRET=[generate a secure random string]
+
+# Site URL
 NEXT_PUBLIC_SITE_URL=https://iismet.com
 
 # Email Service (choose one)

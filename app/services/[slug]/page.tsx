@@ -8,8 +8,7 @@ import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { theme, styles, cn } from '@/lib/theme';
 import HeroSection from '@/components/ui/hero-section';
-import { getService, getRelatedServices } from '@/lib/sanity-pages';
-import { urlForImage } from '@/sanity/lib/sanity';
+import { getMDXFile, getAllMDXFiles } from '@/lib/mdx-utils';
 
 interface ServicePageProps {
   params: {

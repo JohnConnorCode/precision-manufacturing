@@ -1,5 +1,3 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -7,40 +5,52 @@ import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight, Plane, Zap, Shield, Factory, Award, Users, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import { theme, styles, cn } from '@/lib/theme';
+import { getAllIndustries } from '@/lib/sanity-pages';
+import { urlForImage } from '@/sanity/lib/sanity';
 
-export default function IndustriesPage() {
-  const industries = [
-    {
-      title: 'Aerospace',
-      description: 'Critical flight components and systems requiring the highest precision and reliability standards.',
-      icon: Plane,
-      href: '/industries/aerospace',
-      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
-      applications: ['Engine components', 'Landing gear', 'Structural parts', 'Avionics housings'],
-      certifications: ['AS9100D', 'NADCAP', 'ITAR'],
-      stats: { volume: '85%', clients: '50+', experience: '30+ years' }
-    },
-    {
-      title: 'Defense',
-      description: 'Mission-critical components for defense systems with stringent security and quality requirements.',
-      icon: Shield,
-      href: '/industries/defense',
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
-      applications: ['Weapon systems', 'Radar components', 'Vehicle parts', 'Electronics'],
-      certifications: ['ITAR', 'DFARS', 'Security clearance'],
-      stats: { volume: '15%', clients: '25+', experience: '25+ years' }
-    },
-    {
-      title: 'Energy',
-      description: 'Precision components for power generation, oil & gas, and renewable energy systems.',
-      icon: Zap,
-      href: '/industries/energy',
-      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
-      applications: ['Turbine parts', 'Valve components', 'Pump housings', 'Generator parts'],
-      certifications: ['API', 'ASME', 'ISO 9001'],
-      stats: { volume: '25%', clients: '15+', experience: '20+ years' }
-    }
-  ];
+export default async function IndustriesPage() {
+  // Fetch industries from Sanity
+  const sanityIndustries = await getAllIndustries();
+
+  const industries = sanityIndustries.length > 0
+    ? sanityIndustries.map((ind: any) => ({
+        title: ind.title,
+        description: ind.overview?.description || 'Precision manufacturing solutions',
+        slug: ind.slug?.current,
+        href: `/industries/${ind.slug?.current}`,
+        image: ind.hero?.backgroundImage
+          ? urlForImage(ind.hero.backgroundImage).url()
+          : 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+        applications: ind.applications?.slice(0, 4).map((app: any) => app.name) || [],
+        certifications: ind.regulatory?.certifications?.slice(0, 3).map((cert: any) => cert.name) || [],
+      }))
+    : [
+        {
+          title: 'Aerospace',
+          description: 'Critical flight components and systems requiring the highest precision and reliability standards.',
+          href: '/industries/aerospace',
+          image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+          applications: ['Engine components', 'Landing gear', 'Structural parts', 'Avionics housings'],
+          certifications: ['AS9100D', 'NADCAP', 'ITAR'],
+        },
+        {
+          title: 'Defense',
+          description: 'Mission-critical components for defense systems with stringent security and quality requirements.',
+          href: '/industries/defense',
+          image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+          applications: ['Weapon systems', 'Radar components', 'Vehicle parts', 'Electronics'],
+          certifications: ['ITAR', 'DFARS', 'Security clearance'],
+        },
+        {
+          title: 'Energy',
+          description: 'Precision components for power generation, oil & gas, and renewable energy systems.',
+          href: '/industries/energy',
+          image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
+          applications: ['Turbine parts', 'Valve components', 'Pump housings', 'Generator parts'],
+          certifications: ['API', 'ASME', 'ISO 9001'],
+        }
+      ];
 
   const capabilities = [
     { label: 'Industry Experience', value: '30+', description: 'Years serving critical industries' },
