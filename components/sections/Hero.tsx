@@ -94,26 +94,26 @@ export default function Hero({ data }: HeroProps) {
           className="text-center max-w-5xl mx-auto"
         >
 
-          {/* Main Title - Cleaner and more impactful */}
+          {/* Main Title - Proportionate and Professional */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0 : 1.2, ease: [0.33, 1, 0.68, 1] }}
           >
-            <h1 className="font-black mb-6 md:mb-8 leading-[0.95]">
+            <h1 className="font-black mb-4 md:mb-6 leading-[1.1]">
               <motion.span
-                className="block text-white uppercase text-[3.5rem] sm:text-[4.6rem] md:text-[5.75rem] lg:text-[7.25rem] tracking-[0.04em]"
-                style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.4))' }}
-                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
+                className="block text-white uppercase text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] tracking-[0.02em]"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3))' }}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.5, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
                 {mainTitle}
               </motion.span>
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[2.120rem] sm:text-[2.786rem] md:text-[3.482rem] lg:text-[4.391rem] mt-2 uppercase font-black tracking-[0.04em]"
-                style={{ filter: 'drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5))' }}
-                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 60 }}
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-[1.25rem] sm:text-[1.625rem] md:text-[2.125rem] lg:text-[2.625rem] mt-1 md:mt-2 uppercase font-black tracking-[0.02em]"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3))' }}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
@@ -152,32 +152,21 @@ export default function Hero({ data }: HeroProps) {
             ))}
           </motion.div>
 
-          {/* CTA Buttons - Cleaner design */}
+          {/* CTA Button - Explore Services */}
           <motion.div
             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 1.8, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            transition={{ delay: prefersReducedMotion ? 0 : 1.6, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
+            className="flex justify-center items-center"
           >
             <Button
               size="lg"
-              className="group w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:via-blue-400 hover:to-indigo-500 text-white font-semibold shadow-2xl shadow-blue-600/20 hover:shadow-blue-600/40 transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
-              asChild
-            >
-              <Link href={ctaPrimary.href}>
-                {ctaPrimary.text}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300 px-8 md:px-10 h-12 md:h-14 text-base"
+              className="group bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:via-blue-400 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transition-all duration-300 px-6 md:px-8 h-11 md:h-12 text-sm md:text-base"
               asChild
             >
               <Link href={ctaSecondary.href}>
                 {ctaSecondary.text}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
           </motion.div>
