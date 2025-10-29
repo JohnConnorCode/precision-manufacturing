@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Clock, ArrowRight, Lightbulb } from 'lucide-react';
-import { getAllResources } from '@/lib/sanity-resources';
 import HeroSection from '@/components/ui/hero-section';
 
 export const metadata = {
@@ -9,7 +8,8 @@ export const metadata = {
 };
 
 export default async function ResourcesPage() {
-  const resources = await getAllResources();
+  // TODO: Migrate resources to MDX format or static data
+  const resources: any[] = [];
 
   return (
     <div className="min-h-screen bg-background">

@@ -73,6 +73,7 @@
     "@eslint/eslintrc": "^3",
     "@playwright/test": "^1.55.1",
     "@sanity/block-tools": "^3.70.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

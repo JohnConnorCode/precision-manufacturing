@@ -1,11 +1,7 @@
 import { MetadataRoute } from 'next';
-import { getAllResources } from '@/lib/sanity-resources';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://iismet.com';
-
-  // Get dynamic content from CMS
-  const resources = await getAllResources();
 
   // Static pages with priority and update frequency
   const staticPages = [
@@ -119,26 +115,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic resource pages
-  const resourcePages = resources.map((resource) => ({
-    url: `${baseUrl}/resources/${resource.category}/${resource.slug.current}`,
-    lastModified: new Date(resource.publishDate),
-    changeFrequency: 'monthly' as const,
-    priority: resource.featured ? 0.9 : 0.7,
-  }));
-
-  // Resource category pages
-  const resourceCategories = Array.from(new Set(resources.map(r => r.category)));
-  const categoryPages = resourceCategories.map((category) => ({
-    url: `${baseUrl}/resources/${category}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  return [
-    ...staticPages,
-    ...categoryPages,
-    ...resourcePages,
-  ];
+  return staticPages;
 }

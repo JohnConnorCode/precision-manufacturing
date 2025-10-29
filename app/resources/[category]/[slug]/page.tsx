@@ -1,36 +1,25 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Clock, ArrowLeft, Calendar, Tag } from 'lucide-react';
-import { getResource, getAllResources } from '@/lib/sanity-resources';
-import { PortableText } from '@portabletext/react';
+// TODO: Implement with MDX or static data
+// import { getResource, getAllResources } from '@/lib/sanity-resources';
+// import { PortableText } from '@portabletext/react';
 
 export async function generateStaticParams() {
-  const resources = await getAllResources();
-  return resources.map((resource) => ({
-    category: resource.category,
-    slug: resource.slug.current,
-  }));
+  // TODO: Migrate resources to MDX format
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
-  const { slug } = await params;
-  const resource = await getResource(slug);
-
-  if (!resource) {
-    return {
-      title: 'Resource Not Found | IIS',
-    };
-  }
-
   return {
-    title: resource.seoTitle || `${resource.title} | IIS Technical Resources`,
-    description: resource.seoDescription || resource.excerpt,
+    title: 'Resource Not Found | IIS',
   };
 }
 
 export default async function ResourcePage({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { category, slug } = await params;
-  const resource = await getResource(slug);
+  // TODO: Implement with MDX or static data
+  const resource: any = null;
 
   if (!resource) {
     notFound();
@@ -110,9 +99,11 @@ export default async function ResourcePage({ params }: { params: Promise<{ categ
           <div className="max-w-4xl mx-auto">
             <div className="bg-card border border-border rounded-2xl p-8 md:p-12 shadow-sm">
               <div className="prose prose-slate max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-blue-600 hover:prose-a:text-blue-700">
-                {resource.content && (
+                {/* TODO: Implement with MDX or static content rendering */}
+                {/* {resource.content && (
                   <PortableText value={resource.content} />
-                )}
+                )} */}
+                <p className="text-slate-500 text-center">Resource content coming soon. Please check back later.</p>
               </div>
             </div>
           </div>

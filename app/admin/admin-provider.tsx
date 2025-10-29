@@ -1,17 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
-import { TinaEditProvider } from 'tinacms/dist/rich-text';
-import TinaCloud from 'tina-cloud-starter';
+import React from 'react';
 
+// Tina CMS Provider for local file-based editing
+// When configured with Tina Cloud, this will enable visual editing
+// For now, editing is done via GitHub web interface or local MDX files
 export function AdminProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <TinaEditProvider
-      clientId={process.env.NEXT_PUBLIC_TINA_CLIENT_ID!}
-      token={process.env.NEXT_PUBLIC_TINA_TOKEN}
-      branch={process.env.TINA_GIT_BRANCH || 'main'}
-    >
-      {children}
-    </TinaEditProvider>
-  );
+  return <>{children}</>;
 }

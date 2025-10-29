@@ -6,7 +6,6 @@ import ImageShowcase from '@/components/sections/ImageShowcase';
 import Resources from '@/components/sections/Resources';
 import Stats from '@/components/sections/Stats';
 import CTA from '@/components/sections/CTA';
-import { getHomePage } from '@/lib/sanity-pages';
 import StructuredData from '@/components/seo/StructuredData';
 import {
   generateOrganizationSchema,
@@ -20,7 +19,8 @@ import {
 export const revalidate = 3600;
 
 export default async function Home() {
-  const homeData = await getHomePage();
+  // Using static home page data (no Sanity dependency)
+  const homeData: any = null;
 
   // Organization data for structured markup
   const organizationData = {
@@ -80,22 +80,14 @@ export default async function Home() {
 
 // Generate metadata for SEO
 export async function generateMetadata() {
-  const homeData = await getHomePage();
   const baseUrl = 'https://iismet.com';
 
-  const defaultMetadata = {
+  const metadata = {
     title: 'IIS - Integrated Inspection Systems | Engineering, Metrology, Machining & Database Services',
     description: 'Integrated Inspection Systems (IIS): Engineering, Metrology, Machining & Database Services since 1995. Proprietary MetBase® software links CMM, CNC & vision systems. AS9100, ISO 9001 certified, ITAR registered. Serving aerospace, manufacturing & government.',
     keywords: 'IIS, Integrated Inspection Systems, engineering services, metrology, machining, database services, MetBase software, CMM inspection, CNC machining, AS9100, ISO 9001, ITAR, aerospace, precision manufacturing, Oregon',
     ogImage: `${baseUrl}/og-image-home.jpg`
   };
-
-  const metadata = homeData?.seo ? {
-    title: homeData.seo.metaTitle || defaultMetadata.title,
-    description: homeData.seo.metaDescription || defaultMetadata.description,
-    keywords: homeData.seo.keywords?.join(', ') || defaultMetadata.keywords,
-    ogImage: homeData.seo.ogImage || defaultMetadata.ogImage
-  } : defaultMetadata;
 
   return {
     title: metadata.title,

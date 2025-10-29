@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Clock, ArrowRight } from 'lucide-react';
-import { getResourcesByCategory, getCategoryInfo } from '@/lib/sanity-resources';
+// TODO: Implement with MDX or static data
+// import { getResourcesByCategory, getCategoryInfo } from '@/lib/sanity-resources';
 
 export async function generateStaticParams() {
   return [
@@ -21,9 +22,26 @@ export async function generateStaticParams() {
   ];
 }
 
+// Static category definitions
+const categoryDefinitions: Record<string, { title: string; description: string }> = {
+  'cmm-inspection': { title: 'CMM Inspection', description: 'Comprehensive Measurement Machine inspection services and techniques.' },
+  'cnc-machining': { title: 'CNC Machining', description: 'Advanced CNC machining processes and best practices.' },
+  'first-article': { title: 'First Article Inspection', description: 'First article inspection procedures and documentation.' },
+  'gdt-tolerancing': { title: 'GD&T Tolerancing', description: 'Geometric Dimensioning and Tolerancing standards.' },
+  'material-science': { title: 'Material Science', description: 'Advanced materials and material properties.' },
+  'quality-compliance': { title: 'Quality & Compliance', description: 'Quality systems and compliance standards.' },
+  'metbase-integration': { title: 'MetBase Integration', description: 'MetBase software integration and implementation.' },
+  'industry-applications': { title: 'Industry Applications', description: 'Industry-specific manufacturing applications.' },
+  'calculators-tools': { title: 'Calculators & Tools', description: 'Useful calculators and manufacturing tools.' },
+  'standards-certifications': { title: 'Standards & Certifications', description: 'Industry standards and certification requirements.' },
+  'process-optimization': { title: 'Process Optimization', description: 'Manufacturing process optimization techniques.' },
+  'equipment-technology': { title: 'Equipment & Technology', description: 'Manufacturing equipment and technology overview.' },
+  'manufacturing-processes': { title: 'Manufacturing Processes', description: 'Core manufacturing process documentation.' },
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const categoryData = getCategoryInfo(category);
+  const categoryData = categoryDefinitions[category];
 
   if (!categoryData) {
     return {
@@ -39,13 +57,14 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const categoryData = getCategoryInfo(category);
+  const categoryData = categoryDefinitions[category];
 
   if (!categoryData) {
     notFound();
   }
 
-  const resources = await getResourcesByCategory(category);
+  // TODO: Migrate resources to MDX or static data
+  const resources: any[] = [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">

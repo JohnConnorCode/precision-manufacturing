@@ -8,7 +8,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Image from 'next/image'
 import Link from 'next/link'
-import { urlFor } from '@/lib/sanity-resources'
+// TODO: Migrate to non-Sanity image handling
+// import { urlFor } from '@/lib/sanity-resources'
 
 // Custom components for Portable Text
 export const portableTextComponents = {
@@ -20,7 +21,7 @@ export const portableTextComponents = {
       return (
         <div className="my-8">
           <Image
-            src={urlFor(value).width(1200).height(800).url()}
+            src={value.url || 'https://via.placeholder.com/1200x800'}
             alt={value.alt || 'Resource image'}
             width={1200}
             height={800}
