@@ -40,6 +40,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/studio/:path*',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'ALLOWALL'
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {
@@ -65,15 +74,6 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(self)'
-          },
-        ],
-      },
-      {
-        source: '/studio/:path*',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
           },
         ],
       },
