@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms build && next build",
+    "start": "tinacms build && next start",
     "lint": "eslint",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
@@ -20,7 +20,8 @@
     "deploy:monitor": "vercel --prod --yes && ./scripts/vercel-api-monitor.js",
     "migrate:content": "tsx scripts/migrate-content-to-sanity.ts",
     "sanity:verify": "node scripts/verify-token-permissions.mjs",
-    "populate:local": "bash scripts/populate-local.sh"
+    "populate:local": "bash scripts/populate-local.sh",
+    "tina:verify": "node scripts/verify-tina.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
