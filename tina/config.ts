@@ -3,12 +3,9 @@ import { defineConfig } from 'tinacms';
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
 export default defineConfig({
-  branch:
-    process.env.TINA_GIT_BRANCH ||
-    process.env.HEAD ||
-    'main',
-  clientId: process.env.TINA_CLIENT_ID || '',
-  token: process.env.TINA_TOKEN || '',
+  branch: 'main',
+  clientId: '1776d518-92cc-4faf-acd9-2686d5a1f7e0',
+  token: 'a2e9e2e759484e4aa0b894e1c8a0a920e19b14e2',
 
   build: {
     outputFolder: 'admin',
