@@ -1,6 +1,4 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { draftMode } from 'next/headers';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
