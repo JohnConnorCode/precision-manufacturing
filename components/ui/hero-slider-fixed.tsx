@@ -91,7 +91,7 @@ export default function HeroSliderFixed({
     // Server-side: show first image statically
     return (
       <div className={cn('absolute inset-0 overflow-hidden', className)}>
-        <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+        <div className="absolute inset-0 w-full h-[115%] -top-[7.5%] pointer-events-none">
           <div className="relative w-full h-full">
             <Image
               src={slides[0].src}
@@ -109,8 +109,8 @@ export default function HeroSliderFixed({
         </div>
 
         {/* Gradient overlays matching service pages */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/30 via-transparent to-blue-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/30 via-transparent to-blue-950/30 pointer-events-none" />
       </div>
     );
   }
@@ -118,7 +118,7 @@ export default function HeroSliderFixed({
   return (
     <div className={cn('absolute inset-0 overflow-hidden', className)}>
       {/* Always show first image as base layer to prevent grey background */}
-      <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+      <div className="absolute inset-0 w-full h-[115%] -top-[7.5%] pointer-events-none">
         <div className="relative w-full h-full">
           <Image
             src={slides[0].src}
@@ -139,7 +139,7 @@ export default function HeroSliderFixed({
       {slides.map((slide, index) => (
         <motion.div
           key={`slide-${index}`}
-          className="absolute inset-0 w-full h-[115%] -top-[7.5%]"
+          className="absolute inset-0 w-full h-[115%] -top-[7.5%] pointer-events-none"
           style={{ y, scale }}
           initial={{ opacity: 0 }}
           animate={{
