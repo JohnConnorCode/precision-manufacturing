@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import AnalyticsProvider from "@/components/analytics/AnalyticsProvider";
 import { getNavigationFromCMS, getFooterFromCMS } from "@/lib/get-cms-data";
+import { headers } from 'next/headers';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -79,9 +80,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Fetch navigation and footer data from CMS
-  const navigationData = await getNavigationFromCMS();
-  const footerData = await getFooterFromCMS();
+  // Check if this is an admin route
+  const headersList = await headers();
+  const pathname = headersList.get('x-invoke-path') || '';
+  const isAdminRoute = pathname.startsWith('/admin') || pathname.startsWith('/api');
+
+  // Fetch navigation and footer data from CMS only for non-admin routes
+  const navigationData = !isAdminRoute ? await getNavigationFromCMS() : null;
+  const footerData = !isAdminRoute ? await getFooterFromCMS() : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -221,16 +227,22 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <AnalyticsProvider
-          enablePerformanceMonitoring={true}
-        >
-          <Header data={navigationData} />
-          <main id="main-content" className="min-h-screen lg:pt-[120px] pt-20">
-            {children}
-          </main>
-          <Footer data={footerData} />
-          <ScrollToTop />
-        </AnalyticsProvider>
+        {isAdminRoute ? (
+          // Admin routes - no header/footer, Payload handles its own layout
+          children
+        ) : (
+          // Regular routes - with header/footer
+          <AnalyticsProvider
+            enablePerformanceMonitoring={true}
+          >
+            <Header data={navigationData} />
+            <main id="main-content" className="min-h-screen lg:pt-[120px] pt-20">
+              {children}
+            </main>
+            <Footer data={footerData} />
+            <ScrollToTop />
+          </AnalyticsProvider>
+        )}
       </body>
     </html>
   );
