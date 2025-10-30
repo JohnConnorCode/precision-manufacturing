@@ -1,0 +1,433 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+      - img [ref=e8] [cursor=pointer]
+    - generic [ref=e11] [cursor=pointer]:
+      - button "Open issues overlay" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13] [cursor=pointer]:
+          - generic [ref=e14] [cursor=pointer]: "0"
+          - generic [ref=e15] [cursor=pointer]: "1"
+        - generic [ref=e16] [cursor=pointer]: Issue
+      - button "Collapse issues badge" [ref=e17] [cursor=pointer]:
+        - img [ref=e18] [cursor=pointer]
+  - complementary "Contact information" [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - 'link "Phone: 503-231-9093" [ref=e23] [cursor=pointer]':
+          - /url: tel:+15032319093
+          - img [ref=e24] [cursor=pointer]
+          - generic [ref=e26] [cursor=pointer]: 503-231-9093
+        - 'link "Email: officemgr@iismet.com" [ref=e27] [cursor=pointer]':
+          - /url: mailto:officemgr@iismet.com
+          - img [ref=e28] [cursor=pointer]
+          - generic [ref=e31] [cursor=pointer]: officemgr@iismet.com
+      - generic [ref=e32]:
+        - img [ref=e33]
+        - generic [ref=e35]: ISO 9001 • AS9100D • ITAR REGISTERED
+  - banner [ref=e36]:
+    - navigation [ref=e37]:
+      - link "IIS - Integrated Inspection Systems Home" [active] [ref=e38] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e39] [cursor=pointer]:
+          - img "IIS - Integrated Inspection Systems" [ref=e41] [cursor=pointer]
+          - generic [ref=e42] [cursor=pointer]:
+            - generic [ref=e43] [cursor=pointer]: INTEGRATED
+            - generic [ref=e44] [cursor=pointer]: INSPECTION
+            - generic [ref=e45] [cursor=pointer]: SYSTEMS
+      - navigation "Main" [ref=e46]:
+        - list [ref=e48]:
+          - listitem [ref=e49]:
+            - button "Services menu" [ref=e50] [cursor=pointer]:
+              - text: Services
+              - img [ref=e51] [cursor=pointer]
+          - listitem [ref=e53]:
+            - button "Industries menu" [ref=e54] [cursor=pointer]:
+              - text: Industries
+              - img [ref=e55] [cursor=pointer]
+          - listitem [ref=e57]:
+            - button "Resources menu" [ref=e58] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e59] [cursor=pointer]
+          - listitem [ref=e61]:
+            - button "About menu" [ref=e62] [cursor=pointer]:
+              - text: About
+              - img [ref=e63] [cursor=pointer]
+          - listitem [ref=e65]:
+            - button "Careers menu" [ref=e66] [cursor=pointer]:
+              - text: Careers
+              - img [ref=e67] [cursor=pointer]
+          - listitem [ref=e69]:
+            - button "Compliance menu" [ref=e70] [cursor=pointer]:
+              - text: Compliance
+              - img [ref=e71] [cursor=pointer]
+          - listitem [ref=e73]:
+            - button "Contact menu" [ref=e74] [cursor=pointer]:
+              - text: Contact
+              - img [ref=e75] [cursor=pointer]
+      - link "REQUEST QUOTE" [ref=e78] [cursor=pointer]:
+        - /url: /contact
+        - button "REQUEST QUOTE" [ref=e79] [cursor=pointer]:
+          - generic [ref=e83] [cursor=pointer]:
+            - text: REQUEST QUOTE
+            - img [ref=e84] [cursor=pointer]
+  - main [ref=e86]:
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - img "Precision manufacturing facility - 30 years of excellence" [ref=e90]
+        - generic [ref=e94]:
+          - generic [ref=e96]:
+            - img [ref=e97]
+            - text: PRECISION MANUFACTURING SINCE 1995
+          - heading "About Our Company" [level=1] [ref=e99]:
+            - generic [ref=e100]:
+              - text: About
+              - generic [ref=e101]: Our Company
+          - paragraph [ref=e102]: From basement startup to industry leader. Three decades of precision manufacturing excellence serving aerospace, defense, and advanced industries with ISO 9001, AS9100, and ITAR certification.
+          - generic [ref=e103]:
+            - link "Our Capabilities" [ref=e104] [cursor=pointer]:
+              - /url: "#capabilities"
+              - text: Our Capabilities
+              - img
+            - link "Contact Our Team" [ref=e105] [cursor=pointer]:
+              - /url: /contact
+              - text: Contact Our Team
+              - img
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]: 30+
+          - generic [ref=e111]: Years in Business
+          - generic [ref=e112]: Decades of experience
+        - generic [ref=e113]:
+          - generic [ref=e114]: 150+
+          - generic [ref=e115]: Team Members
+          - generic [ref=e116]: Skilled professionals
+        - generic [ref=e117]:
+          - generic [ref=e118]: $25M+
+          - generic [ref=e119]: Annual Revenue
+          - generic [ref=e120]: Consistent growth
+        - generic [ref=e121]:
+          - generic [ref=e122]: 45,000
+          - generic [ref=e123]: Facility Size
+          - generic [ref=e124]: Square feet
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - heading "Our Story" [level=2] [ref=e129]
+            - generic [ref=e130]:
+              - paragraph [ref=e131]: Integrated Inspection Systems was founded in 1995, starting in a residential basement with a desk, computer, and a pair of calipers. Our founders came from Precision Castparts Inc, bringing aerospace expertise and a commitment to quality. From 1995-1996, we established cash flow through small business networking while developing a comprehensive quality manual. We then leased our first Zeiss CMM from Hanard Machine in Salem, Oregon, and began serving the plastics industry with a focus on precision metrology.
+              - paragraph [ref=e132]: Our breakthrough came when we applied aerospace GD&T principles to high-volume metrology, a capability few suppliers could match. This led us to purchase our own Zeiss CMM in late 1998 and move to Beaverton, Oregon. We developed proprietary software, MetBase, which revolutionized our ability to integrate CMM data, CNC machines, and vision systems into a closed-loop manufacturing system. By 2001, we had developed a 3-sigma machining system and relocated to our current 20,000 square foot facility in Clackamas, Oregon.
+              - paragraph [ref=e133]: Today, we're an ISO 9001 and AS9100 certified, ITAR-registered provider of engineering, metrology, machining, and database services. Our 3-sigma manufacturing system and proprietary MetBase software enable us to deliver industry-leading precision components for aerospace, defense, and advanced industries.
+          - img "IIS manufacturing facility in Clackamas, Oregon - 20,000 square feet with advanced machining and metrology equipment" [ref=e137]
+        - generic [ref=e138]:
+          - heading "Our Journey" [level=2] [ref=e139]
+          - paragraph [ref=e140]: Three decades of growth, innovation, and excellence in precision manufacturing.
+        - generic [ref=e143]:
+          - generic [ref=e146]:
+            - generic [ref=e147]: "1995"
+            - heading "IIS Founded" [level=3] [ref=e148]
+            - paragraph [ref=e149]: Started in a residential basement with founders from Precision Castparts Inc. Initial focus on small business networking and quality manual development.
+          - generic [ref=e153]:
+            - generic [ref=e154]: "1998"
+            - heading "First CMM Purchased" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Purchased our own Zeiss CMM and established facility in Beaverton, Oregon. Began high-volume metrology for Hewlett Packard and plastics industry.
+          - generic [ref=e160]:
+            - generic [ref=e161]: 1999-2001
+            - heading "MetBase Software Development" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Developed proprietary MetBase software to integrate CMM data, CNC machines, and vision systems. Established 3-sigma closed-loop manufacturing system.
+          - generic [ref=e167]:
+            - generic [ref=e168]: "2001"
+            - heading "Aerospace Transition" [level=3] [ref=e169]
+            - paragraph [ref=e170]: Pivoted to aerospace inspection and machining after dot-com bubble. Relocated to SE Portland 5,000 sq ft facility. Added second Sheffield CMM.
+          - generic [ref=e174]:
+            - generic [ref=e175]: 2001-2008
+            - heading "4-Sigma System Development" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Invented 4-sigma targeting system using MetBase on GE, Siemens, and Alstom IGT castings. Expanded to current 20,000 sq ft facility in Clackamas, Oregon.
+          - generic [ref=e181]:
+            - generic [ref=e182]: Present
+            - heading "Industry Leader" [level=3] [ref=e183]
+            - paragraph [ref=e184]: ISO 9001 and AS9100 certified, ITAR registered provider of engineering, metrology, machining, and database services for aerospace and defense.
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - heading "Our Values" [level=2] [ref=e189]
+          - paragraph [ref=e190]: The principles that guide our decisions, shape our culture, and drive our commitment to excellence.
+        - generic [ref=e191]:
+          - generic [ref=e193]:
+            - img [ref=e195]
+            - heading "Quality Excellence" [level=3] [ref=e198]
+            - paragraph [ref=e199]: Unwavering commitment to delivering components that exceed specifications and customer expectations.
+            - generic [ref=e200]:
+              - generic [ref=e201]:
+                - img [ref=e202]
+                - text: Zero-defect manufacturing mindset
+              - generic [ref=e205]:
+                - img [ref=e206]
+                - text: Continual improvement culture
+              - generic [ref=e209]:
+                - img [ref=e210]
+                - text: Customer satisfaction focus
+              - generic [ref=e213]:
+                - img [ref=e214]
+                - text: Industry-leading standards
+          - generic [ref=e218]:
+            - img [ref=e220]
+            - heading "Innovation Leadership" [level=3] [ref=e222]
+            - paragraph [ref=e223]: Pioneering advanced manufacturing technologies and processes to stay ahead of industry demands.
+            - generic [ref=e224]:
+              - generic [ref=e225]:
+                - img [ref=e226]
+                - text: Technology investment
+              - generic [ref=e229]:
+                - img [ref=e230]
+                - text: Process optimization
+              - generic [ref=e233]:
+                - img [ref=e234]
+                - text: Research & development
+              - generic [ref=e237]:
+                - img [ref=e238]
+                - text: Future-ready solutions
+          - generic [ref=e242]:
+            - img [ref=e244]
+            - heading "Reliability & Trust" [level=3] [ref=e248]
+            - paragraph [ref=e249]: Building long-term partnerships through consistent performance and transparent communication.
+            - generic [ref=e250]:
+              - generic [ref=e251]:
+                - img [ref=e252]
+                - text: On-time delivery commitment
+              - generic [ref=e255]:
+                - img [ref=e256]
+                - text: Transparent communication
+              - generic [ref=e259]:
+                - img [ref=e260]
+                - text: Long-term partnerships
+              - generic [ref=e263]:
+                - img [ref=e264]
+                - text: Dependable performance
+          - generic [ref=e268]:
+            - img [ref=e270]
+            - heading "Team Excellence" [level=3] [ref=e275]
+            - paragraph [ref=e276]: Investing in our people through training, development, and creating a culture of excellence.
+            - generic [ref=e277]:
+              - generic [ref=e278]:
+                - img [ref=e279]
+                - text: Skilled workforce development
+              - generic [ref=e282]:
+                - img [ref=e283]
+                - text: Safety-first culture
+              - generic [ref=e286]:
+                - img [ref=e287]
+                - text: Continual training
+              - generic [ref=e290]:
+                - img [ref=e291]
+                - text: Team collaboration
+      - generic [ref=e295]:
+        - generic [ref=e296]:
+          - heading "Leadership Team" [level=2] [ref=e297]
+          - paragraph [ref=e298]: Experienced leaders driving innovation, quality, and growth across all aspects of our business.
+        - generic [ref=e299]:
+          - generic [ref=e301]:
+            - generic [ref=e302]:
+              - heading "John Anderson" [level=3] [ref=e303]
+              - generic [ref=e304]: Chief Executive Officer
+              - generic [ref=e305]: 25+ years
+            - paragraph [ref=e306]: Former aerospace engineer with extensive manufacturing leadership experience
+            - generic [ref=e307]:
+              - generic [ref=e308]: Focus Area
+              - generic [ref=e309]: Strategic vision and operational excellence
+          - generic [ref=e311]:
+            - generic [ref=e312]:
+              - heading "Sarah Mitchell" [level=3] [ref=e313]
+              - generic [ref=e314]: Chief Operating Officer
+              - generic [ref=e315]: 20+ years
+            - paragraph [ref=e316]: Manufacturing operations expert with lean manufacturing expertise
+            - generic [ref=e317]:
+              - generic [ref=e318]: Focus Area
+              - generic [ref=e319]: Production efficiency and quality systems
+          - generic [ref=e321]:
+            - generic [ref=e322]:
+              - heading "David Chen" [level=3] [ref=e323]
+              - generic [ref=e324]: Chief Technology Officer
+              - generic [ref=e325]: 18+ years
+            - paragraph [ref=e326]: Advanced manufacturing technology and automation specialist
+            - generic [ref=e327]:
+              - generic [ref=e328]: Focus Area
+              - generic [ref=e329]: Technology innovation and process optimization
+          - generic [ref=e331]:
+            - generic [ref=e332]:
+              - heading "Maria Rodriguez" [level=3] [ref=e333]
+              - generic [ref=e334]: Quality Director
+              - generic [ref=e335]: 22+ years
+            - paragraph [ref=e336]: Quality management systems and aerospace certification expert
+            - generic [ref=e337]:
+              - generic [ref=e338]: Focus Area
+              - generic [ref=e339]: Quality assurance and regulatory compliance
+      - generic [ref=e342]:
+        - generic [ref=e343]:
+          - heading "Core Capabilities" [level=2] [ref=e344]
+          - generic [ref=e345]:
+            - generic [ref=e347]:
+              - heading "Manufacturing" [level=3] [ref=e348]
+              - generic [ref=e349]:
+                - generic [ref=e350]: 5-axis CNC machining
+                - generic [ref=e352]: Adaptive manufacturing
+                - generic [ref=e354]: Precision metrology
+                - generic [ref=e356]: Surface treatments
+            - generic [ref=e359]:
+              - heading "Engineering" [level=3] [ref=e360]
+              - generic [ref=e361]:
+                - generic [ref=e362]: First article inspection
+                - generic [ref=e364]: Process planning
+                - generic [ref=e366]: CAD/CAM programming
+                - generic [ref=e368]: Process development
+            - generic [ref=e371]:
+              - heading "Quality" [level=3] [ref=e372]
+              - generic [ref=e373]:
+                - generic [ref=e374]: First article inspection
+                - generic [ref=e376]: Statistical process control
+                - generic [ref=e378]: Material traceability
+                - generic [ref=e380]: Certification support
+            - generic [ref=e383]:
+              - heading "Industries" [level=3] [ref=e384]
+              - generic [ref=e385]:
+                - generic [ref=e386]: Aerospace systems
+                - generic [ref=e388]: Defense platforms
+                - generic [ref=e390]: Energy infrastructure
+                - generic [ref=e392]: Medical devices
+        - generic [ref=e394]:
+          - heading "Certifications & Standards" [level=2] [ref=e395]
+          - generic [ref=e396]:
+            - generic [ref=e397]:
+              - img [ref=e398]
+              - generic [ref=e401]: AS9100D Aerospace Quality Management
+            - generic [ref=e402]:
+              - img [ref=e403]
+              - generic [ref=e406]: ISO 9001:2015 Quality Management
+            - generic [ref=e407]:
+              - img [ref=e408]
+              - generic [ref=e411]: ITAR International Traffic in Arms
+            - generic [ref=e412]:
+              - img [ref=e413]
+              - generic [ref=e416]: CMMC Cybersecurity Maturity Model Certification
+            - generic [ref=e417]:
+              - img [ref=e418]
+              - generic [ref=e421]: OSHA Safety Management System
+          - generic [ref=e422]:
+            - heading "Commitment to Excellence" [level=3] [ref=e423]
+            - paragraph [ref=e424]: Our certifications represent more than compliance—they reflect our unwavering commitment to quality, safety, and continual improvement in everything we do.
+      - generic [ref=e427]:
+        - heading "Partner with Us" [level=2] [ref=e428]
+        - paragraph [ref=e429]: Experience the difference that three decades of precision manufacturing excellence can make for your critical components.
+        - generic [ref=e430]:
+          - button "Start Your Project" [ref=e431] [cursor=pointer]:
+            - text: Start Your Project
+            - img
+          - link "Explore Our Services" [ref=e432] [cursor=pointer]:
+            - /url: /services
+  - contentinfo [ref=e433]:
+    - generic [ref=e434]:
+      - generic [ref=e435]:
+        - generic [ref=e436]:
+          - generic [ref=e438]:
+            - img "IIS - Integrated Inspection Systems" [ref=e440]
+            - generic [ref=e441]:
+              - generic [ref=e442]: INTEGRATED
+              - generic [ref=e443]: INSPECTION
+              - generic [ref=e444]: SYSTEMS
+          - paragraph [ref=e445]: Precision manufacturing and metrology solutions for aerospace, defense, and advanced industries.
+          - generic [ref=e446]:
+            - link "LinkedIn" [ref=e447] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e448] [cursor=pointer]
+            - link "Twitter" [ref=e452] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e453] [cursor=pointer]
+            - link "Facebook" [ref=e455] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e456] [cursor=pointer]
+        - generic [ref=e458]:
+          - heading "Services" [level=4] [ref=e459]
+          - list [ref=e460]:
+            - listitem [ref=e461]:
+              - link "Machining" [ref=e462] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e463]:
+              - link "Inspection" [ref=e464] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e465]:
+              - link "Fixture Design" [ref=e466] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e467]:
+              - link "Metrology" [ref=e468] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e469]:
+              - link "Metbase®" [ref=e470] [cursor=pointer]:
+                - /url: /services
+        - generic [ref=e471]:
+          - heading "Resources" [level=4] [ref=e472]
+          - list [ref=e473]:
+            - listitem [ref=e474]:
+              - link "All Resources" [ref=e475] [cursor=pointer]:
+                - /url: /resources
+            - listitem [ref=e476]:
+              - link "Manufacturing Processes" [ref=e477] [cursor=pointer]:
+                - /url: /resources/manufacturing-processes
+            - listitem [ref=e478]:
+              - link "Quality & Compliance" [ref=e479] [cursor=pointer]:
+                - /url: /resources/quality-compliance
+            - listitem [ref=e480]:
+              - link "Material Science" [ref=e481] [cursor=pointer]:
+                - /url: /resources/material-science
+        - generic [ref=e482]:
+          - heading "Quick Links" [level=4] [ref=e483]
+          - list [ref=e484]:
+            - listitem [ref=e485]:
+              - link "About Us" [ref=e486] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e487]:
+              - link "Careers" [ref=e488] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=e489]:
+              - link "Industries" [ref=e490] [cursor=pointer]:
+                - /url: /industries
+            - listitem [ref=e491]:
+              - link "Terms & Conditions" [ref=e492] [cursor=pointer]:
+                - /url: /compliance/terms
+            - listitem [ref=e493]:
+              - link "Supplier Requirements" [ref=e494] [cursor=pointer]:
+                - /url: /compliance/supplier-requirements
+            - listitem [ref=e495]:
+              - link "Contact" [ref=e496] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e497]:
+          - heading "Contact" [level=4] [ref=e498]
+          - list [ref=e499]:
+            - listitem [ref=e500]:
+              - img [ref=e501]
+              - link "officemgr@iismet.com" [ref=e504] [cursor=pointer]:
+                - /url: mailto:officemgr@iismet.com
+            - listitem [ref=e505]:
+              - img [ref=e506]
+              - link "+1 (503) 231-9093" [ref=e508] [cursor=pointer]:
+                - /url: tel:+15032319093
+            - listitem [ref=e509]:
+              - img [ref=e510]
+              - generic [ref=e513]:
+                - generic [ref=e514]: 14310 SE Industrial Way
+                - generic [ref=e515]: Clackamas, OR 97015
+                - generic [ref=e516]: United States
+      - generic [ref=e518]:
+        - paragraph [ref=e519]: © 2025 Integrated Inspection Systems, Inc. All rights reserved.
+        - generic [ref=e520]:
+          - img [ref=e521]
+          - generic [ref=e523]:
+            - generic [ref=e524]: Founded 1995
+            - generic [ref=e525]: •
+            - generic [ref=e526]: ISO 9001:2015 • AS9100D • ITAR Registered
+  - link "Edit Content" [ref=e528] [cursor=pointer]:
+    - /url: /studio
+    - img [ref=e529] [cursor=pointer]
+    - generic [ref=e532] [cursor=pointer]: Edit Content
+  - alert [ref=e533]
+```
