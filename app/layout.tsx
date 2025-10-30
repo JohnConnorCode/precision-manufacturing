@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CMSIndicator from "@/components/cms-indicator";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import AnalyticsProvider from "@/components/analytics/AnalyticsProvider";
 import { getNavigationFromCMS, getFooterFromCMS } from "@/lib/get-cms-data";
@@ -231,7 +230,6 @@ export default async function RootLayout({
           </main>
           <Footer data={footerData} />
           <ScrollToTop />
-          <CMSIndicator />
         </AnalyticsProvider>
       </body>
     </html>
