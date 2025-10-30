@@ -6,39 +6,65 @@ import { ArrowRight, Award, Shield, Clock, Target } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-const showcaseImages = [
-  {
-    src: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=1200&q=90',
-    title: 'Aerospace Components',
-    category: 'Turbine Blades',
-    href: '/services/5-axis-machining'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=1200&q=90',
-    title: 'Defense Systems',
-    category: 'ITAR Certified',
-    href: '/services/adaptive-machining'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=90',
-    title: 'Precision Metrology',
-    category: 'Quality Control',
-    href: '/services/metrology'
-  }
-];
+// Icon mapping for stats
+const iconMap: Record<string, any> = {
+  Award,
+  Shield,
+  Clock,
+  Target,
+};
 
-const stats = [
-  { icon: Award, value: 'AS9100D', label: 'Certified Quality', color: 'text-blue-600' },
-  { icon: Shield, value: 'ITAR', label: 'Registered', color: 'text-blue-600' },
-  { icon: Clock, value: '24/7', label: 'Production', color: 'text-indigo-600' },
-  { icon: Target, value: '±0.0001"', label: 'Tolerance', color: 'text-blue-600' }
-];
+// Hardcoded fallback data
+const defaultImageShowcaseData = {
+  header: {
+    eyebrow: 'Manufacturing Excellence',
+    title: 'Precision',
+    titleHighlight: 'Delivered',
+    description: 'From concept to completion, we deliver aerospace-grade components with uncompromising precision'
+  },
+  showcaseImages: [
+    {
+      src: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=1200&q=90',
+      title: 'Aerospace Components',
+      category: 'Turbine Blades',
+      href: '/services/5-axis-machining'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1609139003551-ee40f5f73ec0?w=1200&q=90',
+      title: 'Defense Systems',
+      category: 'ITAR Certified',
+      href: '/services/adaptive-machining'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=90',
+      title: 'Precision Metrology',
+      category: 'Quality Control',
+      href: '/services/metrology'
+    }
+  ],
+  stats: [
+    { iconName: 'Award', value: 'AS9100D', label: 'Certified Quality', color: 'text-blue-600' },
+    { iconName: 'Shield', value: 'ITAR', label: 'Registered', color: 'text-blue-600' },
+    { iconName: 'Clock', value: '24/7', label: 'Production', color: 'text-indigo-600' },
+    { iconName: 'Target', value: '±0.0001"', label: 'Tolerance', color: 'text-blue-600' }
+  ],
+  cta: {
+    title: 'Get Started Today',
+    description: 'Let\'s discuss how we can deliver precision manufacturing solutions for your needs',
+    buttons: [
+      { text: 'Request Quote', href: '/contact', variant: 'primary' },
+      { text: 'Learn More', href: '/about', variant: 'secondary' }
+    ]
+  }
+};
 
 interface ImageShowcaseProps {
-  data?: any;
+  data?: typeof defaultImageShowcaseData | null;
 }
 
 export default function ImageShowcase({ data }: ImageShowcaseProps) {
+  // Use CMS data if available, otherwise fall back to hardcoded defaults
+  const showcaseData = data || defaultImageShowcaseData;
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -63,20 +89,20 @@ export default function ImageShowcase({ data }: ImageShowcaseProps) {
           className="text-center mb-16 md:mb-20"
         >
           <p className="text-sm font-semibold text-slate-600 uppercase tracking-[0.2em] mb-4">
-            Manufacturing Excellence
+            {showcaseData.header.eyebrow}
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-slate-900">Precision</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Delivered</span>
+            <span className="text-slate-900">{showcaseData.header.title}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> {showcaseData.header.titleHighlight}</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light">
-            From concept to completion, we deliver aerospace-grade components with uncompromising precision
+            {showcaseData.header.description}
           </p>
         </motion.div>
 
         {/* Large Feature Images */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20">
-          {showcaseImages.map((item, index) => (
+          {showcaseData.showcaseImages.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
@@ -132,8 +158,8 @@ export default function ImageShowcase({ data }: ImageShowcaseProps) {
           transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-20"
         >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
+          {showcaseData.stats.map((stat, index) => {
+            const Icon = iconMap[stat.iconName] || Award;
             return (
               <motion.div
                 key={stat.label}
@@ -169,25 +195,26 @@ export default function ImageShowcase({ data }: ImageShowcaseProps) {
         >
           <div className="inline-flex flex-col items-center p-8 md:p-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-2xl">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Get Started Today
+              {showcaseData.cta.title}
             </h3>
             <p className="text-lg text-slate-300 mb-8 max-w-md">
-              Let&apos;s discuss how we can deliver precision manufacturing solutions for your needs
+              {showcaseData.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl"
-              >
-                Request Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 backdrop-blur-sm"
-              >
-                Learn More
-              </Link>
+              {showcaseData.cta.buttons.map((button, index) => (
+                <Link
+                  key={button.text}
+                  href={button.href}
+                  className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${
+                    button.variant === 'primary'
+                      ? 'bg-blue-600 hover:bg-indigo-600 text-white shadow-xl hover:shadow-2xl'
+                      : 'bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm'
+                  }`}
+                >
+                  {button.text}
+                  {index === 0 && <ArrowRight className="ml-2 h-5 w-5" />}
+                </Link>
+              ))}
             </div>
           </div>
         </motion.div>

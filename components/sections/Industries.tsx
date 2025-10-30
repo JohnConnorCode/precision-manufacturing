@@ -2,9 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Plane, Zap, Shield } from 'lucide-react';
+import { Plane, Zap, Shield, LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+
+// Icon mapping for CMS data
+const iconMap: Record<string, LucideIcon> = {
+  'Shield': Shield,
+  'Zap': Zap,
+  'Plane': Plane,
+};
 
 const industries = [
   {
@@ -38,6 +45,9 @@ interface IndustriesProps {
 }
 
 export default function Industries({ data }: IndustriesProps) {
+  // Use CMS data if available, otherwise use hardcoded data
+  const industriesData = data || industries;
+
   return (
     <section className="py-24 bg-background">
       <div className="container">
@@ -69,8 +79,9 @@ export default function Industries({ data }: IndustriesProps) {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {industries.map((industry, index) => {
-            const Icon = industry.icon;
+          {industriesData.map((industry: any, index: number) => {
+            // Handle both CMS data (iconName) and hardcoded data (icon)
+            const Icon = industry.iconName ? iconMap[industry.iconName] || Plane : industry.icon;
             return (
               <motion.div
                 key={industry.title}
@@ -103,7 +114,7 @@ export default function Industries({ data }: IndustriesProps) {
 
                         {/* Feature badges on image */}
                         <div className="flex flex-wrap gap-2">
-                          {industry.features.map((feature) => (
+                          {industry.features.map((feature: string) => (
                             <span
                               key={feature}
                               className="text-[10px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded uppercase tracking-wider"

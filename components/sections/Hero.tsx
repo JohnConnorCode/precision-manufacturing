@@ -82,29 +82,31 @@ export default function Hero({ data }: HeroProps) {
       {/* Premium Background Slider */}
       <HeroSliderFixed slides={heroSlides} />
 
-      {/* Content Container - Professional and Clean */}
+      {/* Content Container - Unified Max Width */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="container relative z-10 pt-8 md:pt-12 pb-12 md:pb-16 px-4 md:px-8"
+        className="container relative z-10 px-6 md:px-8"
       >
+        {/* Single max-width container for ALL content - consistent alignment */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center max-w-5xl mx-auto"
+          className="text-center max-w-4xl mx-auto"
         >
 
-          {/* Main Title - Three stacked words, uniform size */}
+          {/* Main Title */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0 : 1.2, ease: [0.33, 1, 0.68, 1] }}
+            className="mb-8 md:mb-10"
           >
-            <h1 className="font-black mb-4 md:mb-6 leading-[1.15]">
+            <h1 className="font-black leading-[1.05]">
               {/* PRECISION */}
               <motion.span
-                className="block text-white uppercase text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] tracking-[0.02em]"
-                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.25))' }}
+                className="block text-white uppercase text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] tracking-tight"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.4, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
@@ -113,8 +115,8 @@ export default function Hero({ data }: HeroProps) {
               </motion.span>
               {/* MANUFACTURING */}
               <motion.span
-                className="block text-white uppercase text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] tracking-[0.02em]"
-                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.25))' }}
+                className="block text-white uppercase text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] tracking-tight"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.55, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
@@ -123,8 +125,8 @@ export default function Hero({ data }: HeroProps) {
               </motion.span>
               {/* SERVICES - with gradient */}
               <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 uppercase text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] tracking-[0.02em]"
-                style={{ filter: 'drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3))' }}
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-500 uppercase text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] tracking-tight"
+                style={{ filter: 'drop-shadow(0 4px 16px rgba(59, 130, 246, 0.6))' }}
                 initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: prefersReducedMotion ? 0 : 0.7, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
@@ -134,22 +136,22 @@ export default function Hero({ data }: HeroProps) {
             </h1>
           </motion.div>
 
-          {/* Tagline */}
+          {/* Tagline - no nested max-width */}
           <motion.p
             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.9, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-4xl mx-auto"
+            className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-relaxed mb-12 md:mb-14"
           >
-            <span className="font-medium">{tagline}</span>
+            {tagline}
           </motion.p>
 
-          {/* Certification Badges */}
+          {/* Certification Badges - no nested max-width */}
           <motion.div
             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: prefersReducedMotion ? 0 : 1.1, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="flex flex-wrap justify-center gap-3 mb-10 md:mb-12 max-w-4xl mx-auto"
+            className="flex flex-wrap justify-center gap-3 mb-12 md:mb-16"
           >
             {badges.map((badge, index) => (
               <motion.span
@@ -157,14 +159,14 @@ export default function Hero({ data }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: prefersReducedMotion ? 0 : (1.3 + index * 0.1), duration: prefersReducedMotion ? 0 : 0.6, ease: [0.33, 1, 0.68, 1] }}
-                className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/20 backdrop-blur-sm"
+                className="inline-flex items-center px-6 py-3 rounded-full text-sm md:text-base font-semibold bg-white/10 text-white border border-white/30 backdrop-blur-md shadow-xl"
               >
                 {badge}
               </motion.span>
             ))}
           </motion.div>
 
-          {/* CTA Button - Explore Services */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -173,12 +175,12 @@ export default function Hero({ data }: HeroProps) {
           >
             <Button
               size="lg"
-              className="group bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:via-blue-400 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transition-all duration-300 px-6 md:px-8 h-11 md:h-12 text-sm md:text-base"
+              className="group bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:via-blue-400 hover:to-indigo-500 text-white font-bold shadow-2xl shadow-blue-600/30 hover:shadow-blue-500/50 transition-all duration-300 px-10 md:px-12 h-14 md:h-16 text-lg md:text-xl"
               asChild
             >
               <Link href={ctaSecondary.href}>
                 {ctaSecondary.text}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
           </motion.div>

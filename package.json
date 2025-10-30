@@ -19,6 +19,10 @@
     "deploy": "vercel --prod --yes && ./scripts/vercel-monitor.sh",
     "deploy:monitor": "vercel --prod --yes && ./scripts/vercel-api-monitor.js",
     "migrate:content": "tsx scripts/migrate-content-to-sanity.ts",
+    "migrate:resources": "node scripts/migrate-resources.mjs",
+    "verify:resources": "node scripts/verify-resources-migration.mjs",
+    "query:resources": "node scripts/sample-resources-queries.mjs",
+    "reset:resources": "node scripts/reset-resources-collection.mjs",
     "sanity:verify": "node scripts/verify-token-permissions.mjs",
     "populate:local": "bash scripts/populate-local.sh",
     "tina:verify": "node scripts/verify-tina.mjs"

@@ -1,42 +1,43 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Clock, ArrowRight } from 'lucide-react';
-// TODO: Implement with MDX or static data
-// import { getResourcesByCategory, getCategoryInfo } from '@/lib/sanity-resources';
+import { getResourcesByCategoryFromCMS } from '@/lib/get-cms-data';
+
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   return [
-    { category: 'cmm-inspection' },
-    { category: 'cnc-machining' },
-    { category: 'first-article' },
-    { category: 'gdt-tolerancing' },
-    { category: 'material-science' },
-    { category: 'quality-compliance' },
-    { category: 'metbase-integration' },
-    { category: 'industry-applications' },
-    { category: 'calculators-tools' },
-    { category: 'standards-certifications' },
-    { category: 'process-optimization' },
-    { category: 'equipment-technology' },
     { category: 'manufacturing-processes' },
+    { category: 'industry-applications' },
+    { category: 'quality-compliance' },
+    { category: 'material-science' },
+    { category: 'calculators-tools' },
   ];
 }
 
 // Static category definitions
 const categoryDefinitions: Record<string, { title: string; description: string }> = {
-  'cmm-inspection': { title: 'CMM Inspection', description: 'Comprehensive Measurement Machine inspection services and techniques.' },
-  'cnc-machining': { title: 'CNC Machining', description: 'Advanced CNC machining processes and best practices.' },
-  'first-article': { title: 'First Article Inspection', description: 'First article inspection procedures and documentation.' },
-  'gdt-tolerancing': { title: 'GD&T Tolerancing', description: 'Geometric Dimensioning and Tolerancing standards.' },
-  'material-science': { title: 'Material Science', description: 'Advanced materials and material properties.' },
-  'quality-compliance': { title: 'Quality & Compliance', description: 'Quality systems and compliance standards.' },
-  'metbase-integration': { title: 'MetBase Integration', description: 'MetBase software integration and implementation.' },
-  'industry-applications': { title: 'Industry Applications', description: 'Industry-specific manufacturing applications.' },
-  'calculators-tools': { title: 'Calculators & Tools', description: 'Useful calculators and manufacturing tools.' },
-  'standards-certifications': { title: 'Standards & Certifications', description: 'Industry standards and certification requirements.' },
-  'process-optimization': { title: 'Process Optimization', description: 'Manufacturing process optimization techniques.' },
-  'equipment-technology': { title: 'Equipment & Technology', description: 'Manufacturing equipment and technology overview.' },
-  'manufacturing-processes': { title: 'Manufacturing Processes', description: 'Core manufacturing process documentation.' },
+  'manufacturing-processes': {
+    title: 'Manufacturing Processes',
+    description: 'Comprehensive guides on precision manufacturing processes, CNC machining, and advanced production techniques.'
+  },
+  'industry-applications': {
+    title: 'Industry Applications',
+    description: 'Industry-specific manufacturing applications and solutions for aerospace, defense, medical, and energy sectors.'
+  },
+  'quality-compliance': {
+    title: 'Quality & Compliance',
+    description: 'Quality control, inspection standards, and regulatory compliance for precision manufacturing.'
+  },
+  'material-science': {
+    title: 'Material Science',
+    description: 'Advanced materials, material properties, and selection guides for precision manufacturing applications.'
+  },
+  'calculators-tools': {
+    title: 'Calculators & Tools',
+    description: 'Useful calculators, estimation tools, and resources for manufacturing professionals.'
+  },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
@@ -63,8 +64,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     notFound();
   }
 
-  // TODO: Migrate resources to MDX or static data
-  const resources: any[] = [];
+  const resources = await getResourcesByCategoryFromCMS(category) || [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
@@ -110,7 +110,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               {resources.map((resource) => (
                 <Link
                   key={resource._id}
-                  href={`/resources/${category}/${resource.slug.current}`}
+                  href={`/resources/${category}/${resource.slug}`}
                   className="group relative bg-slate-900/50 border border-slate-800 rounded-lg p-6 hover:border-blue-600/50 transition-all duration-300 hover:scale-[1.02]"
                 >
                   <div className="flex items-start justify-between mb-4">

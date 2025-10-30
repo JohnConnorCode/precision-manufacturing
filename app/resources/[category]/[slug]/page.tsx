@@ -1,25 +1,45 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Clock, ArrowLeft, Calendar, Tag } from 'lucide-react';
-// TODO: Implement with MDX or static data
-// import { getResource, getAllResources } from '@/lib/sanity-resources';
-// import { PortableText } from '@portabletext/react';
+import { getResourceBySlugFromCMS, getAllResourceSlugs } from '@/lib/get-cms-data';
+import { SlateRenderer } from '@/components/slate-renderer';
+
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  // TODO: Migrate resources to MDX format
-  return [];
+  const slugs = await getAllResourceSlugs();
+
+  return slugs.map((item) => ({
+    category: item.category,
+    slug: item.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
+  const { category, slug } = await params;
+  const resource = await getResourceBySlugFromCMS(category, slug);
+
+  if (!resource) {
+    return {
+      title: 'Resource Not Found | IIS',
+      description: 'The requested resource could not be found.',
+    };
+  }
+
   return {
-    title: 'Resource Not Found | IIS',
+    title: resource.seo?.metaTitle || `${resource.title} | IIS`,
+    description: resource.seo?.metaDescription || resource.excerpt,
+    openGraph: {
+      title: resource.seo?.metaTitle || resource.title,
+      description: resource.seo?.metaDescription || resource.excerpt,
+    },
   };
 }
 
 export default async function ResourcePage({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { category, slug } = await params;
-  // TODO: Implement with MDX or static data
-  const resource: any = null;
+  const resource = await getResourceBySlugFromCMS(category, slug);
 
   if (!resource) {
     notFound();
@@ -28,11 +48,17 @@ export default async function ResourcePage({ params }: { params: Promise<{ categ
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'Beginner': return 'text-green-400 bg-green-400/10 border-green-400/20';
-      case 'Intermediate': return 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20';
-      case 'Advanced': return 'text-red-400 bg-red-400/10 border-red-400/20';
+      case 'Intermediate': return 'text-blue-400 bg-blue-400/10 border-blue-400/20';
+      case 'Advanced': return 'text-purple-400 bg-purple-400/10 border-purple-400/20';
       default: return 'text-slate-400 bg-slate-400/10 border-slate-400/20';
     }
   };
+
+  // Format category name for display
+  const categoryDisplayName = category
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 
   return (
     <div className="min-h-screen bg-background">
@@ -46,7 +72,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ categ
           <div className="text-sm text-muted-foreground">
             <Link href="/resources" className="hover:text-blue-600 transition-colors">Resources</Link>
             <span className="mx-2">/</span>
-            <Link href={`/resources/${category}`} className="hover:text-blue-600 transition-colors capitalize">{category}</Link>
+            <Link href={`/resources/${category}`} className="hover:text-blue-600 transition-colors">{categoryDisplayName}</Link>
             <span className="mx-2">/</span>
             <span className="text-foreground font-medium">{resource.title}</span>
           </div>
@@ -68,7 +94,11 @@ export default async function ResourcePage({ params }: { params: Promise<{ categ
                 </span>
                 <span className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
-                  {new Date(resource.publishDate).toLocaleDateString()}
+                  {new Date(resource.publishDate).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
                 </span>
               </div>
             </div>
@@ -83,13 +113,22 @@ export default async function ResourcePage({ params }: { params: Promise<{ categ
 
             {resource.tags && resource.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-8">
-                {resource.tags.map((tag: string) => (
-                  <span key={tag} className="bg-blue-600/10 text-blue-600 border border-blue-600/20 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-                    <Tag className="w-3 h-3" />
-                    {tag}
-                  </span>
-                ))}
+                {resource.tags.map((tagObj: any) => {
+                  const tagText = typeof tagObj === 'string' ? tagObj : tagObj.tag;
+                  return (
+                    <span key={tagText} className="bg-blue-600/10 text-blue-600 border border-blue-600/20 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                      <Tag className="w-3 h-3" />
+                      {tagText}
+                    </span>
+                  );
+                })}
               </div>
+            )}
+
+            {resource.author && (
+              <p className="text-sm text-muted-foreground">
+                By <span className="font-medium text-foreground">{resource.author}</span>
+              </p>
             )}
           </div>
         </header>
@@ -98,13 +137,11 @@ export default async function ResourcePage({ params }: { params: Promise<{ categ
         <section className="py-8 px-4 opacity-0 animate-fade-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
           <div className="max-w-4xl mx-auto">
             <div className="bg-card border border-border rounded-2xl p-8 md:p-12 shadow-sm">
-              <div className="prose prose-slate max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-blue-600 hover:prose-a:text-blue-700">
-                {/* TODO: Implement with MDX or static content rendering */}
-                {/* {resource.content && (
-                  <PortableText value={resource.content} />
-                )} */}
-                <p className="text-slate-500 text-center">Resource content coming soon. Please check back later.</p>
-              </div>
+              {resource.content && Array.isArray(resource.content) ? (
+                <SlateRenderer content={resource.content} />
+              ) : (
+                <p className="text-slate-500 text-center">Content format not supported. Please view this resource in the admin panel.</p>
+              )}
             </div>
           </div>
         </section>

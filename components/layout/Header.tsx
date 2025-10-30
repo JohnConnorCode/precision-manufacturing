@@ -19,7 +19,8 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { theme } from '@/lib/theme';
 
-const navigation = [
+// Hardcoded fallback data
+const defaultNavigation = [
   {
     name: 'Services',
     href: '/services',
@@ -72,7 +73,32 @@ const navigation = [
   },
 ];
 
-export default function Header() {
+const defaultTopBar = {
+  phone: '503-231-9093',
+  phoneLink: 'tel:+15032319093',
+  email: 'officemgr@iismet.com',
+  emailLink: 'mailto:officemgr@iismet.com',
+  certifications: 'ISO 9001 • AS9100D • ITAR REGISTERED'
+};
+
+const defaultCTA = {
+  text: 'REQUEST QUOTE',
+  href: '/contact'
+};
+
+interface HeaderProps {
+  data?: {
+    topBar?: typeof defaultTopBar;
+    menuItems?: typeof defaultNavigation;
+    cta?: typeof defaultCTA;
+  } | null;
+}
+
+export default function Header({ data }: HeaderProps) {
+  // Use CMS data if available, otherwise fall back to hardcoded defaults
+  const topBar = data?.topBar || defaultTopBar;
+  const navigation = data?.menuItems || defaultNavigation;
+  const cta = data?.cta || defaultCTA;
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -92,18 +118,18 @@ export default function Header() {
       <aside className="hidden lg:block fixed top-0 z-[150] w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-blue-600/10" role="complementary" aria-label="Contact information">
         <div className="container flex h-10 items-center justify-between text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:+15032319093" className="flex items-center space-x-2 text-slate-400 hover:text-blue-600 transition-colors group" aria-label="Phone: 503-231-9093">
+            <a href={topBar.phoneLink} className="flex items-center space-x-2 text-slate-400 hover:text-blue-600 transition-colors group" aria-label={`Phone: ${topBar.phone}`}>
               <Phone className="h-3 w-3 group-hover:text-blue-600" aria-hidden="true" />
-              <span>503-231-9093</span>
+              <span>{topBar.phone}</span>
             </a>
-            <a href="mailto:officemgr@iismet.com" className="flex items-center space-x-2 text-slate-400 hover:text-blue-600 transition-colors group" aria-label="Email: officemgr@iismet.com">
+            <a href={topBar.emailLink} className="flex items-center space-x-2 text-slate-400 hover:text-blue-600 transition-colors group" aria-label={`Email: ${topBar.email}`}>
               <Mail className="h-3 w-3 group-hover:text-blue-600" aria-hidden="true" />
-              <span>officemgr@iismet.com</span>
+              <span>{topBar.email}</span>
             </a>
           </div>
           <div className="flex items-center space-x-4">
             <Zap className="h-3 w-3 text-blue-600" aria-hidden="true" />
-            <span className={cn(theme.typography.badge, 'text-slate-400')}>ISO 9001 • AS9100D • ITAR REGISTERED</span>
+            <span className={cn(theme.typography.badge, 'text-slate-400')}>{topBar.certifications}</span>
           </div>
         </div>
       </aside>
@@ -191,9 +217,9 @@ export default function Header() {
 
           {/* Desktop CTA - Premium Design */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/contact">
+            <Link href={cta.href}>
               <PremiumButton>
-                REQUEST QUOTE
+                {cta.text}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </PremiumButton>
             </Link>
@@ -239,9 +265,9 @@ export default function Header() {
                     )}
                   </div>
                 ))}
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block mt-6">
+                <Link href={cta.href} onClick={() => setMobileMenuOpen(false)} className="block mt-6">
                   <PremiumButton className="w-full">
-                    Request Quote
+                    {cta.text}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </PremiumButton>
                 </Link>

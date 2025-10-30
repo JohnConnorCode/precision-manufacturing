@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import CMSIndicator from "@/components/cms-indicator";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import AnalyticsProvider from "@/components/analytics/AnalyticsProvider";
+import { getNavigationFromCMS, getFooterFromCMS } from "@/lib/get-cms-data";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -74,11 +75,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Fetch navigation and footer data from CMS
+  const navigationData = await getNavigationFromCMS();
+  const footerData = await getFooterFromCMS();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -220,11 +225,11 @@ export default function RootLayout({
         <AnalyticsProvider
           enablePerformanceMonitoring={true}
         >
-          <Header />
+          <Header data={navigationData} />
           <main id="main-content" className="min-h-screen lg:pt-[120px] pt-20">
             {children}
           </main>
-          <Footer />
+          <Footer data={footerData} />
           <ScrollToTop />
           <CMSIndicator />
         </AnalyticsProvider>

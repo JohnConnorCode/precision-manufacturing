@@ -6,40 +6,62 @@ import { BookOpen, ArrowRight, Clock, GraduationCap, TrendingUp } from 'lucide-r
 import AnimatedSection from '@/components/ui/animated-section';
 import { PremiumButton } from '@/components/ui/premium-button';
 
-const featuredSeries = [
-  {
-    title: 'CMM Inspection Mastery',
-    slug: 'cmm-inspection-mastery',
-    description: 'Master coordinate measuring machine setup, programming, and measurement strategies for precision inspection.',
-    articleCount: 4,
-    readTime: '34 min',
-    difficulty: 'Intermediate',
-    icon: '📐',
-    gradient: 'from-blue-600 via-blue-500 to-indigo-600',
+// Hardcoded fallback data
+const defaultResourcesData = {
+  header: {
+    badge: 'Technical Resources & Knowledge Base',
+    title: 'Master Precision Manufacturing',
+    description: 'Comprehensive technical article series covering CMM inspection, FAI procedures, GD&T fundamentals, CNC manufacturing, AS9100 quality management, and MetBase quality systems.'
   },
-  {
-    title: 'First Article Inspection Excellence',
-    slug: 'first-article-inspection-fai-excellence',
-    description: 'Complete AS9102 FAI requirements, documentation, and approval processes for aerospace manufacturing.',
-    articleCount: 3,
-    readTime: '26 min',
-    difficulty: 'Advanced',
-    icon: '✓',
-    gradient: 'from-blue-600 via-blue-500 to-indigo-600',
-  },
-  {
-    title: 'GD&T Fundamentals',
-    slug: 'gdt-fundamentals-and-application',
-    description: 'Comprehensive Geometric Dimensioning and Tolerancing training for precision manufacturing applications.',
-    articleCount: 4,
-    readTime: '35 min',
-    difficulty: 'Beginner',
-    icon: '⊕',
-    gradient: 'from-blue-600 via-blue-500 to-indigo-600',
-  },
-];
+  featuredSeries: [
+    {
+      title: 'CMM Inspection Mastery',
+      slug: 'cmm-inspection-mastery',
+      description: 'Master coordinate measuring machine setup, programming, and measurement strategies for precision inspection.',
+      articleCount: 4,
+      readTime: '34 min',
+      difficulty: 'Intermediate',
+      icon: '📐',
+      gradient: 'from-blue-600 via-blue-500 to-indigo-600',
+    },
+    {
+      title: 'First Article Inspection Excellence',
+      slug: 'first-article-inspection-fai-excellence',
+      description: 'Complete AS9102 FAI requirements, documentation, and approval processes for aerospace manufacturing.',
+      articleCount: 3,
+      readTime: '26 min',
+      difficulty: 'Advanced',
+      icon: '✓',
+      gradient: 'from-blue-600 via-blue-500 to-indigo-600',
+    },
+    {
+      title: 'GD&T Fundamentals',
+      slug: 'gdt-fundamentals-and-application',
+      description: 'Comprehensive Geometric Dimensioning and Tolerancing training for precision manufacturing applications.',
+      articleCount: 4,
+      readTime: '35 min',
+      difficulty: 'Beginner',
+      icon: '⊕',
+      gradient: 'from-blue-600 via-blue-500 to-indigo-600',
+    },
+  ],
+  cta: {
+    title: 'Explore Our Complete Knowledge Base',
+    description: 'CNC Manufacturing Precision, AS9100 Quality Management, MetBase Quality Systems, and more.',
+    buttons: [
+      { text: 'View All Series', href: '/resources/series', variant: 'primary' },
+      { text: 'Browse Resources', href: '/resources', variant: 'secondary' }
+    ]
+  }
+};
 
-export default function Resources() {
+interface ResourcesProps {
+  data?: typeof defaultResourcesData | null;
+}
+
+export default function Resources({ data }: ResourcesProps) {
+  // Use CMS data if available, otherwise fall back to hardcoded defaults
+  const resourcesData = data || defaultResourcesData;
   return (
     <section className="relative py-24 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 overflow-hidden">
       {/* Background Pattern */}
@@ -60,7 +82,7 @@ export default function Resources() {
           >
             <GraduationCap className="w-4 h-4 text-blue-400" />
             <span className="text-sm font-medium bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              Technical Resources & Knowledge Base
+              {resourcesData.header.badge}
             </span>
           </motion.div>
 
@@ -70,7 +92,7 @@ export default function Resources() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white"
           >
-            Master Precision Manufacturing
+            {resourcesData.header.title}
           </motion.h2>
 
           <motion.p
@@ -79,14 +101,13 @@ export default function Resources() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Comprehensive technical article series covering CMM inspection, FAI procedures, GD&T fundamentals,
-            CNC manufacturing, AS9100 quality management, and MetBase quality systems.
+            {resourcesData.header.description}
           </motion.p>
         </AnimatedSection>
 
         {/* Featured Series Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {featuredSeries.map((series, index) => (
+          {resourcesData.featuredSeries.map((series, index) => (
             <AnimatedSection disabled key={series.slug}>
               <Link href={`/resources/series/${series.slug}`}>
                 <motion.article
@@ -155,24 +176,21 @@ export default function Resources() {
                   <span className="text-sm font-medium text-blue-400">6 Complete Series • 21+ Technical Articles</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                  Explore Our Complete Knowledge Base
+                  {resourcesData.cta.title}
                 </h3>
                 <p className="text-lg text-slate-300">
-                  CNC Manufacturing Precision, AS9100 Quality Management, MetBase Quality Systems, and more.
+                  {resourcesData.cta.description}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/resources/series">
-                  <PremiumButton size="lg">
-                    <BookOpen className="w-5 h-5" />
-                    View All Series
-                  </PremiumButton>
-                </Link>
-                <Link href="/resources">
-                  <PremiumButton size="lg" variant="secondary">
-                    Browse Resources
-                  </PremiumButton>
-                </Link>
+                {resourcesData.cta.buttons.map((button, index) => (
+                  <Link key={button.text} href={button.href}>
+                    <PremiumButton size="lg" variant={button.variant === 'primary' ? 'default' : 'secondary'}>
+                      {index === 0 && <BookOpen className="w-5 h-5" />}
+                      {button.text}
+                    </PremiumButton>
+                  </Link>
+                ))}
               </div>
             </div>
           </motion.div>

@@ -2,11 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Cog, Cpu, Gauge, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import { Cog, Cpu, Gauge, Users, ArrowRight, CheckCircle, LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedSection from '@/components/ui/animated-section';
 import { cardHover } from '@/lib/animations';
+
+// Icon mapping for CMS data
+const iconMap: Record<string, LucideIcon> = {
+  'Cog': Cog,
+  'Cpu': Cpu,
+  'Gauge': Gauge,
+  'Users': Users,
+};
 
 const services = [
   {
@@ -49,6 +57,9 @@ interface ServicesProps {
 }
 
 export default function Services({ data }: ServicesProps) {
+  // Use CMS data if available, otherwise use hardcoded data
+  const servicesData = data || services;
+
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
       {/* Subtle Background Pattern */}
@@ -85,8 +96,9 @@ export default function Services({ data }: ServicesProps) {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {servicesData.map((service: any, index: number) => {
+            // Handle both CMS data (iconName) and hardcoded data (icon)
+            const Icon = service.iconName ? iconMap[service.iconName] || Cog : service.icon;
             return (
               <AnimatedSection
                 key={service.title}
@@ -148,7 +160,7 @@ export default function Services({ data }: ServicesProps) {
                       </p>
 
                       <ul className="space-y-2 mb-5">
-                        {service.specs.map((spec) => (
+                        {service.specs.map((spec: string) => (
                           <li key={spec} className="flex items-start text-xs text-slate-600">
                             <CheckCircle className="h-3 w-3 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                             <span>{spec}</span>

@@ -1,4 +1,4 @@
-import { getMDXFile, getAllMDXFiles } from '@/lib/mdx-utils';
+import { getIndustryBySlugFromCMS, getAllIndustrySlugs } from '@/lib/get-cms-data';
 import { IndustryContent } from '../industry-content';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';
@@ -11,31 +11,32 @@ interface IndustryPageProps {
   }>;
 }
 
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }: IndustryPageProps) {
   const { slug } = await params;
-  const mdx = await getMDXFile('industries', slug);
+  const industryData = await getIndustryBySlugFromCMS(slug);
 
-  if (!mdx) {
+  if (!industryData) {
     return {
       title: 'Industry Not Found',
       description: 'The requested industry could not be found.',
     };
   }
 
-  const { frontmatter } = mdx;
-
   return {
-    title: frontmatter.seo?.metaTitle || frontmatter.title,
-    description: frontmatter.seo?.metaDescription || frontmatter.description,
+    title: industryData.seo?.metaTitle || industryData.title,
+    description: industryData.seo?.metaDescription || industryData.description,
     openGraph: {
-      title: frontmatter.seo?.metaTitle || frontmatter.title,
-      description: frontmatter.seo?.metaDescription || frontmatter.description,
+      title: industryData.seo?.metaTitle || industryData.title,
+      description: industryData.seo?.metaDescription || industryData.description,
     },
   };
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllMDXFiles('industries');
+  const slugs = await getAllIndustrySlugs();
   return slugs.map((slug) => ({
     slug,
   }));
@@ -43,9 +44,9 @@ export async function generateStaticParams() {
 
 export default async function IndustryPage({ params }: IndustryPageProps) {
   const { slug } = await params;
-  const mdx = await getMDXFile('industries', slug);
+  const industryData = await getIndustryBySlugFromCMS(slug);
 
-  if (!mdx) {
+  if (!industryData) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
@@ -61,7 +62,5 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     );
   }
 
-  const { frontmatter, content } = mdx;
-
-  return <IndustryContent frontmatter={frontmatter} content={content} slug={slug} />;
+  return <IndustryContent industryData={industryData} slug={slug} />;
 }

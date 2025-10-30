@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import { Clock, ArrowRight, Lightbulb } from 'lucide-react';
 import HeroSection from '@/components/ui/hero-section';
+import { getAllResourcesFromCMS } from '@/lib/get-cms-data';
 
 export const metadata = {
   title: 'Technical Resources | IIS Precision Manufacturing',
   description: 'Expert guides and technical articles about precision machining, CNC processes, quality control, and manufacturing best practices.',
 };
 
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
+
 export default async function ResourcesPage() {
-  // TODO: Migrate resources to MDX format or static data
-  const resources: any[] = [];
+  const resources = await getAllResourcesFromCMS() || [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -50,7 +53,7 @@ export default async function ResourcesPage() {
             {resources.map((resource, index) => (
               <Link
                 key={resource._id}
-                href={`/resources/${resource.category}/${resource.slug.current}`}
+                href={`/resources/${resource.category}/${resource.slug}`}
                 className="group relative bg-card border border-border rounded-xl p-6 hover:border-blue-600/50 hover:shadow-xl hover:shadow-blue-600/5 transition-all duration-300 hover:-translate-y-1 opacity-0 animate-fade-up"
                 style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
               >

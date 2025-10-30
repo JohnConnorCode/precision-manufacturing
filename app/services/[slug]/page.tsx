@@ -1,4 +1,4 @@
-import { getMDXFile, getAllMDXFiles } from '@/lib/mdx-utils';
+import { getServiceBySlugFromCMS, getAllServiceSlugs } from '@/lib/get-cms-data';
 import { ServiceContent } from '../service-content';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';
@@ -11,31 +11,32 @@ interface ServicePageProps {
   }>;
 }
 
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }: ServicePageProps) {
   const { slug } = await params;
-  const mdx = await getMDXFile('services', slug);
+  const serviceData = await getServiceBySlugFromCMS(slug);
 
-  if (!mdx) {
+  if (!serviceData) {
     return {
       title: 'Service Not Found',
       description: 'The requested service could not be found.',
     };
   }
 
-  const { frontmatter } = mdx;
-
   return {
-    title: frontmatter.seo?.metaTitle || frontmatter.title,
-    description: frontmatter.seo?.metaDescription || frontmatter.description,
+    title: serviceData.seo?.metaTitle || serviceData.title,
+    description: serviceData.seo?.metaDescription || serviceData.description,
     openGraph: {
-      title: frontmatter.seo?.metaTitle || frontmatter.title,
-      description: frontmatter.seo?.metaDescription || frontmatter.description,
+      title: serviceData.seo?.metaTitle || serviceData.title,
+      description: serviceData.seo?.metaDescription || serviceData.description,
     },
   };
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllMDXFiles('services');
+  const slugs = await getAllServiceSlugs();
   return slugs.map((slug) => ({
     slug,
   }));
@@ -43,9 +44,9 @@ export async function generateStaticParams() {
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const mdx = await getMDXFile('services', slug);
+  const serviceData = await getServiceBySlugFromCMS(slug);
 
-  if (!mdx) {
+  if (!serviceData) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
@@ -61,7 +62,5 @@ export default async function ServicePage({ params }: ServicePageProps) {
     );
   }
 
-  const { frontmatter, content } = mdx;
-
-  return <ServiceContent frontmatter={frontmatter} content={content} slug={slug} />;
+  return <ServiceContent serviceData={serviceData} slug={slug} />;
 }

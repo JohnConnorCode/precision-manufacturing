@@ -14,13 +14,16 @@ import {
   generateProductCatalogSchema,
   generateFAQSchema
 } from '@/lib/structured-data';
+import { getServicesFromCMS, getIndustriesFromCMS, getHomepageFromCMS } from '@/lib/get-cms-data';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;
 
 export default async function Home() {
-  // Using static home page data (no Sanity dependency)
-  const homeData: any = null;
+  // Fetch data from CMS
+  const servicesData = await getServicesFromCMS();
+  const industriesData = await getIndustriesFromCMS();
+  const homepageData = await getHomepageFromCMS();
 
   // Organization data for structured markup
   const organizationData = {
@@ -66,14 +69,14 @@ export default async function Home() {
         faqSchema
       ]} />
 
-      <Hero data={homeData?.hero} />
-      <Services data={homeData?.services} />
-      <TechnicalSpecs data={homeData?.technicalSpecs} />
-      <Industries data={homeData?.industries} />
-      <ImageShowcase data={homeData?.imageShowcase} />
-      <Resources />
-      <Stats data={homeData?.stats} />
-      <CTA data={homeData?.cta} />
+      <Hero data={homepageData?.hero || undefined} />
+      <Services data={servicesData || undefined} />
+      <TechnicalSpecs data={homepageData?.technicalSpecs || undefined} />
+      <Industries data={industriesData || undefined} />
+      <ImageShowcase data={homepageData?.imageShowcase || undefined} />
+      <Resources data={homepageData?.resources || undefined} />
+      <Stats data={homepageData?.stats || undefined} />
+      <CTA data={homepageData?.cta || undefined} />
     </>
   );
 }
