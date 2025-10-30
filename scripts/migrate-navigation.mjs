@@ -43,13 +43,11 @@ const navigationData = {
     },
     {
       name: 'About',
-      href: '/about',
-      children: []
+      href: '/about'
     },
     {
       name: 'Careers',
-      href: '/careers',
-      children: []
+      href: '/careers'
     },
     {
       name: 'Compliance',
@@ -61,8 +59,7 @@ const navigationData = {
     },
     {
       name: 'Contact',
-      href: '/contact',
-      children: []
+      href: '/contact'
     }
   ],
   cta: {
