@@ -55,7 +55,7 @@ export default async function IndustriesPage() {
                   {industry.description}
                 </p>
                 <Button asChild variant="outline">
-                  <Link href={industry.href}>
+                  <Link href={`/industries/${industry.slug}`}>
                     Learn More About {industry.title}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
