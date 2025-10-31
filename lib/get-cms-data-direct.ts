@@ -15,6 +15,7 @@
  * ```
  */
 import { MongoClient, Db } from 'mongodb';
+import { lexicalToText } from './lexical-to-text';
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://John:TestPass123@precisionmanufacturing.m1waxew.mongodb.net/precision-manufacturing?appName=PrecisionManufacturing';
 const DB_NAME = 'precision-manufacturing';
@@ -61,7 +62,7 @@ export async function getServicesFromCMS(draft = false) {
 
     return services.map((service: any) => ({
       title: service.title,
-      description: service.shortDescription || service.description,
+      description: service.shortDescription || lexicalToText(service.description),
       iconName: iconNameMap[service.slug] || 'Cog',
       href: `/services/${service.slug}`,
       specs: service.specs || [],
@@ -122,7 +123,7 @@ export async function getIndustriesFromCMS(draft = false) {
 
     return industries.map((industry: any) => ({
       title: industry.title,
-      description: industry.description,
+      description: lexicalToText(industry.description),
       iconName: iconNameMap[industry.slug] || 'Factory',
       href: `/industries/${industry.slug}`,
       image: industry.image,
@@ -169,21 +170,44 @@ export async function getHomepageFromCMS() {
 
     console.log('[Direct DB] ✓ Fetched homepage data from MongoDB');
 
-    // Transform badges array format if present
-    const transformedHero = homepage.hero ? {
+    // Helper to recursively convert all Lexical richtext to plain text
+    const sanitizeData = (obj: any): any => {
+      if (!obj) return obj;
+      if (typeof obj !== 'object') return obj;
+
+      // If it's a Lexical richtext object, convert to text
+      if (obj.root && obj.root.children) {
+        return lexicalToText(obj);
+      }
+
+      // If it's an array, process each item
+      if (Array.isArray(obj)) {
+        return obj.map(item => sanitizeData(item));
+      }
+
+      // If it's a plain object, process each property
+      const result: any = {};
+      for (const key in obj) {
+        result[key] = sanitizeData(obj[key]);
+      }
+      return result;
+    };
+
+    // Transform badges array format if present, then sanitize entire hero
+    const transformedHero = homepage.hero ? sanitizeData({
       ...homepage.hero,
       badges: homepage.hero.badges?.map((b: any) =>
         typeof b === 'string' ? b : b.badge
       ) || []
-    } : null;
+    }) : null;
 
     return {
       hero: transformedHero,
-      stats: homepage.stats,
-      cta: homepage.cta,
-      technicalSpecs: homepage.technicalSpecs,
-      imageShowcase: homepage.imageShowcase,
-      resources: homepage.resources,
+      stats: sanitizeData(homepage.stats),
+      cta: sanitizeData(homepage.cta),
+      technicalSpecs: sanitizeData(homepage.technicalSpecs),
+      imageShowcase: sanitizeData(homepage.imageShowcase),
+      resources: sanitizeData(homepage.resources),
     };
   } catch (error) {
     console.error('Error fetching homepage from MongoDB:', error);

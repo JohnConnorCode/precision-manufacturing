@@ -4,6 +4,7 @@
  */
 
 import { MongoClient } from 'mongodb'
+import { lexicalToText } from './lexical-to-text'
 
 const MONGODB_URI = process.env.MONGODB_URI || ''
 const DB_NAME = 'precision-manufacturing'
@@ -51,7 +52,7 @@ export async function getServicesFromDB() {
 
     return services.map((service: any) => ({
       title: service.title,
-      description: service.shortDescription || service.description,
+      description: service.shortDescription || lexicalToText(service.description),
       iconName: iconNameMap[service.slug] || 'Cog',
       href: `/services/${service.slug}`,
       specs: service.specs || [],
@@ -78,7 +79,8 @@ export async function getIndustriesFromDB() {
 
     return industries.map((industry: any) => ({
       title: industry.title,
-      description: industry.shortDescription || industry.description,
+      slug: industry.slug,
+      description: industry.shortDescription || lexicalToText(industry.description),
       iconName: iconNameMap[industry.slug] || 'Plane',
       href: `/industries/${industry.slug}`,
       features: industry.features || [],
