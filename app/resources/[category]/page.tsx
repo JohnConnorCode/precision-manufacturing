@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Clock, ArrowRight } from 'lucide-react';
-import { getResourcesByCategoryFromCMS } from '@/lib/get-cms-data';
+import { getResourcesByCategoryFromCMS } from '@/lib/get-cms-data-direct';
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600;

@@ -1,5 +1,5 @@
 import TermsPageClient from './page-client';
-import { getTermsFromCMS } from '@/lib/get-cms-data';
+import { getTermsFromCMS } from '@/lib/get-cms-data-direct';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;

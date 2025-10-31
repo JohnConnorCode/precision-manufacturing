@@ -1,5 +1,5 @@
 import AboutPageClient from '@/components/pages/AboutPageClient';
-import { getAboutFromCMS } from '@/lib/get-cms-data';
+import { getAboutFromCMS } from '@/lib/get-cms-data-direct';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getNavigationFromCMS } from '@/lib/get-cms-data'
+import { getNavigationFromCMS } from '@/lib/get-cms-data-direct'
 
 export async function GET() {
   const started = Date.now()

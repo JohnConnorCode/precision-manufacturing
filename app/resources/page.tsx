@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Clock, ArrowRight, Lightbulb } from 'lucide-react';
 import HeroSection from '@/components/ui/hero-section';
-import { getAllResourcesFromCMS } from '@/lib/get-cms-data';
+import { getAllResourcesFromCMS } from '@/lib/get-cms-data-direct';
 
 export const metadata = {
   title: 'Technical Resources | IIS Precision Manufacturing',

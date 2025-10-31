@@ -102,6 +102,12 @@ const nextConfig: NextConfig = {
     scrollRestoration: true,
   },
   webpack: (config) => {
+    // Fix module resolution for TypeScript files (from official Payload template)
+    config.resolve.extensionAlias = {
+      '.js': ['.ts', '.tsx', '.js'],
+      '.mjs': ['.mts', '.mjs'],
+      '.cjs': ['.cts', '.cjs'],
+    }
     return config
   },
 };
@@ -113,4 +119,8 @@ const withMDX = createMDX({
   },
 });
 
-export default withPayload(withMDX(nextConfig));
+// Wrap with Payload and MDX, with serverless optimization for Vercel
+export default withPayload(withMDX(nextConfig), {
+  // Disable bundling of server packages for serverless deployment
+  devBundleServerPackages: false,
+});

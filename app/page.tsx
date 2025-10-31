@@ -14,7 +14,7 @@ import {
   generateProductCatalogSchema,
   generateFAQSchema
 } from '@/lib/structured-data';
-import { getServicesFromCMS, getIndustriesFromCMS, getHomepageFromCMS } from '@/lib/get-cms-data';
+import { getServicesFromCMS, getIndustriesFromCMS, getHomepageFromCMS } from '@/lib/get-cms-data-direct';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;

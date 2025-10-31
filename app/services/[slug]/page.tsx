@@ -1,4 +1,4 @@
-import { getServiceBySlugFromCMS } from '@/lib/get-cms-data';
+import { getServiceBySlugFromCMS } from '@/lib/get-cms-data-direct';
 import { ServiceContent } from '../service-content';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';

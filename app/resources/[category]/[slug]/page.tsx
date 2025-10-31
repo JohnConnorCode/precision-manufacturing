@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Clock, ArrowLeft, Calendar, Tag } from 'lucide-react';
-import { getResourceBySlugFromCMS } from '@/lib/get-cms-data';
+import { getResourceBySlugFromCMS } from '@/lib/get-cms-data-direct';
 import { SlateRenderer } from '@/components/slate-renderer';
 
 // Enable ISR with 1 hour revalidation

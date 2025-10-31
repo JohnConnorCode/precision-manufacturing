@@ -29,7 +29,10 @@
     "sanity:verify": "node scripts/verify-token-permissions.mjs",
     "populate:local": "bash scripts/populate-local.sh",
     "tina:verify": "node scripts/verify-tina.mjs",
-    "cms:health": "tsx scripts/cms-health.ts"
+    "cms:health": "tsx scripts/cms-health.ts",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap",
+    "payload:migrate": "payload migrate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

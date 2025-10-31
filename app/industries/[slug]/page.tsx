@@ -1,4 +1,4 @@
-import { getIndustryBySlugFromCMS } from '@/lib/get-cms-data';
+import { getIndustryBySlugFromCMS } from '@/lib/get-cms-data-direct';
 import { IndustryContent } from '../industry-content';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';

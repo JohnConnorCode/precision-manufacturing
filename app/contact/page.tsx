@@ -1,5 +1,5 @@
 import ContactPageClient from './page-client';
-import { getContactFromCMS } from '@/lib/get-cms-data';
+import { getContactFromCMS } from '@/lib/get-cms-data-direct';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getFooterFromCMS } from '@/lib/get-cms-data'
+import { getFooterFromCMS } from '@/lib/get-cms-data-direct'
 
 export async function GET() {
   try {

@@ -1,5 +1,5 @@
 import SupplierRequirementsPageClient from './page-client';
-import { getSupplierRequirementsFromCMS } from '@/lib/get-cms-data';
+import { getSupplierRequirementsFromCMS } from '@/lib/get-cms-data-direct';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;
