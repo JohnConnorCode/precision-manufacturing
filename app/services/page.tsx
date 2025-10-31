@@ -5,19 +5,28 @@ import { theme, styles, cn } from '@/lib/theme';
 import { ArrowRight, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
-import { getServicesFromDB } from '@/lib/direct-cms-access';
+import { getServicesFromDB, getPageContentFromDB } from '@/lib/direct-cms-access';
 
 export const revalidate = 3600;
 export const dynamic = 'force-dynamic';
 
 export default async function ServicesPage() {
   const services = (await getServicesFromDB()) || [] as any[];
+  const pageContent = await getPageContentFromDB('services');
 
-  const capabilities = [
+  // Use CMS data or fallback to defaults
+  const capabilities = pageContent?.capabilities || [
     { label: 'Materials Certified', value: '150+', description: 'Aerospace & defense grade materials' },
     { label: 'Precision Tolerance', value: '±0.0001"', description: 'Guaranteed dimensional accuracy' },
     { label: 'Production Capacity', value: '24/7', description: 'Continuous manufacturing capability' },
     { label: 'Quality System', value: 'AS9100D', description: 'Full aerospace certification' }
+  ];
+
+  const qualityAssurance = pageContent?.qualityAssurance || [
+    { title: 'AS9100D aerospace quality management' },
+    { title: 'ISO 9001:2015 certified processes' },
+    { title: 'ITAR registered for defense contracts' },
+    { title: 'CMMC compliant for cybersecurity' }
   ];
 
   return (
@@ -26,8 +35,7 @@ export default async function ServicesPage() {
         backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced manufacturing services - precision CNC machining and quality control"
         badge={{
-          text: "PRECISION MANUFACTURING SERVICES",
-          icon: Shield
+          text: "PRECISION MANUFACTURING SERVICES"
         }}
         title={
           <>
@@ -55,7 +63,7 @@ export default async function ServicesPage() {
       <section id="capabilities" className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <div className={cn(styles.grid4Col, "mb-20")}>
-            {capabilities.map((capability) => (
+            {capabilities.map((capability: any) => (
               <div
                 key={capability.label}
                 className="text-center"
@@ -148,18 +156,13 @@ export default async function ServicesPage() {
               </p>
 
               <div className="space-y-4">
-                {[
-                  'AS9100D aerospace quality management',
-                  'ISO 9001:2015 certified processes',
-                  'ITAR registered for defense contracts',
-                  'CMMC compliant for cybersecurity'
-                ].map((item) => (
+                {qualityAssurance.map((item: any) => (
                   <div
-                    key={item}
+                    key={item.title}
                     className="flex items-center"
                   >
                     <Award className="w-5 h-5 text-slate-600 mr-3" />
-                    <span className={theme.typography.body}>{item}</span>
+                    <span className={theme.typography.body}>{item.title}</span>
                   </div>
                 ))}
               </div>

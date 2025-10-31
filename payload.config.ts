@@ -832,6 +832,86 @@ export default buildConfig({
         { name: 'footerNote', type: 'text' },
       ],
     },
+    {
+      slug: 'page-content',
+      admin: {
+        description: 'Store page-level content like capabilities, quality assurance, hero sections, etc.',
+      },
+      fields: [
+        {
+          name: 'pageName',
+          type: 'text',
+          required: true,
+          unique: true,
+          admin: {
+            description: 'Unique identifier for the page (e.g., "services", "industries", "about")',
+          },
+        },
+        {
+          name: 'capabilities',
+          label: 'Capabilities/Stats',
+          type: 'array',
+          admin: {
+            description: 'Company-wide capabilities or statistics (e.g., "150+ Materials", "24/7 Production")',
+          },
+          fields: [
+            { name: 'label', type: 'text', required: true },
+            { name: 'value', type: 'text', required: true },
+            { name: 'description', type: 'text' },
+          ],
+        },
+        {
+          name: 'qualityAssurance',
+          label: 'Quality Assurance/Certifications',
+          type: 'array',
+          admin: {
+            description: 'Quality certifications and standards',
+          },
+          fields: [
+            { name: 'title', type: 'text', required: true },
+            { name: 'description', type: 'textarea' },
+          ],
+        },
+        {
+          name: 'hero',
+          type: 'group',
+          admin: {
+            description: 'Hero section content',
+          },
+          fields: [
+            { name: 'backgroundImage', type: 'text' },
+            { name: 'badge', type: 'text' },
+            { name: 'title', type: 'text' },
+            { name: 'subtitle', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'buttons',
+              type: 'array',
+              fields: [
+                { name: 'label', type: 'text' },
+                { name: 'href', type: 'text' },
+                { name: 'variant', type: 'select', options: [
+                  { label: 'Primary', value: 'primary' },
+                  { label: 'Secondary', value: 'secondary' },
+                ]},
+              ],
+            },
+          ],
+        },
+        {
+          name: 'sections',
+          type: 'array',
+          admin: {
+            description: 'Additional page sections',
+          },
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'content', type: 'richText', editor: lexicalEditor({}) },
+          ],
+        },
+      ],
+    },
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',

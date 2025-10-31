@@ -248,3 +248,27 @@ export async function getResourceBySlugFromDB(category: string, slug: string) {
     return null
   }
 }
+
+export async function getPageContentFromDB(pageName: string) {
+  try {
+    const { db } = await connectToDatabase()
+    const pageContent = await db.collection('page-content').findOne({ pageName })
+
+    if (!pageContent) {
+      console.log(`[DirectDB] Page content not found for: ${pageName}`)
+      return null
+    }
+
+    console.log(`[DirectDB] ✓ Fetched page content for: ${pageName}`)
+    return {
+      pageName: pageContent.pageName,
+      capabilities: pageContent.capabilities || [],
+      qualityAssurance: pageContent.qualityAssurance || [],
+      hero: pageContent.hero || null,
+      sections: pageContent.sections || [],
+    }
+  } catch (error) {
+    console.error(`[DirectDB] Error fetching page content for ${pageName}:`, error)
+    return null
+  }
+}
