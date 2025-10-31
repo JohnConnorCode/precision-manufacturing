@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/ui/hero-section';
@@ -6,13 +5,13 @@ import { theme, styles, cn } from '@/lib/theme';
 import { ArrowRight, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
-import { getServicesFromCMS } from '@/lib/get-cms-data';
+import { getServicesFromDB } from '@/lib/direct-cms-access';
 
 export const revalidate = 3600;
 export const dynamic = 'force-dynamic';
 
 export default async function ServicesPage() {
-  const services = (await getServicesFromCMS()) || [] as any[];
+  const services = (await getServicesFromDB()) || [] as any[];
 
   const capabilities = [
     { label: 'Materials Certified', value: '150+', description: 'Aerospace & defense grade materials' },
@@ -55,20 +54,10 @@ export default async function ServicesPage() {
       {/* Capabilities Overview */}
       <section id="capabilities" className={styles.sectionLight}>
         <div className={theme.spacing.container}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className={cn(styles.grid4Col, "mb-20")}
-          >
-            {capabilities.map((capability, index) => (
-              <motion.div
+          <div className={cn(styles.grid4Col, "mb-20")}>
+            {capabilities.map((capability) => (
+              <div
                 key={capability.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
                 className="text-center"
               >
                 <div className={styles.statValue}>
@@ -80,37 +69,25 @@ export default async function ServicesPage() {
                 <div className={theme.typography.small}>
                   {capability.description}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section id="services" className={theme.spacing.section}>
         <div className={theme.spacing.container}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Core Competencies</h2>
             <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Comprehensive precision manufacturing services backed by advanced technology and industry certifications.
             </p>
-          </motion.div>
+          </div>
 
           <div className={styles.grid2Col}>
-            {services.map((service: any, index: number) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
+            {services.map((service: any) => (
+              <div key={service.title}>
                 <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
                     <ParallaxImagePro
@@ -154,7 +131,7 @@ export default async function ServicesPage() {
                     </Button>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -164,12 +141,7 @@ export default async function ServicesPage() {
       <section className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <div>
               <h2 className={cn(theme.typography.h2, "mb-6")}>Quality Assurance</h2>
               <p className={cn(theme.typography.lead, "mb-8")}>
                 Our comprehensive quality management system ensures every component meets or exceeds specifications with full traceability and documentation.
@@ -181,36 +153,26 @@ export default async function ServicesPage() {
                   'ISO 9001:2015 certified processes',
                   'ITAR registered for defense contracts',
                   'CMMC compliant for cybersecurity'
-                ].map((item, index) => (
-                  <motion.div
+                ].map((item) => (
+                  <div
                     key={item}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="flex items-center"
                   >
                     <Award className="w-5 h-5 text-slate-600 mr-3" />
                     <span className={theme.typography.body}>{item}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
+            <div className="relative">
               <ParallaxImagePro
                 src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=90"
                 alt="Quality assurance"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -218,13 +180,7 @@ export default async function ServicesPage() {
       {/* Call to Action */}
       <section className={theme.spacing.section}>
         <div className={theme.spacing.container}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
+          <div className="text-center max-w-4xl mx-auto">
             <h2 className={cn(theme.typography.h2, "mb-6")}>Ready to Start Your Project?</h2>
             <p className={cn(theme.typography.lead, "mb-8")}>
               Partner with us for precision manufacturing solutions that meet the highest industry standards.
@@ -238,7 +194,7 @@ export default async function ServicesPage() {
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

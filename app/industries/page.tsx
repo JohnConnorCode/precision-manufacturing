@@ -2,13 +2,13 @@ import { Button } from '@/components/ui/button';
 import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { getIndustriesFromCMS } from '@/lib/get-cms-data';
+import { getIndustriesFromDB } from '@/lib/direct-cms-access';
 
 export const revalidate = 3600;
 export const dynamic = 'force-dynamic';
 
 export default async function IndustriesPage() {
-  const industries = (await getIndustriesFromCMS()) || [] as any[];
+  const industries = (await getIndustriesFromDB()) || [] as any[];
 
   return (
     <div className="min-h-screen bg-background">
