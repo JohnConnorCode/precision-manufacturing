@@ -13,6 +13,12 @@ import {
   globalAccess,
   roleFieldAccess,
 } from './lib/access-control'
+import {
+  validateSlug,
+  validateEmail,
+  validatePhone,
+  fieldDescriptions,
+} from './lib/field-validation'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -203,6 +209,9 @@ export default buildConfig({
           name: 'title',
           type: 'text',
           required: true,
+          admin: {
+            description: fieldDescriptions.title,
+          },
         },
         {
           name: 'slug',
@@ -210,16 +219,24 @@ export default buildConfig({
           required: true,
           admin: {
             position: 'sidebar',
+            description: fieldDescriptions.slug,
           },
+          validate: validateSlug,
         },
         {
           name: 'shortDescription',
           type: 'textarea',
+          admin: {
+            description: fieldDescriptions.shortDescription,
+          },
         },
         {
           name: 'description',
           type: 'richText',
           editor: lexicalEditor({}),
+          admin: {
+            description: fieldDescriptions.description,
+          },
         },
         // Detailed page content structure
         {
@@ -331,6 +348,7 @@ export default buildConfig({
           type: 'number',
           admin: {
             position: 'sidebar',
+            description: fieldDescriptions.order,
           },
         },
         ...flexibleImageField('image', {
@@ -379,6 +397,9 @@ export default buildConfig({
           name: 'title',
           type: 'text',
           required: true,
+          admin: {
+            description: fieldDescriptions.title,
+          },
         },
         {
           name: 'slug',
@@ -386,16 +407,24 @@ export default buildConfig({
           required: true,
           admin: {
             position: 'sidebar',
+            description: fieldDescriptions.slug,
           },
+          validate: validateSlug,
         },
         {
           name: 'shortDescription',
           type: 'textarea',
+          admin: {
+            description: fieldDescriptions.shortDescription,
+          },
         },
         {
           name: 'description',
           type: 'richText',
           editor: lexicalEditor({}),
+          admin: {
+            description: fieldDescriptions.description,
+          },
         },
         {
           name: 'hero',
@@ -519,6 +548,7 @@ export default buildConfig({
           type: 'number',
           admin: {
             position: 'sidebar',
+            description: fieldDescriptions.order,
           },
         },
         ...flexibleImageField('image', {
@@ -556,20 +586,33 @@ export default buildConfig({
           name: 'title',
           type: 'text',
           required: true,
+          admin: {
+            description: fieldDescriptions.title,
+          },
         },
         {
           name: 'slug',
           type: 'text',
           required: true,
+          admin: {
+            description: fieldDescriptions.slug,
+          },
+          validate: validateSlug,
         },
         {
           name: 'excerpt',
           type: 'textarea',
+          admin: {
+            description: fieldDescriptions.excerpt,
+          },
         },
         {
           name: 'content',
           type: 'richText',
           editor: lexicalEditor({}),
+          admin: {
+            description: fieldDescriptions.content,
+          },
         },
         {
           name: 'category',
@@ -625,9 +668,23 @@ export default buildConfig({
           name: 'topBar',
           type: 'group',
           fields: [
-            { name: 'phone', type: 'text' },
+            {
+              name: 'phone',
+              type: 'text',
+              validate: validatePhone,
+              admin: {
+                description: fieldDescriptions.phone,
+              },
+            },
             { name: 'phoneLink', type: 'text' },
-            { name: 'email', type: 'text' },
+            {
+              name: 'email',
+              type: 'text',
+              validate: validateEmail,
+              admin: {
+                description: fieldDescriptions.email,
+              },
+            },
             { name: 'emailLink', type: 'text' },
             { name: 'certifications', type: 'text' },
           ],
@@ -793,8 +850,22 @@ export default buildConfig({
           name: 'contact',
           type: 'group',
           fields: [
-            { name: 'email', type: 'text' },
-            { name: 'phone', type: 'text' },
+            {
+              name: 'email',
+              type: 'text',
+              validate: validateEmail,
+              admin: {
+                description: fieldDescriptions.email,
+              },
+            },
+            {
+              name: 'phone',
+              type: 'text',
+              validate: validatePhone,
+              admin: {
+                description: fieldDescriptions.phone,
+              },
+            },
             { name: 'phoneLink', type: 'text' },
             { name: 'address', type: 'textarea' },
           ],
@@ -941,6 +1012,7 @@ export default buildConfig({
         },
         seoField,
       ],
+      access: globalAccess,
     },
     {
       slug: 'contact',
@@ -980,9 +1052,23 @@ export default buildConfig({
             { name: 'addressLine1', type: 'text' },
             { name: 'addressLine2', type: 'text' },
             { name: 'addressLine3', type: 'text' },
-            { name: 'phone', type: 'text' },
+            {
+              name: 'phone',
+              type: 'text',
+              validate: validatePhone,
+              admin: {
+                description: fieldDescriptions.phone,
+              },
+            },
             { name: 'phoneLink', type: 'text' },
-            { name: 'email', type: 'text' },
+            {
+              name: 'email',
+              type: 'text',
+              validate: validateEmail,
+              admin: {
+                description: fieldDescriptions.email,
+              },
+            },
             { name: 'hoursLine1', type: 'text' },
             { name: 'hoursLine2', type: 'text' },
           ],
@@ -999,6 +1085,7 @@ export default buildConfig({
         },
         seoField,
       ],
+      access: globalAccess,
     },
     {
       slug: 'careers',
@@ -1046,6 +1133,7 @@ export default buildConfig({
         ]},
         seoField,
       ],
+      access: globalAccess,
     },
     {
       slug: 'terms',
@@ -1064,6 +1152,7 @@ export default buildConfig({
         ]},
         seoField,
       ],
+      access: globalAccess,
     },
     {
       slug: 'supplier-requirements',
@@ -1087,6 +1176,7 @@ export default buildConfig({
         { name: 'footerNote', type: 'text' },
         seoField,
       ],
+      access: globalAccess,
     },
     {
       slug: 'page-content',
@@ -1171,6 +1261,7 @@ export default buildConfig({
         },
         seoField,
       ],
+      access: globalAccess,
     },
   ],
   editor: lexicalEditor({}),

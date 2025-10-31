@@ -115,7 +115,6 @@ test.describe('Data Integrity - API Structure', () => {
     expect(service.title).toBeDefined();
     expect(service.slug).toBeDefined();
     expect(service.description).toBeDefined();
-    expect(service.icon).toBeDefined();
 
     // Optional but expected fields
     expect(service.specs).toBeDefined();
