@@ -19,6 +19,7 @@ import {
   validatePhone,
   fieldDescriptions,
 } from './lib/field-validation'
+import { emailAdapter } from './lib/email-adapter'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,6 +30,29 @@ export default buildConfig({
     user: 'users',
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+    meta: {
+      titleSuffix: '- IIS Precision Manufacturing',
+      description: 'Advanced precision machining and manufacturing management system',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          url: '/favicon.ico',
+        },
+      ],
+    },
+    components: {
+      graphics: {
+        Logo: {
+          path: '/components/admin/AdminLogo.tsx',
+          exportName: 'AdminLogo',
+        },
+        Icon: {
+          path: '/components/admin/AdminIcon.tsx',
+          exportName: 'AdminIcon',
+        },
+      },
     },
     theme: 'light',
     css: path.resolve(dirname, 'admin-custom.css'),
@@ -1301,6 +1325,7 @@ export default buildConfig({
     },
   ],
   editor: lexicalEditor({}),
+  email: emailAdapter,
   secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
