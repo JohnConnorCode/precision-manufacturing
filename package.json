@@ -6,8 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "screenshots": "node test-screenshots.js",
+    "verify:cms-db": "node test-cms-data.mjs",
     "lint": "eslint",
     "test": "playwright test",
+    "test:visual": "SKIP_WEBSERVER=1 playwright test e2e/visual-regression.spec.ts",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
@@ -25,7 +28,8 @@
     "reset:resources": "node scripts/reset-resources-collection.mjs",
     "sanity:verify": "node scripts/verify-token-permissions.mjs",
     "populate:local": "bash scripts/populate-local.sh",
-    "tina:verify": "node scripts/verify-tina.mjs"
+    "tina:verify": "node scripts/verify-tina.mjs",
+    "cms:health": "tsx scripts/cms-health.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

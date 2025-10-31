@@ -57,6 +57,113 @@ export default buildConfig({
           type: 'richText',
           editor: lexicalEditor({}),
         },
+        // Detailed page content structure
+        {
+          name: 'hero',
+          type: 'group',
+          fields: [
+            { name: 'backgroundImage', type: 'text' },
+            { name: 'badge', type: 'text' },
+            { name: 'subtitle', type: 'text' },
+          ],
+        },
+        {
+          name: 'overview',
+          type: 'group',
+          fields: [
+            { name: 'description', type: 'textarea' },
+          ],
+        },
+        {
+          name: 'capabilities',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'value', type: 'text' },
+            { name: 'description', type: 'text' },
+          ],
+        },
+        {
+          name: 'services',
+          label: 'Service Offerings',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'iconName', type: 'text' },
+            { name: 'image', type: 'text' },
+            {
+              name: 'bullets',
+              type: 'array',
+              fields: [{ name: 'text', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'technicalSpecs',
+          type: 'array',
+          fields: [
+            { name: 'spec', type: 'text' },
+            { name: 'value', type: 'text' },
+            { name: 'note', type: 'text' },
+          ],
+        },
+        {
+          name: 'process',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'features',
+              type: 'array',
+              fields: [{ name: 'feature', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'equipment',
+          type: 'array',
+          fields: [
+            { name: 'name', type: 'text' },
+            { name: 'details', type: 'text' },
+          ],
+        },
+        {
+          name: 'materials',
+          type: 'array',
+          fields: [
+            { name: 'category', type: 'text' },
+            {
+              name: 'types',
+              type: 'array',
+              fields: [{ name: 'type', type: 'text' }],
+            },
+            { name: 'applications', type: 'text' },
+          ],
+        },
+        {
+          name: 'processes',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'features',
+              type: 'array',
+              fields: [{ name: 'feature', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'seo',
+          type: 'group',
+          admin: { position: 'sidebar' },
+          fields: [
+            { name: 'metaTitle', type: 'text' },
+            { name: 'metaDescription', type: 'textarea' },
+          ],
+        },
         {
           name: 'order',
           type: 'number',
@@ -112,6 +219,125 @@ export default buildConfig({
           name: 'description',
           type: 'richText',
           editor: lexicalEditor({}),
+        },
+        {
+          name: 'hero',
+          type: 'group',
+          fields: [
+            { name: 'backgroundImage', type: 'text' },
+            { name: 'badge', type: 'text' },
+            { name: 'subtitle', type: 'text' },
+          ],
+        },
+        {
+          name: 'overview',
+          type: 'group',
+          fields: [
+            { name: 'description', type: 'textarea' },
+            { name: 'marketSize', type: 'text' },
+            {
+              name: 'keyDrivers',
+              type: 'array',
+              fields: [{ name: 'driver', type: 'text' }],
+            },
+            {
+              name: 'challenges',
+              type: 'array',
+              fields: [{ name: 'challenge', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'capabilities',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'value', type: 'text' },
+            { name: 'description', type: 'text' },
+          ],
+        },
+        {
+          name: 'regulatory',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'details',
+              type: 'array',
+              fields: [{ name: 'detail', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'applications',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            {
+              name: 'features',
+              type: 'array',
+              fields: [{ name: 'feature', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'components',
+          type: 'array',
+          fields: [
+            { name: 'category', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'image', type: 'text' },
+            {
+              name: 'parts',
+              type: 'array',
+              fields: [{ name: 'part', type: 'text' }],
+            },
+            {
+              name: 'materials',
+              type: 'array',
+              fields: [{ name: 'material', type: 'text' }],
+            },
+            {
+              name: 'requirements',
+              type: 'array',
+              fields: [{ name: 'requirement', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'qualityStandards',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'details',
+              type: 'array',
+              fields: [{ name: 'detail', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'processBenefits',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            {
+              name: 'features',
+              type: 'array',
+              fields: [{ name: 'feature', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'seo',
+          type: 'group',
+          admin: { position: 'sidebar' },
+          fields: [
+            { name: 'metaTitle', type: 'text' },
+            { name: 'metaDescription', type: 'textarea' },
+          ],
         },
         {
           name: 'order',
@@ -271,6 +497,339 @@ export default buildConfig({
             { name: 'label', type: 'text' },
           ],
         },
+        {
+          name: 'technicalSpecs',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'value', type: 'text' },
+            { name: 'description', type: 'text' },
+          ],
+        },
+        {
+          name: 'imageShowcase',
+          type: 'array',
+          fields: [
+            { name: 'image', type: 'text' },
+            { name: 'alt', type: 'text' },
+          ],
+        },
+        {
+          name: 'resources',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'href', type: 'text' },
+            { name: 'description', type: 'text' },
+          ],
+        },
+        {
+          name: 'cta',
+          type: 'group',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'primaryText', type: 'text' },
+            { name: 'primaryHref', type: 'text' },
+            { name: 'secondaryText', type: 'text' },
+            { name: 'secondaryHref', type: 'text' },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'footer',
+      fields: [
+        {
+          name: 'company',
+          type: 'group',
+          fields: [
+            { name: 'description', type: 'textarea' },
+            { name: 'foundedYear', type: 'text' },
+            { name: 'certifications', type: 'text' },
+          ],
+        },
+        {
+          name: 'social',
+          type: 'group',
+          fields: [
+            { name: 'linkedin', type: 'text' },
+            { name: 'twitter', type: 'text' },
+            { name: 'facebook', type: 'text' },
+          ],
+        },
+        {
+          name: 'servicesLinks',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'href', type: 'text' },
+          ],
+        },
+        {
+          name: 'resourcesLinks',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'href', type: 'text' },
+          ],
+        },
+        {
+          name: 'quickLinks',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'href', type: 'text' },
+          ],
+        },
+        {
+          name: 'contact',
+          type: 'group',
+          fields: [
+            { name: 'email', type: 'text' },
+            { name: 'phone', type: 'text' },
+            { name: 'phoneLink', type: 'text' },
+            { name: 'address', type: 'textarea' },
+          ],
+        },
+        { name: 'copyright', type: 'text' },
+      ],
+    },
+    {
+      slug: 'about',
+      fields: [
+        {
+          name: 'hero',
+          type: 'group',
+          fields: [
+            { name: 'backgroundImage', type: 'text' },
+            { name: 'imageAlt', type: 'text' },
+            { name: 'badge', type: 'text' },
+            { name: 'badgeIconName', type: 'text' },
+            { name: 'title', type: 'text' },
+            { name: 'titleHighlight', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'buttons',
+              type: 'array',
+              fields: [
+                { name: 'label', type: 'text' },
+                { name: 'href', type: 'text' },
+                { name: 'variant', type: 'text' },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'companyStats',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'value', type: 'text' },
+            { name: 'description', type: 'text' },
+          ],
+        },
+        {
+          name: 'story',
+          type: 'group',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'paragraph1', type: 'textarea' },
+            { name: 'paragraph2', type: 'textarea' },
+            { name: 'paragraph3', type: 'textarea' },
+            { name: 'image', type: 'text' },
+            { name: 'imageAlt', type: 'text' },
+          ],
+        },
+        {
+          name: 'timeline',
+          type: 'group',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'text' },
+            {
+              name: 'milestones',
+              type: 'array',
+              fields: [
+                { name: 'year', type: 'text' },
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'textarea' },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'values',
+          type: 'group',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'text' },
+            {
+              name: 'items',
+              type: 'array',
+              fields: [
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'textarea' },
+                { name: 'iconName', type: 'text' },
+                {
+                  name: 'bullets',
+                  type: 'array',
+                  fields: [{ name: 'text', type: 'text' }],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'capabilities',
+          type: 'array',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            {
+              name: 'items',
+              type: 'array',
+              fields: [{ name: 'item', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'certifications',
+          type: 'array',
+          fields: [{ name: 'certification', type: 'text' }],
+        },
+        {
+          name: 'cta',
+          type: 'group',
+          fields: [
+            { name: 'title', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'primaryText', type: 'text' },
+            { name: 'primaryHref', type: 'text' },
+            { name: 'secondaryText', type: 'text' },
+            { name: 'secondaryHref', type: 'text' },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'contact',
+      fields: [
+        {
+          name: 'hero',
+          type: 'group',
+          fields: [
+            { name: 'backgroundImage', type: 'text' },
+            { name: 'imageAlt', type: 'text' },
+            { name: 'badge', type: 'text' },
+            { name: 'badgeIconName', type: 'text' },
+            { name: 'title', type: 'text' },
+            { name: 'titleHighlight', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'buttonLabel', type: 'text' },
+            { name: 'buttonHref', type: 'text' },
+          ],
+        },
+        {
+          name: 'contactInfo',
+          type: 'group',
+          fields: [
+            { name: 'heading', type: 'text' },
+            { name: 'description', type: 'textarea' },
+            { name: 'addressLine1', type: 'text' },
+            { name: 'addressLine2', type: 'text' },
+            { name: 'addressLine3', type: 'text' },
+            { name: 'phone', type: 'text' },
+            { name: 'phoneLink', type: 'text' },
+            { name: 'email', type: 'text' },
+            { name: 'hoursLine1', type: 'text' },
+            { name: 'hoursLine2', type: 'text' },
+          ],
+        },
+        { name: 'certifications', type: 'array', fields: [{ name: 'certification', type: 'text' }] },
+        {
+          name: 'bottomStats',
+          type: 'array',
+          fields: [
+            { name: 'iconName', type: 'text' },
+            { name: 'text', type: 'text' },
+            { name: 'animated', type: 'checkbox', defaultValue: false },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'careers',
+      fields: [
+        { name: 'hero', type: 'group', fields: [
+          { name: 'backgroundImage', type: 'text' },
+          { name: 'badge', type: 'text' },
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'whyWorkHere', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'benefits', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'values', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'opportunities', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'location', type: 'text' },
+          { name: 'type', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'cta', type: 'group', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+          { name: 'primaryText', type: 'text' },
+          { name: 'primaryHref', type: 'text' },
+        ]},
+      ],
+    },
+    {
+      slug: 'terms',
+      fields: [
+        { name: 'header', type: 'group', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'sections', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'content', type: 'richText', editor: lexicalEditor({}) },
+        ]},
+        { name: 'contact', type: 'group', fields: [
+          { name: 'email', type: 'text' },
+          { name: 'phone', type: 'text' },
+        ]},
+      ],
+    },
+    {
+      slug: 'supplier-requirements',
+      fields: [
+        { name: 'hero', type: 'group', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'description', type: 'textarea' },
+        ]},
+        { name: 'sections', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'content', type: 'richText', editor: lexicalEditor({}) },
+        ]},
+        { name: 'requirements', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'items', type: 'array', fields: [{ name: 'item', type: 'text' }] },
+        ]},
+        { name: 'additionalSections', type: 'array', fields: [
+          { name: 'title', type: 'text' },
+          { name: 'content', type: 'textarea' },
+        ]},
+        { name: 'footerNote', type: 'text' },
       ],
     },
   ],

@@ -1,4 +1,4 @@
-import { getIndustryBySlugFromCMS, getAllIndustrySlugs } from '@/lib/get-cms-data';
+import { getIndustryBySlugFromCMS } from '@/lib/get-cms-data';
 import { IndustryContent } from '../industry-content';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';
@@ -13,6 +13,7 @@ interface IndustryPageProps {
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: IndustryPageProps) {
   const { slug } = await params;
@@ -35,12 +36,7 @@ export async function generateMetadata({ params }: IndustryPageProps) {
   };
 }
 
-export async function generateStaticParams() {
-  const slugs = await getAllIndustrySlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }));
-}
+// No build-time path generation; resolve at request time
 
 export default async function IndustryPage({ params }: IndustryPageProps) {
   const { slug } = await params;

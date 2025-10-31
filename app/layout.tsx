@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// Removed next/font/google to avoid network fetch during offline builds
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ScrollToTop from "@/components/ui/scroll-to-top";
-import AnalyticsProvider from "@/components/analytics/AnalyticsProvider";
-import { getNavigationFromCMS, getFooterFromCMS } from "@/lib/get-cms-data";
-import { headers } from 'next/headers';
+import SiteChrome from "@/components/layout/SiteChrome";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+// Use Tailwind's font-sans stack without next/font
 
 export const metadata: Metadata = {
   title: "IIS - Precision Machining & CMM Inspection Services | AS9100 Certified | Oregon",
@@ -80,14 +72,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Check if this is an admin route
-  const headersList = await headers();
-  const pathname = headersList.get('x-invoke-path') || '';
-  const isAdminRoute = pathname.startsWith('/admin') || pathname.startsWith('/api');
-
-  // Fetch navigation and footer data from CMS only for non-admin routes
-  const navigationData = !isAdminRoute ? await getNavigationFromCMS() : null;
-  const footerData = !isAdminRoute ? await getFooterFromCMS() : null;
+  // Do not fetch CMS data during build; SiteChrome loads navigation/footer client-side
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -226,23 +211,10 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {isAdminRoute ? (
-          // Admin routes - no header/footer, Payload handles its own layout
-          children
-        ) : (
-          // Regular routes - with header/footer
-          <AnalyticsProvider
-            enablePerformanceMonitoring={true}
-          >
-            <Header data={navigationData} />
-            <main id="main-content" className="min-h-screen lg:pt-[120px] pt-20">
-              {children}
-            </main>
-            <Footer data={footerData} />
-            <ScrollToTop />
-          </AnalyticsProvider>
-        )}
+      <body className={`font-sans antialiased`}>
+        <SiteChrome>
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

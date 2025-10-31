@@ -1,4 +1,4 @@
-import { getServiceBySlugFromCMS, getAllServiceSlugs } from '@/lib/get-cms-data';
+import { getServiceBySlugFromCMS } from '@/lib/get-cms-data';
 import { ServiceContent } from '../service-content';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';
@@ -13,6 +13,7 @@ interface ServicePageProps {
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: ServicePageProps) {
   const { slug } = await params;
@@ -35,12 +36,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
   };
 }
 
-export async function generateStaticParams() {
-  const slugs = await getAllServiceSlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }));
-}
+// No build-time path generation; resolve at request time
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;

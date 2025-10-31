@@ -2,18 +2,13 @@ import { Button } from '@/components/ui/button';
 import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { getAllMDXFilesWithFrontmatter } from '@/lib/mdx-utils';
+import { getIndustriesFromCMS } from '@/lib/get-cms-data';
+
+export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export default async function IndustriesPage() {
-  // Fetch industries from MDX
-  const mdxIndustries = await getAllMDXFilesWithFrontmatter('industries');
-
-  const industries = mdxIndustries.map((ind: any) => ({
-    title: ind.title,
-    description: ind.overview?.description || 'Precision manufacturing solutions',
-    slug: ind.slug,
-    href: `/industries/${ind.slug}`,
-  }));
+  const industries = (await getIndustriesFromCMS()) || [] as any[];
 
   return (
     <div className="min-h-screen bg-background">
@@ -53,7 +48,7 @@ export default async function IndustriesPage() {
           </div>
 
           <div className="space-y-8">
-            {industries.map((industry) => (
+            {industries.map((industry: any) => (
               <div key={industry.title} className="bg-white border border-slate-200 rounded-lg p-8">
                 <h3 className="text-3xl font-bold mb-4">{industry.title}</h3>
                 <p className="text-slate-600 mb-6 leading-relaxed text-lg">

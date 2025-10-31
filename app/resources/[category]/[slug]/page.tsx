@@ -1,20 +1,12 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Clock, ArrowLeft, Calendar, Tag } from 'lucide-react';
-import { getResourceBySlugFromCMS, getAllResourceSlugs } from '@/lib/get-cms-data';
+import { getResourceBySlugFromCMS } from '@/lib/get-cms-data';
 import { SlateRenderer } from '@/components/slate-renderer';
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  const slugs = await getAllResourceSlugs();
-
-  return slugs.map((item) => ({
-    category: item.category,
-    slug: item.slug,
-  }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { category, slug } = await params;

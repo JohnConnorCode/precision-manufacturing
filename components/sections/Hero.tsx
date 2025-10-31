@@ -85,100 +85,92 @@ export default function Hero({ data }: HeroProps) {
       {/* Content Container */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="container relative z-10 px-6 md:px-8 max-w-6xl mx-auto"
+        className="container relative z-10 px-6 md:px-8"
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center"
-        >
-
-          {/* Main Title - Compact inline layout */}
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0 : 1.2, ease: [0.33, 1, 0.68, 1] }}
-            className="mb-6"
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-center space-y-8"
           >
-            <h1 className="font-bold leading-tight">
-              <motion.span
-                className="block text-white/90 uppercase text-2xl sm:text-3xl md:text-4xl tracking-wide mb-2"
-                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: prefersReducedMotion ? 0 : 0.4, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
-              >
-                PRECISION MANUFACTURING
-              </motion.span>
-              <motion.span
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 uppercase text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter"
-                style={{ filter: 'drop-shadow(0 4px 20px rgba(59, 130, 246, 0.4))' }}
-                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: prefersReducedMotion ? 0 : 0.6, duration: prefersReducedMotion ? 0 : 0.7, ease: [0.33, 1, 0.68, 1] }}
-              >
-                SERVICES
-              </motion.span>
-            </h1>
-          </motion.div>
 
-          {/* Visual separator */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 0.8, duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mb-8"
-          />
-
-          {/* Tagline - constrained width for readability */}
-          <motion.p
-            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 1.0, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="text-lg md:text-xl lg:text-2xl text-white/90 font-light max-w-3xl mx-auto mb-10"
-          >
-            {tagline}
-          </motion.p>
-
-          {/* Certification Badges - tighter, smaller */}
-          <motion.div
-            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 1.2, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="flex flex-wrap justify-center gap-2 mb-10 max-w-3xl mx-auto"
-          >
-            {badges.map((badge, index) => (
-              <motion.span
-                key={badge}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: prefersReducedMotion ? 0 : (1.3 + index * 0.1), duration: prefersReducedMotion ? 0 : 0.6, ease: [0.33, 1, 0.68, 1] }}
-                className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-white/80 border border-white/10 backdrop-blur-sm"
-              >
-                {badge}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          {/* CTA Button - single, prominent */}
-          <motion.div
-            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 1.6, duration: prefersReducedMotion ? 0 : 0.8, ease: [0.33, 1, 0.68, 1] }}
-          >
-            <Button
-              size="lg"
-              className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 px-8 h-12 text-base"
-              asChild
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0 : 0.7 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <Link href={ctaSecondary.href}>
-                {ctaSecondary.text}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </motion.div>
+              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-sm text-white/70 font-medium tracking-wide">SINCE 1995</span>
+            </motion.div>
 
-        </motion.div>
+            {/* Main Headline - Clean and balanced */}
+            <motion.div
+              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: prefersReducedMotion ? 0 : 0.5, duration: prefersReducedMotion ? 0 : 0.8 }}
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+                Precision Manufacturing
+                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400">
+                  Excellence
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: prefersReducedMotion ? 0 : 0.8, duration: prefersReducedMotion ? 0 : 0.8 }}
+              className="text-lg sm:text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto leading-relaxed"
+            >
+              {tagline}
+            </motion.p>
+
+            {/* Capabilities Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: prefersReducedMotion ? 0 : 1.0, duration: prefersReducedMotion ? 0 : 0.8 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto"
+            >
+              {badges.map((badge, index) => (
+                <motion.div
+                  key={badge}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: prefersReducedMotion ? 0 : (1.2 + index * 0.1), duration: prefersReducedMotion ? 0 : 0.5 }}
+                  className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all"
+                >
+                  <span className="text-sm font-medium text-white/90">{badge}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: prefersReducedMotion ? 0 : 1.5, duration: prefersReducedMotion ? 0 : 0.8 }}
+              className="pt-4"
+            >
+              <Button
+                size="lg"
+                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 px-8 h-12"
+                asChild
+              >
+                <Link href={ctaSecondary.href}>
+                  {ctaSecondary.text}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </motion.div>
+
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Smooth Scroll Indicator */}

@@ -5,7 +5,7 @@ export async function GET() {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     environment: {
-      cms: 'tina-mdx',
+      cms: 'payload',
       node_env: process.env.NODE_ENV,
       vercel: process.env.VERCEL ? 'true' : 'false'
     }

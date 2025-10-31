@@ -88,12 +88,27 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/supplier-requirements',
+        destination: '/compliance/supplier-requirements',
+        permanent: true,
+      },
     ];
   },
 
   /* Experimental features for performance */
   experimental: {
     scrollRestoration: true,
+  },
+  /* Ensure Payload packages are transpiled for Next.js */
+  transpilePackages: [
+    'payload',
+    '@payloadcms/next',
+    '@payloadcms/richtext-lexical',
+    '@payloadcms/ui',
+  ],
+  webpack: (config) => {
+    return config
   },
 };
 
