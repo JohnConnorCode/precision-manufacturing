@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx';
+import { withPayload } from '@payloadcms/next/withPayload';
 
 const nextConfig: NextConfig = {
   /* MDX Support */
@@ -100,13 +101,6 @@ const nextConfig: NextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  /* Ensure Payload packages are transpiled for Next.js */
-  transpilePackages: [
-    'payload',
-    '@payloadcms/next',
-    '@payloadcms/richtext-lexical',
-    '@payloadcms/ui',
-  ],
   webpack: (config) => {
     return config
   },
@@ -119,4 +113,4 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+export default withPayload(withMDX(nextConfig));
