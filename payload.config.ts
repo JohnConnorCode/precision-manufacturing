@@ -1076,4 +1076,13 @@ export default buildConfig({
       minPoolSize: 1,
     },
   }),
+  plugins: [
+    vercelBlobStorage({
+      enabled: true,
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+  ],
 })
