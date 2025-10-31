@@ -8,7 +8,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
   admin: {
     user: 'users',
     importMap: {
@@ -16,6 +16,53 @@ export default buildConfig({
     },
     theme: 'light',
     css: path.resolve(dirname, 'admin-custom.css'),
+    livePreview: {
+      url: ({ data, documentSlug, locale }) => {
+        // Generate preview URL based on collection/global
+        const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
+
+        if (documentSlug === 'services') {
+          return `${baseURL}/services/${data?.slug || ''}`;
+        }
+        if (documentSlug === 'industries') {
+          return `${baseURL}/industries/${data?.slug || ''}`;
+        }
+        if (documentSlug === 'resources') {
+          return `${baseURL}/resources/${data?.category || 'manufacturing-processes'}/${data?.slug || ''}`;
+        }
+        if (documentSlug === 'homepage') {
+          return `${baseURL}/`;
+        }
+        if (documentSlug === 'about') {
+          return `${baseURL}/about`;
+        }
+        if (documentSlug === 'contact') {
+          return `${baseURL}/contact`;
+        }
+
+        return baseURL;
+      },
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+        {
+          label: 'Tablet',
+          name: 'tablet',
+          width: 768,
+          height: 1024,
+        },
+        {
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+          height: 900,
+        },
+      ],
+    },
   },
   collections: [
     {
@@ -236,6 +283,9 @@ export default buildConfig({
           ],
         },
       ],
+      access: {
+        read: () => true,
+      },
     },
     {
       slug: 'industries',
@@ -406,6 +456,9 @@ export default buildConfig({
           ],
         },
       ],
+      access: {
+        read: () => true,
+      },
     },
     {
       slug: 'resources',
@@ -581,6 +634,9 @@ export default buildConfig({
           ],
         },
       ],
+      access: {
+        read: () => true,
+      },
     },
     {
       slug: 'footer',
