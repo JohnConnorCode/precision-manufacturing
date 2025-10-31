@@ -1,0 +1,43 @@
+/* Fix for input text color - make text visible on white background */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  color: #1a1a1a !important;
+}
+
+/* Ensure placeholder text is visible but lighter */
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important;
+  opacity: 0.7 !important;
+}
+
+/* Make sure focus state is clear */
+input:focus,
+textarea:focus,
+select:focus {
+  color: #000000 !important;
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 0px !important;
+}
+
+/* Fix any labels that might be hard to read */
+label {
+  color: #374151 !important;
+}
+
+/* Ensure buttons are visible and clickable */
+button {
+  cursor: pointer !important;
+}
+
+/* Fix text in rich text editors */
+.lexical-editor,
+.editor-shell,
+[contenteditable="true"] {
+  color: #1a1a1a !important;
+}
