@@ -9,7 +9,7 @@ export default async function CareersPage() {
   // Fetch data from CMS
   const careersData = await getCareersFromCMS();
 
-  return <CareersPageClient data={careersData} />;
+  return <CareersPageClient data={careersData as any} />;
 }
 
 // Generate metadata for SEO

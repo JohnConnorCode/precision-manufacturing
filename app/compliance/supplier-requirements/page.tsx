@@ -8,7 +8,7 @@ export default async function SupplierRequirementsPage() {
   // Fetch data from CMS
   const supplierRequirementsData = await getSupplierRequirementsFromCMS();
 
-  return <SupplierRequirementsPageClient data={supplierRequirementsData} />;
+  return <SupplierRequirementsPageClient data={supplierRequirementsData as any} />;
 }
 
 // Generate metadata for SEO

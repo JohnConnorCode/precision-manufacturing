@@ -163,6 +163,9 @@ export async function getHomepageFromCMS() {
       hero: transformedHero,
       stats: homepage.stats,
       cta: homepage.cta,
+      technicalSpecs: homepage.technicalSpecs,
+      imageShowcase: homepage.imageShowcase,
+      resources: homepage.resources,
     };
   } catch (error) {
     console.error('Error fetching homepage from MongoDB:', error);

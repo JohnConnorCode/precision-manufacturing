@@ -9,7 +9,7 @@ export default async function ContactPage() {
   // Fetch data from CMS
   const contactData = await getContactFromCMS();
 
-  return <ContactPageClient data={contactData} />;
+  return <ContactPageClient data={contactData as any} />;
 }
 
 // Generate metadata for SEO

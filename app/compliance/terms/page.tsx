@@ -9,7 +9,7 @@ export default async function TermsPage() {
   // Fetch data from CMS
   const termsData = await getTermsFromCMS();
 
-  return <TermsPageClient data={termsData} />;
+  return <TermsPageClient data={termsData as any} />;
 }
 
 // Generate metadata for SEO
