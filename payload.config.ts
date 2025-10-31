@@ -189,6 +189,7 @@ export default buildConfig({
       slug: 'services',
       admin: {
         useAsTitle: 'title',
+        defaultColumns: ['title', 'slug', 'shortDescription', 'order'],
         livePreview: {
           url: ({ data }) => {
             const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
@@ -377,6 +378,7 @@ export default buildConfig({
       slug: 'industries',
       admin: {
         useAsTitle: 'title',
+        defaultColumns: ['title', 'slug', 'shortDescription', 'order'],
         livePreview: {
           url: ({ data }) => {
             const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
@@ -572,6 +574,7 @@ export default buildConfig({
       slug: 'resources',
       admin: {
         useAsTitle: 'title',
+        defaultColumns: ['title', 'slug', 'category', 'difficulty', 'publishDate'],
       },
       versions: {
         drafts: {
