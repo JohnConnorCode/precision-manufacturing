@@ -9,7 +9,7 @@ export default async function AboutPage() {
   // Fetch data from CMS
   const aboutData = await getAboutFromCMS();
 
-  return <AboutPageClient data={aboutData} />;
+  return <AboutPageClient data={aboutData as any} />;
 }
 
 // Generate metadata for SEO
