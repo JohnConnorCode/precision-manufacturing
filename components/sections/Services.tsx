@@ -160,12 +160,16 @@ export default function Services({ data }: ServicesProps) {
                       </p>
 
                       <ul className="space-y-2 mb-5">
-                        {service.specs.map((spec: any) => (
-                          <li key={spec.spec} className="flex items-start text-xs text-slate-600">
-                            <CheckCircle className="h-3 w-3 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                            <span>{spec.spec}</span>
-                          </li>
-                        ))}
+                        {service.specs.map((spec: any, index: number) => {
+                          // Handle both string and object formats
+                          const specText = typeof spec === 'string' ? spec : spec.spec;
+                          return (
+                            <li key={index} className="flex items-start text-xs text-slate-600">
+                              <CheckCircle className="h-3 w-3 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+                              <span>{specText}</span>
+                            </li>
+                          );
+                        })}
                       </ul>
 
                       <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:text-indigo-600 transition-colors duration-300">

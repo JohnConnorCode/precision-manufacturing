@@ -114,14 +114,18 @@ export default function Industries({ data }: IndustriesProps) {
 
                         {/* Feature badges on image */}
                         <div className="flex flex-wrap gap-2">
-                          {industry.features?.map((feature: any) => (
-                            <span
-                              key={feature.feature}
-                              className="text-[10px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded uppercase tracking-wider"
-                            >
-                              {feature.feature}
-                            </span>
-                          )) || null}
+                          {industry.features?.map((feature: any, index: number) => {
+                            // Handle both string and object formats
+                            const featureText = typeof feature === 'string' ? feature : feature.feature;
+                            return (
+                              <span
+                                key={index}
+                                className="text-[10px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded uppercase tracking-wider"
+                              >
+                                {featureText}
+                              </span>
+                            );
+                          }) || null}
                         </div>
                       </div>
                     </div>
