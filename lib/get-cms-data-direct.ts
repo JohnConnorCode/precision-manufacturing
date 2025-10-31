@@ -270,3 +270,113 @@ export async function getFooterFromCMS() {
     return null;
   }
 }
+
+// Add missing functions for other pages
+export async function getAboutFromCMS() {
+  try {
+    const db = await getDatabase();
+    const about = await db.collection('globals').findOne({ globalType: 'about' });
+
+    console.log('[Direct DB] ✓ Fetched about data from MongoDB');
+    return about;
+  } catch (error) {
+    console.error('Error fetching about from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getCareersFromCMS() {
+  try {
+    const db = await getDatabase();
+    const careers = await db.collection('globals').findOne({ globalType: 'careers' });
+
+    console.log('[Direct DB] ✓ Fetched careers data from MongoDB');
+    return careers;
+  } catch (error) {
+    console.error('Error fetching careers from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getContactFromCMS() {
+  try {
+    const db = await getDatabase();
+    const contact = await db.collection('globals').findOne({ globalType: 'contact' });
+
+    console.log('[Direct DB] ✓ Fetched contact data from MongoDB');
+    return contact;
+  } catch (error) {
+    console.error('Error fetching contact from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getTermsFromCMS() {
+  try {
+    const db = await getDatabase();
+    const terms = await db.collection('globals').findOne({ globalType: 'terms' });
+
+    console.log('[Direct DB] ✓ Fetched terms data from MongoDB');
+    return terms;
+  } catch (error) {
+    console.error('Error fetching terms from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getSupplierRequirementsFromCMS() {
+  try {
+    const db = await getDatabase();
+    const supplierReqs = await db.collection('globals').findOne({ globalType: 'supplier-requirements' });
+
+    console.log('[Direct DB] ✓ Fetched supplier requirements from MongoDB');
+    return supplierReqs;
+  } catch (error) {
+    console.error('Error fetching supplier requirements from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getResourceBySlugFromCMS(slug: string) {
+  try {
+    const db = await getDatabase();
+    const resource = await db.collection('resources').findOne({ slug });
+
+    if (!resource) {
+      console.log(`[Direct DB] ⚠️  Resource not found: ${slug}`);
+      return null;
+    }
+
+    console.log(`[Direct DB] ✓ Fetched resource: ${resource.title}`);
+    return resource;
+  } catch (error) {
+    console.error(`Error fetching resource ${slug} from MongoDB:`, error);
+    return null;
+  }
+}
+
+export async function getResourcesByCategoryFromCMS(category: string) {
+  try {
+    const db = await getDatabase();
+    const resources = await db.collection('resources').find({ category }).toArray();
+
+    console.log(`[Direct DB] ✓ Fetched ${resources.length} resources for category: ${category}`);
+    return resources;
+  } catch (error) {
+    console.error(`Error fetching resources for category ${category}:`, error);
+    return [];
+  }
+}
+
+export async function getAllResourcesFromCMS() {
+  try {
+    const db = await getDatabase();
+    const resources = await db.collection('resources').find({}).toArray();
+
+    console.log('[Direct DB] ✓ Fetched all resources from MongoDB');
+    return resources;
+  } catch (error) {
+    console.error('Error fetching all resources from MongoDB:', error);
+    return [];
+  }
+}
