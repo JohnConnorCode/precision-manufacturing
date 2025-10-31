@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Clock, ArrowLeft, Calendar, Tag } from 'lucide-react';
 import { getResourceBySlugFromCMS } from '@/lib/get-cms-data-direct';
 import { SlateRenderer } from '@/components/slate-renderer';
+import { draftMode } from 'next/headers';
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600;
@@ -10,7 +11,8 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { category, slug } = await params;
-  const resource = await getResourceBySlugFromCMS(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const resource = await getResourceBySlugFromCMS(slug, isDraft);
 
   if (!resource) {
     return {
@@ -31,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
 export default async function ResourcePage({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { category, slug } = await params;
-  const resource = await getResourceBySlugFromCMS(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const resource = await getResourceBySlugFromCMS(slug, isDraft);
 
   if (!resource) {
     notFound();

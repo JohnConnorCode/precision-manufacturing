@@ -15,15 +15,19 @@ import {
   generateFAQSchema
 } from '@/lib/structured-data';
 import { getServicesFromCMS, getIndustriesFromCMS, getHomepageFromCMS } from '@/lib/get-cms-data-direct';
+import { draftMode } from 'next/headers';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  // Fetch data from CMS
-  const servicesData = await getServicesFromCMS();
-  const industriesData = await getIndustriesFromCMS();
+  // Check if in draft mode for previewing unpublished content
+  const { isEnabled: isDraft } = await draftMode();
+
+  // Fetch data from CMS (with draft support)
+  const servicesData = await getServicesFromCMS(isDraft);
+  const industriesData = await getIndustriesFromCMS(isDraft);
   const homepageData = await getHomepageFromCMS();
 
   // Organization data for structured markup

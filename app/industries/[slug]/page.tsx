@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';
 import { theme } from '@/lib/theme';
 import Link from 'next/link';
+import { draftMode } from 'next/headers';
 
 interface IndustryPageProps {
   params: Promise<{
@@ -17,7 +18,8 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: IndustryPageProps) {
   const { slug } = await params;
-  const industryData = await getIndustryBySlugFromCMS(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const industryData = await getIndustryBySlugFromCMS(slug, isDraft);
 
   if (!industryData) {
     return {
@@ -40,7 +42,8 @@ export async function generateMetadata({ params }: IndustryPageProps) {
 
 export default async function IndustryPage({ params }: IndustryPageProps) {
   const { slug } = await params;
-  const industryData = await getIndustryBySlugFromCMS(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const industryData = await getIndustryBySlugFromCMS(slug, isDraft);
 
   if (!industryData) {
     return (

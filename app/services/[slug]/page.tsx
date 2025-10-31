@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/theme';
 import { theme } from '@/lib/theme';
 import Link from 'next/link';
+import { draftMode } from 'next/headers';
 
 interface ServicePageProps {
   params: Promise<{
@@ -17,7 +18,8 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: ServicePageProps) {
   const { slug } = await params;
-  const serviceData = await getServiceBySlugFromCMS(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const serviceData = await getServiceBySlugFromCMS(slug, isDraft);
 
   if (!serviceData) {
     return {
@@ -40,7 +42,8 @@ export async function generateMetadata({ params }: ServicePageProps) {
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const serviceData = await getServiceBySlugFromCMS(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const serviceData = await getServiceBySlugFromCMS(slug, isDraft);
 
   if (!serviceData) {
     return (

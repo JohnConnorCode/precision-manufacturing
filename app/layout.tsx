@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // Removed next/font/google to avoid network fetch during offline builds
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
+import { AdminToolbar } from "@/components/admin-toolbar";
 
 // Use Tailwind's font-sans stack without next/font
 
@@ -215,6 +216,7 @@ export default async function RootLayout({
         <SiteChrome>
           {children}
         </SiteChrome>
+        <AdminToolbar />
       </body>
     </html>
   );
