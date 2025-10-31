@@ -43,6 +43,7 @@
     "@types/mdx": "^2.0.13",
     "@types/nodemailer": "^7.0.2",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@hookform/resolvers": "^3.9.1",
     "@vercel/blob": "^2.0.0",
     "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
