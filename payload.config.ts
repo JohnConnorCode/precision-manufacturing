@@ -765,7 +765,7 @@ export default buildConfig({
             {
               name: 'badges',
               type: 'array',
-              fields: [{ name: 'text', type: 'text' }],
+              fields: [{ name: 'badge', type: 'text' }],
             },
           ],
         },
