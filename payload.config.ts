@@ -4,6 +4,15 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { flexibleImageField } from './fields/flexibleImage'
+import { seoField } from './fields/seo'
+import {
+  contentCollectionAccess,
+  userCollectionAccess,
+  mediaCollectionAccess,
+  globalAccess,
+  roleFieldAccess,
+} from './lib/access-control'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -69,14 +78,48 @@ export default buildConfig({
     {
       slug: 'users',
       auth: true,
-      access: {
-        read: () => true,
+      admin: {
+        useAsTitle: 'email',
+        defaultColumns: ['name', 'email', 'role'],
       },
+      access: userCollectionAccess,
       fields: [
         {
           name: 'name',
           type: 'text',
           required: true,
+          admin: {
+            description: 'Full name of the user',
+          },
+        },
+        {
+          name: 'role',
+          type: 'select',
+          required: true,
+          defaultValue: 'editor',
+          options: [
+            {
+              label: 'Admin',
+              value: 'admin',
+            },
+            {
+              label: 'Editor',
+              value: 'editor',
+            },
+            {
+              label: 'Viewer',
+              value: 'viewer',
+            },
+          ],
+          access: {
+            // Only admins can change roles
+            create: roleFieldAccess,
+            update: roleFieldAccess,
+          },
+          admin: {
+            position: 'sidebar',
+            description: 'Admin: Full access | Editor: Create/edit content | Viewer: Read-only',
+          },
         },
       ],
     },
@@ -134,9 +177,7 @@ export default buildConfig({
           },
         },
       ],
-      access: {
-        read: () => true,
-      },
+      access: mediaCollectionAccess,
     },
     {
       slug: 'services',
@@ -148,6 +189,14 @@ export default buildConfig({
             return `${baseURL}/services/${data?.slug || ''}`;
           },
         },
+      },
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
       },
       fields: [
         {
@@ -177,7 +226,10 @@ export default buildConfig({
           name: 'hero',
           type: 'group',
           fields: [
-            { name: 'backgroundImage', type: 'text' },
+            ...flexibleImageField('backgroundImage', {
+              label: 'Background Image',
+              description: 'Upload an image or provide a URL for the hero background',
+            }),
             { name: 'badge', type: 'text' },
             { name: 'subtitle', type: 'text' },
           ],
@@ -206,7 +258,10 @@ export default buildConfig({
             { name: 'title', type: 'text' },
             { name: 'description', type: 'textarea' },
             { name: 'iconName', type: 'text' },
-            { name: 'image', type: 'text' },
+            ...flexibleImageField('image', {
+              label: 'Service Image',
+              description: 'Upload an image or provide a URL for this service offering'
+            }),
             {
               name: 'bullets',
               type: 'array',
@@ -270,15 +325,7 @@ export default buildConfig({
             },
           ],
         },
-        {
-          name: 'seo',
-          type: 'group',
-          admin: { position: 'sidebar' },
-          fields: [
-            { name: 'metaTitle', type: 'text' },
-            { name: 'metaDescription', type: 'textarea' },
-          ],
-        },
+        seoField,
         {
           name: 'order',
           type: 'number',
@@ -286,10 +333,10 @@ export default buildConfig({
             position: 'sidebar',
           },
         },
-        {
-          name: 'image',
-          type: 'text',
-        },
+        ...flexibleImageField('image', {
+          label: 'Service Card Image',
+          description: 'Upload an image or provide a URL for the service card display'
+        }),
         {
           name: 'highlight',
           type: 'checkbox',
@@ -306,9 +353,7 @@ export default buildConfig({
           ],
         },
       ],
-      access: {
-        read: () => true,
-      },
+      access: contentCollectionAccess,
     },
     {
       slug: 'industries',
@@ -320,6 +365,14 @@ export default buildConfig({
             return `${baseURL}/industries/${data?.slug || ''}`;
           },
         },
+      },
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
       },
       fields: [
         {
@@ -348,7 +401,10 @@ export default buildConfig({
           name: 'hero',
           type: 'group',
           fields: [
-            { name: 'backgroundImage', type: 'text' },
+            ...flexibleImageField('backgroundImage', {
+              label: 'Hero Background Image',
+              description: 'Upload an image or provide a URL for the industry hero background'
+            }),
             { name: 'badge', type: 'text' },
             { name: 'subtitle', type: 'text' },
           ],
@@ -411,7 +467,10 @@ export default buildConfig({
           fields: [
             { name: 'category', type: 'text' },
             { name: 'description', type: 'textarea' },
-            { name: 'image', type: 'text' },
+            ...flexibleImageField('image', {
+              label: 'Component Image',
+              description: 'Upload an image or provide a URL for this component category'
+            }),
             {
               name: 'parts',
               type: 'array',
@@ -454,15 +513,7 @@ export default buildConfig({
             },
           ],
         },
-        {
-          name: 'seo',
-          type: 'group',
-          admin: { position: 'sidebar' },
-          fields: [
-            { name: 'metaTitle', type: 'text' },
-            { name: 'metaDescription', type: 'textarea' },
-          ],
-        },
+        seoField,
         {
           name: 'order',
           type: 'number',
@@ -470,10 +521,10 @@ export default buildConfig({
             position: 'sidebar',
           },
         },
-        {
-          name: 'image',
-          type: 'text',
-        },
+        ...flexibleImageField('image', {
+          label: 'Industry Card Image',
+          description: 'Upload an image or provide a URL for the industry card display'
+        }),
         {
           name: 'features',
           type: 'array',
@@ -485,14 +536,20 @@ export default buildConfig({
           ],
         },
       ],
-      access: {
-        read: () => true,
-      },
+      access: contentCollectionAccess,
     },
     {
       slug: 'resources',
       admin: {
         useAsTitle: 'title',
+      },
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
       },
       fields: [
         {
@@ -555,10 +612,9 @@ export default buildConfig({
             },
           ],
         },
+        seoField,
       ],
-      access: {
-        read: () => true,
-      },
+      access: contentCollectionAccess,
     },
   ],
   globals: [
@@ -613,6 +669,14 @@ export default buildConfig({
           },
         },
       },
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
+      },
       fields: [
         {
           name: 'hero',
@@ -648,7 +712,10 @@ export default buildConfig({
           name: 'imageShowcase',
           type: 'array',
           fields: [
-            { name: 'image', type: 'text' },
+            ...flexibleImageField('image', {
+              label: 'Showcase Image',
+              description: 'Upload an image or provide a URL for the image showcase'
+            }),
             { name: 'alt', type: 'text' },
           ],
         },
@@ -673,10 +740,9 @@ export default buildConfig({
             { name: 'secondaryHref', type: 'text' },
           ],
         },
+        seoField,
       ],
-      access: {
-        read: () => true,
-      },
+      access: globalAccess,
     },
     {
       slug: 'footer',
@@ -746,12 +812,23 @@ export default buildConfig({
           },
         },
       },
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
+      },
       fields: [
         {
           name: 'hero',
           type: 'group',
           fields: [
-            { name: 'backgroundImage', type: 'text' },
+            ...flexibleImageField('backgroundImage', {
+              label: 'Hero Background Image',
+              description: 'Upload an image or provide a URL for the about page hero background'
+            }),
             { name: 'imageAlt', type: 'text' },
             { name: 'badge', type: 'text' },
             { name: 'badgeIconName', type: 'text' },
@@ -786,7 +863,10 @@ export default buildConfig({
             { name: 'paragraph1', type: 'textarea' },
             { name: 'paragraph2', type: 'textarea' },
             { name: 'paragraph3', type: 'textarea' },
-            { name: 'image', type: 'text' },
+            ...flexibleImageField('image', {
+              label: 'Story Image',
+              description: 'Upload an image or provide a URL for the company story section'
+            }),
             { name: 'imageAlt', type: 'text' },
           ],
         },
@@ -859,16 +939,28 @@ export default buildConfig({
             { name: 'secondaryHref', type: 'text' },
           ],
         },
+        seoField,
       ],
     },
     {
       slug: 'contact',
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
+      },
       fields: [
         {
           name: 'hero',
           type: 'group',
           fields: [
-            { name: 'backgroundImage', type: 'text' },
+            ...flexibleImageField('backgroundImage', {
+              label: 'Hero Background Image',
+              description: 'Upload an image or provide a URL for the contact page hero background'
+            }),
             { name: 'imageAlt', type: 'text' },
             { name: 'badge', type: 'text' },
             { name: 'badgeIconName', type: 'text' },
@@ -905,13 +997,25 @@ export default buildConfig({
             { name: 'animated', type: 'checkbox', defaultValue: false },
           ],
         },
+        seoField,
       ],
     },
     {
       slug: 'careers',
+      versions: {
+        drafts: {
+          autosave: {
+            interval: 30000, // Auto-save every 30 seconds
+          },
+        },
+        maxPerDoc: 10,
+      },
       fields: [
         { name: 'hero', type: 'group', fields: [
-          { name: 'backgroundImage', type: 'text' },
+          ...flexibleImageField('backgroundImage', {
+            label: 'Hero Background Image',
+            description: 'Upload an image or provide a URL for the careers page hero background'
+          }),
           { name: 'badge', type: 'text' },
           { name: 'title', type: 'text' },
           { name: 'description', type: 'textarea' },
@@ -940,6 +1044,7 @@ export default buildConfig({
           { name: 'primaryText', type: 'text' },
           { name: 'primaryHref', type: 'text' },
         ]},
+        seoField,
       ],
     },
     {
@@ -957,6 +1062,7 @@ export default buildConfig({
           { name: 'email', type: 'text' },
           { name: 'phone', type: 'text' },
         ]},
+        seoField,
       ],
     },
     {
@@ -979,6 +1085,7 @@ export default buildConfig({
           { name: 'content', type: 'textarea' },
         ]},
         { name: 'footerNote', type: 'text' },
+        seoField,
       ],
     },
     {
@@ -1028,7 +1135,10 @@ export default buildConfig({
             description: 'Hero section content',
           },
           fields: [
-            { name: 'backgroundImage', type: 'text' },
+            ...flexibleImageField('backgroundImage', {
+              label: 'Hero Background Image',
+              description: 'Upload an image or provide a URL for the page hero background'
+            }),
             { name: 'badge', type: 'text' },
             { name: 'title', type: 'text' },
             { name: 'subtitle', type: 'text' },
@@ -1059,6 +1169,7 @@ export default buildConfig({
             { name: 'content', type: 'richText', editor: lexicalEditor({}) },
           ],
         },
+        seoField,
       ],
     },
   ],
