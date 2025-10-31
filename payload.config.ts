@@ -1,6 +1,7 @@
 import { buildConfig } from 'payload'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -102,19 +103,35 @@ export default buildConfig({
             height: undefined,
             position: 'centre',
           },
+          {
+            name: 'hero',
+            width: 1920,
+            height: 1080,
+            position: 'centre',
+          },
         ],
         adminThumbnail: 'thumbnail',
         mimeTypes: ['image/*'],
+        disableLocalStorage: true, // Use Vercel Blob instead
+      },
+      admin: {
+        description: 'Upload and manage images for use throughout the site. Images are stored in Vercel Blob for persistence.',
       },
       fields: [
         {
           name: 'alt',
           type: 'text',
           required: true,
+          admin: {
+            description: 'Alternative text for accessibility and SEO (e.g., "CNC machine processing aerospace component")',
+          },
         },
         {
           name: 'caption',
           type: 'text',
+          admin: {
+            description: 'Optional caption or credit for the image',
+          },
         },
       ],
       access: {
@@ -152,7 +169,8 @@ export default buildConfig({
         },
         {
           name: 'description',
-          type: 'textarea',
+          type: 'richText',
+          editor: lexicalEditor({}),
         },
         // Detailed page content structure
         {
@@ -323,7 +341,8 @@ export default buildConfig({
         },
         {
           name: 'description',
-          type: 'textarea',
+          type: 'richText',
+          editor: lexicalEditor({}),
         },
         {
           name: 'hero',
