@@ -811,11 +811,7 @@ export default buildConfig({
           type: 'group',
           fields: [
             { name: 'title', type: 'text' },
-            { name: 'description', type: 'textarea' },
-            { name: 'primaryText', type: 'text' },
-            { name: 'primaryHref', type: 'text' },
-            { name: 'secondaryText', type: 'text' },
-            { name: 'secondaryHref', type: 'text' },
+            { name: 'subtitle', type: 'textarea' },
           ],
         },
         seoField,
@@ -1025,10 +1021,15 @@ export default buildConfig({
           fields: [
             { name: 'title', type: 'text' },
             { name: 'description', type: 'textarea' },
-            { name: 'primaryText', type: 'text' },
-            { name: 'primaryHref', type: 'text' },
-            { name: 'secondaryText', type: 'text' },
-            { name: 'secondaryHref', type: 'text' },
+            {
+              name: 'buttons',
+              type: 'array',
+              fields: [
+                { name: 'label', type: 'text' },
+                { name: 'href', type: 'text' },
+                { name: 'variant', type: 'text' },
+              ],
+            },
           ],
         },
         seoField,
