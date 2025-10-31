@@ -68,11 +68,11 @@ export default function Industries({ data }: IndustriesProps) {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> LEADERS</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">
+          <p className="text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-medium mb-4">
             Three decades of trusted partnerships in mission-critical sectors
           </p>
 
-          <p className="text-base text-slate-500 max-w-2xl mx-auto">
+          <p className="text-base text-slate-800 max-w-2xl mx-auto">
             Our certifications and clearances enable us to serve the most demanding industries
             where component failure can mean mission failure
           </p>
@@ -131,7 +131,7 @@ export default function Industries({ data }: IndustriesProps) {
                     </div>
 
                     <div className="p-6 bg-white">
-                      <p className="text-sm text-slate-600 leading-relaxed">
+                      <p className="text-sm text-slate-800 leading-relaxed">
                         {industry.description}
                       </p>
                     </div>

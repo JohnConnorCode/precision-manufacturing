@@ -56,9 +56,17 @@ export async function getServicesFromCMS(draft = false) {
   try {
     const db = await getDatabase();
     const filter = draft ? {} : { _status: { $in: ['published', null] } };
-    const services = await db.collection('services').find(filter).toArray();
+    const services = await db.collection('services').find(filter).sort({ order: 1 }).toArray();
 
     console.log('[Direct DB] ✓ Fetched', services.length, 'services from MongoDB');
+
+    // Hardcoded fallback images
+    const fallbackImages: Record<string, string> = {
+      '5-axis-machining': 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=90',
+      'adaptive-machining': 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=90',
+      'metrology': 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=90',
+      'engineering': 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=90',
+    };
 
     return services.map((service: any) => ({
       title: service.title,
@@ -66,8 +74,8 @@ export async function getServicesFromCMS(draft = false) {
       iconName: iconNameMap[service.slug] || 'Cog',
       href: `/services/${service.slug}`,
       specs: service.specs || [],
-      image: service.image,
-      highlight: service.highlight || false,
+      image: fallbackImages[service.slug] || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=90',
+      highlight: service.slug === '5-axis-machining',
     }));
   } catch (error) {
     console.error('Error fetching services from MongoDB:', error);
@@ -79,8 +87,8 @@ export async function getServicesFromCMS(draft = false) {
         iconName: "Cog",
         href: "/services/5-axis-machining",
         specs: [],
-        image: null,
-        highlight: false
+        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=90',
+        highlight: true
       },
       {
         title: "Adaptive Machining",
@@ -88,7 +96,7 @@ export async function getServicesFromCMS(draft = false) {
         iconName: "Cpu",
         href: "/services/adaptive-machining",
         specs: [],
-        image: null,
+        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=90',
         highlight: false
       },
       {
@@ -97,7 +105,7 @@ export async function getServicesFromCMS(draft = false) {
         iconName: "Gauge",
         href: "/services/metrology",
         specs: [],
-        image: null,
+        image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=90',
         highlight: false
       },
       {
@@ -106,7 +114,7 @@ export async function getServicesFromCMS(draft = false) {
         iconName: "Users",
         href: "/services/engineering",
         specs: [],
-        image: null,
+        image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=90',
         highlight: false
       }
     ];
@@ -117,16 +125,23 @@ export async function getIndustriesFromCMS(draft = false) {
   try {
     const db = await getDatabase();
     const filter = draft ? {} : { _status: { $in: ['published', null] } };
-    const industries = await db.collection('industries').find(filter).toArray();
+    const industries = await db.collection('industries').find(filter).sort({ order: 1 }).toArray();
 
     console.log('[Direct DB] ✓ Fetched', industries.length, 'industries from MongoDB');
+
+    // Hardcoded fallback images
+    const fallbackImages: Record<string, string> = {
+      'defense': 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
+      'energy': 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e',
+      'aerospace': 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1',
+    };
 
     return industries.map((industry: any) => ({
       title: industry.title,
       description: lexicalToText(industry.description),
       iconName: iconNameMap[industry.slug] || 'Factory',
       href: `/industries/${industry.slug}`,
-      image: industry.image,
+      image: fallbackImages[industry.slug] || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1',
       features: industry.features || [],
     }));
   } catch (error) {
@@ -138,21 +153,24 @@ export async function getIndustriesFromCMS(draft = false) {
         description: "AS9100 certified manufacturing for critical flight components",
         iconName: "Plane",
         href: "/industries/aerospace",
-        image: null
+        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1',
+        features: []
       },
       {
         title: "Defense",
         description: "ITAR registered facility for defense contracts",
         iconName: "Shield",
         href: "/industries/defense",
-        image: null
+        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
+        features: []
       },
       {
         title: "Energy",
         description: "Precision components for power generation",
         iconName: "Zap",
         href: "/industries/energy",
-        image: null
+        image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e',
+        features: []
       }
     ];
   }

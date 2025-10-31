@@ -76,7 +76,7 @@ export default function Services({ data }: ServicesProps) {
       <div className="container relative z-10">
         <AnimatedSection className="text-center mb-16 md:mb-20">
           {/* Section Context */}
-          <p className="text-sm font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">
+          <p className="text-sm font-bold text-slate-900 uppercase tracking-[0.2em] mb-2">
             COMPREHENSIVE MANUFACTURING SOLUTIONS
           </p>
 
@@ -85,11 +85,11 @@ export default function Services({ data }: ServicesProps) {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> SERVICES</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium mb-4">
+          <p className="text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-medium mb-4">
             Four core service pillars delivering unmatched precision and reliability
           </p>
 
-          <p className="text-base text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base text-slate-800 max-w-2xl mx-auto">
             From complex 5-axis machining to advanced metrology, our integrated services ensure
             your most critical components meet the strictest aerospace and defense standards
           </p>
@@ -155,7 +155,7 @@ export default function Services({ data }: ServicesProps) {
                       <h3 className="text-xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                      <p className="text-sm text-slate-800 mb-4 leading-relaxed">
                         {service.description}
                       </p>
 
@@ -164,7 +164,7 @@ export default function Services({ data }: ServicesProps) {
                           // Handle both string and object formats
                           const specText = typeof spec === 'string' ? spec : spec.spec;
                           return (
-                            <li key={index} className="flex items-start text-xs text-slate-600">
+                            <li key={index} className="flex items-start text-xs text-slate-800">
                               <CheckCircle className="h-3 w-3 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                               <span>{specText}</span>
                             </li>
