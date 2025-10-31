@@ -556,6 +556,9 @@ export default buildConfig({
           ],
         },
       ],
+      access: {
+        read: () => true,
+      },
     },
   ],
   globals: [
