@@ -5,6 +5,8 @@ import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
 // Important: use the generated JS import map to avoid RSC/TS resolution issues
 import { importMap } from '../importMap.js'
 
+export const dynamic = 'force-dynamic'
+
 type Args = {
   params: Promise<{
     segments: string[]
