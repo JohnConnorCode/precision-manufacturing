@@ -17,7 +17,7 @@
 }
 
 /* ============================================
-   FIX TEXT VISIBILITY
+   FIX TEXT VISIBILITY - MAKE TEXT TRULY BLACK
    ============================================ */
 input[type="text"],
 input[type="email"],
@@ -30,14 +30,16 @@ select,
 .lexical-editor,
 .editor-shell,
 [contenteditable="true"] {
-  color: var(--admin-gray-900) !important;
-  font-weight: 500 !important;
+  color: #000000 !important;
+  font-weight: 600 !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: var(--admin-brand-muted) !important;
-  opacity: 0.6 !important;
+  color: #9CA3AF !important;
+  opacity: 1 !important;
+  font-weight: 400 !important;
 }
 
 /* ============================================
@@ -186,11 +188,13 @@ select:focus {
 label,
 .field-label,
 [class*="label"] {
-  color: var(--admin-gray-700) !important;
-  font-weight: 600 !important;
+  color: #1F2937 !important;
+  font-weight: 700 !important;
   font-size: 13px !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 8px !important;
   display: block !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
 }
 
 /* ============================================

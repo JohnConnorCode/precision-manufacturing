@@ -125,6 +125,12 @@ export default buildConfig({
       slug: 'services',
       admin: {
         useAsTitle: 'title',
+        livePreview: {
+          url: ({ data }) => {
+            const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
+            return `${baseURL}/services/${data?.slug || ''}`;
+          },
+        },
       },
       fields: [
         {
@@ -291,6 +297,12 @@ export default buildConfig({
       slug: 'industries',
       admin: {
         useAsTitle: 'title',
+        livePreview: {
+          url: ({ data }) => {
+            const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
+            return `${baseURL}/industries/${data?.slug || ''}`;
+          },
+        },
       },
       fields: [
         {
@@ -573,6 +585,14 @@ export default buildConfig({
     },
     {
       slug: 'homepage',
+      admin: {
+        livePreview: {
+          url: () => {
+            const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
+            return baseURL;
+          },
+        },
+      },
       fields: [
         {
           name: 'hero',
@@ -698,6 +718,14 @@ export default buildConfig({
     },
     {
       slug: 'about',
+      admin: {
+        livePreview: {
+          url: () => {
+            const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
+            return `${baseURL}/about`;
+          },
+        },
+      },
       fields: [
         {
           name: 'hero',
