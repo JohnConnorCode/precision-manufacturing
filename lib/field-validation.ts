@@ -138,8 +138,10 @@ export const validateRange = (min: number, max: number) => {
 export const fieldDescriptions = {
   slug: 'URL-friendly identifier (lowercase letters, numbers, and hyphens only). Example: "precision-machining"',
   title: 'The main title/heading displayed on the page',
-  description: 'A brief description or summary',
+  description: 'Full description with rich text formatting',
   shortDescription: 'Short summary shown in card previews and listings',
+  excerpt: 'Brief excerpt or preview text for articles and resources',
+  content: 'Main content area with full rich text editing capabilities',
   email: 'Email address (e.g., contact@example.com)',
   phone: 'Phone number with country code (e.g., +1-555-123-4567)',
   url: 'Full URL including http:// or https://',
@@ -148,4 +150,7 @@ export const fieldDescriptions = {
   publishDate: 'Date this content should be published or was published',
   author: 'Name of the content author',
   readTime: 'Estimated reading time (e.g., "5 min read")',
+  category: 'Content category for organization and filtering',
+  difficulty: 'Technical difficulty level for this resource',
+  featured: 'Mark as featured to highlight on main pages',
 }

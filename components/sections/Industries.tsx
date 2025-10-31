@@ -114,12 +114,12 @@ export default function Industries({ data }: IndustriesProps) {
 
                         {/* Feature badges on image */}
                         <div className="flex flex-wrap gap-2">
-                          {industry.features?.map((feature: string) => (
+                          {industry.features?.map((feature: any) => (
                             <span
-                              key={feature}
+                              key={feature.feature}
                               className="text-[10px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm px-2 py-1 rounded uppercase tracking-wider"
                             >
-                              {feature}
+                              {feature.feature}
                             </span>
                           )) || null}
                         </div>

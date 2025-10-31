@@ -160,10 +160,10 @@ export default function Services({ data }: ServicesProps) {
                       </p>
 
                       <ul className="space-y-2 mb-5">
-                        {service.specs.map((spec: string) => (
-                          <li key={spec} className="flex items-start text-xs text-slate-600">
+                        {service.specs.map((spec: any) => (
+                          <li key={spec.spec} className="flex items-start text-xs text-slate-600">
                             <CheckCircle className="h-3 w-3 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                            <span>{spec}</span>
+                            <span>{spec.spec}</span>
                           </li>
                         ))}
                       </ul>

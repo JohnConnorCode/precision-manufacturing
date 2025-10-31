@@ -101,10 +101,10 @@ export function ArticleContent({ resource, category, categoryInfo, relatedResour
 
             <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
               <div className="flex flex-wrap gap-2">
-                {resource.tags.map((tag: string) => (
-                  <span key={tag} className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                {resource.tags.map((tag: any) => (
+                  <span key={tag.tag} className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm flex items-center gap-1">
                     <Tag className="w-3 h-3" />
-                    {tag}
+                    {tag.tag}
                   </span>
                 ))}
               </div>

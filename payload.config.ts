@@ -618,6 +618,9 @@ export default buildConfig({
           name: 'category',
           type: 'text',
           required: true,
+          admin: {
+            description: fieldDescriptions.category,
+          },
         },
         {
           name: 'difficulty',
@@ -627,23 +630,38 @@ export default buildConfig({
             { label: 'Intermediate', value: 'intermediate' },
             { label: 'Advanced', value: 'advanced' },
           ],
+          admin: {
+            description: fieldDescriptions.difficulty,
+          },
         },
         {
           name: 'readTime',
           type: 'text',
+          admin: {
+            description: fieldDescriptions.readTime,
+          },
         },
         {
           name: 'publishDate',
           type: 'date',
+          admin: {
+            description: fieldDescriptions.publishDate,
+          },
         },
         {
           name: 'author',
           type: 'text',
+          admin: {
+            description: fieldDescriptions.author,
+          },
         },
         {
           name: 'featured',
           type: 'checkbox',
           defaultValue: false,
+          admin: {
+            description: fieldDescriptions.featured,
+          },
         },
         {
           name: 'tags',
@@ -1147,8 +1165,22 @@ export default buildConfig({
           { name: 'content', type: 'richText', editor: lexicalEditor({}) },
         ]},
         { name: 'contact', type: 'group', fields: [
-          { name: 'email', type: 'text' },
-          { name: 'phone', type: 'text' },
+          {
+            name: 'email',
+            type: 'text',
+            validate: validateEmail,
+            admin: {
+              description: fieldDescriptions.email,
+            },
+          },
+          {
+            name: 'phone',
+            type: 'text',
+            validate: validatePhone,
+            admin: {
+              description: fieldDescriptions.phone,
+            },
+          },
         ]},
         seoField,
       ],
