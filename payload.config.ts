@@ -152,8 +152,7 @@ export default buildConfig({
         },
         {
           name: 'description',
-          type: 'richText',
-          editor: lexicalEditor({}),
+          type: 'textarea',
         },
         // Detailed page content structure
         {
@@ -324,8 +323,7 @@ export default buildConfig({
         },
         {
           name: 'description',
-          type: 'richText',
-          editor: lexicalEditor({}),
+          type: 'textarea',
         },
         {
           name: 'hero',
