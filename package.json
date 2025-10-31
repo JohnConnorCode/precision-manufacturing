@@ -54,7 +54,7 @@
     "mongodb": "^6.20.0",
     "mongoose": "^8.10.2",
     "next": "15.5.3",
-    "next-mdx-remote": "^5.1.0",
+    "next-mdx-remote": "^5.0.0",
     "nodemailer": "^7.0.0",
     "payload": "^3.59.1",
     "react": "^19.0.0",
