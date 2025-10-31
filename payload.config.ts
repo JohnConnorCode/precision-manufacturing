@@ -42,18 +42,6 @@ export default buildConfig({
         },
       ],
     },
-    components: {
-      graphics: {
-        Logo: {
-          path: '/components/admin/AdminLogo.tsx',
-          exportName: 'AdminLogo',
-        },
-        Icon: {
-          path: '/components/admin/AdminIcon.tsx',
-          exportName: 'AdminIcon',
-        },
-      },
-    },
     theme: 'light',
     css: path.resolve(dirname, 'admin-custom.css'),
     livePreview: {
