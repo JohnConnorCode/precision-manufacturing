@@ -1,4 +1,19 @@
-// Direct MongoDB access to bypass Payload API issues
+/**
+ * Direct MongoDB Access for Payload CMS Data
+ *
+ * Provides optimized data fetching with draft mode support.
+ *
+ * Draft Mode:
+ * - draft=false (default): Returns only published content (_status: 'published')
+ * - draft=true: Returns all content including drafts
+ *
+ * Usage with Next.js draftMode():
+ * ```ts
+ * import { draftMode } from 'next/headers'
+ * const { isEnabled } = await draftMode()
+ * const data = await getServicesFromCMS(isEnabled)
+ * ```
+ */
 import { MongoClient, Db } from 'mongodb';
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://John:TestPass123@precisionmanufacturing.m1waxew.mongodb.net/precision-manufacturing?appName=PrecisionManufacturing';
@@ -36,10 +51,11 @@ const iconNameMap: Record<string, string> = {
   'aerospace': 'Plane',
 };
 
-export async function getServicesFromCMS() {
+export async function getServicesFromCMS(draft = false) {
   try {
     const db = await getDatabase();
-    const services = await db.collection('services').find({}).toArray();
+    const filter = draft ? {} : { _status: { $in: ['published', null] } };
+    const services = await db.collection('services').find(filter).toArray();
 
     console.log('[Direct DB] ✓ Fetched', services.length, 'services from MongoDB');
 
@@ -96,10 +112,11 @@ export async function getServicesFromCMS() {
   }
 }
 
-export async function getIndustriesFromCMS() {
+export async function getIndustriesFromCMS(draft = false) {
   try {
     const db = await getDatabase();
-    const industries = await db.collection('industries').find({}).toArray();
+    const filter = draft ? {} : { _status: { $in: ['published', null] } };
+    const industries = await db.collection('industries').find(filter).toArray();
 
     console.log('[Direct DB] ✓ Fetched', industries.length, 'industries from MongoDB');
 
@@ -109,6 +126,7 @@ export async function getIndustriesFromCMS() {
       iconName: iconNameMap[industry.slug] || 'Factory',
       href: `/industries/${industry.slug}`,
       image: industry.image,
+      features: industry.features || [],
     }));
   } catch (error) {
     console.error('Error fetching industries from MongoDB:', error);
@@ -173,10 +191,11 @@ export async function getHomepageFromCMS() {
   }
 }
 
-export async function getServiceBySlugFromCMS(slug: string) {
+export async function getServiceBySlugFromCMS(slug: string, draft = false) {
   try {
     const db = await getDatabase();
-    const service = await db.collection('services').findOne({ slug });
+    const filter = draft ? { slug } : { slug, _status: { $in: ['published', null] } };
+    const service = await db.collection('services').findOne(filter);
 
     if (!service) {
       console.log(`[Direct DB] ⚠️  Service not found: ${slug}`);
@@ -203,10 +222,11 @@ export async function getServiceBySlugFromCMS(slug: string) {
   }
 }
 
-export async function getIndustryBySlugFromCMS(slug: string) {
+export async function getIndustryBySlugFromCMS(slug: string, draft = false) {
   try {
     const db = await getDatabase();
-    const industry = await db.collection('industries').findOne({ slug });
+    const filter = draft ? { slug } : { slug, _status: { $in: ['published', null] } };
+    const industry = await db.collection('industries').findOne(filter);
 
     if (!industry) {
       console.log(`[Direct DB] ⚠️  Industry not found: ${slug}`);
@@ -340,10 +360,11 @@ export async function getSupplierRequirementsFromCMS() {
   }
 }
 
-export async function getResourceBySlugFromCMS(slug: string) {
+export async function getResourceBySlugFromCMS(slug: string, draft = false) {
   try {
     const db = await getDatabase();
-    const resource = await db.collection('resources').findOne({ slug });
+    const filter = draft ? { slug } : { slug, _status: { $in: ['published', null] } };
+    const resource = await db.collection('resources').findOne(filter);
 
     if (!resource) {
       console.log(`[Direct DB] ⚠️  Resource not found: ${slug}`);
