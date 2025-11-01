@@ -9,6 +9,7 @@
     "lint": "next lint",
     "payload": "payload",
     "seed": "DOTENV_CONFIG_PATH=.env.local node -r dotenv/config node_modules/.bin/tsx seed-site-globals.ts",
+    "cleanup": "DOTENV_CONFIG_PATH=.env.local node -r dotenv/config node_modules/.bin/tsx cleanup-untitled-industry.ts",
     "test": "playwright test",
     "test:admin": "playwright test e2e/admin-full-workflow.spec.ts --reporter=list",
     "test:data": "playwright test e2e/admin-data-integrity.spec.ts --reporter=list",
