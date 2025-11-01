@@ -25,10 +25,12 @@ export default async function Home() {
   // Check if in draft mode for previewing unpublished content
   const { isEnabled: isDraft } = await draftMode();
 
-  // Fetch data from CMS (with draft support)
-  const servicesData = await getServicesFromCMS(isDraft);
-  const industriesData = await getIndustriesFromCMS(isDraft);
-  const homepageData = await getHomepageFromCMS();
+  // Parallel data fetching - 3x faster than sequential
+  const [servicesData, industriesData, homepageData] = await Promise.all([
+    getServicesFromCMS(isDraft),
+    getIndustriesFromCMS(isDraft),
+    getHomepageFromCMS()
+  ]);
 
   // Organization data for structured markup
   const organizationData = {

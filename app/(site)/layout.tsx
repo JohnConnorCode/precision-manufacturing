@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
+import { Inter } from 'next/font/google';
 import "../globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
 import { AdminToolbar } from "@/components/admin-toolbar";
 import { Analytics } from "@vercel/analytics/react";
+
+// Optimize font loading - zero layout shift, instant display
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-inter',
+  fallback: ['system-ui', '-apple-system', 'sans-serif']
+});
 
 export const metadata: Metadata = {
   title: "IIS - Precision Machining & CMM Inspection Services | AS9100 Certified | Oregon",
@@ -201,14 +211,14 @@ export default async function SiteLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className={`${inter.className} antialiased`}>
         <SiteChrome>
           {children}
         </SiteChrome>

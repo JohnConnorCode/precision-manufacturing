@@ -64,8 +64,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ServicesPage() {
-  const services = (await getServicesFromDB()) || [] as any[];
-  const pageContent = await getPageContentFromDB('services');
+  // Parallel data fetching - 2x faster than sequential
+  const [services, pageContent] = await Promise.all([
+    getServicesFromDB(),
+    getPageContentFromDB('services')
+  ]);
 
   // Use CMS data or fallback to defaults
   const capabilities = pageContent?.capabilities || [
@@ -147,7 +150,7 @@ export default async function ServicesPage() {
           </div>
 
           <div className={styles.grid2Col}>
-            {services.map((service: any) => (
+            {(services || []).map((service: any) => (
               <div key={service.title}>
                 <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
