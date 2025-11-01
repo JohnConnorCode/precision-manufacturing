@@ -25,21 +25,33 @@ input[type="password"],
 input[type="number"],
 input[type="url"],
 input[type="date"],
+input[type="search"],
 textarea,
 select,
 .lexical-editor,
 .editor-shell,
-[contenteditable="true"] {
+[contenteditable="true"],
+[class*="input"],
+[class*="textarea"],
+.payload-settings__input,
+.field__input {
   color: #000000 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Extra strong override for rich text */
+.lexical-editor * {
+  color: #000000 !important;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #9CA3AF !important;
+  color: #6B7280 !important;
   opacity: 1 !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 /* ============================================
@@ -108,51 +120,73 @@ button[type="submit"]:hover,
 }
 
 /* ============================================
-   FIX COLLAPSIBLE/TOGGLE OVERLAP
+   FIX COLLAPSIBLE/TOGGLE OVERLAP - ULTRA STRONG
    ============================================ */
 .collapsible__header,
 .array-field__header,
 .group-field__header,
-[class*="field-type__wrap"] > [class*="header"] {
-  display: flex !important;
+.blocks-field__header,
+[class*="field-type__wrap"] > [class*="header"],
+[class*="collapsible"] > [class*="header"],
+div[class*="header"]:has(button[class*="toggle"]) {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 24px !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  padding: 12px 16px !important;
+  padding: 14px 20px !important;
   background: var(--admin-gray-50) !important;
   border-radius: 8px !important;
-  margin-bottom: 12px !important;
-  min-height: 48px !important;
+  margin-bottom: 16px !important;
+  min-height: 56px !important;
 }
 
 .collapsible__header h3,
 .collapsible__header h4,
 .array-field__header h3,
-.group-field__header h3 {
-  flex: 1 !important;
+.group-field__header h3,
+.blocks-field__header h3,
+div[class*="header"] h3,
+div[class*="header"] h4,
+div[class*="header"] label {
+  grid-column: 1 !important;
+  flex: none !important;
   margin: 0 !important;
-  padding-right: 16px !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
   color: var(--admin-gray-900) !important;
+  max-width: calc(100% - 60px) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .collapsible__toggle,
 .array-field__toggle,
-[class*="toggle"],
-[class*="collapse"] {
+.blocks-field__toggle,
+button[class*="toggle"],
+button[class*="collapse"],
+div[class*="header"] > button {
+  grid-column: 2 !important;
   flex-shrink: 0 !important;
+  margin: 0 !important;
   margin-left: auto !important;
-  padding: 6px !important;
-  min-width: 32px !important;
-  z-index: 10 !important;
+  padding: 8px 12px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  z-index: 100 !important;
+  position: relative !important;
 }
 
-/* Ensure toggle buttons don't overlap with titles */
-.collapsible__header-wrap {
-  width: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
+/* Force toggle button to stay on the right */
+div[class*="header"]:has(button[class*="toggle"]) {
+  position: relative !important;
+}
+
+div[class*="header"] button[class*="toggle"] {
+  position: absolute !important;
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
 }
 
 /* ============================================
