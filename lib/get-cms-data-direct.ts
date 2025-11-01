@@ -179,7 +179,8 @@ export async function getIndustriesFromCMS(draft = false) {
 export async function getHomepageFromCMS() {
   try {
     const db = await getDatabase();
-    const homepage = await db.collection('globals').findOne({ globalType: 'homepage' });
+    // Payload 3.x stores each global in its own collection
+    const homepage = await db.collection('homepage').findOne({});
 
     if (!homepage) {
       console.log('[Direct DB] ⚠️  Homepage global not found');
