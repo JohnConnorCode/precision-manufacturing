@@ -116,7 +116,7 @@ const Footer = ({ data }: FooterProps) => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white border-t border-blue-600/10">
+    <footer key="site-footer" className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white border-t border-blue-600/10" suppressHydrationWarning>
       <div className="container py-12 md:py-16">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"

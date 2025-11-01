@@ -41,10 +41,10 @@ export default function SiteChrome({ children }: Props) {
   return (
     <AnalyticsProvider enablePerformanceMonitoring={true}>
       <Header data={navigationData} />
-      <main id="main-content" className="min-h-screen lg:pt-[120px] pt-20">
+      <main id="main-content" className="min-h-screen">
         {children}
       </main>
-      <Footer data={footerData} />
+      <Footer key="site-footer-unique" data={footerData} />
       <ScrollToTop />
     </AnalyticsProvider>
   )
