@@ -26,6 +26,16 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
+  csrf: [
+    process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
+    'https://precision-manufacturing.vercel.app',
+    'http://localhost:3000',
+  ].filter(Boolean),
+  cors: [
+    process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
+    'https://precision-manufacturing.vercel.app',
+    'http://localhost:3000',
+  ].filter(Boolean),
   admin: {
     user: 'users',
     importMap: {
@@ -95,7 +105,14 @@ export default buildConfig({
   collections: [
     {
       slug: 'users',
-      auth: true,
+      auth: {
+        tokenExpiration: 7200, // 2 hours
+        cookies: {
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'lax',
+          domain: undefined,
+        },
+      },
       admin: {
         useAsTitle: 'email',
         defaultColumns: ['name', 'email', 'role'],
@@ -208,14 +225,6 @@ export default buildConfig({
             return `${baseURL}/services/${data?.slug || ''}`;
           },
         },
-      },
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
       },
       fields: [
         {
@@ -397,14 +406,6 @@ export default buildConfig({
             return `${baseURL}/industries/${data?.slug || ''}`;
           },
         },
-      },
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
       },
       fields: [
         {
@@ -588,14 +589,6 @@ export default buildConfig({
         useAsTitle: 'title',
         defaultColumns: ['title', 'slug', 'category', 'difficulty', 'publishDate'],
       },
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
-      },
       fields: [
         {
           name: 'title',
@@ -759,14 +752,6 @@ export default buildConfig({
           },
         },
       },
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
-      },
       fields: [
         {
           name: 'hero',
@@ -912,14 +897,6 @@ export default buildConfig({
           },
         },
       },
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
-      },
       fields: [
         {
           name: 'hero',
@@ -1050,14 +1027,6 @@ export default buildConfig({
     },
     {
       slug: 'contact',
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
-      },
       fields: [
         {
           name: 'hero',
@@ -1123,14 +1092,6 @@ export default buildConfig({
     },
     {
       slug: 'careers',
-      versions: {
-        drafts: {
-          autosave: {
-            interval: 30000, // Auto-save every 30 seconds
-          },
-        },
-        maxPerDoc: 10,
-      },
       fields: [
         { name: 'hero', type: 'group', fields: [
           ...flexibleImageField('backgroundImage', {
