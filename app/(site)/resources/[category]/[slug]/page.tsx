@@ -7,7 +7,6 @@ import { draftMode } from 'next/headers';
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600;
-export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { category, slug } = await params;

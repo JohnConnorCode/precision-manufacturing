@@ -3,7 +3,6 @@ import { getCareersFromCMS } from '@/lib/get-cms-data-direct';
 
 // Force static generation with long revalidation
 export const revalidate = 3600;
-export const dynamic = 'force-dynamic';
 
 export default async function CareersPage() {
   // Fetch data from CMS

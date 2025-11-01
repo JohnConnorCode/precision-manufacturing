@@ -72,4 +72,3 @@ export async function generateMetadata() {
     classification: 'Quality Standards',
   };
 }
-export const dynamic = 'force-dynamic'
