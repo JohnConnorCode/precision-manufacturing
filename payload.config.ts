@@ -25,18 +25,17 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL ||
-            (process.env.VERCEL_PROJECT_PRODUCTION_URL
-              ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-              : 'http://localhost:3000'),
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ||
+             process.env.NEXT_PUBLIC_SERVER_URL ||
+             'http://localhost:3000',
   csrf: [
-    process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
-    'https://precision-manufacturing.vercel.app',
+    process.env.PAYLOAD_PUBLIC_SERVER_URL,
+    process.env.NEXT_PUBLIC_SERVER_URL,
     'http://localhost:3000',
   ].filter(Boolean),
   cors: [
-    process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
-    'https://precision-manufacturing.vercel.app',
+    process.env.PAYLOAD_PUBLIC_SERVER_URL,
+    process.env.NEXT_PUBLIC_SERVER_URL,
     'http://localhost:3000',
   ].filter(Boolean),
   admin: {
@@ -112,7 +111,7 @@ export default buildConfig({
         tokenExpiration: 7200, // 2 hours
         cookies: {
           secure: process.env.NODE_ENV === 'production',
-          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+          sameSite: 'lax',
           domain: undefined,
         },
       },
