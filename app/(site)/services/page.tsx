@@ -1,56 +1,88 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/ui/hero-section';
 import { theme, styles, cn } from '@/lib/theme';
-import { ArrowRight, Cog, Cpu, Target, Wrench, Shield, Award } from 'lucide-react';
+import { ArrowRight, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
+import { getServicesFromDB, getPageContentFromDB } from '@/lib/direct-cms-access';
+import type { Metadata } from 'next';
 
-export default function ServicesPage() {
-  const servicesData = null; // TODO: Fetch client-side or split components
-  const services = [
-    {
-      title: '5-Axis CNC Machining',
-      description: 'Complex geometries and tight tolerances with state-of-the-art 5-axis CNC capabilities.',
-      icon: Cog,
-      href: '/services/5-axis-machining',
-      features: ['±0.0001" Precision', 'Complex Geometries', 'Titanium & Inconel', 'Aerospace Grade'],
-      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=90'
-    },
-    {
-      title: 'Adaptive Machining',
-      description: 'Intelligent manufacturing with real-time adjustments and adaptive control systems.',
-      icon: Cpu,
-      href: '/services/adaptive-machining',
-      features: ['Real-time Monitoring', 'Intelligent Control', 'Quality Assurance', 'Process Optimization'],
-      image: 'https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=1600&q=90'
-    },
-    {
-      title: 'Precision Metrology',
-      description: 'Advanced measurement and inspection services ensuring component accuracy.',
-      icon: Target,
-      href: '/services/metrology',
-      features: ['CMM Inspection', 'Dimensional Analysis', 'First Article Inspection', 'Quality Verification'],
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=90'
-    },
-    {
-      title: 'Engineering Services',
-      description: 'Complete design, prototyping, and manufacturing engineering support.',
-      icon: Wrench,
-      href: '/services/engineering',
-      features: ['First Article Inspection', 'Process Planning', 'Manufacturing Support', 'Process Development'],
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=90'
-    }
-  ];
+// ISR with 60-second revalidation - fresh data with caching performance
+export const revalidate = 60;
 
-  const capabilities = [
+// Comprehensive SEO metadata with social sharing optimization
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = 'https://iismet.com';
+  const pageUrl = `${baseUrl}/services`;
+  const ogImage = `${baseUrl}/og-image-services.jpg`;
+
+  return {
+    title: 'Precision Manufacturing Services | 5-Axis CNC, Metrology, Engineering | IIS',
+    description: 'Advanced manufacturing services: 5-axis CNC machining, precision metrology, adaptive machining, engineering design. AS9100D certified, ±0.0001" tolerances, 150+ materials. ITAR registered for aerospace & defense.',
+    keywords: 'precision manufacturing, 5-axis CNC machining, metrology services, CMM inspection, adaptive machining, engineering services, AS9100D, ITAR, aerospace machining, defense manufacturing, tight tolerance machining',
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: pageUrl,
+      siteName: 'IIS Precision Manufacturing',
+      title: 'Advanced Precision Manufacturing Services - 5-Axis CNC, Metrology & Engineering',
+      description: '150+ certified materials, ±0.0001" tolerances, AS9100D certified. Full-service precision manufacturing for aerospace, defense, and energy sectors.',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'IIS Precision Manufacturing Services - CNC Machining and Metrology',
+          type: 'image/jpeg',
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@iisprecision',
+      creator: '@iisprecision',
+      title: 'Precision Manufacturing Services | IIS',
+      description: 'Advanced 5-axis CNC, metrology, adaptive machining, engineering. AS9100D certified, ±0.0001" tolerances.',
+      images: [ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
+
+export default async function ServicesPage() {
+  // Parallel data fetching - 2x faster than sequential
+  const [services, pageContent] = await Promise.all([
+    getServicesFromDB(),
+    getPageContentFromDB('services')
+  ]);
+
+  // Use CMS data or fallback to defaults
+  const capabilities = pageContent?.capabilities || [
     { label: 'Materials Certified', value: '150+', description: 'Aerospace & defense grade materials' },
     { label: 'Precision Tolerance', value: '±0.0001"', description: 'Guaranteed dimensional accuracy' },
     { label: 'Production Capacity', value: '24/7', description: 'Continuous manufacturing capability' },
     { label: 'Quality System', value: 'AS9100D', description: 'Full aerospace certification' }
+  ];
+
+  const qualityAssurance = pageContent?.qualityAssurance || [
+    { title: 'AS9100D aerospace quality management' },
+    { title: 'ISO 9001:2015 certified processes' },
+    { title: 'ITAR registered for defense contracts' },
+    { title: 'CMMC compliant for cybersecurity' }
   ];
 
   return (
@@ -59,8 +91,7 @@ export default function ServicesPage() {
         backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2400&q=90"
         imageAlt="Advanced manufacturing services - precision CNC machining and quality control"
         badge={{
-          text: "PRECISION MANUFACTURING SERVICES",
-          icon: Shield
+          text: "PRECISION MANUFACTURING SERVICES"
         }}
         title={
           <>
@@ -87,20 +118,10 @@ export default function ServicesPage() {
       {/* Capabilities Overview */}
       <section id="capabilities" className={styles.sectionLight}>
         <div className={theme.spacing.container}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className={cn(styles.grid4Col, "mb-20")}
-          >
-            {capabilities.map((capability, index) => (
-              <motion.div
+          <div className={cn(styles.grid4Col, "mb-20")}>
+            {capabilities.map((capability: any) => (
+              <div
                 key={capability.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
                 className="text-center"
               >
                 <div className={styles.statValue}>
@@ -112,49 +133,35 @@ export default function ServicesPage() {
                 <div className={theme.typography.small}>
                   {capability.description}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section id="services" className={theme.spacing.section}>
         <div className={theme.spacing.container}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Core Competencies</h2>
             <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
               Comprehensive precision manufacturing services backed by advanced technology and industry certifications.
             </p>
-          </motion.div>
+          </div>
 
           <div className={styles.grid2Col}>
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
+            {(services || []).map((service: any) => (
+              <div key={service.title}>
                 <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
                     <ParallaxImagePro
-                      src={service.image}
+                      src={service.image || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=90'}
                       alt={service.title}
                       className="w-full h-full group-hover:scale-105 transition-transform duration-500"
                       speed={0.2}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
+                    {/* Optional icon overlay can go here if provided by CMS */}
                   </div>
 
                   <div className="p-8">
@@ -165,14 +172,16 @@ export default function ServicesPage() {
                       {service.description}
                     </p>
 
-                    <div className="grid grid-cols-2 gap-2 mb-6">
-                      {service.features.map((feature) => (
-                        <div key={feature} className={cn("flex items-center", theme.typography.small)}>
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
+                    {Array.isArray(service.specs) && service.specs.length > 0 && (
+                      <div className="grid grid-cols-2 gap-2 mb-6">
+                        {service.specs.slice(0,4).map((spec: any, idx: number) => (
+                          <div key={idx} className={cn("flex items-center", theme.typography.small)}>
+                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
+                            {spec?.spec || spec?.label || spec}
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
                     <Button
                       asChild
@@ -186,7 +195,7 @@ export default function ServicesPage() {
                     </Button>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -196,53 +205,33 @@ export default function ServicesPage() {
       <section className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <div>
               <h2 className={cn(theme.typography.h2, "mb-6")}>Quality Assurance</h2>
               <p className={cn(theme.typography.lead, "mb-8")}>
                 Our comprehensive quality management system ensures every component meets or exceeds specifications with full traceability and documentation.
               </p>
 
               <div className="space-y-4">
-                {[
-                  'AS9100D aerospace quality management',
-                  'ISO 9001:2015 certified processes',
-                  'ITAR registered for defense contracts',
-                  'CMMC compliant for cybersecurity'
-                ].map((item, index) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    viewport={{ once: true }}
+                {qualityAssurance.map((item: any) => (
+                  <div
+                    key={item.title}
                     className="flex items-center"
                   >
                     <Award className="w-5 h-5 text-slate-600 mr-3" />
-                    <span className={theme.typography.body}>{item}</span>
-                  </motion.div>
+                    <span className={theme.typography.body}>{item.title}</span>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
+            <div className="relative">
               <ParallaxImagePro
                 src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=90"
                 alt="Quality assurance"
                 className="w-full h-96 rounded-lg"
                 speed={0.2}
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -250,13 +239,7 @@ export default function ServicesPage() {
       {/* Call to Action */}
       <section className={theme.spacing.section}>
         <div className={theme.spacing.container}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
+          <div className="text-center max-w-4xl mx-auto">
             <h2 className={cn(theme.typography.h2, "mb-6")}>Ready to Start Your Project?</h2>
             <p className={cn(theme.typography.lead, "mb-8")}>
               Partner with us for precision manufacturing solutions that meet the highest industry standards.
@@ -270,10 +253,9 @@ export default function ServicesPage() {
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
   );
 }
-
