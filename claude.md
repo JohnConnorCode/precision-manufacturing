@@ -1,5 +1,52 @@
 # Claude Code Guidelines for This Project
 
+## CRITICAL: NO SHORTCUTS - BEST PRACTICES ALWAYS
+
+**ABSOLUTE RULES - NO EXCEPTIONS:**
+
+### 1. Payload CMS Data Management
+- **NEVER write directly to MongoDB** - ALWAYS use Payload's Local API
+- **NEVER bypass Payload's validation, hooks, or access control**
+- Direct database writes cause data inconsistencies and break admin panel
+
+❌ **WRONG:**
+```javascript
+// Direct MongoDB write - breaks Payload
+await db.collection('globals').updateOne(...)
+await db.collection('team-members').insertMany(...)
+```
+
+✅ **CORRECT:**
+```javascript
+// Use Payload Local API
+import { getPayloadHMR } from '@payloadcms/next/utilities'
+const payload = await getPayloadHMR({ config })
+await payload.updateGlobal({ slug: 'site-settings', data: {...} })
+await payload.create({ collection: 'team-members', data: {...} })
+```
+
+### 2. TypeScript & Type Safety
+- **NEVER use `any` types** - always define proper interfaces
+- **NEVER skip type checking** - run `npx tsc --noEmit` before commits
+- Type errors are bugs waiting to happen
+
+### 3. Environment Variables
+- **NEVER hardcode credentials** - always use env variables
+- **NEVER commit .env files** - use .env.example for reference
+- **ALWAYS validate env vars** at startup
+
+### 4. Error Handling
+- **NEVER swallow errors silently** - always log and handle
+- **NEVER assume operations succeed** - check responses
+- **ALWAYS provide meaningful error messages**
+
+### 5. Testing
+- **NEVER skip tests** - write tests for all features
+- **NEVER commit broken code** - verify build passes
+- **ALWAYS test actual functionality**, not just HTTP status codes
+
+**This is a simple app. Everything must work correctly. No shortcuts. Ever.**
+
 ## CRITICAL: Testing Requirements - NEVER Test Status Codes Alone
 
 **NEVER test by only checking HTTP status codes.** A 200 status does NOT mean the page works.

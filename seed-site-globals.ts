@@ -1,14 +1,15 @@
-import { getPayload } from 'payload';
-import config from './payload.config.js';
+import { getPayloadHMR } from '@payloadcms/next/utilities'
+import configPromise from './payload.config'
 
 async function seed() {
-  console.log('🌱 Starting seed script for site globals and collections...');
-
-  const payload = await getPayload({ config });
+  console.log('🌱 Starting seed script for site globals and collections...')
 
   try {
+    const payload = await getPayloadHMR({ config: configPromise })
+    console.log('✅ Connected to Payload')
+
     // 1. Seed site-settings global
-    console.log('📝 Seeding site-settings global...');
+    console.log('📝 Seeding site-settings global...')
     await payload.updateGlobal({
       slug: 'site-settings',
       data: {
@@ -16,7 +17,8 @@ async function seed() {
           name: 'IIS - Integrated Inspection Systems',
           legalName: 'Integrated Inspection Systems, Inc.',
           tagline: 'Engineering, Metrology, Machining & Database Services',
-          description: 'Founded in 1995, IIS has grown from a basement startup to an industry-leading provider of precision manufacturing, metrology, and engineering services. We specialize in data-driven manufacturing with our proprietary MetBase® software that creates closed-loop systems linking CMM inspection data to CNC machining.',
+          description:
+            'Founded in 1995, IIS has grown from a basement startup to an industry-leading provider of precision manufacturing, metrology, and engineering services. We specialize in data-driven manufacturing with our proprietary MetBase® software that creates closed-loop systems linking CMM inspection data to CNC machining.',
           foundingYear: '1995',
         },
         contact: {
@@ -36,17 +38,19 @@ async function seed() {
         },
         seo: {
           defaultTitle: 'IIS - Integrated Inspection Systems | Precision Manufacturing & Metrology',
-          defaultDescription: 'AS9100 & ISO 9001 certified precision machining, CMM inspection, and first article inspection services. Proprietary MetBase® software for closed-loop data integration. ITAR registered. Serving aerospace, defense & manufacturing since 1995.',
-          defaultKeywords: 'CMM inspection services, AS9100 certified, ISO 9001, ITAR registered, first article inspection, precision machining Oregon, dimensional inspection, coordinate measuring, MetBase software, aerospace machining, defense manufacturing',
+          defaultDescription:
+            'AS9100 & ISO 9001 certified precision machining, CMM inspection, and first article inspection services. Proprietary MetBase® software for closed-loop data integration. ITAR registered. Serving aerospace, defense & manufacturing since 1995.',
+          defaultKeywords:
+            'CMM inspection services, AS9100 certified, ISO 9001, ITAR registered, first article inspection, precision machining Oregon, dimensional inspection, coordinate measuring, MetBase software, aerospace machining, defense manufacturing',
           googleAnalyticsId: '',
           googleVerificationCode: '',
         },
       },
-    });
-    console.log('✅ site-settings global seeded successfully');
+    })
+    console.log('✅ site-settings global seeded successfully')
 
     // 2. Seed ui-text global
-    console.log('📝 Seeding ui-text global...');
+    console.log('📝 Seeding ui-text global...')
     await payload.updateGlobal({
       slug: 'ui-text',
       data: {
@@ -59,16 +63,17 @@ async function seed() {
         },
         sections: {
           ctaHeading: 'Ready to Get Started?',
-          ctaDescription: 'From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.',
+          ctaDescription:
+            'From prototype to production, we deliver AS9100D-certified precision components with tolerances to ±0.0001" for aerospace, defense, and medical applications.',
           serviceOfferings: 'Our Service Offerings',
           ourCapabilities: 'Technical Capabilities',
         },
       },
-    });
-    console.log('✅ ui-text global seeded successfully');
+    })
+    console.log('✅ ui-text global seeded successfully')
 
     // 3. Seed team-members collection
-    console.log('📝 Seeding team-members collection...');
+    console.log('📝 Seeding team-members collection...')
 
     const teamMembers = [
       {
@@ -103,18 +108,18 @@ async function seed() {
         linkedin: 'https://www.linkedin.com/in/emilyrodriguez',
         email: 'erodriguez@iismet.com',
       },
-    ];
+    ]
 
     for (const member of teamMembers) {
       await payload.create({
         collection: 'team-members',
         data: member,
-      });
+      })
     }
-    console.log(`✅ ${teamMembers.length} team members seeded successfully`);
+    console.log(`✅ ${teamMembers.length} team members seeded successfully`)
 
     // 4. Update homepage global with enhanced hero data
-    console.log('📝 Updating homepage global with enhanced hero...');
+    console.log('📝 Updating homepage global with enhanced hero...')
     await payload.updateGlobal({
       slug: 'homepage',
       data: {
@@ -130,31 +135,30 @@ async function seed() {
           ],
         },
       },
-    });
-    console.log('✅ homepage global enhanced hero seeded successfully');
+    })
+    console.log('✅ homepage global enhanced hero seeded successfully')
 
-    console.log('');
-    console.log('🎉 Seed script completed successfully!');
-    console.log('');
-    console.log('Summary:');
-    console.log('  ✓ site-settings global created');
-    console.log('  ✓ ui-text global created');
-    console.log(`  ✓ ${teamMembers.length} team members created`);
-    console.log('  ✓ homepage enhanced hero updated');
-    console.log('');
-    console.log('Next steps:');
-    console.log('  1. Log in to the admin panel at /admin');
-    console.log('  2. Review and customize the seeded content');
-    console.log('  3. Upload team member photos');
-    console.log('  4. Add hero slide images');
-    console.log('');
-
+    console.log('')
+    console.log('🎉 Seed script completed successfully!')
+    console.log('')
+    console.log('Summary:')
+    console.log('  ✓ site-settings global created')
+    console.log('  ✓ ui-text global created')
+    console.log(`  ✓ ${teamMembers.length} team members created`)
+    console.log('  ✓ homepage enhanced hero updated')
+    console.log('')
+    console.log('Next steps:')
+    console.log('  1. Log in to the admin panel at /admin')
+    console.log('  2. Review and customize the seeded content')
+    console.log('  3. Upload team member photos')
+    console.log('  4. Add hero slide images')
+    console.log('')
   } catch (error) {
-    console.error('❌ Error during seeding:', error);
-    throw error;
+    console.error('❌ Error during seeding:', error)
+    throw error
   }
 
-  process.exit(0);
+  process.exit(0)
 }
 
-seed();
+seed()
