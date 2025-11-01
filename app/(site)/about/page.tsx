@@ -1,9 +1,8 @@
 import AboutPageClient from '@/components/pages/AboutPageClient';
 import { getAboutFromCMS } from '@/lib/get-cms-data-direct';
 
-// Force static generation with long revalidation
-export const revalidate = 3600;
-export const dynamic = 'force-dynamic';
+// ISR with 60-second revalidation - fresh data with caching performance
+export const revalidate = 60;
 
 export default async function AboutPage() {
   // Fetch data from CMS

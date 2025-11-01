@@ -3,9 +3,62 @@ import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { getIndustriesFromDB } from '@/lib/direct-cms-access';
+import type { Metadata } from 'next';
 
-export const revalidate = 3600;
-export const dynamic = 'force-dynamic';
+// ISR with 60-second revalidation - fresh data with caching performance
+export const revalidate = 60;
+
+// Comprehensive SEO metadata with social sharing optimization
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = 'https://iismet.com';
+  const pageUrl = `${baseUrl}/industries`;
+  const ogImage = `${baseUrl}/og-image-industries.jpg`;
+
+  return {
+    title: 'Industries We Serve | Aerospace, Defense & Energy Manufacturing | IIS',
+    description: 'Precision manufacturing for aerospace, defense, and energy industries. AS9100D certified, ITAR registered. Mission-critical components with full traceability, first article inspection, and comprehensive quality documentation.',
+    keywords: 'aerospace manufacturing, defense manufacturing, energy sector machining, AS9100D certified, ITAR registered, military components, aircraft parts, turbine components, mission-critical manufacturing',
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: pageUrl,
+      siteName: 'IIS Precision Manufacturing',
+      title: 'Industries We Serve - Aerospace, Defense & Energy Precision Manufacturing',
+      description: 'Trusted partner for mission-critical components. AS9100D certified, ITAR registered. Serving aerospace, defense, and energy with uncompromising quality.',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'IIS Industries - Aerospace, Defense and Energy Manufacturing',
+          type: 'image/jpeg',
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@iisprecision',
+      creator: '@iisprecision',
+      title: 'Industries We Serve | IIS Precision Manufacturing',
+      description: 'Aerospace, defense & energy manufacturing. AS9100D certified, ITAR registered for mission-critical components.',
+      images: [ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 export default async function IndustriesPage() {
   const industries = (await getIndustriesFromDB()) || [] as any[];

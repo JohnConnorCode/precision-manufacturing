@@ -2,14 +2,64 @@ import Link from 'next/link';
 import { Clock, ArrowRight, Lightbulb } from 'lucide-react';
 import HeroSection from '@/components/ui/hero-section';
 import { getAllResourcesFromCMS } from '@/lib/get-cms-data-direct';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Technical Resources | IIS Precision Manufacturing',
-  description: 'Expert guides and technical articles about precision machining, CNC processes, quality control, and manufacturing best practices.',
-};
+// ISR with 60-second revalidation - fresh data with caching performance
+export const revalidate = 60;
 
-// Enable ISR with 1 hour revalidation
-export const revalidate = 3600;
+// Comprehensive SEO metadata with social sharing optimization
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = 'https://iismet.com';
+  const pageUrl = `${baseUrl}/resources`;
+  const ogImage = `${baseUrl}/og-image-resources.jpg`;
+
+  const resources = await getAllResourcesFromCMS() || [];
+
+  return {
+    title: 'Technical Resources & Manufacturing Guides | CNC, Metrology & Quality | IIS',
+    description: `${resources.length}+ expert guides on precision machining, CNC processes, metrology, quality control, and manufacturing best practices. Technical articles for aerospace, defense, and advanced manufacturing.`,
+    keywords: 'CNC machining guides, metrology tutorials, precision manufacturing resources, quality control best practices, manufacturing technical articles, aerospace manufacturing guides, GD&T resources, first article inspection guides',
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: pageUrl,
+      siteName: 'IIS Precision Manufacturing',
+      title: 'Technical Resources & Manufacturing Knowledge Center',
+      description: `${resources.length}+ expert guides covering precision machining, metrology, quality control, and manufacturing excellence.`,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'IIS Technical Resources - Manufacturing Knowledge Base',
+          type: 'image/jpeg',
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@iisprecision',
+      creator: '@iisprecision',
+      title: 'Technical Resources | IIS Manufacturing',
+      description: `${resources.length}+ expert guides on precision machining, metrology, and quality control.`,
+      images: [ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 export default async function ResourcesPage() {
   const resources = await getAllResourcesFromCMS() || [];
