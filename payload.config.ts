@@ -43,6 +43,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      Dashboard: '/components/admin/HelpDashboard#default',
+    },
     meta: {
       titleSuffix: '- IIS Precision Manufacturing',
       description: 'Advanced precision machining and manufacturing management system',
