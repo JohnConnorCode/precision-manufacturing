@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
 import { AdminToolbar } from "@/components/admin-toolbar";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "IIS - Precision Machining & CMM Inspection Services | AS9100 Certified | Oregon",
@@ -212,6 +213,7 @@ export default async function SiteLayout({
           {children}
         </SiteChrome>
         <AdminToolbar />
+        <Analytics />
       </body>
     </html>
   );
