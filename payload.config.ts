@@ -112,7 +112,7 @@ export default buildConfig({
         tokenExpiration: 7200, // 2 hours
         cookies: {
           secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
           domain: undefined,
         },
       },
