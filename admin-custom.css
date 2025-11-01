@@ -17,7 +17,7 @@
 }
 
 /* ============================================
-   FIX TEXT VISIBILITY - MAKE TEXT TRULY BLACK
+   FIX TEXT VISIBILITY - DARK TEXT (NO BOLD)
    ============================================ */
 input[type="text"],
 input[type="email"],
@@ -35,23 +35,20 @@ select,
 [class*="textarea"],
 .payload-settings__input,
 .field__input {
-  color: #000000 !important;
-  font-weight: 700 !important;
+  color: #1F2937 !important;
   -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
 }
 
 /* Extra strong override for rich text */
-.lexical-editor * {
-  color: #000000 !important;
+.lexical-editor *,
+.editor-shell * {
+  color: #1F2937 !important;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #6B7280 !important;
-  opacity: 1 !important;
-  font-weight: 500 !important;
+  color: #9CA3AF !important;
+  opacity: 0.7 !important;
 }
 
 /* ============================================
