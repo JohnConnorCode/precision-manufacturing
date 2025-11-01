@@ -446,3 +446,53 @@ export async function getAllResourcesFromCMS() {
     return [];
   }
 }
+
+export async function getSiteSettingsFromCMS() {
+  try {
+    const db = await getDatabase();
+    const siteSettings = await db.collection('globals').findOne({ globalType: 'site-settings' });
+
+    if (!siteSettings) {
+      console.log('[Direct DB] ⚠️  Site settings global not found');
+      return null;
+    }
+
+    console.log('[Direct DB] ✓ Fetched site settings from MongoDB');
+    return siteSettings;
+  } catch (error) {
+    console.error('Error fetching site settings from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getUITextFromCMS() {
+  try {
+    const db = await getDatabase();
+    const uiText = await db.collection('globals').findOne({ globalType: 'ui-text' });
+
+    if (!uiText) {
+      console.log('[Direct DB] ⚠️  UI text global not found');
+      return null;
+    }
+
+    console.log('[Direct DB] ✓ Fetched UI text from MongoDB');
+    return uiText;
+  } catch (error) {
+    console.error('Error fetching UI text from MongoDB:', error);
+    return null;
+  }
+}
+
+export async function getTeamMembersFromCMS(draft = false) {
+  try {
+    const db = await getDatabase();
+    const filter = draft ? {} : { _status: { $in: ['published', null] } };
+    const teamMembers = await db.collection('team-members').find(filter).sort({ order: 1 }).toArray();
+
+    console.log('[Direct DB] ✓ Fetched', teamMembers.length, 'team members from MongoDB');
+    return teamMembers;
+  } catch (error) {
+    console.error('Error fetching team members from MongoDB:', error);
+    return [];
+  }
+}

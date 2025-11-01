@@ -55,7 +55,6 @@ export default buildConfig({
       ],
     },
     theme: 'light',
-    css: path.resolve(dirname, 'admin-custom.css'),
     livePreview: {
       url: ({ data, documentSlug, locale }) => {
         // Generate preview URL based on collection/global
@@ -586,6 +585,23 @@ export default buildConfig({
       access: contentCollectionAccess,
     },
     {
+      slug: 'team-members',
+      admin: {
+        useAsTitle: 'name',
+        defaultColumns: ['name', 'title', 'order'],
+      },
+      access: contentCollectionAccess,
+      fields: [
+        { name: 'name', type: 'text', required: true },
+        { name: 'title', type: 'text', required: true },
+        { name: 'bio', type: 'textarea', required: true },
+        { name: 'photo', type: 'upload', relationTo: 'media' },
+        { name: 'order', type: 'number', required: true, defaultValue: 0 },
+        { name: 'linkedin', type: 'text' },
+        { name: 'email', type: 'text', validate: validateEmail },
+      ],
+    },
+    {
       slug: 'resources',
       admin: {
         useAsTitle: 'title',
@@ -690,7 +706,87 @@ export default buildConfig({
   ],
   globals: [
     {
+      slug: 'site-settings',
+      access: globalAccess,
+      fields: [
+        {
+          name: 'company',
+          type: 'group',
+          fields: [
+            { name: 'name', type: 'text', required: true, defaultValue: 'IIS - Integrated Inspection Systems' },
+            { name: 'legalName', type: 'text', defaultValue: 'IIS Precision Manufacturing' },
+            { name: 'tagline', type: 'text', defaultValue: 'Precision Machining & CMM Inspection Services' },
+            { name: 'description', type: 'textarea', required: true },
+            { name: 'foundingYear', type: 'text', defaultValue: '1993' },
+          ],
+        },
+        {
+          name: 'contact',
+          type: 'group',
+          fields: [
+            { name: 'phone', type: 'text', required: true },
+            { name: 'email', type: 'text', required: true, validate: validateEmail },
+            { name: 'address', type: 'textarea', required: true },
+            { name: 'city', type: 'text' },
+            { name: 'state', type: 'text' },
+            { name: 'zip', type: 'text' },
+            { name: 'country', type: 'text', defaultValue: 'United States' },
+          ],
+        },
+        {
+          name: 'social',
+          type: 'group',
+          fields: [
+            { name: 'linkedin', type: 'text' },
+            { name: 'twitter', type: 'text' },
+            { name: 'facebook', type: 'text' },
+            { name: 'twitterHandle', type: 'text', defaultValue: '@iisprecision' },
+          ],
+        },
+        {
+          name: 'seo',
+          type: 'group',
+          fields: [
+            { name: 'defaultTitle', type: 'text' },
+            { name: 'defaultDescription', type: 'textarea' },
+            { name: 'defaultKeywords', type: 'textarea' },
+            { name: 'defaultOgImage', type: 'upload', relationTo: 'media' },
+            { name: 'googleAnalyticsId', type: 'text' },
+            { name: 'googleVerificationCode', type: 'text' },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'ui-text',
+      access: globalAccess,
+      fields: [
+        {
+          name: 'buttons',
+          type: 'group',
+          fields: [
+            { name: 'getQuote', type: 'text', defaultValue: 'Get Quote' },
+            { name: 'contactUs', type: 'text', defaultValue: 'Contact Us Today' },
+            { name: 'viewServices', type: 'text', defaultValue: 'View Services' },
+            { name: 'viewIndustries', type: 'text', defaultValue: 'View Industries' },
+            { name: 'learnMore', type: 'text', defaultValue: 'Learn More' },
+          ],
+        },
+        {
+          name: 'sections',
+          type: 'group',
+          fields: [
+            { name: 'ctaHeading', type: 'text', defaultValue: 'Ready to Get Started?' },
+            { name: 'ctaDescription', type: 'textarea' },
+            { name: 'serviceOfferings', type: 'text', defaultValue: 'Service Offerings' },
+            { name: 'ourCapabilities', type: 'text', defaultValue: 'Our Capabilities' },
+          ],
+        },
+      ],
+    },
+    {
       slug: 'navigation',
+      access: globalAccess,
       fields: [
         {
           name: 'topBar',
@@ -765,6 +861,29 @@ export default buildConfig({
               name: 'badges',
               type: 'array',
               fields: [{ name: 'badge', type: 'text' }],
+            },
+          ],
+        },
+        {
+          name: 'heroEnhanced',
+          type: 'group',
+          label: 'Enhanced Hero Section',
+          fields: [
+            { name: 'mainTitle', type: 'text', defaultValue: 'PRECISION MANUFACTURING' },
+            { name: 'subtitle', type: 'text', defaultValue: 'SERVICES' },
+            { name: 'tagline', type: 'textarea' },
+            {
+              name: 'slides',
+              type: 'array',
+              fields: [
+                ...flexibleImageField(),
+                { name: 'alt', type: 'text', required: true },
+              ],
+            },
+            {
+              name: 'badges',
+              type: 'array',
+              fields: [{ name: 'text', type: 'text', required: true }],
             },
           ],
         },

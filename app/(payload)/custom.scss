@@ -1,18 +1,429 @@
-/* Custom styles for Payload CMS admin panel */
+/*
+ * IIS Precision Manufacturing - Admin Panel Theme
+ * Modern, professional design matching site brand
+ */
 
+/* ==================== CSS VARIABLES ==================== */
 :root {
-  --theme-bg: #1a1a1a;
-  --theme-elevation-50: #2a2a2a;
-  --theme-elevation-100: #3a3a3a;
-  --theme-elevation-150: #4a4a4a;
-  --theme-elevation-200: #5a5a5a;
-  --theme-elevation-250: #6a6a6a;
-  --theme-elevation-300: #7a7a7a;
-  --theme-elevation-400: #8a8a8a;
-  --theme-elevation-500: #9a9a9a;
-  --theme-elevation-600: #aaa;
-  --theme-elevation-700: #bbb;
-  --theme-elevation-800: #ccc;
-  --theme-elevation-900: #ddd;
-  --theme-elevation-1000: #fff;
+  /* Brand colors - Aerospace Professional */
+  --brand-cyan: #22D3EE !important;
+  --brand-cyan-dark: #06B6D4 !important;
+  --brand-electric: #00D4FF !important;
+  --brand-dark: #0E1116 !important;
+  --brand-dark-elevated: #1a1f26 !important;
+  --brand-fg: #E8ECF1 !important;
+  --brand-muted: #A9B2BD !important;
+
+  /* Override Payload theme colors */
+  --theme-success-50: #ecfeff !important;
+  --theme-success-100: #cffafe !important;
+  --theme-success-150: #a5f3fc !important;
+  --theme-success-200: #67e8f9 !important;
+  --theme-success-250: #22d3ee !important;
+  --theme-success-300: #22d3ee !important;
+  --theme-success-350: #22d3ee !important;
+  --theme-success-400: #22d3ee !important;
+  --theme-success-450: #22d3ee !important;
+  --theme-success-500: #22d3ee !important;
+  --theme-success-550: #06b6d4 !important;
+  --theme-success-600: #06b6d4 !important;
+  --theme-success-650: #0891b2 !important;
+  --theme-success-700: #0e7490 !important;
+  --theme-success-750: #155e75 !important;
+  --theme-success-800: #164e63 !important;
+
+  /* Elevation colors for cards/panels */
+  --theme-elevation-0: #ffffff !important;
+  --theme-elevation-50: #fafafa !important;
+  --theme-elevation-100: #f5f5f5 !important;
+  --theme-elevation-150: #f0f0f0 !important;
+  --theme-elevation-200: #e5e5e5 !important;
+  --theme-elevation-250: #e0e0e0 !important;
+  --theme-elevation-300: #d4d4d4 !important;
+  --theme-elevation-400: #a3a3a3 !important;
+  --theme-elevation-500: #737373 !important;
+  --theme-elevation-600: #525252 !important;
+  --theme-elevation-700: #404040 !important;
+  --theme-elevation-750: #2a2a2a !important;
+  --theme-elevation-800: #262626 !important;
+  --theme-elevation-900: #171717 !important;
+  --theme-elevation-1000: #0a0a0a !important;
+
+  /* Shadows - Modern & Professional */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  --shadow-cyan-glow: 0 0 20px rgba(34, 211, 238, 0.15) !important;
+
+  /* Border radius - Modern */
+  --border-radius-sm: 6px !important;
+  --border-radius-md: 8px !important;
+  --border-radius-lg: 12px !important;
+  --border-radius-xl: 16px !important;
+}
+
+/* ==================== HEADER & NAVIGATION ==================== */
+.app-header,
+header.app-header {
+  background: linear-gradient(135deg, var(--brand-dark) 0%, #1a1f26 100%) !important;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(34, 211, 238, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.nav__wrap,
+nav.nav__wrap {
+  background: linear-gradient(180deg, var(--brand-dark) 0%, #1a1f26 100%) !important;
+  border-right: 1px solid rgba(34, 211, 238, 0.15) !important;
+}
+
+.nav__link {
+  color: var(--brand-fg) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: var(--border-radius-md) !important;
+  font-weight: 500 !important;
+}
+
+.nav__link:hover {
+  color: var(--brand-cyan) !important;
+  background: rgba(34, 211, 238, 0.1) !important;
+  transform: translateX(4px) !important;
+}
+
+.nav__link--active {
+  color: var(--brand-cyan) !important;
+  background: rgba(34, 211, 238, 0.15) !important;
+  border-left: 3px solid var(--brand-cyan) !important;
+  font-weight: 600 !important;
+}
+
+/* ==================== MAIN CONTENT AREA ==================== */
+.template-default,
+.dashboard,
+.collection-list,
+.doc-controls {
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%) !important;
+}
+
+/* ==================== CARDS & PANELS ==================== */
+.card,
+.render-fields,
+.collapsible,
+.array-field,
+.blocks-field {
+  background: white !important;
+  border: 1px solid rgba(34, 211, 238, 0.1) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card:hover,
+.render-fields:hover {
+  box-shadow: var(--shadow-lg), var(--shadow-cyan-glow) !important;
+  border-color: rgba(34, 211, 238, 0.3) !important;
+}
+
+/* ==================== BUTTONS - MODERN & PROFESSIONAL ==================== */
+button,
+.btn,
+.button,
+[class*="button"] {
+  border-radius: var(--border-radius-md) !important;
+  font-weight: 500 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Primary action buttons */
+button[type="submit"],
+.btn--style-primary,
+.button--style-primary,
+.pill--style-success {
+  background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-electric) 100%) !important;
+  color: var(--brand-dark) !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+button[type="submit"]:hover,
+.btn--style-primary:hover,
+.button--style-primary:hover {
+  background: linear-gradient(135deg, var(--brand-electric) 0%, var(--brand-cyan) 100%) !important;
+  box-shadow: 0 10px 25px rgba(34, 211, 238, 0.3) !important;
+}
+
+/* Secondary buttons */
+.btn--style-secondary,
+.button--style-secondary {
+  background: white !important;
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+  color: var(--brand-dark) !important;
+}
+
+.btn--style-secondary:hover,
+.button--style-secondary:hover {
+  background: rgba(34, 211, 238, 0.1) !important;
+  border-color: var(--brand-cyan) !important;
+}
+
+/* ==================== FORM INPUTS - READABLE & MODERN ==================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="date"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select,
+.input,
+[class*="input"] {
+  background: white !important;
+  color: #1a1a1a !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: var(--border-radius-md) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--brand-cyan) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1), var(--shadow-md) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a3a3a3 !important;
+}
+
+/* ==================== LABELS & TEXT ==================== */
+label,
+.field-label,
+[class*="label"] {
+  color: #404040 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.field-description {
+  color: #737373 !important;
+  font-size: 13px !important;
+}
+
+/* ==================== LINKS ==================== */
+a[href] {
+  color: var(--brand-cyan) !important;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-weight: 500 !important;
+}
+
+a[href]:hover {
+  color: var(--brand-electric) !important;
+  text-decoration: underline !important;
+}
+
+/* ==================== TABLE STYLING ==================== */
+.table,
+table,
+[class*="table"] {
+  border-radius: var(--border-radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+thead,
+[class*="table-header"] {
+  background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%) !important;
+  border-bottom: 2px solid rgba(34, 211, 238, 0.2) !important;
+}
+
+th {
+  color: var(--brand-dark) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 0.5px !important;
+}
+
+tr:hover,
+[class*="row"]:hover {
+  background: rgba(34, 211, 238, 0.05) !important;
+}
+
+/* ==================== BADGES & PILLS ==================== */
+.pill,
+.badge,
+.tag,
+[class*="pill"],
+[class*="badge"] {
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 4px 12px !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.pill--style-success,
+.badge--style-success {
+  background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-electric) 100%) !important;
+  color: var(--brand-dark) !important;
+}
+
+/* ==================== DROPDOWNS & MENUS ==================== */
+.popup,
+.dropdown,
+.menu,
+[class*="popup"],
+[class*="dropdown"] {
+  background: white !important;
+  border: 1px solid rgba(34, 211, 238, 0.2) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--shadow-xl), 0 0 40px rgba(34, 211, 238, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.popup__scroll,
+.dropdown__scroll {
+  max-height: 400px !important;
+  overflow-y: auto !important;
+}
+
+/* Modern scrollbar */
+.popup__scroll::-webkit-scrollbar,
+.dropdown__scroll::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.popup__scroll::-webkit-scrollbar-track,
+.dropdown__scroll::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  background: #f5f5f5 !important;
+  border-radius: 4px !important;
+}
+
+.popup__scroll::-webkit-scrollbar-thumb,
+.dropdown__scroll::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-electric) 100%) !important;
+  border-radius: 4px !important;
+}
+
+.popup__scroll::-webkit-scrollbar-thumb:hover,
+.dropdown__scroll::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--brand-electric) 0%, var(--brand-cyan) 100%) !important;
+}
+
+/* ==================== NOTIFICATIONS & TOASTS ==================== */
+.toast,
+.notification,
+[class*="toast"],
+[class*="notification"] {
+  background: white !important;
+  border-left: 4px solid var(--brand-cyan) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+/* ==================== RICH TEXT EDITOR ==================== */
+.rich-text,
+.editor,
+[class*="rich-text"],
+[class*="editor"] {
+  background: white !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.rich-text:focus-within,
+.editor:focus-within {
+  border-color: var(--brand-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1), var(--shadow-md) !important;
+}
+
+/* ==================== LOADING STATES ==================== */
+.loader,
+.spinner,
+[class*="loader"],
+[class*="spinner"] {
+  border-color: rgba(34, 211, 238, 0.2) !important;
+  border-top-color: var(--brand-cyan) !important;
+}
+
+/* ==================== TOGGLES & SWITCHES ==================== */
+.toggle,
+.switch,
+input[type="checkbox"],
+[class*="toggle"] {
+  accent-color: var(--brand-cyan) !important;
+}
+
+/* ==================== TABS ==================== */
+.tabs,
+.tab-nav,
+[class*="tabs"] {
+  border-bottom: 2px solid rgba(34, 211, 238, 0.2) !important;
+}
+
+.tab,
+.tab-button,
+[class*="tab-button"] {
+  color: #737373 !important;
+  font-weight: 500 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0 !important;
+}
+
+.tab:hover,
+.tab-button:hover {
+  color: var(--brand-cyan) !important;
+  background: rgba(34, 211, 238, 0.05) !important;
+}
+
+.tab--active,
+.tab-button--active {
+  color: var(--brand-cyan) !important;
+  border-bottom: 3px solid var(--brand-cyan) !important;
+  font-weight: 600 !important;
+}
+
+/* ==================== PROFESSIONAL POLISH ==================== */
+/* Smooth transitions globally */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--brand-cyan) !important;
+  outline-offset: 2px !important;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(34, 211, 238, 0.3) !important;
+  color: var(--brand-dark) !important;
 }
