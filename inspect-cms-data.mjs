@@ -40,6 +40,45 @@ async function inspectData() {
       console.log(`Sample keys: ${Object.keys(resource).join(', ')}`);
     }
 
+    // Check team-members
+    console.log('\n\n=== TEAM MEMBERS ===');
+    const teamMembers = await db.collection('team-members').find({}).toArray();
+    console.log(`Total: ${teamMembers.length}`);
+    if (teamMembers.length > 0) {
+      teamMembers.forEach(member => {
+        console.log(`  - ${member.name} (${member.title})`);
+      });
+    }
+
+    // Check global collections (Payload 3.x stores each global in its own collection)
+    console.log('\n\n=== GLOBALS ===');
+
+    // Check settings global
+    const settingsCount = await db.collection('settings').countDocuments();
+    console.log(`settings: ${settingsCount} documents`);
+    if (settingsCount > 0) {
+      const settings = await db.collection('settings').findOne({});
+      console.log(`  Keys: ${Object.keys(settings).filter(k => !k.startsWith('_') && !k.startsWith('$')).join(', ')}`);
+    }
+
+    // Check homepage global
+    const homepageCount = await db.collection('homepage').countDocuments();
+    console.log(`homepage: ${homepageCount} documents`);
+    if (homepageCount > 0) {
+      const homepage = await db.collection('homepage').findOne({});
+      console.log(`  Keys: ${Object.keys(homepage).filter(k => !k.startsWith('_') && !k.startsWith('$')).join(', ')}`);
+    }
+
+    // Check globals collection
+    const globalsCount = await db.collection('globals').countDocuments();
+    console.log(`globals: ${globalsCount} documents`);
+    if (globalsCount > 0) {
+      const globalsList = await db.collection('globals').find({}).toArray();
+      globalsList.forEach(g => {
+        console.log(`  - ${g.slug || g.title || 'unnamed'}`);
+      });
+    }
+
   } catch (error) {
     console.error('Error:', error.message);
   } finally {
