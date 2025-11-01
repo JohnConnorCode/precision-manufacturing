@@ -1,6 +1,9 @@
 import { MongoClient } from 'mongodb';
 
-const uri = 'mongodb+srv://John:TestPass123@precisionmanufacturing.m1waxew.mongodb.net/?retryWrites=true&w=majority&appName=PrecisionManufacturing';
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+  throw new Error('MONGODB_URI environment variable is required');
+}
 
 async function checkDatabases() {
   const client = await MongoClient.connect(uri);

@@ -234,8 +234,8 @@ curl https://precision-manufacturing.vercel.app/services | grep "YOUR_NEW_CONTEN
 
 **Via MongoDB Directly:**
 ```bash
-# Connect to MongoDB
-mongosh "mongodb+srv://John:TestPass123@precisionmanufacturing.m1waxew.mongodb.net/precision-manufacturing"
+# Connect to MongoDB using MONGODB_URI environment variable
+mongosh "$MONGODB_URI"
 
 # Update content
 db.page-content.updateOne(

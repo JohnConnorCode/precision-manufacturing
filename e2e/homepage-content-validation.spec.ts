@@ -1,7 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { MongoClient } from 'mongodb';
 
-const MONGODB_URI = 'mongodb+srv://John:TestPass123@precisionmanufacturing.m1waxew.mongodb.net/precision-manufacturing?appName=PrecisionManufacturing';
+const MONGODB_URI = process.env.MONGODB_URI || '';
+if (!MONGODB_URI) {
+  throw new Error('MONGODB_URI environment variable is required for tests');
+}
 
 async function getServicesFromMongoDB() {
   const client = new MongoClient(MONGODB_URI, { serverSelectionTimeoutMS: 10000 });

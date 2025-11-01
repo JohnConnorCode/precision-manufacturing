@@ -17,7 +17,10 @@
 import { MongoClient, Db } from 'mongodb';
 import { lexicalToText } from './lexical-to-text';
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://John:TestPass123@precisionmanufacturing.m1waxew.mongodb.net/precision-manufacturing?appName=PrecisionManufacturing';
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  throw new Error('MONGODB_URI environment variable is required');
+}
 const DB_NAME = 'precision-manufacturing';
 
 let cachedClient: MongoClient | null = null;
