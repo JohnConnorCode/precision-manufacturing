@@ -25,7 +25,10 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL ||
+            (process.env.VERCEL_PROJECT_PRODUCTION_URL
+              ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+              : 'http://localhost:3000'),
   csrf: [
     process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app',
     'https://precision-manufacturing.vercel.app',
