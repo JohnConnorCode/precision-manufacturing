@@ -17,9 +17,9 @@ import {
 import { getServicesFromCMS, getIndustriesFromCMS, getHomepageFromCMS } from '@/lib/get-cms-data-direct';
 import { draftMode } from 'next/headers';
 
-// Enable aggressive revalidation every 60 seconds (ISR - Incremental Static Regeneration)
-// Pages are served from cache, revalidated in background
-export const revalidate = 60;
+// Force static generation for INSTANT routing (no server delays)
+export const dynamic = 'force-static';
+export const revalidate = false; // Fully static, rebuild on deploy
 
 export default async function Home() {
   // Check if in draft mode for previewing unpublished content
