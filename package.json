@@ -15,7 +15,10 @@
     "test:data": "playwright test e2e/admin-data-integrity.spec.ts --reporter=list",
     "test:all": "playwright test --reporter=html",
     "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui"
+    "test:ui": "playwright test --ui",
+    "test:cms": "playwright test e2e/cms/ --reporter=list",
+    "test:cms:local": "PLAYWRIGHT_BASE_URL=http://localhost:3000 playwright test e2e/cms/ --reporter=list",
+    "test:cms:prod": "PLAYWRIGHT_BASE_URL=https://precision-manufacturing.vercel.app playwright test e2e/cms/ --reporter=list"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
