@@ -50,7 +50,7 @@ export default function AnimatedSection({
     <motion.div
       className={cn(className)}
       initial={{ opacity: 0, y: 20 }}
-      animate={{
+      whileInView={{
         opacity: 1,
         y: 0,
         transition: {

@@ -73,10 +73,11 @@ export default function Resources({ data }: ResourcesProps) {
       </div>
 
       <div className="container relative z-10">
-        <AnimatedSection disabled className="text-center mb-16">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border border-blue-600/20 mb-6"
           >
@@ -88,7 +89,8 @@ export default function Resources({ data }: ResourcesProps) {
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white"
           >
@@ -97,23 +99,25 @@ export default function Resources({ data }: ResourcesProps) {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
             {resourcesData.header.description}
           </motion.p>
-        </AnimatedSection>
+        </div>
 
         {/* Featured Series Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {resourcesData.featuredSeries.map((series, index) => (
-            <AnimatedSection disabled key={series.slug}>
+            <div key={series.slug}>
               <Link href={`/resources/series/${series.slug}`}>
                 <motion.article
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group h-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/10 hover:scale-[1.02]"
                 >
                   {/* Series Header */}
@@ -157,18 +161,18 @@ export default function Resources({ data }: ResourcesProps) {
                   </div>
                 </motion.article>
               </Link>
-            </AnimatedSection>
+            </div>
           ))}
         </div>
 
         {/* Additional Series & CTA */}
-        <AnimatedSection disabled>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-blue-600/10 border border-blue-600/20 rounded-2xl p-8 md:p-12"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-blue-600/10 border border-blue-600/20 rounded-2xl p-8 md:p-12"
+        >
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex-1 text-center md:text-left">
                 <div className="flex items-center gap-2 justify-center md:justify-start mb-4">
@@ -194,7 +198,6 @@ export default function Resources({ data }: ResourcesProps) {
               </div>
             </div>
           </motion.div>
-        </AnimatedSection>
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -215,20 +218,20 @@ export default function Resources({ data }: ResourcesProps) {
               description: 'Real-world examples and implementation strategies'
             },
           ].map((benefit, index) => (
-            <AnimatedSection disabled key={benefit.title}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                className="text-center p-6 bg-slate-900/30 rounded-xl border border-slate-800/50"
-              >
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="text-center p-6 bg-slate-900/30 rounded-xl border border-slate-800/50"
+            >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-600/30 text-blue-400 mb-4">
                   {benefit.icon}
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2">{benefit.title}</h4>
                 <p className="text-slate-400 text-sm">{benefit.description}</p>
-              </motion.div>
-            </AnimatedSection>
+            </motion.div>
           ))}
         </div>
       </div>
