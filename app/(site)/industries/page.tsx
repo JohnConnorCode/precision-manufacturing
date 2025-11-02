@@ -3,6 +3,7 @@ import HeroSection from '@/components/ui/hero-section';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { getIndustriesFromDB } from '@/lib/direct-cms-access';
+import AnimatedSection from '@/components/ui/animated-section';
 import type { Metadata } from 'next';
 
 // Force static generation for INSTANT routing (no server delays)
@@ -94,27 +95,31 @@ export default async function IndustriesPage() {
       {/* Industries Grid */}
       <section id="industries" className="py-20">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Core Industries</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Specialized manufacturing solutions for the most demanding industries, backed by decades of experience and industry-leading certifications.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Core Industries</h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Specialized manufacturing solutions for the most demanding industries, backed by decades of experience and industry-leading certifications.
+              </p>
+            </div>
+          </AnimatedSection>
 
           <div className="space-y-8">
-            {industries.map((industry: any) => (
-              <div key={industry.title} className="bg-white border border-slate-200 rounded-lg p-8">
-                <h3 className="text-3xl font-bold mb-4">{industry.title}</h3>
-                <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                  {industry.description}
-                </p>
-                <Button asChild variant="outline">
-                  <Link href={`/industries/${industry.slug}`}>
-                    Learn More About {industry.title}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+            {industries.map((industry: any, index: number) => (
+              <AnimatedSection key={industry.title} delay={index * 0.15}>
+                <div className="bg-white border border-slate-200 rounded-lg p-8">
+                  <h3 className="text-3xl font-bold mb-4">{industry.title}</h3>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-lg">
+                    {industry.description}
+                  </p>
+                  <Button asChild variant="outline">
+                    <Link href={`/industries/${industry.slug}`}>
+                      Learn More About {industry.title}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -123,21 +128,23 @@ export default async function IndustriesPage() {
       {/* Call to Action */}
       <section className="py-20 bg-slate-50">
         <div className="container">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Partner with Industry Experts</h2>
-            <p className="text-xl text-slate-600 mb-8">
-              Join the industry leaders who trust us with their most critical manufacturing requirements. Let&apos;s discuss your specific needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold">
-                Schedule Consultation
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" asChild className="px-8 py-6 font-semibold">
-                <Link href="/services">View Our Services</Link>
-              </Button>
+          <AnimatedSection>
+            <div className="text-center max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Partner with Industry Experts</h2>
+              <p className="text-xl text-slate-600 mb-8">
+                Join the industry leaders who trust us with their most critical manufacturing requirements. Let&apos;s discuss your specific needs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="px-8 py-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold">
+                  Schedule Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button size="lg" variant="outline" asChild className="px-8 py-6 font-semibold">
+                  <Link href="/services">View Our Services</Link>
+                </Button>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

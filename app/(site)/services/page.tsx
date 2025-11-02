@@ -6,6 +6,7 @@ import { ArrowRight, Shield, Award } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { getServicesFromDB, getPageContentFromDB } from '@/lib/direct-cms-access';
+import AnimatedSection from '@/components/ui/animated-section';
 import type { Metadata } from 'next';
 
 // Force static generation for INSTANT routing (no server delays)
@@ -119,40 +120,44 @@ export default async function ServicesPage() {
       {/* Capabilities Overview */}
       <section id="capabilities" className={styles.sectionLight}>
         <div className={theme.spacing.container}>
-          <div className={cn(styles.grid4Col, "mb-20")}>
-            {capabilities.map((capability: any) => (
-              <div
-                key={capability.label}
-                className="text-center"
-              >
-                <div className={styles.statValue}>
-                  {capability.value}
+          <AnimatedSection>
+            <div className={cn(styles.grid4Col, "mb-20")}>
+              {capabilities.map((capability: any) => (
+                <div
+                  key={capability.label}
+                  className="text-center"
+                >
+                  <div className={styles.statValue}>
+                    {capability.value}
+                  </div>
+                  <div className={cn(theme.typography.badge, "text-slate-700 mb-2")}>
+                    {capability.label}
+                  </div>
+                  <div className={theme.typography.small}>
+                    {capability.description}
+                  </div>
                 </div>
-                <div className={cn(theme.typography.badge, "text-slate-700 mb-2")}>
-                  {capability.label}
-                </div>
-                <div className={theme.typography.small}>
-                  {capability.description}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Services Grid */}
       <section id="services" className={theme.spacing.section}>
         <div className={theme.spacing.container}>
-          <div className="text-center mb-16">
-            <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Core Competencies</h2>
-            <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
-              Comprehensive precision manufacturing services backed by advanced technology and industry certifications.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className={cn(theme.typography.h2, "mb-6")}>Manufacturing Core Competencies</h2>
+              <p className={cn(theme.typography.lead, "max-w-3xl mx-auto")}>
+                Comprehensive precision manufacturing services backed by advanced technology and industry certifications.
+              </p>
+            </div>
+          </AnimatedSection>
 
           <div className={styles.grid2Col}>
-            {(services || []).map((service: any) => (
-              <div key={service.title}>
+            {(services || []).map((service: any, index: number) => (
+              <AnimatedSection key={service.title} delay={index * 0.1}>
                 <Card className={cn(styles.featureCard, "group h-full overflow-hidden")}>
                   <div className="relative h-64 overflow-hidden">
                     <ParallaxImagePro
@@ -196,7 +201,7 @@ export default async function ServicesPage() {
                     </Button>
                   </div>
                 </Card>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -206,33 +211,37 @@ export default async function ServicesPage() {
       <section className={styles.sectionLight}>
         <div className={theme.spacing.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className={cn(theme.typography.h2, "mb-6")}>Quality Assurance</h2>
-              <p className={cn(theme.typography.lead, "mb-8")}>
-                Our comprehensive quality management system ensures every component meets or exceeds specifications with full traceability and documentation.
-              </p>
+            <AnimatedSection>
+              <div>
+                <h2 className={cn(theme.typography.h2, "mb-6")}>Quality Assurance</h2>
+                <p className={cn(theme.typography.lead, "mb-8")}>
+                  Our comprehensive quality management system ensures every component meets or exceeds specifications with full traceability and documentation.
+                </p>
 
-              <div className="space-y-4">
-                {qualityAssurance.map((item: any) => (
-                  <div
-                    key={item.title}
-                    className="flex items-center"
-                  >
-                    <Award className="w-5 h-5 text-slate-600 mr-3" />
-                    <span className={theme.typography.body}>{item.title}</span>
-                  </div>
-                ))}
+                <div className="space-y-4">
+                  {qualityAssurance.map((item: any) => (
+                    <div
+                      key={item.title}
+                      className="flex items-center"
+                    >
+                      <Award className="w-5 h-5 text-slate-600 mr-3" />
+                      <span className={theme.typography.body}>{item.title}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
 
-            <div className="relative">
-              <ParallaxImagePro
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=90"
-                alt="Quality assurance"
-                className="w-full h-96 rounded-lg"
-                speed={0.2}
-              />
-            </div>
+            <AnimatedSection delay={0.2}>
+              <div className="relative">
+                <ParallaxImagePro
+                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=90"
+                  alt="Quality assurance"
+                  className="w-full h-96 rounded-lg"
+                  speed={0.2}
+                />
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -240,21 +249,23 @@ export default async function ServicesPage() {
       {/* Call to Action */}
       <section className={theme.spacing.section}>
         <div className={theme.spacing.container}>
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className={cn(theme.typography.h2, "mb-6")}>Ready to Start Your Project?</h2>
-            <p className={cn(theme.typography.lead, "mb-8")}>
-              Partner with us for precision manufacturing solutions that meet the highest industry standards.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className={styles.ctaPrimary}>
-                Get Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" asChild className={styles.ctaSecondary}>
-                <Link href="/contact">Contact Us</Link>
-              </Button>
+          <AnimatedSection>
+            <div className="text-center max-w-4xl mx-auto">
+              <h2 className={cn(theme.typography.h2, "mb-6")}>Ready to Start Your Project?</h2>
+              <p className={cn(theme.typography.lead, "mb-8")}>
+                Partner with us for precision manufacturing solutions that meet the highest industry standards.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className={styles.ctaPrimary}>
+                  Get Quote
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button size="lg" variant="outline" asChild className={styles.ctaSecondary}>
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
