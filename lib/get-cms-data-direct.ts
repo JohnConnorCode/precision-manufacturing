@@ -17,10 +17,6 @@
 import { MongoClient, Db } from 'mongodb';
 import { lexicalToText } from './lexical-to-text';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-if (!MONGODB_URI) {
-  throw new Error('MONGODB_URI environment variable is required');
-}
 const DB_NAME = 'precision-manufacturing';
 
 let cachedClient: MongoClient | null = null;
@@ -32,7 +28,11 @@ async function getDatabase(): Promise<Db> {
   }
 
   if (!cachedClient) {
-    cachedClient = new MongoClient(MONGODB_URI, {
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error('MONGODB_URI environment variable is required');
+    }
+    cachedClient = new MongoClient(uri, {
       serverSelectionTimeoutMS: 30000,
       socketTimeoutMS: 30000,
       connectTimeoutMS: 30000,

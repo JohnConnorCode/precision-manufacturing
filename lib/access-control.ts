@@ -137,9 +137,10 @@ export const globalAccess = {
 /**
  * Field-level access: Prevent non-admins from changing their own role
  */
-export const roleFieldAccess: Access = ({ req: { user }, doc }: AccessArgs) => {
+export const canManageContent: Access = ({ req, ...args }) => {
+  const doc = (args as any).doc;
   // Admins can always edit roles
-  if (user?.role === 'admin') {
+  if (req?.user?.role === 'admin') {
     return true
   }
 

@@ -21,15 +21,16 @@ test('verify admin shows data', async ({ page }) => {
 
     // Check what we see
     const pageText = await page.textContent('body');
-    const hasServiceNames = pageText.includes('5-Axis') || pageText.includes('Adaptive') || pageText.includes('Metrology');
-    const showsNoResults = pageText.includes('No Services') || pageText.includes('No results');
+    expect(pageText ?? '').toContain('Services');
+    const hasServiceNames = (pageText ?? '').includes('5-Axis') || (pageText ?? '').includes('Adaptive') || (pageText ?? '').includes('Metrology');
+    const showsNoResults = (pageText ?? '').includes('No Services') || (pageText ?? '').includes('No results');
 
     console.log('Has service names:', hasServiceNames);
     console.log('Shows "No results":', showsNoResults);
 
     if (!hasServiceNames) {
       console.log('\n❌ PROBLEM: No service data visible');
-      console.log('Page content sample:', pageText.substring(0, 500));
+      console.log('Page content sample:', pageText?.substring(0, 500) ?? 'No content');
     } else {
       console.log('\n✅ CONFIRMED: Services data is visible!');
     }

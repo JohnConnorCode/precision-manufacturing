@@ -7,7 +7,7 @@
 /**
  * Validate slug format (lowercase letters, numbers, hyphens only)
  */
-export const validateSlug = (value: string): string | true => {
+export const validateSlug = (value: string | null | undefined): string | true => {
   if (!value || value.trim() === '') {
     return 'Slug is required'
   }
@@ -24,7 +24,7 @@ export const validateSlug = (value: string): string | true => {
 /**
  * Validate email format
  */
-export const validateEmail = (value: string): string | true => {
+export const validateEmail = (value: string | null | undefined): string | true => {
   if (!value || value.trim() === '') {
     return true // Allow empty if not required
   }
@@ -57,7 +57,7 @@ export const validateURL = (value: string): string | true => {
 /**
  * Validate phone number (flexible format)
  */
-export const validatePhone = (value: string): string | true => {
+export const validatePhone = (value: string | null | undefined): string | true => {
   if (!value || value.trim() === '') {
     return true // Allow empty if not required
   }

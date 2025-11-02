@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, RootState } from '@react-three/fiber';
 import { OrbitControls, MeshWobbleMaterial, Box, Sphere, Torus, Cylinder, Cone, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 function TurbineBladeModel() {
   const meshRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
+  useFrame((state: RootState) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.005;
       meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
@@ -73,7 +73,7 @@ function TurbineBladeModel() {
 function PrecisionGear() {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame((state: RootState) => {
     if (meshRef.current) {
       meshRef.current.rotation.z -= 0.003;
       meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
@@ -115,7 +115,7 @@ function PrecisionGear() {
 function FloatingPart() {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame((state: RootState) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = state.clock.elapsedTime * 0.5;
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;

@@ -21,9 +21,15 @@ export const emailAdapter: EmailAdapter = ({ payload }) => {
         console.log('From:', message.from || 'noreply@iismet.com')
         console.log('To:', message.to)
         console.log('Subject:', message.subject)
-        console.log('Text:', message.text)
+        const preview = typeof message.text === 'string'
+          ? message.text.substring(0, 100)
+          : '[Email preview unavailable]';
+        console.log('Text:', preview)
         if (message.html) {
-          console.log('HTML:', message.html.substring(0, 200) + '...')
+          const htmlPreview = typeof message.html === 'string'
+            ? message.html.substring(0, 200)
+            : '[HTML preview unavailable]';
+          console.log('HTML:', htmlPreview + '...')
         }
         console.log('==========================================\n')
         return { messageId: `dev-${Date.now()}` }

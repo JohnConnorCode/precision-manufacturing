@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, RootState } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -24,7 +24,7 @@ function ParticlesSystem() {
     return [positions, sizes];
   }, []);
 
-  useFrame((state) => {
+  useFrame((state: RootState) => {
     if (ref.current) {
       ref.current.rotation.y = state.clock.elapsedTime * 0.02;
       ref.current.rotation.x = state.clock.elapsedTime * 0.01;

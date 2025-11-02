@@ -68,7 +68,8 @@ test('Full admin panel test - login and verify CMS functionality', async ({ page
     await page.screenshot({ path: 'admin-services-collection.png', fullPage: true });
     console.log('✅ Services collection accessed');
   } catch (e) {
-    console.log('⚠️  Could not access Services collection:', e.message);
+    const error = e instanceof Error ? e : new Error(String(e));
+    console.error('Error:', error.message);
   }
 
   // Get all navigation links to see available collections

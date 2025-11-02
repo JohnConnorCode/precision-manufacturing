@@ -11,7 +11,7 @@ import {
   userCollectionAccess,
   mediaCollectionAccess,
   globalAccess,
-  roleFieldAccess,
+  canManageContent,
 } from './lib/access-control'
 import {
   validateSlug,
@@ -32,19 +32,23 @@ export default buildConfig({
     process.env.PAYLOAD_PUBLIC_SERVER_URL,
     process.env.NEXT_PUBLIC_SERVER_URL,
     'http://localhost:3000',
-  ].filter(Boolean),
+  ].filter(Boolean) as string[],
   cors: [
     process.env.PAYLOAD_PUBLIC_SERVER_URL,
     process.env.NEXT_PUBLIC_SERVER_URL,
     'http://localhost:3000',
-  ].filter(Boolean),
+  ].filter(Boolean) as string[],
   admin: {
     user: 'users',
     importMap: {
       baseDir: path.resolve(dirname),
     },
     components: {
-      Dashboard: '/components/admin/HelpDashboard#default',
+      views: {
+        Dashboard: {
+          Component: '/components/admin/HelpDashboard#default',
+        },
+      },
     },
     meta: {
       titleSuffix: '- IIS Precision Manufacturing',
@@ -59,8 +63,9 @@ export default buildConfig({
     },
     theme: 'light',
     livePreview: {
-      url: ({ data, documentSlug, locale }) => {
+      url: ({ data, locale, ...args }) => {
         // Generate preview URL based on collection/global
+        const documentSlug = (args as any).documentSlug;
         const baseURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://precision-manufacturing.vercel.app';
 
         if (documentSlug === 'services') {
@@ -113,7 +118,7 @@ export default buildConfig({
         tokenExpiration: 7200, // 2 hours
         cookies: {
           secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
+          sameSite: 'Lax',
           domain: undefined,
         },
       },
@@ -152,8 +157,8 @@ export default buildConfig({
           ],
           access: {
             // Only admins can change roles
-            create: roleFieldAccess,
-            update: roleFieldAccess,
+            create: canManageContent as any,
+            update: canManageContent as any,
           },
           admin: {
             position: 'sidebar',
@@ -879,7 +884,7 @@ export default buildConfig({
               name: 'slides',
               type: 'array',
               fields: [
-                ...flexibleImageField(),
+                ...flexibleImageField('image'),
                 { name: 'alt', type: 'text', required: true },
               ],
             },

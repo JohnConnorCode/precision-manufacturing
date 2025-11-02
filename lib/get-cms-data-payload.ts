@@ -76,7 +76,7 @@ export async function getServicesFromCMS(draft = false) {
 
     const result = await payload.find({
       collection: 'services',
-      where: buildDraftFilter(draft),
+      where: buildDraftFilter(draft) as any,
       sort: 'order',
       limit: 1000,
       depth: 1,
@@ -90,7 +90,7 @@ export async function getServicesFromCMS(draft = false) {
       return getFallbackServices();
     }
 
-    return result.docs.map((service: Service) => ({
+    return result.docs.map((service: any) => ({
       title: service.title,
       description: service.shortDescription || lexicalToText(service.description),
       iconName: iconNameMap[service.slug] || 'Cog',
@@ -119,7 +119,7 @@ export async function getIndustriesFromCMS(draft = false) {
 
     const result = await payload.find({
       collection: 'industries',
-      where: buildDraftFilter(draft),
+      where: buildDraftFilter(draft) as any,
       sort: 'order',
       limit: 1000,
       depth: 1,
@@ -133,7 +133,7 @@ export async function getIndustriesFromCMS(draft = false) {
       return getFallbackIndustries();
     }
 
-    return result.docs.map((industry: Industry) => ({
+    return result.docs.map((industry: any) => ({
       title: industry.title,
       description: lexicalToText(industry.description),
       iconName: iconNameMap[industry.slug] || 'Factory',
@@ -161,7 +161,7 @@ export async function getServiceBySlugFromCMS(slug: string, draft = false) {
     const result = await payload.find({
       collection: 'services',
       where: {
-        ...buildDraftFilter(draft),
+        ...buildDraftFilter(draft) as any,
         slug: {
           equals: slug
         }

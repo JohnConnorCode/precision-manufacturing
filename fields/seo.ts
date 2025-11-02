@@ -38,11 +38,10 @@ export const seoField: Field = {
         description: 'Title shown in search results and browser tabs (50-60 characters recommended)',
         placeholder: 'Your compelling page title',
       },
-      validate: (value: string) => {
-        if (value && value.length > 60) {
-          return 'Meta title should be 60 characters or less for optimal display in search results'
-        }
-        return true
+      validate: (value: string | string[] | null | undefined) => {
+        if (!value) return true;
+        const str = Array.isArray(value) ? value.join('') : value;
+        return str.length <= 60 ? true : 'Meta title should be 60 characters or less for optimal display in search results';
       },
     },
     {
@@ -53,11 +52,9 @@ export const seoField: Field = {
         description: 'Description shown in search results (150-160 characters recommended)',
         placeholder: 'A concise description that encourages users to click',
       },
-      validate: (value: string) => {
-        if (value && value.length > 160) {
-          return 'Meta description should be 160 characters or less for optimal display in search results'
-        }
-        return true
+      validate: (value: string | null | undefined) => {
+        if (!value) return true;
+        return value.length <= 160 ? true : 'Meta description should be 160 characters or less for optimal display in search results';
       },
     },
 
@@ -141,15 +138,11 @@ export const seoField: Field = {
         description: 'The preferred URL for this page (leave empty to auto-generate)',
         placeholder: 'https://example.com/preferred-url',
       },
-      validate: (value: string) => {
-        if (value && value.trim() !== '') {
-          try {
-            new URL(value)
-          } catch {
-            return 'Please provide a valid URL (must start with http:// or https://)'
-          }
-        }
-        return true
+      validate: (value: string | string[] | null | undefined) => {
+        if (!value) return true;
+        const url = Array.isArray(value) ? value[0] : value;
+        if (!url) return true;
+        return /^https?:\/\//.test(url) ? true : 'Please provide a valid URL (must start with http:// or https://)';
       },
     },
     {
