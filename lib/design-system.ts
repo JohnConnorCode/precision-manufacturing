@@ -1,0 +1,163 @@
+/**
+ * IIS Precision Manufacturing - Design System
+ * Unified design constants for consistent homepage UX
+ */
+
+// ==================== TYPOGRAPHY ====================
+export const typography = {
+  // Section headings
+  sectionHeading: 'text-4xl md:text-5xl lg:text-6xl font-black',
+
+  // Eyebrow/subtitle text
+  eyebrow: 'text-sm font-bold uppercase tracking-[0.2em]',
+
+  // Description text
+  description: 'text-lg md:text-xl',
+  descriptionMuted: 'text-lg md:text-xl text-slate-600',
+
+  // Card titles
+  cardTitle: 'text-xl md:text-2xl font-bold',
+
+  // Body text
+  body: 'text-base text-slate-600',
+} as const;
+
+// ==================== SPACING ====================
+export const spacing = {
+  // Section padding
+  section: 'py-24 md:py-32',
+  sectionCompact: 'py-20 md:py-24',
+
+  // Grid gaps
+  grid: 'gap-6 md:gap-8',
+  gridCompact: 'gap-6',
+
+  // Container
+  container: 'container mx-auto px-6 md:px-8',
+  containerNarrow: 'max-w-4xl mx-auto px-6 md:px-8',
+  containerWide: 'max-w-7xl mx-auto px-6 md:px-8',
+
+  // Section margins
+  headingBottom: 'mb-16 md:mb-20',
+  headingBottomCompact: 'mb-12',
+} as const;
+
+// ==================== COLORS ====================
+export const colors = {
+  // Gradients
+  primaryGradient: 'from-blue-600 to-indigo-600',
+  primaryGradientHover: 'from-blue-500 to-indigo-500',
+
+  // Text colors
+  textDark: 'text-slate-900',
+  textMedium: 'text-slate-600',
+  textLight: 'text-slate-400',
+  textWhite: 'text-white',
+
+  // Borders
+  borderLight: 'border-slate-200',
+  borderMedium: 'border-slate-300',
+  borderAccent: 'border-blue-600/20',
+
+  // Backgrounds
+  bgLight: 'bg-gradient-to-b from-slate-50 to-white',
+  bgDark: 'bg-slate-950',
+  bgWhite: 'bg-white',
+} as const;
+
+// ==================== BORDER RADIUS ====================
+export const borderRadius = {
+  card: 'rounded-2xl',
+  button: 'rounded-md',
+  badge: 'rounded-sm',
+  pill: 'rounded-full',
+  input: 'rounded-lg',
+} as const;
+
+// ==================== ANIMATIONS ====================
+export const animations = {
+  // Entry animation timing
+  entry: {
+    duration: 0.6,
+    ease: 'easeOut',
+  },
+
+  // Hover animation timing
+  hover: {
+    duration: 0.3,
+    ease: 'easeOut',
+  },
+
+  // Stagger delay for list items
+  stagger: 0.1,
+
+  // Viewport animation settings (for whileInView)
+  viewport: {
+    once: true,
+    margin: '-100px',
+  },
+} as const;
+
+// ==================== MOTION VARIANTS ====================
+export const motionVariants = {
+  // Fade in from bottom
+  fadeInUp: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: animations.entry.duration, ease: animations.entry.ease },
+  },
+
+  // Fade in
+  fadeIn: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: animations.entry.duration, ease: animations.entry.ease },
+  },
+
+  // Scale in
+  scaleIn: {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: animations.entry.duration, ease: animations.entry.ease },
+  },
+
+  // Card hover (unified)
+  cardHover: {
+    rest: { scale: 1 },
+    hover: {
+      scale: 1.02,
+      transition: { duration: animations.hover.duration, ease: animations.hover.ease },
+    },
+  },
+} as const;
+
+// ==================== SHADOW UTILITIES ====================
+export const shadows = {
+  card: 'shadow-lg',
+  cardHover: 'shadow-xl',
+  button: 'shadow-md',
+  subtle: 'shadow-sm',
+} as const;
+
+// ==================== HELPER FUNCTIONS ====================
+
+/**
+ * Combine multiple design system classes
+ */
+export function cn(...classes: (string | undefined | false)[]): string {
+  return classes.filter(Boolean).join(' ');
+}
+
+/**
+ * Get section background class based on theme
+ */
+export function getSectionBg(theme: 'light' | 'dark' = 'light'): string {
+  return theme === 'dark' ? colors.bgDark : colors.bgLight;
+}
+
+/**
+ * Get text color based on background theme
+ */
+export function getTextColor(theme: 'light' | 'dark' = 'light'): string {
+  return theme === 'dark' ? colors.textWhite : colors.textDark;
+}

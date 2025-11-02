@@ -29,68 +29,17 @@ export default function CTA({ data }: CTAProps) {
 
   return (
     <section className="relative py-24 overflow-hidden bg-slate-950">
-      {/* Aerospace-inspired animated background */}
+      {/* Simplified background - subtle grid + accent */}
       <div className="absolute inset-0">
-        {/* Precision grid scanner effect */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(0deg, transparent 49%, rgba(59, 130, 246, 0.03) 50%, transparent 51%),
-              linear-gradient(90deg, transparent 49%, rgba(59, 130, 246, 0.03) 50%, transparent 51%)
-            `,
-            backgroundSize: '50px 50px',
-          }}
-          animate={{
-            backgroundPosition: ['0px 0px', '50px 50px'],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
+        {/* Subtle static grid */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(0deg, transparent 49%, rgba(59, 130, 246, 0.5) 50%, transparent 51%), linear-gradient(90deg, transparent 49%, rgba(59, 130, 246, 0.5) 50%, transparent 51%)`,
+          backgroundSize: '50px 50px',
+        }} />
 
-        {/* Scanning beam effect */}
-        <motion.div
-          className="absolute h-px w-full bg-gradient-to-r from-transparent via-blue-600/30 to-transparent"
-          initial={{ top: '0%' }}
-          animate={{ top: '100%' }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-
-        {/* Vertical scanning beam */}
-        <motion.div
-          className="absolute w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent"
-          initial={{ left: '0%' }}
-          animate={{ left: '100%' }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-
-        {/* Corner accent lights */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl" />
+        {/* Subtle accent glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full filter blur-3xl" />
       </div>
-
-      {/* Technical overlay pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(59, 130, 246, 0.1) 10deg, transparent 20deg),
-            repeating-radial-gradient(circle at 50% 50%, transparent 0px, transparent 40px, rgba(59, 130, 246, 0.05) 50px, transparent 60px)
-          `,
-          backgroundSize: '200px 200px',
-        }}
-      />
 
       <div className="container relative z-10">
         <motion.div

@@ -6,7 +6,7 @@ import { Cog, Cpu, Gauge, Users, ArrowRight, CheckCircle, LucideIcon } from 'luc
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedSection from '@/components/ui/animated-section';
-import { cardHover } from '@/lib/animations';
+import { typography, spacing, colors, borderRadius } from '@/lib/design-system';
 
 // Icon mapping for CMS data
 const iconMap: Record<string, LucideIcon> = {
@@ -61,9 +61,9 @@ export default function Services({ data }: ServicesProps) {
   const servicesData = data || services;
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+    <section className={`relative ${spacing.section} overflow-hidden ${colors.bgLight}`}>
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="absolute inset-0"
           style={{
@@ -73,29 +73,24 @@ export default function Services({ data }: ServicesProps) {
         />
       </div>
 
-      <div className="container relative z-10">
-        <AnimatedSection className="text-center mb-16 md:mb-20">
+      <div className={`${spacing.containerWide} relative z-10`}>
+        <AnimatedSection className={`text-center ${spacing.headingBottom}`}>
           {/* Section Context */}
-          <p className="text-sm font-bold text-slate-900 uppercase tracking-[0.2em] mb-2">
+          <p className={`${typography.eyebrow} ${colors.textMedium} mb-4`}>
             COMPREHENSIVE MANUFACTURING SOLUTIONS
           </p>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
-            <span className="text-slate-900">PRECISION</span>
+          <h2 className={`${typography.sectionHeading} mb-6`}>
+            <span className={colors.textDark}>PRECISION</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> SERVICES</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-medium mb-4">
-            Four core service pillars delivering unmatched precision and reliability
-          </p>
-
-          <p className="text-base text-slate-800 max-w-2xl mx-auto">
-            From complex 5-axis machining to advanced metrology, our integrated services ensure
-            your most critical components meet the strictest aerospace and defense standards
+          <p className={`${typography.descriptionMuted} max-w-3xl mx-auto`}>
+            Four core service pillars delivering unmatched precision and reliability for aerospace and defense applications
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${spacing.grid}`}>
           {servicesData.map((service: any, index: number) => {
             // Handle both CMS data (iconName) and hardcoded data (icon)
             const Icon = service.iconName ? iconMap[service.iconName] || Cog : service.icon;
@@ -103,24 +98,14 @@ export default function Services({ data }: ServicesProps) {
               <AnimatedSection
                 key={service.title}
                 delay={index * 0.1}
-                className="group perspective-1000"
+                className="group"
               >
                 <Link href={service.href} className="block h-full">
                   <motion.div
-                    whileHover={{
-                      y: -8,
-                      rotateX: 5,
-                      rotateY: 5,
-                      transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 25
-                      }
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                    style={{ transformStyle: "preserve-3d" }}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
                   >
-                    <Card className={`h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 border-slate-200 bg-white relative ${
+                    <Card className={`h-full overflow-hidden transition-all duration-300 hover:shadow-xl border-slate-200 bg-white relative ${
                       service.highlight ? 'ring-2 ring-blue-600/20' : ''
                     }`}>
                     {/* Image Header */}
@@ -191,7 +176,7 @@ export default function Services({ data }: ServicesProps) {
         <AnimatedSection className="text-center mt-16 md:mt-20" delay={0.5}>
           <Link
             href="/contact"
-            className="inline-flex items-center h-12 px-8 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            className={`inline-flex items-center h-12 px-8 bg-gradient-to-r ${colors.primaryGradient} hover:${colors.primaryGradientHover} text-white font-semibold ${borderRadius.button} transition-all duration-300 shadow-lg hover:shadow-xl`}
           >
             Get Quote
             <ArrowRight className="ml-2 h-5 w-5" />

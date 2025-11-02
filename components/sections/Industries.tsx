@@ -5,6 +5,8 @@ import { Card } from '@/components/ui/card';
 import { Plane, Zap, Shield, LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import ParallaxImage from '@/components/ui/parallax-image';
+import AnimatedSection from '@/components/ui/animated-section';
+import { typography, spacing, colors, borderRadius } from '@/lib/design-system';
 
 // Icon mapping for CMS data
 const iconMap: Record<string, LucideIcon> = {
@@ -49,49 +51,36 @@ export default function Industries({ data }: IndustriesProps) {
   const industriesData = data || industries;
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20"
-        >
+    <section className={`${spacing.section} ${colors.bgLight}`}>
+      <div className={spacing.containerWide}>
+        <AnimatedSection className={`text-center ${spacing.headingBottom}`}>
           {/* Clear Section Purpose */}
-          <p className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 uppercase tracking-[0.2em] mb-2">
+          <p className={`${typography.eyebrow} ${colors.textMedium} mb-4`}>
             SPECIALIZED SECTOR EXPERTISE
           </p>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
-            <span className="text-slate-900">INDUSTRY</span>
+          <h2 className={`${typography.sectionHeading} mb-6`}>
+            <span className={colors.textDark}>INDUSTRY</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> LEADERS</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-medium mb-4">
-            Three decades of trusted partnerships in mission-critical sectors
+          <p className={`${typography.descriptionMuted} max-w-3xl mx-auto`}>
+            Three decades of trusted partnerships in mission-critical sectors where precision and reliability are non-negotiable
           </p>
+        </AnimatedSection>
 
-          <p className="text-base text-slate-800 max-w-2xl mx-auto">
-            Our certifications and clearances enable us to serve the most demanding industries
-            where component failure can mean mission failure
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-3 ${spacing.grid}`}>
           {industriesData.map((industry: any, index: number) => {
             // Handle both CMS data (iconName) and hardcoded data (icon)
             const Icon = industry.iconName ? iconMap[industry.iconName] || Plane : industry.icon;
             return (
-              <motion.div
-                key={industry.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
+              <AnimatedSection key={industry.title} delay={index * 0.1} className="group">
                 <Link href={industry.href} className="block">
-                  <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 group border-slate-200 hover:border-blue-600/50">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  >
+                    <Card className={`overflow-hidden hover:shadow-xl transition-all duration-300 ${colors.borderLight} hover:border-blue-600/50`}>
                     <div className="relative h-56 overflow-hidden">
                       <ParallaxImage
                         src={industry.image}
@@ -131,13 +120,14 @@ export default function Industries({ data }: IndustriesProps) {
                     </div>
 
                     <div className="p-6 bg-white">
-                      <p className="text-sm text-slate-800 leading-relaxed">
+                      <p className={`text-sm ${colors.textMedium} leading-relaxed`}>
                         {industry.description}
                       </p>
                     </div>
                   </Card>
+                  </motion.div>
                 </Link>
-              </motion.div>
+              </AnimatedSection>
             );
           })}
         </div>
