@@ -57,7 +57,7 @@ test.describe('CMS - API Integration', () => {
       expect(page2.docs).toBeDefined();
 
       // Documents on page 2 should be different from page 1
-      if (page2.docs.length > 0 && page1.docs.length > 0) {
+      if (page2.docs && page1.docs && page2.docs.length > 0 && page1.docs.length > 0) {
         expect(page2.docs[0].id).not.toBe(page1.docs[0].id);
       }
     }
@@ -81,10 +81,12 @@ test.describe('CMS - API Integration', () => {
     });
 
     expect(sortedServices.docs).toBeDefined();
-    expect(sortedServices.docs.length).toBeGreaterThan(0);
+    if (sortedServices.docs) {
+      expect(sortedServices.docs.length).toBeGreaterThan(0);
+    }
 
     // Verify sorting (if order field exists)
-    if (sortedServices.docs.length > 1) {
+    if (sortedServices.docs && sortedServices.docs.length > 1) {
       const firstOrder = sortedServices.docs[0].order;
       const secondOrder = sortedServices.docs[1].order;
 
@@ -103,10 +105,12 @@ test.describe('CMS - API Integration', () => {
     expect(filteredResources.docs).toBeDefined();
 
     // All returned resources should have intermediate difficulty
-    filteredResources.docs.forEach((resource: any) => {
-      if (resource.difficulty) {
-        expect(resource.difficulty).toBe('intermediate');
-      }
-    });
+    if (filteredResources.docs) {
+      filteredResources.docs.forEach((resource: any) => {
+        if (resource.difficulty) {
+          expect(resource.difficulty).toBe('intermediate');
+        }
+      });
+    }
   });
 });

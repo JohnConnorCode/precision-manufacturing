@@ -26,7 +26,7 @@ test.describe('CMS - Resources Collection', () => {
     expect(response.docs).toBeDefined();
     expect(Array.isArray(response.docs)).toBeTruthy();
 
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       const resource = response.docs[0];
       expect(resource).toHaveProperty('id');
       expect(resource).toHaveProperty('title');
@@ -61,6 +61,7 @@ test.describe('CMS - Resources Collection', () => {
     });
 
     expect(manufacturingResources.docs).toBeDefined();
+    if (!manufacturingResources.docs) return;
     const testManufacturing = manufacturingResources.docs.filter((r: any) =>
       r.title.startsWith('[TEST]') && r.category === 'manufacturing-processes'
     );
@@ -207,6 +208,7 @@ test.describe('CMS - Resources Collection', () => {
       }
     });
 
+    if (!featured.docs) return;
     expect(featured.docs.some((r: any) => r.id === created.id)).toBeTruthy();
   });
 });

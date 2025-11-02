@@ -27,7 +27,7 @@ test.describe('CMS - Media Collection', () => {
     expect(response.docs).toBeDefined();
     expect(Array.isArray(response.docs)).toBeTruthy();
 
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       const media = response.docs[0];
       expect(media).toHaveProperty('id');
       expect(media).toHaveProperty('filename');
@@ -45,7 +45,7 @@ test.describe('CMS - Media Collection', () => {
     expect(response).toBeDefined();
     expect(response.docs).toBeDefined();
 
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       const media = response.docs[0];
       expect(media.mimeType).toMatch(/^image\//);
     }
@@ -55,7 +55,7 @@ test.describe('CMS - Media Collection', () => {
     // This test verifies that media items have alt text
     const response = await api.getCollection(request, 'media', { limit: 1 });
 
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       const media = response.docs[0];
       // Alt text should exist (it's required in the schema)
       expect(media).toHaveProperty('alt');
@@ -65,7 +65,7 @@ test.describe('CMS - Media Collection', () => {
   test('should retrieve media with dimensions', async ({ request }) => {
     const response = await api.getCollection(request, 'media', { limit: 1 });
 
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       const media = response.docs[0];
 
       // Check for basic media properties
@@ -87,7 +87,7 @@ test.describe('CMS - Media Collection', () => {
       limit: 1
     });
 
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       const media = response.docs[0];
 
       // Verify the media object structure
@@ -104,7 +104,7 @@ test.describe('CMS - Media Collection', () => {
     const response = await api.getCollection(request, 'media', { limit: 100 });
 
     // Find a test media item or verify delete capability exists
-    if (response.docs.length > 0) {
+    if (response.docs && response.docs.length > 0) {
       // We can verify the delete API works without actually deleting production media
       // Instead, verify the API structure is correct
       expect(response.docs[0]).toHaveProperty('id');
