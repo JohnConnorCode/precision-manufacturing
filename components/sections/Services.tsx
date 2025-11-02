@@ -74,7 +74,13 @@ export default function Services({ data }: ServicesProps) {
       </div>
 
       <div className="container relative z-10">
-        <AnimatedSection className="text-center mb-16 md:mb-20">
+        <motion.div
+          className="text-center mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           {/* Section Context */}
           <p className="text-sm font-bold text-slate-900 uppercase tracking-[0.2em] mb-2">
             COMPREHENSIVE MANUFACTURING SOLUTIONS
@@ -93,17 +99,24 @@ export default function Services({ data }: ServicesProps) {
             From complex 5-axis machining to advanced metrology, our integrated services ensure
             your most critical components meet the strictest aerospace and defense standards
           </p>
-        </AnimatedSection>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {servicesData.map((service: any, index: number) => {
             // Handle both CMS data (iconName) and hardcoded data (icon)
             const Icon = service.iconName ? iconMap[service.iconName] || Cog : service.icon;
             return (
-              <AnimatedSection
+              <motion.div
                 key={service.title}
-                delay={index * 0.1}
                 className="group perspective-1000"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }}
               >
                 <Link href={service.href} className="block h-full">
                   <motion.div
@@ -182,13 +195,19 @@ export default function Services({ data }: ServicesProps) {
                   </Card>
                   </motion.div>
                 </Link>
-              </AnimatedSection>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Call to Action */}
-        <AnimatedSection delay={0.4} className="text-center mt-16 md:mt-20">
+        <motion.div
+          className="text-center mt-16 md:mt-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <Link
             href="/contact"
             className="inline-flex items-center h-12 px-8 bg-blue-600 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
@@ -196,7 +215,7 @@ export default function Services({ data }: ServicesProps) {
             Get Quote
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
-        </AnimatedSection>
+        </motion.div>
       </div>
     </section>
   );
