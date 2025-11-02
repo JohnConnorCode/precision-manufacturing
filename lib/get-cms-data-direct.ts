@@ -22,6 +22,35 @@ const DB_NAME = 'precision-manufacturing';
 let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;
 
+// In-memory cache with TTL for instant subsequent requests
+interface CacheEntry<T> {
+  data: T;
+  timestamp: number;
+}
+
+const cache = new Map<string, CacheEntry<any>>();
+const CACHE_TTL = 60000; // 60 seconds (matches ISR revalidate time)
+
+function getCached<T>(key: string): T | null {
+  const entry = cache.get(key);
+  if (!entry) return null;
+
+  const age = Date.now() - entry.timestamp;
+  if (age > CACHE_TTL) {
+    cache.delete(key);
+    return null;
+  }
+
+  return entry.data;
+}
+
+function setCache<T>(key: string, data: T): void {
+  cache.set(key, {
+    data,
+    timestamp: Date.now(),
+  });
+}
+
 async function getDatabase(): Promise<Db> {
   if (cachedDb) {
     return cachedDb;
@@ -33,9 +62,9 @@ async function getDatabase(): Promise<Db> {
       throw new Error('MONGODB_URI environment variable is required');
     }
     cachedClient = new MongoClient(uri, {
-      serverSelectionTimeoutMS: 30000,
-      socketTimeoutMS: 30000,
-      connectTimeoutMS: 30000,
+      serverSelectionTimeoutMS: 5000, // Reduced from 30s
+      socketTimeoutMS: 5000,
+      connectTimeoutMS: 5000,
     });
     await cachedClient.connect();
   }
@@ -56,6 +85,16 @@ const iconNameMap: Record<string, string> = {
 };
 
 export async function getServicesFromCMS(draft = false) {
+  // Check cache first (skip cache for draft mode)
+  const cacheKey = `services:${draft}`;
+  if (!draft) {
+    const cached = getCached(cacheKey);
+    if (cached) {
+      console.log('[Cache] ✓ Served', cached.length, 'services from memory cache');
+      return cached;
+    }
+  }
+
   try {
     const db = await getDatabase();
     const filter = draft ? {} : { _status: { $in: ['published', null] } };
@@ -71,7 +110,7 @@ export async function getServicesFromCMS(draft = false) {
       'engineering': 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=90',
     };
 
-    return services.map((service: any) => ({
+    const result = services.map((service: any) => ({
       title: service.title,
       description: service.shortDescription || lexicalToText(service.description),
       iconName: iconNameMap[service.slug] || 'Cog',
@@ -80,6 +119,13 @@ export async function getServicesFromCMS(draft = false) {
       image: fallbackImages[service.slug] || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=90',
       highlight: service.slug === '5-axis-machining',
     }));
+
+    // Cache the result for future requests
+    if (!draft) {
+      setCache(cacheKey, result);
+    }
+
+    return result;
   } catch (error) {
     console.error('Error fetching services from MongoDB:', error);
     // Return hardcoded fallback data to maintain site functionality
@@ -125,6 +171,16 @@ export async function getServicesFromCMS(draft = false) {
 }
 
 export async function getIndustriesFromCMS(draft = false) {
+  // Check cache first (skip cache for draft mode)
+  const cacheKey = `industries:${draft}`;
+  if (!draft) {
+    const cached = getCached(cacheKey);
+    if (cached) {
+      console.log('[Cache] ✓ Served', cached.length, 'industries from memory cache');
+      return cached;
+    }
+  }
+
   try {
     const db = await getDatabase();
     const filter = draft ? {} : { _status: { $in: ['published', null] } };
@@ -139,7 +195,7 @@ export async function getIndustriesFromCMS(draft = false) {
       'aerospace': 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1',
     };
 
-    return industries.map((industry: any) => ({
+    const result = industries.map((industry: any) => ({
       title: industry.title,
       description: lexicalToText(industry.description),
       iconName: iconNameMap[industry.slug] || 'Factory',
@@ -147,6 +203,13 @@ export async function getIndustriesFromCMS(draft = false) {
       image: fallbackImages[industry.slug] || 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1',
       features: industry.features || [],
     }));
+
+    // Cache the result for future requests
+    if (!draft) {
+      setCache(cacheKey, result);
+    }
+
+    return result;
   } catch (error) {
     console.error('Error fetching industries from MongoDB:', error);
     // Return hardcoded fallback data
@@ -180,6 +243,14 @@ export async function getIndustriesFromCMS(draft = false) {
 }
 
 export async function getHomepageFromCMS() {
+  // Check cache first
+  const cacheKey = 'homepage';
+  const cached = getCached(cacheKey);
+  if (cached) {
+    console.log('[Cache] ✓ Served homepage data from memory cache');
+    return cached;
+  }
+
   try {
     const db = await getDatabase();
     // Payload 3.x stores each global in its own collection
@@ -223,7 +294,7 @@ export async function getHomepageFromCMS() {
       ) || []
     }) : null;
 
-    return {
+    const result = {
       hero: transformedHero,
       stats: sanitizeData(homepage.stats),
       cta: sanitizeData(homepage.cta),
@@ -231,6 +302,11 @@ export async function getHomepageFromCMS() {
       imageShowcase: sanitizeData(homepage.imageShowcase),
       resources: sanitizeData(homepage.resources),
     };
+
+    // Cache the result for future requests
+    setCache(cacheKey, result);
+
+    return result;
   } catch (error) {
     console.error('Error fetching homepage from MongoDB:', error);
     return null;
