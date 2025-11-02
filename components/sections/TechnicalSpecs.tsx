@@ -99,12 +99,7 @@ export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
       </div>
 
       <div className="container relative z-10">
-        <motion.div
-          className="text-center mb-16 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+        <AnimatedSection className="text-center mb-16 max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
             {title.includes('Numbers') ? (
@@ -118,24 +113,17 @@ export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
           <p className="text-lg md:text-xl text-slate-400">
             {subtitle}
           </p>
-        </motion.div>
+        </AnimatedSection>
 
         {/* Metrics Grid - Premium Card Design */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {metrics.map((metric, index) => {
             const Icon = metric.icon;
             return (
-              <motion.div
+              <AnimatedSection
                 key={metric.label}
+                delay={index * 0.05}
                 className="group relative"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }}
               >
                 <div className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-6 hover:border-blue-600/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:bg-slate-900/70">
                   {/* Gradient Glow Effect */}
@@ -166,7 +154,7 @@ export default function TechnicalSpecs({ data }: TechnicalSpecsProps) {
                   {/* Subtle Animation Line */}
                   <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r ${metric.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
                 </div>
-              </motion.div>
+              </AnimatedSection>
             );
           })}
         </div>
