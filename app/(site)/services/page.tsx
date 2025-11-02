@@ -8,8 +8,9 @@ import ParallaxImagePro from '@/components/ui/parallax-image-pro';
 import { getServicesFromDB, getPageContentFromDB } from '@/lib/direct-cms-access';
 import type { Metadata } from 'next';
 
-// ISR with 60-second revalidation - fresh data with caching performance
-export const revalidate = 60;
+// Force static generation for INSTANT routing (no server delays)
+export const dynamic = 'force-static';
+export const revalidate = false; // Fully static, rebuild on deploy
 
 // Comprehensive SEO metadata with social sharing optimization
 export async function generateMetadata(): Promise<Metadata> {

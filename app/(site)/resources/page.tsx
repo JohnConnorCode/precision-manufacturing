@@ -4,8 +4,9 @@ import HeroSection from '@/components/ui/hero-section';
 import { getAllResourcesFromCMS } from '@/lib/get-cms-data-direct';
 import type { Metadata } from 'next';
 
-// ISR with 60-second revalidation - fresh data with caching performance
-export const revalidate = 60;
+// Force static generation for INSTANT routing (no server delays)
+export const dynamic = 'force-static';
+export const revalidate = false; // Fully static, rebuild on deploy
 
 // Comprehensive SEO metadata with social sharing optimization
 export async function generateMetadata(): Promise<Metadata> {
