@@ -904,32 +904,176 @@ export default buildConfig({
           ],
         },
         {
+          name: 'servicesSection',
+          type: 'group',
+          label: 'Services Section',
+          admin: {
+            description: 'Content for the services section on the homepage',
+          },
+          fields: [
+            { name: 'eyebrow', type: 'text', admin: { description: 'Small text above the heading (e.g., "Our Services")' } },
+            { name: 'heading', type: 'text', admin: { description: 'Main section heading' } },
+            { name: 'description', type: 'textarea', admin: { description: 'Section description' } },
+            { name: 'subdescription', type: 'text', admin: { description: 'Additional descriptive text below the main description' } },
+          ],
+        },
+        {
+          name: 'industriesSection',
+          type: 'group',
+          label: 'Industries Section',
+          admin: {
+            description: 'Content for the industries section on the homepage',
+          },
+          fields: [
+            { name: 'eyebrow', type: 'text', admin: { description: 'Small text above the heading (e.g., "Industries We Serve")' } },
+            { name: 'heading', type: 'text', admin: { description: 'Main section heading' } },
+            { name: 'description', type: 'textarea', admin: { description: 'Section description' } },
+            { name: 'subdescription', type: 'text', admin: { description: 'Additional descriptive text below the main description' } },
+          ],
+        },
+        {
           name: 'technicalSpecs',
           type: 'array',
           fields: [
             { name: 'label', type: 'text' },
             { name: 'value', type: 'text' },
             { name: 'description', type: 'text' },
+            { name: 'iconName', type: 'text', admin: { description: 'Lucide icon name (e.g., "Gauge", "Zap", "Shield")' } },
+            { name: 'gradient', type: 'text', admin: { description: 'Tailwind gradient classes (e.g., "from-blue-600 to-indigo-600")' } },
           ],
         },
         {
           name: 'imageShowcase',
-          type: 'array',
+          type: 'group',
+          label: 'Image Showcase Section',
+          admin: {
+            description: 'Complete image showcase section with header, images, stats, and CTA',
+          },
           fields: [
-            ...flexibleImageField('image', {
-              label: 'Showcase Image',
-              description: 'Upload an image or provide a URL for the image showcase'
-            }),
-            { name: 'alt', type: 'text' },
+            {
+              name: 'header',
+              type: 'group',
+              fields: [
+                { name: 'eyebrow', type: 'text', admin: { description: 'Small text above title (e.g., "Manufacturing Excellence")' } },
+                { name: 'title', type: 'text', admin: { description: 'Main title (e.g., "Precision")' } },
+                { name: 'titleHighlight', type: 'text', admin: { description: 'Highlighted part of title (e.g., "Delivered")' } },
+                { name: 'description', type: 'textarea' },
+              ],
+            },
+            {
+              name: 'showcaseImages',
+              type: 'array',
+              fields: [
+                ...flexibleImageField('image', {
+                  label: 'Showcase Image',
+                  description: 'Upload an image or provide a URL for the image showcase'
+                }),
+                { name: 'alt', type: 'text' },
+                { name: 'title', type: 'text', admin: { description: 'Image overlay title' } },
+                { name: 'category', type: 'text', admin: { description: 'Image category/subtitle' } },
+                { name: 'href', type: 'text', admin: { description: 'Link URL when image is clicked' } },
+              ],
+            },
+            {
+              name: 'stats',
+              type: 'array',
+              fields: [
+                { name: 'iconName', type: 'text', admin: { description: 'Lucide icon name' } },
+                { name: 'value', type: 'text', admin: { description: 'Stat value (e.g., "AS9100D", "99.9%")' } },
+                { name: 'label', type: 'text', admin: { description: 'Stat label' } },
+              ],
+            },
+            {
+              name: 'cta',
+              type: 'group',
+              fields: [
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'textarea' },
+                {
+                  name: 'buttons',
+                  type: 'array',
+                  fields: [
+                    { name: 'text', type: 'text' },
+                    { name: 'href', type: 'text' },
+                    { name: 'variant', type: 'select', options: [
+                      { label: 'Primary', value: 'primary' },
+                      { label: 'Secondary', value: 'secondary' },
+                    ]},
+                  ],
+                },
+              ],
+            },
           ],
         },
         {
-          name: 'resources',
-          type: 'array',
+          name: 'resourcesSection',
+          type: 'group',
+          label: 'Resources Section',
+          admin: {
+            description: 'Complete resources section with header, featured series, benefits, and CTA',
+          },
           fields: [
-            { name: 'title', type: 'text' },
-            { name: 'href', type: 'text' },
-            { name: 'description', type: 'text' },
+            {
+              name: 'header',
+              type: 'group',
+              fields: [
+                { name: 'badge', type: 'text', admin: { description: 'Badge text (e.g., "Technical Resources & Knowledge Base")' } },
+                { name: 'title', type: 'text', admin: { description: 'Main section title' } },
+                { name: 'description', type: 'textarea' },
+              ],
+            },
+            {
+              name: 'featuredSeries',
+              type: 'array',
+              fields: [
+                { name: 'title', type: 'text', required: true },
+                { name: 'slug', type: 'text', required: true, admin: { description: 'URL slug for the series' } },
+                { name: 'description', type: 'textarea' },
+                { name: 'articleCount', type: 'number', admin: { description: 'Number of articles in the series' } },
+                { name: 'readTime', type: 'text', admin: { description: 'Total reading time (e.g., "34 min")' } },
+                {
+                  name: 'difficulty',
+                  type: 'select',
+                  options: [
+                    { label: 'Beginner', value: 'Beginner' },
+                    { label: 'Intermediate', value: 'Intermediate' },
+                    { label: 'Advanced', value: 'Advanced' },
+                  ],
+                },
+                { name: 'icon', type: 'text', admin: { description: 'Emoji or icon character' } },
+                { name: 'gradient', type: 'text', admin: { description: 'Tailwind gradient classes' } },
+              ],
+            },
+            {
+              name: 'benefits',
+              type: 'array',
+              label: 'Benefits Grid',
+              fields: [
+                { name: 'iconName', type: 'text', admin: { description: 'Lucide icon name' } },
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'text' },
+              ],
+            },
+            {
+              name: 'cta',
+              type: 'group',
+              fields: [
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'text' },
+                {
+                  name: 'buttons',
+                  type: 'array',
+                  fields: [
+                    { name: 'text', type: 'text' },
+                    { name: 'href', type: 'text' },
+                    { name: 'variant', type: 'select', options: [
+                      { label: 'Primary', value: 'primary' },
+                      { label: 'Secondary', value: 'secondary' },
+                    ]},
+                  ],
+                },
+              ],
+            },
           ],
         },
         {

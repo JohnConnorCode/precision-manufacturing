@@ -14,7 +14,7 @@ interface HeroData {
   badges?: string[];
   ctaPrimary?: { text: string; href: string };
   ctaSecondary?: { text: string; href: string };
-  backgroundSlides?: Array<{
+  slides?: Array<{
     image: string;
     alt: string;
     focal: 'center' | 'top' | 'bottom';
@@ -33,7 +33,7 @@ export default function Hero({ data }: HeroProps) {
   const textOpacity = useTransform(scrollY, [0, 300], prefersReducedMotion ? [1, 1] : [1, 0]);
 
   // Use CMS data or fallback to defaults
-  const heroSlides = data?.backgroundSlides?.map(slide => ({
+  const heroSlides = data?.slides?.map(slide => ({
     src: slide.image,
     alt: slide.alt,
     focal: slide.focal
@@ -105,7 +105,7 @@ export default function Hero({ data }: HeroProps) {
               {tagline}
             </motion.h1>
 
-            {/* Capabilities - Clean inline badges */}
+            {/* Capabilities - Sharp Edge Badges */}
             <motion.div
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function Hero({ data }: HeroProps) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: prefersReducedMotion ? 0 : (0.9 + index * 0.08), duration: prefersReducedMotion ? 0 : 0.5 }}
-                  className="px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white/90 border border-white/20 backdrop-blur-md"
+                  className="px-5 py-2.5 rounded-sm text-sm font-semibold bg-gradient-to-r from-blue-600/20 to-indigo-600/20 text-white border border-blue-400/30 backdrop-blur-md hover:from-blue-500/30 hover:to-indigo-500/30 hover:border-blue-300/50 transition-all duration-300"
                 >
                   {badge}
                 </motion.span>
@@ -130,10 +130,22 @@ export default function Hero({ data }: HeroProps) {
               initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: prefersReducedMotion ? 0 : 1.2, duration: prefersReducedMotion ? 0 : 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Button
                 size="lg"
-                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-xl shadow-blue-600/25 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 px-10 h-14 text-lg"
+                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-xl shadow-blue-600/25 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 px-10 h-14 text-lg rounded-md"
+                asChild
+              >
+                <Link href={ctaPrimary.href}>
+                  {ctaPrimary.text}
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="group border-2 border-white/80 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold transition-all duration-300 px-10 h-14 text-lg rounded-md"
                 asChild
               >
                 <Link href={ctaSecondary.href}>
